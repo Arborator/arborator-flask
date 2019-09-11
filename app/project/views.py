@@ -208,8 +208,8 @@ def sample_upload(project_name):
 
 	files = request.json.get("files", [])
 	import_user = request.json.get("import_user", "")
+	
 	samplenames = request.json.get("samplenames", [reextensions.sub("", os.path.basename(f)) for f in files])
-
 	print('========== [getSamples]')
 	reply = grew_request (
 			'getSamples',
@@ -231,10 +231,7 @@ def sample_upload(project_name):
 		with open(Config.UPLOAD_FOLDER +secure_filename(sample_name), "w") as outf:
 			outf.write(content)
 
-		if sample_name in samples:
-			print("sample déjà là -- à virer")
-		else:
-
+		if sample_name not in samples:
 			# create a new sample in the grew project
 			print ('========== [newSample]')
 			reply = grew_request ('newSample', data={'project_id': project_name, 'sample_id': sample_name })
@@ -250,12 +247,13 @@ def sample_upload(project_name):
 					data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
 					files={'conll_file': inf},
 				)
-			else: # if no import_user has been proviced, it should be in the conll metadata
+			else: # if no import_user has been provided, it should be in the conll metadata
 				reply = grew_request (
 					'saveConll',
 					data = {'project_id': project_name, 'sample_id': sample_name},
 					files={'conll_file': inf},
 				)
+			print(reply)
 
 	print('========== [getSamples]')
 	reply = grew_request (
@@ -269,111 +267,6 @@ def sample_upload(project_name):
 	return resp
 
 
-
-
-
-
-# ###################################### Admin Dashboard Views and Functions ######################################
-# @project.route('/project/<project_name>/admin')
-# # @login_required
-# # @requires_access_level(2)
-# def admin_dash(project_name): 
-# 	"""
-# 	Project Dashboard Handler
-# 	"""
-# 	project = Project.query.filter_by(name=project_name).first()
-
-# 	sample_users_role = dict()peripitiesVoiture
-
-# 	reply = grew_request (
-# 		'getSamples',
-# 		data = {'project_id': project.projectname}
-# 		)
-# 	data = json.loads(reply)['data']
-# 	for sample in data:
-# 		sample_users_role[sample["name"]] = []
-# 		for u in sample["users"]:
-# 			role = get_role_for_sample(u, project.id, sample["name"])
-# 			# str_role = u.ROLES[role][1]
-# 			sample_users_role[sample["name"]].append((u,role))
-
-# 	# all users and their role for this project
-# 	# for u in users:
-# 	# 	access = get_role_in_project(current_user.id, project.id, sampled_id)
-# 	# 	users_and_access[u] = u.ROLES[access][1]
-# 	return render_template('project/dashboard.html', project=project, sample_users_role=sample_users_role)
-
-
-# # TODO
-# @project.route('/project/<project_name>/admin/add/<int:id>', methods=['GET', 'POST'])
-# # @login_required
-# # @requires_access_level(2)
-# def add_user_with_access(id, project_name, access):
-# 	user = User.query.get_or_404(id)
-# 	project_id = Project.query.filter_by(project_name=project_name).first()
-# 	new_project_access = ProjectAccess(projectid=project_id, accesslevel=access, userid=user.id)
-# 	db.session.add(new_project_access)
-# 	db.session.commit()
-# 	flash('You have successfully added a user to your project.')
-# 	return render_template('projects/add_user.html')## testing include function 
-# 	##angular style of template inclusion and value inheritance
-
-
-# # TODO
-# @project.route('/project/<project_name>/admin/edit/<int:id>', methods=['GET', 'POST'])
-# # @login_required
-# # @requires_access_level(2)
-# def edit_role(id, role):
-# 	check_admin()
-# 	user = User.query.get_or_404(id)
-# 	user.role = role
-# 	db.session.add(user)
-# 	db.session.commit()
-# 	flash('You have successfully changed a users role')
-# 	return render_template('projects/dashboard.html')
-
-
-# @project.route('/project/<project_name>/admin/remove/<int:id>', methods=['GET', 'POST'])
-# # @login_required
-# # @requires_access_level(2)
-# def remove_user(id):
-# 	user = User.query.get_or_404(id)
-# 	db.session.delete(user.project_id)
-# 	db.session.commit()
-# 	flash('You have successfully removed a user.')
-# 	return render_template('projects/dashboard.html', )
-
-
-###################################### Project Page Views and Functions ######################################
-# @project.route('/project/projectpage/<project_name>', methods=['GET', 'POST'])
-# def projectpage(project_name):
-# 	"""
-# 	Project Page Handler
-# 	"""
-
-# 	print ('========== [getSamples]')
-# 	reply = grew_request ('getSamples', data={'project_id': project_name})
-# 	reply = json.loads(reply)
-# 	# print(reply)
-
-# 	nb_sent = 0
-# 	if reply.get("status") == "OK":
-# 		samples = reply.get("data", [])
-# 		for s in samples:
-# 			s["users"] = " ".join(s.get("users", []))
-# 			nb_sent += s.get("size", 0)
-# 		nsamples = len(samples)
-
-# 	project_id = Project.query.filter_by(name=project_name).first().id
-# 	access_level = get_access_for_project(current_user.id, project_id)
-		
-# 	# private projects can only be viewed by non-guests
-# 	is_private = Project.query.filter_by(name=project_name).first().is_private
-# 	if access_level == 0 and is_private:
-# 		flash("You don't have sufficient rights to view this project")
-# 		return redirect(url_for('admin.list_projects'))
-
-# 	return render_template('projects/index.html',project_name=project_name, title=project_name, samples=samples, n=nsamples, nb_sent=nb_sent, access=access_level)
 
 
 @project.route('/<project_name>/sample/<sample_name>', methods=['GET'])
@@ -403,12 +296,4 @@ def delete_sample(project_name, sample_name):
 	reply = json.loads(grew_request ('eraseSample', data={'project_id': project_name, 'sample_id': sample_name}))
 	return project_info(project_name)
 	
-
-
-
-# @project.route('/projectpage/<project_name>/testing')
-# @requires_access_level(0)
-# def test_usersonly(project_id):
-# 	return jsonify({"hello":"world"})
-
 
