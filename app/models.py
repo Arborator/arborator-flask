@@ -94,6 +94,7 @@ class Project(db.Model, BaseM):
 	id = db.Column(db.Integer, primary_key=True)
 	projectname = db.Column(db.String(256), nullable=False, unique=True)
 	description = db.Column(db.String(256))
+	image = db.Column(db.BLOB)
 	# users = db.relationship('User', backref='project_user',lazy='dynamic')
 	#texts = db.relationship('Text', backref='project_text',lazy='dynamic')
 	is_private = db.Column(db.Boolean, default=False)
@@ -131,7 +132,7 @@ class SampleRole(db.Model):
 	projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))
 	userid = db.Column(db.String(256), db.ForeignKey('users.id'))
 	role = db.Column(ChoiceType(ROLES, impl=db.Integer()))
-	__table_args__ = (UniqueConstraint('samplename', 'projectid', name='_samplename_projectid_uc'),)
+	# __table_args__ = (UniqueConstraint('samplename', 'projectid', name='_samplename_projectid_uc'),)
 
 
 

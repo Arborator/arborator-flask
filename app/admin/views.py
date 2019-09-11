@@ -89,10 +89,10 @@ def addprojectongrew(project_name):
 	reply = json.loads(reply)
 	return reply.get('status','grew error')
 
-def addproject(project_name,is_private,description=""):
+def addproject(project_name, is_private, image=b"", description=""):
 	if Project.query.filter_by(projectname=project_name).first():
 		return {"errormessage":"Project under the same name exists."}
-	project = Project(projectname=project_name, description=description, is_private=is_private)
+	project = Project(projectname=project_name, description=description, is_private=is_private, image=image)
 	db.session.add(project)
 	db.session.commit()
 	grewanswer = addprojectongrew(project_name)
@@ -111,8 +111,17 @@ def create_project():
 	
 	if not request.json:
 		abort(404)
+	imagefilename = request.json.get("imagefile",None)
+	if imagefilename:
+		
+		with open(Config.UPLOAD_FOLDER + secure_filename(imagefilename), "w") as outf:
+			outf.write(content)
+		with open(os.path.join(Config.UPLOAD_FOLDER,secure_filename(imagefilename)), 'rb') as inf:
+			imgblob = inf.read()
+	else:
+		imgblob=b""
 
-	reply = addproject(request.json["project_name"], request.json["is_private"], description=request.json.get("description", ""))
+	reply = addproject(request.json["project_name"], request.json["is_private"], description=request.json.get("description", ""), image=imgblob)
 	print(reply)
 	if 'errormessage' in reply:
 		resp = Response(str(reply), status=409,  mimetype='application/json')
@@ -315,61 +324,6 @@ def init_database():
 	initdb
 	"""
 
-	# TODO: move into else below...
-	# all projects in grew are created in the database ===================
-	projects = projectsongrew()
-	print(projects)
-	for projectname in projects:
-		
-		print(6451,projectname,Project.query.filter_by(projectname=projectname).first())
-		if not Project.query.filter_by(projectname=projectname).first():
-			project = Project(projectname=projectname, description="copy from grew", is_private=False)
-			db.session.add(project)
-			db.session.commit()	
-			print(6541321)
-
-	print(555841,os.path.isfile( 'initialization/peripitiesVoiture.conll'))
-
-	# first testproject ============== 
-	addproject("FrenchTest", is_private=False, description="this is a test project to fill the database")
-
-	# first testproject add conll =================
-	filenames = ['initialization/peripitiesVoiture.conll', 'initialization/astuceCinema.conll']
-	jason = {'files': filenames, "project_name":"FrenchTest", "is_private":False, "import_user":"gold"}
-	res = requests.post("http://localhost:5000/project/FrenchTest/upload", json=jason)
-	print("grew said",res)
-	filenames = ['initialization/astuceCinema.yuchen.conll']
-	jason = {'files': filenames, "project_name":"FrenchTest", "is_private":False, "import_user":"yuchen"}
-	res = requests.post("http://localhost:5000/project/FrenchTest/upload", json=jason)
-	print("grew said",res)
-
-	# second testproject ============== 
-	addproject("NaijaTest", is_private=False, description="this is a test project to fill the database")
-	filenames = ['initialization/P_WAZP_07_Imonirhuas.Life.Story_PRO.conll', 'initialization/P_ABJ_GWA_10_Steven.lifestory_PRO.conll']
-	jason = {'files': filenames, "project_name":"NaijaTest", "is_private":False, "import_user":"Bernard"}
-	res = requests.post("http://localhost:5000/project/NaijaTest/upload", json=jason)
-	print("grew said",res)
-
-
-	# second testproject add conll =================
-
-		# return {"errormessage":"Project under the same name exists."}
-	
-
-
-		# jason = {"project_name":"first_project", "is_private":False, "description":"This is nothing but a test project to try out stuff"}
-		# r = addprojectongrew(p['name'])
-		# print(r)
-
-		# res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
-		#TODO if error...
-			
-	
-	# res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
-			
-	
-
-	# print (6546545/0)
 	if os.path.isfile( str(db.engine.url)[len('sqlite:///'):]):
 		resp = Response('{"database":"was there already"}', status=401,  mimetype='application/json')	
 	else:
@@ -377,9 +331,57 @@ def init_database():
 		print("current_user:",current_user)
 		# , "super_admin:",current_user.super_admin)
 		db.create_all()
-		print(db, db.engine,db.engine.url )
-		print("database created")
+		
+		# all projects in grew are created in the database ===================
+		projects = projectsongrew()
+		print(projects)
+		for projectname in projects:
+			reply = grew_request('eraseProject', data={'project_id': projectname})
+			print(reply)
+
+			# print(6451,projectname,Project.query.filter_by(projectname=projectname).first())
+			# if not Project.query.filter_by(projectname=projectname).first():
+			# 	project = Project(projectname=projectname, description="copy from grew", is_private=False)
+			# 	db.session.add(project)
+			# 	db.session.commit()	
+			# 	print(6541321)
+		projects = projectsongrew()
+		print("maintenant on a ça sur grew",projects)
+		
+
+		# first testproject ============== 
+		# nomprojet = "French"
+		# addproject(nomprojet, is_private=False, description="this is a test project to fill the database")
+
+		# # first testproject add conll =================
+		# filenames = ['initialization/peripitiesVoiture.conll', 'initialization/astuceCinema.conll']
+		# jason = {'files': filenames, "import_user":"gold"}
+		# res = requests.post("http://localhost:5000/api/projects/{nomprojet}/upload".format(nomprojet=nomprojet), json=jason)
+		# print("grew said",res)
+		
+
+		# second testproject ============== 
+		nomprojet = "Naija"
+		with open("/home/kim/megasync/Arborator/arborator-flask/initialization/naija.png", 'rb') as inf:
+			imgblob = inf.read()
+		addproject(nomprojet, is_private=False, image=imgblob, description="this is a test project to fill the database")
+		filenames = ['initialization/P_WAZP_07_Imonirhuas.Life.Story_PRO.conll', 'initialization/P_ABJ_GWA_10_Steven.lifestory_PRO.conll']
+		jason = {'files': filenames, "import_user":"Bernard"}
+		res = requests.post("http://localhost:5000/api/projects/{nomprojet}/upload".format(nomprojet=nomprojet), json=jason)
+		print("grew said",res)
+		filenames = ['initialization/P_ABJ_GWA_10_Steven.lifestory_PRO.modif.conll']
+		jason = {'files': filenames, "import_user":"yuchen", "samplenames":['P_ABJ_GWA_10_Steven.lifestory_PRO']}
+		res = requests.post("http://localhost:5000/api/projects/{nomprojet}/upload".format(nomprojet=nomprojet), json=jason)
+		print("grew said",res)
+				
+		
+		print("database created",db.engine.url )
 		resp = Response('{"database":"created"}', status=200,  mimetype='application/json')	
+
+
+
+
+
 
 
 

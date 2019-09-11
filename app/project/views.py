@@ -123,7 +123,9 @@ def project_info(project_name):
 		)
 	js = json.loads(reply)
 	data = js.get("data")
-
+	samples=[]
+	nb_samples=0
+	nb_sentences=0
 	if data:
 		nb_samples = len(data)
 		samples = [sa['name'] for sa in data]
@@ -239,7 +241,7 @@ def sample_upload(project_name):
 
 
 		print(project_name, sample_name, import_user)
-		with open(os.path.join(Config.UPLOAD_FOLDER,sample_name), 'rb') as inf:
+		with open(os.path.join(Config.UPLOAD_FOLDER,secure_filename(sample_name)), 'rb') as inf:
 			print ('========== [saveConll]')
 			if import_user:
 				reply = grew_request (
@@ -275,6 +277,10 @@ def samplepage(project_name, sample_name):
 	"""
 	GET
 	nb_sentences, nb_trees, list of annotators, list of validators
+
+	TODO: tester si le projet est privé
+	pour l'arbre : annotateur ne peut pas voir d'autres arbres sauf la base
+
 	"""
 	print ("========[getConll]")
 	reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':sample_name}))
@@ -288,6 +294,74 @@ def samplepage(project_name, sample_name):
 	else:
 		abort(409)
 	
+
+
+
+
+@project.route('/<project_name>/sample/<sample_name>/users', methods=['GET'])
+# @login_required
+def sampleusers(project_name, sample_name):
+	"""
+	project/<projectname>/<samplename>/users
+	POST
+	json {username:status} statut: annotator, validator
+	DELETE
+	enlever tout statut
+	
+	"""
+	print ("========[sampleusers]")
+
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(404)
+
+	sampleroles = SampleRole.query.filter_by(projectid=project.id, samplename=sample_name).all()
+	sampleroles = {sr.userid:sr.role.value for sr in sampleroles}
+	print(sampleroles)
+	js = json.dumps(sampleroles)
+	resp = Response(js, status=200,  mimetype='application/json')
+	return resp
+
+
+
+
+@project.route('/<project_name>/sample/<sample_name>/users', methods=['POST'])
+# @login_required
+def userrole(project_name, sample_name):
+	"""
+	project/<projectname>/<samplename>/users
+	POST
+	json {username:status} statut: annotator, validator
+	if status is empty: DELETE user
+	enlever tout statut
+	
+	"""
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(404)
+	if not request.json:
+		abort(400)
+
+	print(request.json)
+	
+	for u,r in request.json.items():
+
+		
+		if r:
+			sr = SampleRole(userid=u, samplename=sample_name, projectid=project.id, role=r)
+			db.session.add(sr)
+		else:
+			sr = SampleRole.query.filter_by(projectid=project.id, samplename=sample_name, userid=u).first()
+			if sr:
+				db.session.delete(sr)
+		db.session.commit()
+	# resp = Response("", status=200,  mimetype='application/json')
+	return sampleusers(project_name, sample_name)
+
+
+
+
+
 
 
 @project.route('/<project_name>/sample/<sample_name>', methods=['DELETE'])
