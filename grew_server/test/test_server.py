@@ -182,9 +182,9 @@ def send_request(fct_name, data={}, files={}):
 
 # print ("\n***************************************************************************\n")
 
-# print ('========== [getProjects]')
-# reply = send_request ('getProjects')
-# print (reply)
+print ('========== [getProjects]')
+reply = send_request ('getProjects')
+print (reply)
 
 
 # print ('========== [getUsers]')
