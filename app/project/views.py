@@ -1,14 +1,16 @@
-from flask import render_template, flash, redirect, url_for, jsonify
+from flask import render_template, flash, redirect, url_for, jsonify, request, Response, abort
 from flask_login import login_required, current_user
+from werkzeug import secure_filename
 import json
 from functools import wraps
+import os
 
 
 # local imports
 from . import project
 from ..models import *
 from ...grew_server.test.test_server import send_request as grew_request
-
+from ...config import Config
 
 def get_access_for_project(user_id, project_id):
 	"""
@@ -75,6 +77,20 @@ def requires_access_level(access_level):
 		return decorated_function
 	return decorator
 
+
+def get_project(request):
+	if not request.json:
+		abort(400)
+	project_name = request.json.get("project_name")
+	if not project_name:
+		abort(400)
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(404)
+	return project
+
+
+
 ############################ controlers
 
 # status : ok
@@ -112,7 +128,7 @@ def list_users(project_name):
 @project.route('/project/<project_name>/', methods=['GET'])
 # @login_required
 # @requires_access_level(2)
-def project_info():
+def project_info(project_name):
 	"""
 	get project information
 	project/<projectname>/ 
@@ -120,28 +136,38 @@ def project_info():
 	list of samples (403 si projet privé et utilisateur pas de rôle)
 	pê admin names, nb samples, nb arbres, description	
 	"""
-	project = Project.query.filter_by(name=project_name).first()
+	project = get_project(request)
+	roles = sorted(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
 
-	sample_users_role = {}
+	if not roles and project.is_private:
+		abort(403)
+
+	admins = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=)
+
+	# sample_users_role = {}
 
 	reply = grew_request (
 		'getSamples',
 		data = {'project_id': project.projectname}
 		)
 	data = json.loads(reply)['data']
-	for sample in data:
-		sample_users_role[sample["name"]] = []
-		for u in sample["users"]:
-			role = get_role_for_sample(u, project.id, sample["name"])
-			# str_role = u.ROLES[role][1]
-			sample_users_role[sample["name"]].append((u,role))
+	nb_samples = len(data)
 
 
-	if not request.json:
-		abort(404)
+	# for sample in data:
+	# 	sample_users_role[sample["name"]] = []
+	# 	for u in sample["users"]:
+	# 		print(u, sample)
+	# 		role = get_role_for_sample(u, project.id, sample["name"])
+	# 		# str_role = u.ROLES[role][1]
+	# 		sample_users_role[sample["name"]].append((u,role))
 
-	project = Project(projectname=request.json["project_name"], description=request.json.get("description", ""), is_private=request.json["is_private"])
-	print("project", project)
+
+
+
+	# project = Project(projectname=request.json["project_name"], description=request.json.get("description", ""), is_private=request.json["is_private"])
+	# print("project", project)
+	return jsonify({"status":"ok"})
 
 """
 
@@ -155,16 +181,14 @@ if admin of project or superadmin
 
 # TODO: finir cette fonction
 
-@project.route('/project/<project_name>/upload')
-def sample_upload():
+@project.route('/project/<project_name>/upload', methods=["POST"])
+def sample_upload(project_name):
 	"""
 	project/<projectname>/upload
 	POST multipart
 	multipart (fichier conll), filename, importuser
 	"""
-	project = Project.query.filter_by(name=project_name).first()
-
-
+	project = get_project(request)
 
 	redoublenl = re.compile(r'\s*\n\s*\n+\s*')
 	reextensions = re.compile(r'\.(conllu?|txt|tsv|csv)$')
@@ -172,9 +196,7 @@ def sample_upload():
 
 	files = request.json.get("files", [])
 	project_name = request.json["project_name"]
-	import_user = request.json.get("import_user", "parser") # TODO : facultatif import_user
-	print("project ", project_name)
-	print("files to add ", files)
+	import_user = request.json.get("import_user", "")
 
 	print('========== [getSamples]')
 	reply = grew_request (
@@ -201,13 +223,30 @@ def sample_upload():
 			print(project_name, sample_name, import_user)
 			with open(os.path.join(Config.UPLOAD_FOLDER,sample_name), 'rb') as inf:
 				print ('========== [saveConll]')
-				reply = grew_request (
-					'saveConll',
-					data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
-					files={'conll_file': inf},
-				)
+				if import_user:
+					reply = grew_request (
+						'saveConll',
+						data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
+						files={'conll_file': inf},
+					)
+				else:
+					reply = grew_request (
+						'saveConll',
+						data = {'project_id': project_name, 'sample_id': sample_name},
+						files={'conll_file': inf},
+					)
 
-	return jsonify({"status":"ok"})
+	print('========== [getSamples]')
+	reply = grew_request (
+			'getSamples',
+			data = {'project_id': project_name}
+				)
+	samples = {"samples":[sa['name'] for sa in json.loads(reply)['data']]}
+	js = json.dumps(samples)
+	resp = Response(js, status=200,  mimetype='application/json')
+
+	return resp
+
 
 
 
