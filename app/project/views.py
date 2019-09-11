@@ -77,6 +77,36 @@ def requires_access_level(access_level):
 
 ############################ controlers
 
+# status : ok
+@project.route('/project/<project_name>/users', methods=['GET'])
+# @login_required
+# @requires_access_level(2)
+def list_users(project_name):
+	"""
+	List admins and guests inside the project
+	"""
+	if not request.json:
+		abort(400)
+	project_name = request.json.get("project_name")
+	if not project_name:
+		abort(400)
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(404)
+
+	# admins
+	admins = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=2).all()
+	admins = {"admin":[a.userid for a in admins]}
+
+	# guests
+	guests = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=0).all()
+	guests = {"guests":[g.userid for g in guests]}
+
+	js = json.dumps([admins, guests])
+	resp = Response(js, status=200,  mimetype='application/json')
+
+	return resp
+
 
 # TODO: finir cette fonction
 @project.route('/project/<project_name>/', methods=['GET'])
