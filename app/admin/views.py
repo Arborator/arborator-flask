@@ -73,16 +73,18 @@ def superadmin_dashboard():
 
 def projectsongrew():
 	reply = grew_request('getProjects')
-	print(reply)
+	print("projectsongrew",reply)
 	# reply = grew_request('getUsers')
 	reply = json.loads(reply)
 	if reply.get("status") == "OK":
 		return reply.get("data", [])
 
 def addprojectongrew(project_name):
-	jason = {"project_name":project_name, "is_private":is_private, "description":description}
+	# if project_name in projectsongrew():
+	# 	return "ERROR"
 	reply = grew_request ('newProject', data={'project_id': project_name})
-	print (reply) # TODO: check if error, if error, remove project from db and send error message
+	print ("addprojectongrew",reply)
+	reply = json.loads(reply)
 	return reply.get('status','grew error')
 
 def addproject(project_name,is_private,description=""):
@@ -90,7 +92,7 @@ def addproject(project_name,is_private,description=""):
 		return {"errormessage":"Project under the same name exists."}
 	project = Project(projectname=project_name, description=description, is_private=project_name)
 	db.session.commit()
-	grewanswer = addprojectongrew()
+	grewanswer = addprojectongrew(project_name)
 	if grewanswer != 'ok':
 		return {"errormessage":"Cannot create project on grew."}
 	return {"message":"Project {project_name} created.".format(project_name=project_name)}
@@ -311,18 +313,57 @@ def init_database():
 	"""
 
 	# TODO: move into else below...
-	# all projects in grew are created in the database
+	# all projects in grew are created in the database ===================
 	projects = projectsongrew()
-	for p in projects:
-		print (p['name'])
-		jason = {"project_name":"first_project", "is_private":False, "description":"This is nothing but a test project to try out stuff"}
-		res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
+	print(projects)
+	for projectname in projects:
+		
+		print(6451,projectname,Project.query.filter_by(projectname=projectname).first())
+		if not Project.query.filter_by(projectname=projectname).first():
+			project = Project(projectname=projectname, description="copy from grew", is_private=False)
+			db.session.commit()	
+			print(6541321)
+
+	print(555841,os.path.isfile( 'initialization/peripitiesVoiture.conll'))
+
+	# first testproject ============== 
+	addproject("FrenchTest", is_private=False, description="this is a test project to fill the database")
+
+	# first testproject add conll =================
+	filenames = ['initialization/peripitiesVoiture.conll', 'initialization/astuceCinema.conll']
+	jason = {'files': filenames, "project_name":"FrenchTest", "is_private":False, "import_user":"gold"}
+	res = requests.post("http://localhost:5000/project/FrenchTest/upload", json=jason)
+	print("grew said",res)
+	filenames = ['initialization/astuceCinema.yuchen.conll']
+	jason = {'files': filenames, "project_name":"FrenchTest", "is_private":False, "import_user":"yuchen"}
+	res = requests.post("http://localhost:5000/project/FrenchTest/upload", json=jason)
+	print("grew said",res)
+
+	# second testproject ============== 
+	addproject("NaijaTest", is_private=False, description="this is a test project to fill the database")
+	filenames = ['initialization/peripitiesVoiture.conll', 'initialization/astuceCinema.conll']
+	jason = {'files': filenames, "project_name":"FrenchTest", "is_private":False, "import_user":"gold"}
+	res = requests.post("http://localhost:5000/project/FrenchTest/upload", json=jason)
+	print("grew said",res)
+
+	
+	# second testproject add conll =================
+
+		# return {"errormessage":"Project under the same name exists."}
+	
+
+
+		# jason = {"project_name":"first_project", "is_private":False, "description":"This is nothing but a test project to try out stuff"}
+		# r = addprojectongrew(p['name'])
+		# print(r)
+
+		# res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
 		#TODO if error...
 			
 	
-	res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
+	# res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
 			
-	print(projects)
+	
 
 	# print (6546545/0)
 	if os.path.isfile( str(db.engine.url)[len('sqlite:///'):]):
