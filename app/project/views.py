@@ -89,8 +89,6 @@ def get_project(request):
 		abort(404)
 	return project
 
-
-
 ############################ controlers
 
 # status : ok
@@ -124,7 +122,7 @@ def list_users(project_name):
 	return resp
 
 
-# TODO: finir cette fonction
+# status : ok
 @project.route('/project/<project_name>/', methods=['GET'])
 # @login_required
 # @requires_access_level(2)
@@ -136,38 +134,67 @@ def project_info(project_name):
 	list of samples (403 si projet privé et utilisateur pas de rôle)
 	pê admin names, nb samples, nb arbres, description	
 	"""
+	# current_user.id ="rinema56@gmail.com"
 	project = get_project(request)
 	roles = sorted(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
 
 	if not roles and project.is_private:
 		abort(403)
 
-	admins = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=xxx)
-
-	# sample_users_role = {}
+	admins = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=2).all()
 
 	reply = grew_request (
 		'getSamples',
 		data = {'project_id': project.projectname}
 		)
-	data = json.loads(reply)['data']
-	nb_samples = len(data)
+	js = json.loads(reply)
+	data = js.get("data")
 
+	if data:
+		nb_samples = len(data)
+		samples = [sa['name'] for sa in data]
+		reply = grew_request('getSentIds', data={'project_id': project_name})
+		js = json.loads(reply)
+		data = js.get("data")
+		if data:
+			nb_sentences = len(data)
 
-	# for sample in data:
-	# 	sample_users_role[sample["name"]] = []
-	# 	for u in sample["users"]:
-	# 		print(u, sample)
-	# 		role = get_role_for_sample(u, project.id, sample["name"])
-	# 		# str_role = u.ROLES[role][1]
-	# 		sample_users_role[sample["name"]].append((u,role))
+	js = json.dumps({"project_name":project.projectname, "description":project.description,"samples":samples,"admins":admins, "number_samples":nb_samples, "number_sentences":nb_sentences})
+	resp = Response(js, status=200,  mimetype='application/json')
 
+	return resp
 
+# status : ok
+@project.route('/project/<project_name>/delete', methods=['DELETE'])
+# @login_required
+def delete_project(project_name):
+	"""
+	Delete a project
+	"""
 
+	current_user.super_admin = True
+	current_user.id = "rinema56@gmail.com"
+	project = get_project(request)
 
-	# project = Project(projectname=request.json["project_name"], description=request.json.get("description", ""), is_private=request.json["is_private"])
-	# print("project", project)
-	return jsonify({"status":"ok"})
+	p_access = get_access_for_project(current_user.id, project.id)
+	if p_access >=2 or current_user.super_admin: # p_access and p_access >=2
+		print(project)
+		db.session.delete(project)
+		related_accesses = ProjectAccess.query.filter_by(projectid=project.id).delete()
+		related_sample_roles = SampleRole.query.filter_by(projectid=project.id).delete()
+		db.session.commit()
+
+		print ('========== [eraseProject]')
+		reply = grew_request('eraseProject', data={'project_id': project.projectname})
+	else:
+		print("p_access to low for project {}".format(project.projectname))
+		abort(403)
+	
+	projects = Project.query.all()
+	js = json.dumps([p.as_json() for p in projects])
+	resp = Response(js, status=200,  mimetype='application/json')
+	
+	return resp
 
 """
 
@@ -179,8 +206,8 @@ if admin of project or superadmin
 
 
 
-# TODO: finir cette fonction
 
+# status : ok
 @project.route('/project/<project_name>/upload', methods=["POST"])
 def sample_upload(project_name):
 	"""
@@ -189,6 +216,8 @@ def sample_upload(project_name):
 	multipart (fichier conll), filename, importuser
 	"""
 	project = get_project(request)
+
+	is_in_grew = project_is_in_grew(project)
 
 	redoublenl = re.compile(r'\s*\n\s*\n+\s*')
 	reextensions = re.compile(r'\.(conllu?|txt|tsv|csv)$')
@@ -203,8 +232,14 @@ def sample_upload(project_name):
 			'getSamples',
 			data = {'project_id': project_name}
 				)
-	print(json.loads(reply))
-	samples = [sa['name'] for sa in json.loads(reply)['data']]
+	js = json.loads(reply)
+	data = js.get("data")
+
+	# checking already existing samples in the project
+	if data:
+		samples = [sa['name'] for sa in data]
+	else:
+		samples = []
 
 	for fichier in files:
 		print("saving {}".format(fichier))

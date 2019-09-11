@@ -143,43 +143,6 @@ def create_project():
 	
 	# return resp
 
-# status : ok
-@admin.route('/deleteproject', methods=['DELETE'])
-# @login_required
-# @superadmin_required
-def delete_project():
-	"""
-	Delete a project
-	"""
-
-	# current_user.super_admin = True
-	# current_user.id = "rinema56@gmail.com"
-	if not request.json:
-		abort(400)
-
-	project = Project.query.filter_by(projectname=request.json["project_name"]).first()
-	if not project:
-		abort(400)
-
-	p_access = get_access_for_project(current_user.id, project.id)
-	if p_access >=2 or current_user.super_admin: # p_access and p_access >=2
-		print(project)
-		db.session.delete(project)
-		related_accesses = ProjectAccess.query.filter_by(projectid=project.id).delete()
-		related_sample_roles = SampleRole.query.filter_by(projectid=project.id).delete()
-		db.session.commit()
-
-		print ('========== [eraseProject]')
-		reply = grew_request('eraseProject', data={'project_id': project.projectname})
-	else:
-		print("p_access to low for project {}".format(project.projectname))
-		abort(403)
-	
-	projects = Project.query.all()
-	js = json.dumps([p.as_json() for p in projects])
-	resp = Response(js, status=200,  mimetype='application/json')
-	
-	return resp
 
 @admin.route("/test")
 # @login_required
