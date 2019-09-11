@@ -40,6 +40,8 @@ def superadmin_required(func):
 @superadmin_required
 def superadmin_dashboard():
 	"""
+
+	TODO: utile ?
 	Returns a list of users and a list of projects
 	"""
 	users = list_users().json
@@ -146,37 +148,37 @@ def create_project():
 
 
 
-@admin.route("/test")
-# @login_required
-def test():
-	# print(current_user)
-	# print(current_user.super_admin)
-	## Projects management
-	# list projects
-	# res = requests.get("http://localhost:5000/admin")
-	# print(current_user)
-	# print(current_user.id)
+# @admin.route("/test")
+# # @login_required
+# def test():
+# 	# print(current_user)
+# 	# print(current_user.super_admin)
+# 	## Projects management
+# 	# list projects
+# 	# res = requests.get("http://localhost:5000/admin")
+# 	# print(current_user)
+# 	# print(current_user.id)
 
-	# delete a project
-	# res = requests.delete("http://localhost:5000/admin/projects", json={"projectname":"aa"})
+# 	# delete a project
+# 	# res = requests.delete("http://localhost:5000/admin/projects", json={"projectname":"aa"})
 
-	# create a project
-	filenames = ['/home/marine/Téléchargements/1_a.conllu', '/home/marine/Téléchargements/1_b.conllu']
-	jason = {'files': filenames, "project_name":"first_project", "is_private":True, "import_user":"rinema56@gmail.com"}
-	print("doing as requested")
-	res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
+# 	# create a project
+# 	filenames = ['/home/marine/Téléchargements/1_a.conllu', '/home/marine/Téléchargements/1_b.conllu']
+# 	jason = {'files': filenames, "project_name":"first_project", "is_private":True, "import_user":"rinema56@gmail.com"}
+# 	print("doing as requested")
+# 	res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
 
-	# filenames = ['/home/marine/Téléchargements/1_b.conll']
-	# for filename in filenames:
-	# 	res = requests.post("http://localhost:5000/admin/projects", json={"projectname":"testy", "is_private":True}, files={'file':open(filename, 'rb')})
-	# res = requests.delete("http://localhost:5000/admin/projects", json={"projectname":"aa"})
+# 	# filenames = ['/home/marine/Téléchargements/1_b.conll']
+# 	# for filename in filenames:
+# 	# 	res = requests.post("http://localhost:5000/admin/projects", json={"projectname":"testy", "is_private":True}, files={'file':open(filename, 'rb')})
+# 	# res = requests.delete("http://localhost:5000/admin/projects", json={"projectname":"aa"})
 
-	# uploading files
-	# filenames = ['/home/marine/Téléchargements/1_b.conll']
-	# for filename in filenames:
-	# 	res = requests.post("http://localhost:5000/admin/upload", files={'file':open(filename, 'rb')})
-	# 	print('response from server:',res.text)
-	return jsonify({"data":"ok"})
+# 	# uploading files
+# 	# filenames = ['/home/marine/Téléchargements/1_b.conll']
+# 	# for filename in filenames:
+# 	# 	res = requests.post("http://localhost:5000/admin/upload", files={'file':open(filename, 'rb')})
+# 	# 	print('response from server:',res.text)
+# 	return jsonify({"data":"ok"})
 
 
 # @admin.route('/upload', methods=['POST'])
@@ -191,52 +193,52 @@ def test():
 # 	return jsonify({"status":"OK"})
 
 # todo: remove here, see project views sample_upload
-def saveconll(request):
-	"""
-	save conll files inside a grew Project
-	"""
-	redoublenl = re.compile(r'\s*\n\s*\n+\s*')
-	reextensions = re.compile(r'\.(conllu?|txt|tsv|csv)$')
+# def saveconll(request):
+# 	"""
+# 	save conll files inside a grew Project
+# 	"""
+# 	redoublenl = re.compile(r'\s*\n\s*\n+\s*')
+# 	reextensions = re.compile(r'\.(conllu?|txt|tsv|csv)$')
 
 
-	files = request.json.get("files", [])
-	project_name = request.json["project_name"]
-	import_user = request.json.get("import_user", "parser") # TODO : facultatif import_user
-	print("project ", project_name)
-	print("files to add ", files)
+# 	files = request.json.get("files", [])
+# 	project_name = request.json["project_name"]
+# 	import_user = request.json.get("import_user", "parser") # TODO : facultatif import_user
+# 	print("project ", project_name)
+# 	print("files to add ", files)
 
-	print('========== [getSamples]')
-	reply = grew_request(
-			'getSamples',
-			data = {'project_id': project_name}
-				)
-	print(json.loads(reply))
-	samples = [sa['name'] for sa in json.loads(reply)['data']]
+# 	print('========== [getSamples]')
+# 	reply = grew_request(
+# 			'getSamples',
+# 			data = {'project_id': project_name}
+# 				)
+# 	print(json.loads(reply))
+# 	samples = [sa['name'] for sa in json.loads(reply)['data']]
 
-	for fichier in files:
-		print("saving {}".format(fichier))
-		content = open(fichier).read()
-		sample_name = reextensions.sub("", os.path.basename(fichier))
-		with open(Config.UPLOAD_FOLDER +secure_filename(sample_name), "w") as outf:
-			outf.write(content)
-		if sample_name not in samples:
+# 	for fichier in files:
+# 		print("saving {}".format(fichier))
+# 		content = open(fichier).read()
+# 		sample_name = reextensions.sub("", os.path.basename(fichier))
+# 		with open(Config.UPLOAD_FOLDER +secure_filename(sample_name), "w") as outf:
+# 			outf.write(content)
+# 		if sample_name not in samples:
 
-		# create a new sample in the grew project
-			print ('========== [newSample]')
-			reply = grew_request ('newSample', data={'project_id': project_name, 'sample_id': sample_name })
-			print (reply)
+# 		# create a new sample in the grew project
+# 			print ('========== [newSample]')
+# 			reply = grew_request ('newSample', data={'project_id': project_name, 'sample_id': sample_name })
+# 			print (reply)
 
 
-			print(project_name, sample_name, import_user)
-			with open(os.path.join(Config.UPLOAD_FOLDER,sample_name), 'rb') as inf:
-				print ('========== [saveConll]')
-				reply = grew_request (
-					'saveConll',
-					data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
-					files={'conll_file': inf},
-				)
+# 			print(project_name, sample_name, import_user)
+# 			with open(os.path.join(Config.UPLOAD_FOLDER,sample_name), 'rb') as inf:
+# 				print ('========== [saveConll]')
+# 				reply = grew_request (
+# 					'saveConll',
+# 					data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
+# 					files={'conll_file': inf},
+# 				)
 
-	return jsonify({"status":"ok"})
+# 	return jsonify({"status":"ok"})
 
 
 # Users view
@@ -278,30 +280,30 @@ def delete_user():
 
 
 
-@admin.route('/users/manage_access', methods=['GET', 'POST'])
-# @login_required
-def manage_user_access_to_projects():
-	"""
-	Give a user an access to a project
-	"""
-	form = UserAssignForm()
-	if request.method == "POST":
-		project = form.project.data
-		user_id = form.user.data.id
-		project_access = ProjectAccess.query.filter_by(userid=user_id, projectid=project.id).first()
+# @admin.route('/users/manage_access', methods=['GET', 'POST'])
+# # @login_required
+# def manage_user_access_to_projects():
+# 	"""
+# 	Give a user an access to a project
+# 	"""
+# 	form = UserAssignForm()
+# 	if request.method == "POST":
+# 		project = form.project.data
+# 		user_id = form.user.data.id
+# 		project_access = ProjectAccess.query.filter_by(userid=user_id, projectid=project.id).first()
 
-		if project_access:
-			project_access.accesslevel = form.access_level.data
-		else:
-			project_access = ProjectAccess(projectid=project.id, userid=user_id, accesslevel=form.access_level.data)
-			db.session.add(project_access)
-		db.session.commit()
-		flash('You have successfully assigned a project and role.')
-		return redirect(url_for('admin.list_users'))
+# 		if project_access:
+# 			project_access.accesslevel = form.access_level.data
+# 		else:
+# 			project_access = ProjectAccess(projectid=project.id, userid=user_id, accesslevel=form.access_level.data)
+# 			db.session.add(project_access)
+# 		db.session.commit()
+# 		flash('You have successfully assigned a project and role.')
+# 		return redirect(url_for('admin.list_users'))
 
-	return render_template('admin/users/user.html',
-						   form=form,
-						   title='Assign User')
+# 	return render_template('admin/users/user.html',
+# 						   form=form,
+# 						   title='Assign User')
 	
 
 

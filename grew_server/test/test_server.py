@@ -186,6 +186,16 @@ print ('========== [getProjects]')
 reply = send_request ('getProjects')
 print (reply)
 
+# print ('========== [getSamples]')
+# print ('       ... project_id -> FrenchTest')
+# reply = send_request ('getSamples', data={'project_id': 'FrenchTest'})
+# print (reply)
+
+# print ('========== [getConll]')
+# reply = send_request ('getConll', data={'project_id':'FrenchTest', "sample_id":'peripitiesVoiture'})
+# print (reply)
+
+
 
 # print ('========== [getUsers]')
 # reply = send_request ('getUsers', data={'project_id':'proj_1', "sample_id":'sample_t6'})

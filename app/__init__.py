@@ -39,16 +39,16 @@ def create_app(config_name):
 	from . import models
 
 	from .admin import admin as admin_blueprint
-	app.register_blueprint(admin_blueprint, url_prefix='/admin')
+	app.register_blueprint(admin_blueprint, url_prefix='/api/admin')
 
 	from .auth import auth as auth_blueprint
 	app.register_blueprint(auth_blueprint)
 
 	from .home import home as home_blueprint
-	app.register_blueprint(home_blueprint)
+	app.register_blueprint(home_blueprint, url_prefix='/api')
 
 	from .project import project as project_blueprint
-	app.register_blueprint(project_blueprint)
+	app.register_blueprint(project_blueprint, url_prefix='/api/projects')
 
 	@app.errorhandler(403)
 	def forbidden(error):
