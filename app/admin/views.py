@@ -90,7 +90,8 @@ def addprojectongrew(project_name):
 def addproject(project_name,is_private,description=""):
 	if Project.query.filter_by(projectname=project_name).first():
 		return {"errormessage":"Project under the same name exists."}
-	project = Project(projectname=project_name, description=description, is_private=project_name)
+	project = Project(projectname=project_name, description=description, is_private=is_private)
+	db.session.add(project)
 	db.session.commit()
 	grewanswer = addprojectongrew(project_name)
 	if grewanswer != 'ok':
@@ -320,6 +321,7 @@ def init_database():
 		print(6451,projectname,Project.query.filter_by(projectname=projectname).first())
 		if not Project.query.filter_by(projectname=projectname).first():
 			project = Project(projectname=projectname, description="copy from grew", is_private=False)
+			db.session.add(project)
 			db.session.commit()	
 			print(6541321)
 
@@ -340,12 +342,12 @@ def init_database():
 
 	# second testproject ============== 
 	addproject("NaijaTest", is_private=False, description="this is a test project to fill the database")
-	filenames = ['initialization/peripitiesVoiture.conll', 'initialization/astuceCinema.conll']
-	jason = {'files': filenames, "project_name":"FrenchTest", "is_private":False, "import_user":"gold"}
-	res = requests.post("http://localhost:5000/project/FrenchTest/upload", json=jason)
+	filenames = ['initialization/P_WAZP_07_Imonirhuas.Life.Story_PRO.conll', 'initialization/P_ABJ_GWA_10_Steven.lifestory_PRO.conll']
+	jason = {'files': filenames, "project_name":"NaijaTest", "is_private":False, "import_user":"Bernard"}
+	res = requests.post("http://localhost:5000/project/NaijaTest/upload", json=jason)
 	print("grew said",res)
 
-	
+
 	# second testproject add conll =================
 
 		# return {"errormessage":"Project under the same name exists."}
@@ -392,7 +394,12 @@ def addstuff():
 	"""
 	print (6546545)
 
-	print("current_user:",current_user)
+	# print("current_user:",current_user)
+	project = Project(projectname="azer", description="azerazer", is_private=False)
+	db.session.add(project)
+	db.session.commit()	
+	print(6541321)
+	print(654654,Project.query.filter_by(projectname="azer").first())
 	# , "super_admin:",current_user.super_admin)
 	# db.create_all()
 	# db.commit()
