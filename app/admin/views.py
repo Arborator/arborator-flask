@@ -83,16 +83,19 @@ def addprojectongrew(project_name):
 	jason = {"project_name":project_name, "is_private":is_private, "description":description}
 	reply = grew_request ('newProject', data={'project_id': project_name})
 	print (reply) # TODO: check if error, if error, remove project from db and send error message
+	return reply.get('status','grew error')
 
 def addproject(project_name,is_private,description=""):
 	if Project.query.filter_by(projectname=project_name).first():
 		return {"errormessage":"Project under the same name exists."}
 	project = Project(projectname=project_name, description=description, is_private=project_name)
+	db.session.commit()
+	grewanswer = addprojectongrew()
+	if grewanswer != 'ok':
+		return {"errormessage":"Cannot create project on grew."}
+	return {"message":"Project {project_name} created.".format(project_name=project_name)}
 
 
-
-
-# status : ok
 @admin.route('/addproject', methods=['POST'])
 # @login_required
 # @superadmin_required
@@ -104,30 +107,39 @@ def create_project():
 	if not request.json:
 		abort(404)
 
-	project = Project(projectname=request.json["project_name"], description=request.json.get("description", ""), is_private=request.json["is_private"])
-	print("project", project)
-	# test whether the project already exists in the database
-	if Project.query.filter_by(projectname=project.projectname).first() is None:
-		db.session.add(project)
-		# # create the project on grew
-		print ('========== [newProject]')
-		reply = grew_request ('newProject', data={'project_id': project.projectname})
-		print (reply) # TODO: check if error, if error, remove project from db and send error message
-
-
-		projects = Project.query.all()
-
-		# return jsonify([p.as_json() for p in projects])
-		resp = Response('{"message":"Project created."}', status=200,  mimetype='application/json')
-			
-		db.session.commit()
-
+	reply = addproject(request.json["project_name"], request.json["is_private"], description=request.json.get("description", ""))
+	print(reply)
+	if 'errormessage' in reply:
+		resp = Response(str(reply), status=409,  mimetype='application/json')
 	else:
-		print("project under the same name exists")
-		resp = Response('{"errormessage":"Project under the same name exists."}', status=409,  mimetype='application/json')
+		resp = Response(str(reply), status=200,  mimetype='application/json')
+	return resp
+
+
+	# project = Project(projectname=request.json["project_name"], description=request.json.get("description", ""), is_private=request.json["is_private"])
+	# print("project", project)
+	# # test whether the project already exists in the database
+	# if Project.query.filter_by(projectname=project.projectname).first() is None:
+	# 	db.session.add(project)
+	# 	# # create the project on grew
+	# 	print ('========== [newProject]')
+	# 	reply = grew_request ('newProject', data={'project_id': project.projectname})
+	# 	print (reply) # TODO: check if error, if error, remove project from db and send error message
+
+
+	# 	projects = Project.query.all()
+
+	# 	# return jsonify([p.as_json() for p in projects])
+	# 	resp = Response('{"message":"Project created."}', status=200,  mimetype='application/json')
+			
+	# 	db.session.commit()
+
+	# else:
+	# 	print("project under the same name exists")
+	# 	resp = Response('{"errormessage":"Project under the same name exists."}', status=409,  mimetype='application/json')
 
 	
-	return resp
+	# return resp
 
 # status : ok
 @admin.route('/deleteproject', methods=['DELETE'])
