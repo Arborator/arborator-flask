@@ -71,6 +71,27 @@ def superadmin_dashboard():
 # 	return resp
 
 
+def projectsongrew():
+	reply = grew_request('getProjects')
+	print(reply)
+	# reply = grew_request('getUsers')
+	reply = json.loads(reply)
+	if reply.get("status") == "OK":
+		return reply.get("data", [])
+
+def addprojectongrew(project_name):
+	jason = {"project_name":project_name, "is_private":is_private, "description":description}
+	reply = grew_request ('newProject', data={'project_id': project_name})
+	print (reply) # TODO: check if error, if error, remove project from db and send error message
+
+def addproject(project_name,is_private,description=""):
+	if Project.query.filter_by(projectname=project_name).first():
+		return {"errormessage":"Project under the same name exists."}
+	project = Project(projectname=project_name, description=description, is_private=project_name)
+
+
+
+
 # status : ok
 @admin.route('/addproject', methods=['POST'])
 # @login_required
@@ -162,9 +183,9 @@ def test():
 
 	# create a project
 	filenames = ['/home/marine/Téléchargements/1_a.conllu', '/home/marine/Téléchargements/1_b.conllu']
-	json = {'files': filenames, "project_name":"first_project", "is_private":True, "import_user":"rinema56@gmail.com"}
+	jason = {'files': filenames, "project_name":"first_project", "is_private":True, "import_user":"rinema56@gmail.com"}
 	print("doing as requested")
-	res = requests.post("http://localhost:5000/admin/projects/addproject", json=json)
+	res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
 
 	# filenames = ['/home/marine/Téléchargements/1_b.conll']
 	# for filename in filenames:
@@ -315,20 +336,16 @@ def init_database():
 
 	# TODO: move into else below...
 	# all projects in grew are created in the database
-	reply = grew_request ('getProjects')
-	reply = json.loads(reply)
-	print(reply)
-
-	nb_sent = 0
-	if reply.get("status") == "OK":
-		projects = reply.get("data", [])
-		for p in projects:
-			print (p['name'])
-			json = {"project_name":"first_project", "is_private":False, "description":"This is nothing but a test project to try out stuff"}
-			res = requests.post("http://localhost:5000/admin/projects/addproject", json=json)
-			#TODO if error...
+	projects = projectsongrew()
+	for p in projects:
+		print (p['name'])
+		jason = {"project_name":"first_project", "is_private":False, "description":"This is nothing but a test project to try out stuff"}
+		res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
+		#TODO if error...
 			
 	
+	res = requests.post("http://localhost:5000/admin/projects/addproject", json=jason)
+			
 	print(projects)
 
 	# print (6546545/0)

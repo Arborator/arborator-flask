@@ -100,13 +100,13 @@ class Project(db.Model, BaseM):
 
 class ProjectAccess(db.Model):
 	__tablename__ = 'projectaccess'
-	ROLES =  [(0, 'guest'), (1, 'annotator'), (2, 'validator'), (3, 'supervalidator')]
+	ACCESS =  [(1, 'guest'), (2, 'admin')]
 
 	id = db.Column(db.Integer, primary_key=True)
 	projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))
 	userid = db.Column(db.String(256), db.ForeignKey('users.id'))
 	# accesslevel = db.Column(db.Integer)
-	accesslevel = db.Column(ChoiceType(ROLES, impl=db.Integer()))
+	accesslevel = db.Column(ChoiceType(ACCESS, impl=db.Integer()))
 
 
 
@@ -125,12 +125,12 @@ class ProjectAccess(db.Model):
 
 class SampleRole(db.Model):
 	__tablename__ = 'samplerole'
-
+	ROLES =  [(1, 'annotator'), (2, 'validator'), (3, 'supervalidator'), (4, 'prof')]
 	id = db.Column(db.Integer, primary_key=True)
 	samplename = db.Column(db.String(256), nullable=False)
 	projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))
 	userid = db.Column(db.String(256), db.ForeignKey('users.id'))
-	role = db.Column(db.Integer)
+	role = db.Column(ChoiceType(ROLES, impl=db.Integer()))
 	__table_args__ = (UniqueConstraint('samplename', 'projectid', name='_samplename_projectid_uc'),)
 
 
