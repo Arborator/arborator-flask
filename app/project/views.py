@@ -190,6 +190,56 @@ def delete_project(project_name):
 
 
 
+# TODO: on est là !
+@project.route('/<project_name>/search', methods=["GET"])
+def search_project(project_name):
+	"""
+	expects json with grew pattern such as
+	{
+	"pattern":"pattern { N [upos=\"NUM\"] }"
+	}
+	important: simple and double quotes must be escaped!
+
+
+	returns:
+	{'sample_id': 'P_WAZP_07_Imonirhuas.Life.Story_PRO', 'sent_id': 'P_WAZP_07_Imonirhuas-Life-Story_PRO_97', 'nodes': {'N': 'Bernard_11'}, 'edges': {}}, {'sample_id':...
+	"""
+	
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(404)
+	if not request.json:
+		abort(400)
+
+	
+	
+	pattern = request.json.get("pattern")
+	reply = json.loads(grew_request("getSentences",data={"project_id":project.projectname, "pattern":pattern}))
+	print(reply)
+
+	trees={}
+	matches={}
+	reendswithnumbers = re.compile(r"_\d+$")
+	for m in reply["data"]:
+		print("***************",m)
+		if reendswithnumbers.search(list(m["nodes"].values())[0]):
+			user_id = reendswithnumbers.sub("", list(m["nodes"].values())[0])
+		elif reendswithnumbers.search(list(m["edges"].values())[0]):
+			user_id = reendswithnumbers.sub("",list(m["edges"].values())[0])
+		else:
+			print("quelle merde")
+			abort(409)
+		
+		conll = grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id})
+		print("====",conll)
+
+	resp = Response("", status=200,  mimetype='application/json')
+	
+	return resp
+
+
+
+
 @project.route('/<project_name>/upload', methods=["POST"])
 def sample_upload(project_name):
 	"""
@@ -281,6 +331,12 @@ def samplepage(project_name, sample_name):
 	TODO: tester si le projet est privé
 	pour l'arbre : annotateur ne peut pas voir d'autres arbres sauf la base
 
+
+	returns:
+	{
+    "P_ABJ_GWA_10_Steven-lifestory_PRO_1": {
+        "yuchen": "# elan_id = ABJ_GWA_10_M_001 ABJ_GWA_10_M_002 ABJ_GWA_10_M_003\n# sent_id = P_ABJ_GWA_10_Steven-lifestory_PRO_1\n# sent_translation = I stay with my mother in the village. #\n# text = I dey stay with my moder //+ # for village //\n1\tI\t_\tINTJ\t_\tCase=Nom|endali=2610|Number=Sing|Person=1|PronType=Prs|
+		....
 	"""
 	print ("========[getConll]")
 	reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':sample_name}))
