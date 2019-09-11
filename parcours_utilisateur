@@ -1,0 +1,89 @@
+s'authentifier
+créer un utilisateur -> par défaut accès 0 à tous les projets
+se délogger
+
+
+lister les projets GET home/projects  
+	si non-loggé : liste des noms des projets + private
+	si loggé : retourne nom + private + si user has role (admin, annotator, validator) has_role, is_admin, is_annotator, is_validator
+
+__________________________
+
+project/<projectname>/ 
+GET
+list of samples (403 si projet privé et utilisateur pas de rôle)
+pê admin names, nb samples, nb arbres, description
+POST
+if admin of project or superadmin:  change: name, description, is private 
+DELETE
+if admin of project or superadmin
+
+
+project/<projectname>/upload
+POST multipart
+multipart (fichier conll), filename, importuser
+
+ajouter qqn comme admin:
+project/<projectname>/users/
+admins:[names of admin]
+guests:[list of guests]
+
+project/<projectname>/<samplename>/
+GET
+nb_sentences, nb_trees, list of annotators, list of validators
+DELETE
+effacer
+
+project/<projectname>/<samplename>/users
+POST
+json {username:status} statut: annotator, validator
+DELETE
+enlever tout statut
+
+
+project/<projectname>/<samplename>/trees
+GET 
+json of all conlls
+POST
+save conll in json
+DELETE
+
+
+
+admin/addproject
+POST
+name, description, private
+
+admin/users
+GET
+lister les utilisateurs
+DELETE
+supprimer utilisateur
+
+
+project/
+project/<projectname>/ 
+GET 
+if private and not role: 403
+if private and role: list of samples
+POST
+sample name
+file conll
+importuser (optional)
+DELETE
+sample name
+
+
+
+
+
+uploader des fichiers POST
+ajouter un échantillon dans un projet PUT + project_id
+modifier l'accès d'un utilisateur pour un projet PUT + user_id + project_id
+assigner un role à un utilisateur pour un echantillon POST + user_id + sample_id
+supprimer un utilisateur de la base DELETE + user_id
+supprimer un échantillon de la base DELETE + sample_id
+
+
+ rêve :
+ lien d'invitation à être admin d'un projet même si on n'a pas encore de compte.

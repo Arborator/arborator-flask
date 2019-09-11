@@ -1,0 +1,19 @@
+{
+	"files.exclude": {
+		"**/__pycache__*": true,
+		"**/*.directory": true,
+		"**/*.ico": true,
+		"**/*.vscode": true,
+		"**/corpus*": true,
+		"**/export*": true,
+		"**/images*": true,
+		"**/lib*": true,
+		"**/parseur*": true,
+		"**/projects*": true,
+		"**/static*": true,
+		"**/tools*": true,
+		"**/uploads*": true,
+		"fontawesome*": true,
+		"migrations*": true
+	}
+}
