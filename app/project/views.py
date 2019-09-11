@@ -142,7 +142,7 @@ def project_info(project_name):
 	if not roles and project.is_private:
 		abort(403)
 
-	admins = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=)
+	admins = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=xxx)
 
 	# sample_users_role = {}
 
