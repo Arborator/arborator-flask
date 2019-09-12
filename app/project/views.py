@@ -4,6 +4,7 @@ from werkzeug import secure_filename
 import json
 from functools import wraps
 import os
+import re, base64
 
 
 # local imports
@@ -11,6 +12,7 @@ from . import project
 from ..models import *
 from ...grew_server.test.test_server import send_request as grew_request
 from ...config import Config
+
 
 def get_access_for_project(user_id, project_id):
 	"""
@@ -26,24 +28,6 @@ def get_access_for_project(user_id, project_id):
 
 	return project_access.accesslevel
 
-def get_role_for_sample(user_id, project_id, sample_id):
-	"""
-	Returns the role of a user for a sample in a given project
-
-	str int int -> int
-	"""
-	sample_role = SampleRole.query.filter_by(textid=project_id, userid=user_id, id=sample_id).first()
-
-	return sample_role
-
-def role2string(role):
-	"""
-
-	"""
-	if role == None:
-		return None
-	role = current_user.ROLES[role][1]
-	return role
 
 
 def requires_access_level(access_level):
@@ -59,35 +43,25 @@ def requires_access_level(access_level):
 				return redirect(url_for('auth.login'))
 
 			if kwargs.get("project_name"):
-				print("got project_name")
 				project_id = Project.query.filter_by(name=kwargs["project_name"]).first().id
-			else:
+			elif kwargs.get("id"):
 				project_id = kwargs["id"]
-				print("got project_id")
+			else:
+				abort(400)
+
 			projectaccess = get_access_for_project(current_user.id, project_id)
 
 			print("project_access for current user: {}".format(projectaccess))
 			
 			if not current_user.super_admin: # super_admin are always admin even if it's not in the table
 				if projectaccess is None or projectaccess < access_level:
-					flash("You do not have access to that page. Sorry!")
-					return redirect(url_for('home.home_page'))
+					abort(401)
+					# return redirect(url_for('home.home_page'))
 
 			return f(*args, **kwargs)
 		return decorated_function
 	return decorator
 
-
-def get_project(request):
-	if not request.json:
-		abort(400)
-	project_name = request.json.get("project_name")
-	if not project_name:
-		abort(400)
-	project = Project.query.filter_by(projectname=project_name).first()
-	if not project:
-		abort(404)
-	return project
 
 ############################ controlers
 
@@ -97,9 +71,8 @@ def get_project(request):
 # @requires_access_level(2)
 def project_info(project_name):
 	"""
-	get project information
-	project/<projectname>/ 
-	GET
+	GET project information
+
 	list of samples (403 si projet privé et utilisateur pas de rôle)
 	pê admin names, nb samples, nb arbres, description	
 	"""
@@ -134,7 +107,9 @@ def project_info(project_name):
 		if data:
 			nb_sentences = len(data)
 
-	js = json.dumps({"project_name":project.projectname, "description":project.description,"samples":samples,"admins":admins, "guests":guests, "number_samples":nb_samples, "number_sentences":nb_sentences})
+	image = str(base64.b64encode(project.image))
+
+	js = json.dumps({"project_name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image,"samples":samples,"admins":admins, "guests":guests, "number_samples":nb_samples, "number_sentences":nb_sentences})
 	resp = Response(js, status=200,  mimetype='application/json')
 
 	return resp
@@ -240,9 +215,7 @@ def search_project(project_name):
 
 
 	pattern = request.json.get("pattern")
-	# reply = json.loads(grew_request("getSentences",data={"project_id":project.projectname, "pattern":pattern}))
 	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
-	# print(88888,reply)
 	if reply["status"] != "OK":
 		abort(400)
 
