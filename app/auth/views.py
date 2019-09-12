@@ -72,7 +72,7 @@ def login(provider_name):
             session['logged_in']=True ### ?????
             
             if not User.query.filter_by(super_admin=True).first():
-                print("firstsuper)
+                print("firstsuper")
                 # return redirect(url_for('auth.firstsuper'))
                 return render_template('admin/firstsuper.html')
            

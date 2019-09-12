@@ -204,39 +204,68 @@ def search_project(project_name):
 	returns:
 	{'sample_id': 'P_WAZP_07_Imonirhuas.Life.Story_PRO', 'sent_id': 'P_WAZP_07_Imonirhuas-Life-Story_PRO_97', 'nodes': {'N': 'Bernard_11'}, 'edges': {}}, {'sample_id':...
 	"""
-	
+
 	project = Project.query.filter_by(projectname=project_name).first()
 	if not project:
 		abort(404)
 	if not request.json:
 		abort(400)
 
-	
-	
+
+
 	pattern = request.json.get("pattern")
-	reply = json.loads(grew_request("getSentences",data={"project_id":project.projectname, "pattern":pattern}))
-	print(reply)
+	# reply = json.loads(grew_request("getSentences",data={"project_id":project.projectname, "pattern":pattern}))
+	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
+	# print(88888,reply)
+	if reply["status"] != "OK":
+		abort(400)
 
 	trees={}
 	matches={}
-	reendswithnumbers = re.compile(r"_\d+$")
+	reendswithnumbers = re.compile(r"_(\d+)$")
+
 	for m in reply["data"]:
-		print("***************",m)
+		# print("***************",m)
 		if reendswithnumbers.search(list(m["nodes"].values())[0]):
 			user_id = reendswithnumbers.sub("", list(m["nodes"].values())[0])
 		elif reendswithnumbers.search(list(m["edges"].values())[0]):
 			user_id = reendswithnumbers.sub("",list(m["edges"].values())[0])
+
 		else:
 			print("quelle merde")
 			abort(409)
-		
-		conll = grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id})
-		print("====",conll)
+		# # extract match
+		# matches = {"nodes":[(k,reendswithnumbers.match(v)) for k,v in m["nodes"].items()]}
+		# print(matches)
 
-	resp = Response("", status=200,  mimetype='application/json')
-	
+		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
+		if conll["status"] != "OK":
+			abort(404)
+		conll = conll["data"]
+
+		# adding trees
+		# {trees:{sent_id:{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
+		trees.get(m["sent_id"],{})[user_id] = conll
+
+		nodes = []
+		for k in m['nodes'].values():
+			# print("uuuu",k,k.split("_")[-1])
+			nodes +=[k.split("_")[-1]]
+		edges = []
+		for k in m['edges'].values():
+			# print("uuuu",k,k.split("_")[-1])
+			edges +=[k.split("_")[-1]]
+
+		matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
+
+		# print(matches)
+
+
+	js = json.dumps({"trees":trees,"matches":matches})
+	resp = Response(js, status=200,  mimetype='application/json')
+
 	return resp
-
+	
 
 
 
