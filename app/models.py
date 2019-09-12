@@ -112,7 +112,6 @@ class ProjectAccess(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))
 	userid = db.Column(db.String(256), db.ForeignKey('users.id'))
-	# accesslevel = db.Column(db.Integer)
 	accesslevel = db.Column(ChoiceType(ACCESS, impl=db.Integer()))
 
 

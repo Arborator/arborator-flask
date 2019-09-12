@@ -103,7 +103,6 @@ def project_info(project_name):
 	list of samples (403 si projet privé et utilisateur pas de rôle)
 	pê admin names, nb samples, nb arbres, description	
 	"""
-	print(465465465,current_user)
 	current_user.id ="rinema56@gmail.com"
 	project = Project.query.filter_by(projectname=project_name).first()
 	print(project)
@@ -149,10 +148,36 @@ def project_update(project_name):
 
 	par exemple
 	ajouter admin / guest users:{nom:access, nom:access, nom:"" (pour enlever)}
-	changer nom du projet project:{nom:nouveaunom,description:nouvelledescription,isprivate:True}
+	changer nom du projet project:{nom:nouveaunom,description:nouvelledescription,isprivate:True, image:blob}
 	
 	"""
-	print(465465465,"à faire")
+	print(request.json,project_name)
+	if not request.json:
+		abort(400)
+	project = Project.query.filter_by(projectname=project_name).first()
+	print(987,project)
+	if not project:
+		abort(400)
+	if request.json.get("users"):
+		for k,v in request.json.get("users").items():
+			user = User.query.filter_by(id=k).first()
+			print(500,user, k)
+			if user:
+				pa = ProjectAccess.query.filter_by(userid=user.id, projectid=project.id).first()
+				if pa:
+					pa.accesslevel=v
+				else:
+					pa = ProjectAccess(userid=user.id, projectid=project.id, accesslevel=v )
+					db.session.add(pa)
+			else:
+				abort(400)
+	if request.json.get("project"):
+		for k,v in request.json.get("project").items():
+			setattr(project,k,v)
+	db.session.commit()
+	return project_info(project_name)
+
+
 
 
 @project.route('/<project_name>/delete', methods=['DELETE'])
@@ -164,10 +189,11 @@ def delete_project(project_name):
 	no json
 	"""
 
-	current_user.super_admin = True
-	current_user.id = "rinema56@gmail.com"
+	# current_user.super_admin = True
+	# current_user.id = "rinema56@gmail.com"
 	project = Project.query.filter_by(projectname=project_name).first()
-
+	if not project:
+		abort(400)
 	p_access = get_access_for_project(current_user.id, project.id)
 	if p_access >=2 or current_user.super_admin: # p_access and p_access >=2
 		print(project)
