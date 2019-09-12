@@ -5,7 +5,7 @@ from datetime import datetime
 # from sqlalchemy.ext.declarative import declarative_base, as_declarative
 # from sqlathanor import declarative_base, as_declarative
 from sqlalchemy.schema import UniqueConstraint
-import re
+import re, base64
 from ..app import db, login_manager
 
 
@@ -14,11 +14,17 @@ class BaseM(object):
 	def as_json(self, exclude=[]):
 		json_rep = dict()
 		for k in vars(self):
+			print(getattr(self, k))
 			if k in exclude:
 				# print(k)
 				continue
 			elif k[0] == "_":
 				continue
+			elif type(getattr(self, k)) is bytes:
+				print('yay')
+				print(getattr(self, k))
+				json_rep[k] = str(base64.b64encode(getattr(self, k)))
+				# json_rep[k] = str(getattr(self, k))
 			else:
 				json_rep[k] = getattr(self, k)
 		return json_rep

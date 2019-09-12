@@ -34,7 +34,7 @@ def home_page():
 	else:
 		for project in projects:
 			projects_info.append(project.as_json())
-
+	print(666,projects_info)
 	js = json.dumps(projects_info)
 	resp = Response(js, status=200,  mimetype='application/json')
 	
