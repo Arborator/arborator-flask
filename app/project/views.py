@@ -5,6 +5,7 @@ import json
 from functools import wraps
 import os
 import re, base64
+from conll3 import conll3
 
 
 # local imports
@@ -75,10 +76,16 @@ def project_info(project_name):
 
 	list of samples (403 si projet privé et utilisateur pas de rôle)
 	pê admin names, nb samples, nb arbres, description	
+
+	infos: {
+                name: projectname,
+                admins : [],
+                samples: [
+                    { samplename: 'P_ABJ_GWA_10_Steven.lifestory_PRO', sentences: 80, tokens: 20, averageSentenceLength: 12.6, roles :{validators: [], annotators: []}, treesFrom: ['parser', 'tella', 'j.D'], exo: 'percentage'}, 
 	"""
 	current_user.id ="rinema56@gmail.com"
 	project = Project.query.filter_by(projectname=project_name).first()
-	print(project)
+	# print(project)
 	roles = sorted(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
 
 	if not roles and project.is_private:
@@ -100,7 +107,40 @@ def project_info(project_name):
 	nb_sentences=0
 	if data:
 		nb_samples = len(data)
-		samples = [sa['name'] for sa in data]
+		samples = []
+		sample_lengths = []
+		for sa in data:
+			sample={'samplename':sa['name'], 'sentences':sa['size'], 'treesFrom':sa['users'], "roles":{}}
+			lengths = []
+			for r,label in SampleRole.ROLES:
+				role = db.session.query(User, SampleRole).filter(
+					User.id == SampleRole.userid).filter(
+						SampleRole.projectid==project.id).filter(
+							SampleRole.samplename==sa['name']).filter(
+								SampleRole.role==r).all()
+				sample["roles"][label] = [a.as_json() for a,b in role]
+
+			reply = json.loads(grew_request('getConll', data={'project_id': project.projectname, 'sample_id':sa["name"]}))
+			# print(json.loads(reply))
+			
+			if reply.get("status") == "OK":
+				truc = reply.get("data", {})
+				for sent_id, dico in truc.items():
+					conll = list(dico.values())[0]
+					t = conll3.conll2tree(conll)
+					length = len(t)
+					lengths.append(length)
+
+			sample["tokens"] = sum(lengths)
+			sample["averageSentenceLength"] = sum(lengths)/len(lengths)
+
+			sample["exo"] = "" # TODO : create the table in the db and update it
+			samples.append(sample)
+			sample_lengths += [sample["tokens"]]
+
+		sum_nb_tokens = sum(sample_lengths)
+		average_tokens_per_sample = sum(sample_lengths)/len(sample_lengths)
+			 
 		reply = grew_request('getSentIds', data={'project_id': project_name})
 		js = json.loads(reply)
 		data = js.get("data")
@@ -109,7 +149,19 @@ def project_info(project_name):
 
 	image = str(base64.b64encode(project.image))
 
-	js = json.dumps({"project_name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image,"samples":samples,"admins":admins, "guests":guests, "number_samples":nb_samples, "number_sentences":nb_sentences})
+	js = json.dumps({"infos":{
+		"name":project.projectname,
+		"is_private":project.is_private,
+		"description":project.description,
+		"image":image,
+		"samples":samples,
+		"admins":admins,
+		"guests":guests,
+		"number_samples":nb_samples,
+		"number_sentences":nb_sentences,
+		"number_tokens":sum_nb_tokens,
+		"averageSampleLength":average_tokens_per_sample}}, default=str)
+
 	resp = Response(js, status=200,  mimetype='application/json')
 
 	return resp
@@ -124,6 +176,7 @@ def project_update(project_name):
 	par exemple
 	ajouter admin / guest users:{nom:access, nom:access, nom:"" (pour enlever)}
 	changer nom du projet project:{nom:nouveaunom,description:nouvelledescription,isprivate:True, image:blob}
+	# TODO : change the projectname in grew also !
 	
 	"""
 	# print(request.json,project_name)
@@ -509,5 +562,15 @@ def delete_sample(project_name, sample_name):
 	related_sample_roles = SampleRole.query.filter_by(projectid=project.id).delete()
 	db.session.commit()
 	return project_info(project_name)
+
+
+@project.route('/<project_name>/sample/<sample_name>', methods=['POST'])
+# @login_required
+def update_sample(project_name, sample_name):
+	"""
+	TODO 
+	"""
+	pass
+
 	
 
