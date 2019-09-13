@@ -126,17 +126,16 @@ def project_update(project_name):
 	changer nom du projet project:{nom:nouveaunom,description:nouvelledescription,isprivate:True, image:blob}
 	
 	"""
-	print(request.json,project_name)
+	# print(request.json,project_name)
 	if not request.json:
 		abort(400)
 	project = Project.query.filter_by(projectname=project_name).first()
-	print(987,project)
+	# print(987,project)
 	if not project:
 		abort(400)
 	if request.json.get("users"):
 		for k,v in request.json.get("users").items():
 			user = User.query.filter_by(id=k).first()
-			print(500,user, k)
 			if user:
 				pa = ProjectAccess.query.filter_by(userid=user.id, projectid=project.id).first()
 				if pa:
@@ -475,7 +474,8 @@ def userrole(project_name, sample_name):
 	if not request.json:
 		abort(400)
 
-	print(request.json)
+	# TODO : check that sample exists
+	# TODO? : check that user exists ?
 	
 	for u,r in request.json.items():
 
@@ -488,7 +488,6 @@ def userrole(project_name, sample_name):
 			if sr:
 				db.session.delete(sr)
 		db.session.commit()
-	# resp = Response("", status=200,  mimetype='application/json')
 	return sampleusers(project_name, sample_name)
 
 
@@ -500,7 +499,15 @@ def userrole(project_name, sample_name):
 @project.route('/<project_name>/sample/<sample_name>', methods=['DELETE'])
 # @login_required
 def delete_sample(project_name, sample_name):
+	"""
+	Delete a sample and everything in the db related to this sample
+	"""
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(400)
 	reply = json.loads(grew_request ('eraseSample', data={'project_id': project_name, 'sample_id': sample_name}))
+	related_sample_roles = SampleRole.query.filter_by(projectid=project.id).delete()
+	db.session.commit()
 	return project_info(project_name)
 	
 
