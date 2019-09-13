@@ -55,7 +55,7 @@ def requires_access_level(access_level):
 			
 			if not current_user.super_admin: # super_admin are always admin even if it's not in the table
 				if projectaccess is None or projectaccess < access_level:
-					abort(401)
+					abort(403)
 					# return redirect(url_for('home.home_page'))
 
 			return f(*args, **kwargs)
@@ -207,12 +207,11 @@ def search_project(project_name):
 	"""
 
 	project = Project.query.filter_by(projectname=project_name).first()
+
 	if not project:
 		abort(404)
 	if not request.json:
 		abort(400)
-
-
 
 	pattern = request.json.get("pattern")
 	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
@@ -224,18 +223,13 @@ def search_project(project_name):
 	reendswithnumbers = re.compile(r"_(\d+)$")
 
 	for m in reply["data"]:
-		# print("***************",m)
 		if reendswithnumbers.search(list(m["nodes"].values())[0]):
 			user_id = reendswithnumbers.sub("", list(m["nodes"].values())[0])
 		elif reendswithnumbers.search(list(m["edges"].values())[0]):
 			user_id = reendswithnumbers.sub("",list(m["edges"].values())[0])
 
 		else:
-			print("quelle merde")
 			abort(409)
-		# # extract match
-		# matches = {"nodes":[(k,reendswithnumbers.match(v)) for k,v in m["nodes"].items()]}
-		# print(matches)
 
 		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
 		if conll["status"] != "OK":
@@ -248,16 +242,13 @@ def search_project(project_name):
 
 		nodes = []
 		for k in m['nodes'].values():
-			# print("uuuu",k,k.split("_")[-1])
 			nodes +=[k.split("_")[-1]]
+
 		edges = []
 		for k in m['edges'].values():
-			# print("uuuu",k,k.split("_")[-1])
 			edges +=[k.split("_")[-1]]
 
 		matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
-
-		# print(matches)
 
 
 	js = json.dumps({"trees":trees,"matches":matches})
@@ -280,9 +271,6 @@ def sample_upload(project_name):
 	"""
 	project = Project.query.filter_by(projectname=project_name).first()
 
-	# is_in_grew = project_is_in_grew(project)
-
-	# redoublenl = re.compile(r'\s*\n\s*\n+\s*')
 	reextensions = re.compile(r'\.(conllu?|txt|tsv|csv)$')
 
 
@@ -377,7 +365,68 @@ def samplepage(project_name, sample_name):
 		return resp
 	else:
 		abort(409)
-	
+
+
+@project.route('/<project_name>/sample/<sample_name>/search', methods=['GET'])
+# @login_required
+def search_sample(project_name, sample_name):
+	"""
+	Aplly a grew search inside a project and sample
+	"""
+	project = Project.query.filter_by(projectname=project_name).first()
+
+	if not project:
+		abort(404)
+	if not request.json:
+		abort(400)
+
+	# TODO : test if sample exists
+
+	pattern = request.json.get("pattern")
+
+	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
+	if reply["status"] != "OK":
+		abort(400)
+
+	trees={}
+	matches={}
+	reendswithnumbers = re.compile(r"_(\d+)$")
+
+	for m in reply["data"]:
+		if m["sample_id"] != sample_name:
+			continue
+		if reendswithnumbers.search(list(m["nodes"].values())[0]):
+			user_id = reendswithnumbers.sub("", list(m["nodes"].values())[0])
+		elif reendswithnumbers.search(list(m["edges"].values())[0]):
+			user_id = reendswithnumbers.sub("",list(m["edges"].values())[0])
+
+		else:
+			abort(409)
+
+		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
+		if conll["status"] != "OK":
+			abort(404)
+		conll = conll["data"]
+
+		# adding trees
+		# {trees:{sent_id:{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
+		trees.get(m["sent_id"],{})[user_id] = conll
+
+		nodes = []
+		for k in m['nodes'].values():
+			nodes +=[k.split("_")[-1]]
+
+		edges = []
+		for k in m['edges'].values():
+			edges +=[k.split("_")[-1]]
+
+		matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
+
+
+	js = json.dumps({"trees":trees,"matches":matches})
+	resp = Response(js, status=200,  mimetype='application/json')
+
+	return resp
 
 
 
