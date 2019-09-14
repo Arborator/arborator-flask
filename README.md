@@ -66,3 +66,4 @@ modif
 new install :
 
 pip3 install sqlathanor
+pip3 install flask-cors
