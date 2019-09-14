@@ -5,7 +5,7 @@ import json
 from functools import wraps
 import os
 import re, base64
-from conll3 import conll3
+# from conll3 import conll3
 
 
 # local imports
@@ -105,6 +105,7 @@ def project_info(project_name):
 	samples=[]
 	nb_samples=0
 	nb_sentences=0
+	sum_nb_tokens=0
 	if data:
 		nb_samples = len(data)
 		samples = []
@@ -127,12 +128,13 @@ def project_info(project_name):
 				truc = reply.get("data", {})
 				for sent_id, dico in truc.items():
 					conll = list(dico.values())[0]
-					t = conll3.conll2tree(conll)
-					length = len(t)
-					lengths.append(length)
+					# t = conll3.conll2tree(conll)
+					# length = len(t)
+					# lengths.append(length)
 
 			sample["tokens"] = sum(lengths)
-			sample["averageSentenceLength"] = sum(lengths)/len(lengths)
+			# sample["averageSentenceLength"] = sum(lengths)/len(lengths)
+			sample["averageSentenceLength"] = 0
 
 			sample["exo"] = "" # TODO : create the table in the db and update it
 			samples.append(sample)
@@ -149,7 +151,7 @@ def project_info(project_name):
 
 	image = str(base64.b64encode(project.image))
 
-	js = json.dumps({"infos":{
+	js = json.dumps({
 		"name":project.projectname,
 		"is_private":project.is_private,
 		"description":project.description,
@@ -160,7 +162,7 @@ def project_info(project_name):
 		"number_samples":nb_samples,
 		"number_sentences":nb_sentences,
 		"number_tokens":sum_nb_tokens,
-		"averageSampleLength":average_tokens_per_sample}}, default=str)
+		"averageSentenceLength":average_tokens_per_sample}, default=str)
 
 	resp = Response(js, status=200,  mimetype='application/json')
 
