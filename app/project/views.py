@@ -5,7 +5,7 @@ import json
 from functools import wraps
 import os
 import re, base64
-# from conll3 import conll3
+from ..conll3 import conll3
 
 
 # local imports
@@ -128,13 +128,13 @@ def project_info(project_name):
 				truc = reply.get("data", {})
 				for sent_id, dico in truc.items():
 					conll = list(dico.values())[0]
-					# t = conll3.conll2tree(conll)
-					# length = len(t)
-					# lengths.append(length)
+					t = conll3.conll2tree(conll)
+					length = len(t)
+					lengths.append(length)
 
 			sample["tokens"] = sum(lengths)
-			# sample["averageSentenceLength"] = sum(lengths)/len(lengths)
-			sample["averageSentenceLength"] = 0
+			sample["averageSentenceLength"] = sum(lengths)/len(lengths)
+			# sample["averageSentenceLength"] = 0
 
 			sample["exo"] = "" # TODO : create the table in the db and update it
 			samples.append(sample)
