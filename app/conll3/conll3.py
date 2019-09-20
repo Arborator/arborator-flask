@@ -58,6 +58,9 @@ class Tree(dict):
 		if self.words==[]:
 			self.words = [self[i].get("t","") for i in sorted(self)]
 			return u" ".join(self.words)
+		else:
+			s = " ".join([self[i]["t"] for i in self.keys()])
+			return s
 
 	def conllu(self):
 		treestring = ""
@@ -97,7 +100,22 @@ class Tree(dict):
 
 	def get_root(self):
 		"""
-		
+		Finds the id of the root node inside the Tree
+
+		Parameters
+		----------
+		self: Tree
+			a dependency Tree in dict format
+
+		Warning
+		----------
+		Assumes there is only one root, if there are several it will only return the first one.
+		The root has a governor-id of value 0
+
+		Returns
+		----------
+		num : int
+			the id of the root node
 		"""
 		for num in self:
 			node = self.get(num)
@@ -105,6 +123,20 @@ class Tree(dict):
 				return num
 
 	def is_root(self, node):
+		"""
+		Checks whether a node is the root of a tree
+
+		Parameters
+		----------
+		self: Tree
+			a dependency Tree in dict format
+		node: dict
+			the dict representation of the node
+
+		Returns
+		----------
+		Boolean : True (is root) / False (is not root)
+		"""
 		if 0 in node["gov"]:
 			return True
 		else:

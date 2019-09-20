@@ -6,6 +6,7 @@ from functools import wraps
 import os
 import re, base64
 from ..conll3 import conll3
+from collections import OrderedDict
 
 
 # local imports
@@ -246,7 +247,7 @@ def delete_project(project_name):
 
 
 # TODO: on est là !
-@project.route('/<project_name>/search', methods=["GET"])
+@project.route('/<project_name>/search', methods=["GET","POST"])
 def search_project(project_name):
 	"""
 	expects json with grew pattern such as
@@ -273,6 +274,7 @@ def search_project(project_name):
 		abort(400)
 
 	trees={}
+	# trees = list()
 	matches={}
 	reendswithnumbers = re.compile(r"_(\d+)$")
 
@@ -290,10 +292,16 @@ def search_project(project_name):
 			abort(404)
 		conll = conll["data"]
 
-		# adding trees
-		# {trees:{sent_id:{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
-		trees.get(m["sent_id"],{})[user_id] = conll
 
+		# adding trees
+		# {trees:{sent_id:{"sentence":sentence, "conlls":{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
+	
+		if m["sent_id"] not in trees:
+			t = conll3.conll2tree(conll)
+			s = t.sentence()
+			trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll}}
+		else:
+			trees[m["sent_id"]]["conlls"].update(user_id=conll)
 		nodes = []
 		for k in m['nodes'].values():
 			nodes +=[k.split("_")[-1]]
@@ -303,7 +311,6 @@ def search_project(project_name):
 			edges +=[k.split("_")[-1]]
 
 		matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
-
 
 	js = json.dumps({"trees":trees,"matches":matches})
 	resp = Response(js, status=200,  mimetype='application/json')
