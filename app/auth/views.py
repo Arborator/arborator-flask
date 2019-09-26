@@ -78,7 +78,8 @@ def login(provider_name):
            
             js = json.dumps(user.as_json(), default=str)
             resp = Response(js, status=200,  mimetype='application/json')
-            return resp
+            # return resp
+            return render_template('home/redirect.html', response=resp)
             # return render_template('home/index.html', result=result)
     return response
 
@@ -128,3 +129,19 @@ def logout():
     # redirect to the login page
     #return redirect(url_for('auth.choose_provider'))
     return redirect(url_for('home.home_page'))
+
+@auth.route('/test')
+# @login_required
+def xxxt():
+    """
+    Handle requests to the /logout route
+    Log an employee out through the logout link
+    """
+    # logout_user()
+    # flash('You have successfully been logged out.') 
+
+    # # redirect to the login page
+    #return redirect(url_for('auth.choose_provider'))
+    # return redirect(url_for('home.home_page'))
+    js = json.dumps({"stat":"ok"})
+    return redirect("https://google.com", Response=js)
