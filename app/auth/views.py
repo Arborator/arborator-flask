@@ -39,9 +39,11 @@ def login(provider_name):
     # If there is no LoginResult object, the login procedure is still pending.
     if result:
         if result.error:
-            return "Error: {}".format(result.error.message)
-            # Something really bad has happened.
-            abort(500)
+            return result.error
+        #     # return "Error: {}".format(result.error.message)
+        #     # Something really bad has happened.
+        #     abort(500)
+        print('result = ', result)
         if result.user:
             result.user.update()
             # We need to update the user to get more info.
