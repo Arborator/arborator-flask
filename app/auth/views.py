@@ -29,7 +29,8 @@ def login(provider_name):
     """   
     # We need response object for the WerkzeugAdapter.
     response = make_response()
-
+    print("response@@@@", response)
+    print("base url=====", request.base_url)
     # Log the user in, pass it the adapter and the provider name.
     result = authomatic.login(WerkzeugAdapter(request, response), provider_name)
     #####Sessions!! coming back
