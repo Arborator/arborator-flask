@@ -11,7 +11,7 @@ from ..app import db, login_manager
 
 class BaseM(object):
 
-	def as_json(self, exclude=[]):
+	def as_json(self, exclude=[], include={}):
 		json_rep = dict()
 		for k in vars(self):
 			print(getattr(self, k))
@@ -27,6 +27,8 @@ class BaseM(object):
 				# json_rep[k] = str(getattr(self, k))
 			else:
 				json_rep[k] = getattr(self, k)
+		for k in include:
+			json_rep[k] = include[k]
 		return json_rep
 
 
