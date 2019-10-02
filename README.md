@@ -45,7 +45,7 @@ si problème :
 	sudo pip3 install flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap
 	
 faire tourner :
-	export FLASK_APP=run.py; export FLASK_CONFIG=development; flask run
+	export FLASK_APP=run.py; export FLASK_CONFIG=development; flask run --cert=adhoc
 	
 	
 structure : 
@@ -67,3 +67,5 @@ new install :
 
 pip3 install sqlathanor
 pip3 install flask-cors
+pip3 install pyopenssl
+
