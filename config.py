@@ -20,6 +20,10 @@ class Config(object):
     FIRSTADMINKEY="azer"
     UPLOAD_FOLDER = "grew_server/test/data/"
 
+    # if both are uncommented then vue can access the session cookie
+    SESSION_COOKIE_HTTPONLY = False
+    SESSION_COOKIE_SECURE = True
+
 class DevelopmentConfig(Config):
     """
     Development configurations
