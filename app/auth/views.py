@@ -10,9 +10,14 @@ from .auth_config import CONFIG
 from ...config import Config
 import json
 
+# added alternative imports in case of errors (to cure later on)
+from functools import wraps
+from authomatic.extras.flask import FlaskAuthomatic
 
 
 authomatic = Authomatic(CONFIG, Config.SECRET_KEY, report_errors=True)
+# added alternative in case of errors (to cure later on)
+# authomatic = FlaskAuthomatic(CONFIG, Config.SECRET_KEY, session_max_age=600, secure_cookie=True, session=None, session_save_method=None, report_errors=True, debug=False, logging_level=20, prefix='authomatic', logger=None)
 
 # à virer à terme (faire en quasar)
 @auth.route('/auth')
@@ -32,6 +37,8 @@ def login(provider_name):
     print("response@@@@", response)
     print("base url=====", request.base_url)
     # Log the user in, pass it the adapter and the provider name.
+
+    
     result = authomatic.login(WerkzeugAdapter(request, response), provider_name)
     #####Sessions!! coming back
         # session=session,
@@ -40,12 +47,17 @@ def login(provider_name):
     # If there is no LoginResult object, the login procedure is still pending.
     if result:
         if result.error:
-            return result.error
-        #     # return "Error: {}".format(result.error.message)
+            # return result.error
+            print("Error: {}".format(result.error))
+            # resp = Response({}, status=200,  mimetype='application/json')
+            # return render_template('home/redirect.html', response=resp)
+            # return "Error: {}".format(result.error.message)
         #     # Something really bad has happened.
-        #     abort(500)
+            abort(500)
         print('result = ', result)
+        print(result.provider)
         if result.user:
+            print('USER FOUND')
             result.user.update()
             # We need to update the user to get more info.
             
