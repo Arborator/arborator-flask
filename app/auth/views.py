@@ -5,7 +5,7 @@ from flask_login import login_required, login_user, logout_user
 from ...app import db
 from datetime import datetime
 from . import auth
-from ..models import User, load_user
+from ..models import User, load_user, AlchemyEncoder
 from .auth_config import CONFIG
 from ...config import Config
 import json
@@ -13,6 +13,8 @@ import json
 # added alternative imports in case of errors (to cure later on)
 from functools import wraps
 from authomatic.extras.flask import FlaskAuthomatic
+
+
 
 
 authomatic = Authomatic(CONFIG, Config.SECRET_KEY, report_errors=True)
@@ -97,6 +99,27 @@ def login(provider_name):
             return render_template('home/redirect.html', response=resp)
             # return render_template('home/index.html', result=result)
     return response
+
+
+@auth.route('/login/userinfos', methods=['GET', 'POST'])
+def getUserInfos():
+    # print(session)
+    print('USERINFOS')
+    user_id = session.get("user_id")
+    print('user_id', user_id)
+    user = load_user(user_id)
+    print('super_admin ?', user.super_admin)
+    user.last_seen=datetime.utcnow()
+    print('user', user)
+    print('user json', user.as_json())
+    db.session.commit()
+    js = json.dumps(user.as_json(), default=str) # returns empty data !
+    print('user jjson str', js)
+    print(json.dumps(user, cls=AlchemyEncoder) )
+    js = json.dumps(user, cls=AlchemyEncoder)
+    resp = Response(js, status=200,  mimetype='application/json')
+    return resp
+
 
 
 @auth.route('/firstsuper')

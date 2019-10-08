@@ -5,9 +5,10 @@ from datetime import datetime
 # from sqlalchemy.ext.declarative import declarative_base, as_declarative
 # from sqlathanor import declarative_base, as_declarative
 from sqlalchemy.schema import UniqueConstraint
-import re, base64
+import re, base64, json
 from ..app import db, login_manager
 
+from sqlalchemy.ext.declarative import DeclarativeMeta
 
 class BaseM(object):
 
@@ -30,6 +31,27 @@ class BaseM(object):
 		for k in include:
 			json_rep[k] = include[k]
 		return json_rep
+
+	
+
+class AlchemyEncoder(json.JSONEncoder):
+
+	def default(self, obj):
+		if isinstance(obj.__class__, DeclarativeMeta):
+			# an SQLAlchemy class
+			fields = {}
+			for field in [x for x in dir(obj) if not x.startswith('_') and x != 'metadata']:
+				data = obj.__getattribute__(field)
+				try:
+					json.dumps(data) # this will fail on non-encodable values, like other classes
+					fields[field] = data
+				except TypeError:
+					fields[field] = None
+			# a json-encodable dict
+			return fields
+
+		return json.JSONEncoder.default(self, obj)
+
 
 
 
@@ -79,6 +101,17 @@ class User(UserMixin, db.Model, BaseM):
 			session.add(instance)
 			session.commit()
 			return instance, True
+
+	# @staticmethod
+	# def findById(session, **kwargs):
+	# 	""" Gael : method to find a user based on the username (i.e. id ?). Return the user or None if it does not exists"""
+	# 	instance = session.query(User).filter_by(username=kwargs['username']).first()
+	# 	if instance:
+	# 		instance.last_seen=datetime.utcnow()
+	# 		session.commit()
+	# 		return instance
+	# 	else:
+	# 		return None
 
 	
 	#def allowed(self, level):
