@@ -156,6 +156,20 @@ def checkfirstsuper():
     return redirect(url_for('home.home_page'))
 
 
+# @auth.route('/logout')
+# @login_required
+# def logout():
+#     """
+#     Handle requests to the /logout route
+#     Log an employee out through the logout link
+#     """
+#     logout_user()
+#     flash('You have successfully been logged out.') 
+
+#     # redirect to the login page
+#     #return redirect(url_for('auth.choose_provider'))
+#     return redirect(url_for('home.home_page'))
+
 @auth.route('/logout')
 @login_required
 def logout():
@@ -164,11 +178,9 @@ def logout():
     Log an employee out through the logout link
     """
     logout_user()
-    flash('You have successfully been logged out.') 
-
-    # redirect to the login page
-    #return redirect(url_for('auth.choose_provider'))
-    return redirect(url_for('home.home_page'))
+    js = json.dumps({'logout':True}, default=str)
+    resp = Response(js, status=200,  mimetype='application/json')
+    return resp
 
 @auth.route('/test')
 # @login_required
