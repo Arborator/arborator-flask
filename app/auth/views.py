@@ -171,7 +171,6 @@ def checkfirstsuper():
 #     return redirect(url_for('home.home_page'))
 
 @auth.route('/logout')
-@login_required
 def logout():
     """
     Handle requests to the /logout route
