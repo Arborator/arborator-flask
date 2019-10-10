@@ -84,7 +84,9 @@ def login(provider_name):
                         created_date=datetime.utcnow(),
                         last_seen=datetime.utcnow()
                     )
-              
+
+            User.setPictureUrl(db.session, user.username, result.user.picture) # always get the lastest picture on login
+
             login_user(user, remember=True)
             session['logged_in']=True ### ?????
             

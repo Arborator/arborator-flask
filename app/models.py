@@ -102,17 +102,17 @@ class User(UserMixin, db.Model, BaseM):
 			session.commit()
 			return instance, True
 
-	# @staticmethod
-	# def findById(session, **kwargs):
-	# 	""" Gael : method to find a user based on the username (i.e. id ?). Return the user or None if it does not exists"""
-	# 	instance = session.query(User).filter_by(username=kwargs['username']).first()
-	# 	if instance:
-	# 		instance.last_seen=datetime.utcnow()
-	# 		session.commit()
-	# 		return instance
-	# 	else:
-	# 		return None
-
+	@staticmethod
+	def setPictureUrl(session, username, pictureUrl):
+		'''
+		Modify the user url. Need the session and the username to find it. 
+		This method is static void.
+		Note: should be interfaced by a service.
+		'''
+		instance = session.query(User).filter_by(username=username).first()
+		if instance:
+			instance.picture_url = pictureUrl
+			session.commit()
 	
 	#def allowed(self, level):
 		#return self.access >= level
