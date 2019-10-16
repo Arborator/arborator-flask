@@ -9,6 +9,7 @@ from ..models import User, load_user, AlchemyEncoder
 from .auth_config import CONFIG
 from ...config import Config
 import json
+import requests
 
 # added alternative imports in case of errors (to cure later on)
 from functools import wraps
@@ -29,6 +30,41 @@ def choose_provider():
     """
     return render_template('auth/index.html')
 
+
+def parse_user(provider_name, user):
+    results_parsed = {}
+
+    if provider_name == "github":
+        access_token = user.data.get("access_token")
+        data = get_username(access_token, "github")
+        results_parsed["id"] = data.get("id")
+        results_parsed["username"] = data.get("login")
+        results_parsed["picture_url"] = data.get("avatar_url")
+        results_parsed["email"] = data.get("email")
+
+    elif provider_name == "google":
+        results_parsed["id"] = user.email
+        results_parsed["username"] = user.email.split('@')[0]
+        results_parsed["email"] = user.email
+        results_parsed["first_name"]= user.first_name
+        results_parsed["family_name"] = user.last_name
+        results_parsed["picture_url"] = user.picture
+        
+    return results_parsed
+     
+
+def get_username(access_token, provider_name):
+    if provider_name == "github":
+        headers = {"Authorization": "bearer " + access_token}
+        response = requests.get("https://api.github.com/user", headers=headers)
+        data = response.json()
+        return data
+    else:
+        abort(404)
+
+
+
+
 @auth.route('/login/<provider_name>/', methods=['GET', 'POST'])
 def login(provider_name):
     """
@@ -36,70 +72,64 @@ def login(provider_name):
     """   
     # We need response object for the WerkzeugAdapter.
     response = make_response()
-    print("response@@@@", response)
-    print("base url=====", request.base_url)
-    # Log the user in, pass it the adapter and the provider name.
 
-    
+    # Log the user in, pass it the adapter and the provider name.
     result = authomatic.login(WerkzeugAdapter(request, response), provider_name)
+
     #####Sessions!! coming back
         # session=session,
         # session_saver=lambda: app.save_session(session, response))
-    print(456546514,result, provider_name, response)
+
     # If there is no LoginResult object, the login procedure is still pending.
     if result:
         if result.error:
-            # return result.error
             print("Error: {}".format(result.error))
-            # resp = Response({}, status=200,  mimetype='application/json')
-            # return render_template('home/redirect.html', response=resp)
-            # return "Error: {}".format(result.error.message)
-        #     # Something really bad has happened.
             abort(500)
-        print('result = ', result)
-        print(result.provider)
+  
         if result.user:
-            print('USER FOUND')
-            result.user.update()
-            # We need to update the user to get more info.
-            
+            if provider_name == "google":
+                result.user.update() # specific to google, we need to update the user to get more info.
+            else:
+                pass
+            results_parsed = parse_user(provider_name, result.user) # parse the format specific to each provider
+
             #save user id to session
-            user = User.query.filter_by(id=result.user.email).first()
+            user = User.query.filter_by(id=results_parsed.get("id")).first()
             # session['email'] = result.user.email
             if user is None:
-                username = result.user.email.split('@')[0]
+
+                username = results_parsed.get("username")
                 username = User.make_valid_nickname(username)
                 username = User.make_unique_nickname(username)
+
                 ##Save UserDetails To Db
                 user, created = User.get_or_create(
                         db.session, 
-                        id = result.user.email,
+                        id = results_parsed["id"],
                         auth_provider = result.user.provider.id,
-                        username = username,
+                        username = results_parsed.get("username"),
                         #email=result.user.email,
-                        first_name=result.user.first_name,
-                        family_name=result.user.last_name,
-                        picture_url=result.user.picture,
+                        first_name=results_parsed.get("first_name"),
+                        family_name=results_parsed.get("family_name"),
+                        picture_url=results_parsed.get("picture_url"),
                         super_admin=False,
                         created_date=datetime.utcnow(),
                         last_seen=datetime.utcnow()
                     )
 
-            User.setPictureUrl(db.session, user.username, result.user.picture) # always get the lastest picture on login
+            User.setPictureUrl(db.session, user.username, results_parsed.get("picture_url")) # always get the lastest picture on login
 
             login_user(user, remember=True)
             session['logged_in']=True ### ?????
             
             if not User.query.filter_by(super_admin=True).first():
                 print("firstsuper")
-                # return redirect(url_for('auth.firstsuper'))
                 return render_template('admin/firstsuper.html')
            
             js = json.dumps(user.as_json(), default=str)
             resp = Response(js, status=200,  mimetype='application/json')
-            # return resp
             return render_template('home/redirect.html', response=resp)
-            # return render_template('home/index.html', result=result)
+
     return response
 
 
