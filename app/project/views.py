@@ -325,64 +325,65 @@ def sample_upload(project_name):
 	"""
 	project/<projectname>/upload
 	POST multipart
-	multipart (fichier conll), filename, importuser
+	multipart (fichier conll), import_user (if not contained in the file's metadata)
 
 	TODO: verify either importuser or provided in conll (all the trees must have it)
 	more generally: test conll!
 	"""
 	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(404)
 
-	reextensions = re.compile(r'\.(conllu?|txt|tsv|csv)$')
+	fichiers = request.files.to_dict(flat=False).get("files")
+	import_user = request.form.get("import_user", "")
+	if fichiers:
 
+		reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
 
-	files = request.json.get("files", [])
-	import_user = request.json.get("import_user", "")
-	
-	samplenames = request.json.get("samplenames", [reextensions.sub("", os.path.basename(f)) for f in files])
-	print('========== [getSamples]')
-	reply = grew_request (
-			'getSamples',
-			data = {'project_id': project_name}
-				)
-	js = json.loads(reply)
-	data = js.get("data")
+		# checking already existing samples in the project
+		print('========== [getSamples]')
+		reply = grew_request (
+				'getSamples',
+				data = {'project_id': project_name}
+					)
+		js = json.loads(reply)
+		data = js.get("data")
+		if data:
+			samples = [sa['name'] for sa in data]
+		else:
+			samples = []
 
-	# checking already existing samples in the project
-	if data:
-		samples = [sa['name'] for sa in data]
-	else:
-		samples = []
+		for f in fichiers:
+			filename = secure_filename(f.filename)
+			sample_name = reextensions.sub("", filename)
 
-	for fichier, sample_name in zip(files,samplenames):
-		print("saving {}".format(fichier))
-		content = open(fichier).read()
-		
-		with open(Config.UPLOAD_FOLDER +secure_filename(sample_name), "w") as outf:
-			outf.write(content)
+			# writing file to upload folder
+			f.save(os.path.join(Config.UPLOAD_FOLDER, filename))
 
-		if sample_name not in samples:
-			# create a new sample in the grew project
-			print ('========== [newSample]')
-			reply = grew_request ('newSample', data={'project_id': project_name, 'sample_id': sample_name })
-			print (reply)
+			if sample_name not in samples:
+				# create a new sample in the grew project
+				print ('========== [newSample]')
+				reply = grew_request ('newSample', data={'project_id': project_name, 'sample_id': sample_name })
+				print (reply)
 
+			else:
+				print("/!\ sample already exists")
 
-		print(project_name, sample_name, import_user)
-		with open(os.path.join(Config.UPLOAD_FOLDER,secure_filename(sample_name)), 'rb') as inf:
-			print ('========== [saveConll]')
-			if import_user:
-				reply = grew_request (
-					'saveConll',
-					data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
-					files={'conll_file': inf},
-				)
-			else: # if no import_user has been provided, it should be in the conll metadata
-				reply = grew_request (
-					'saveConll',
-					data = {'project_id': project_name, 'sample_id': sample_name},
-					files={'conll_file': inf},
-				)
-			print(reply)
+			with open(os.path.join(Config.UPLOAD_FOLDER, filename), 'rb') as inf:
+				print ('========== [saveConll]')
+				if import_user:
+					reply = grew_request (
+						'saveConll',
+						data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
+						files={'conll_file': inf},
+					)
+				else: # if no import_user has been provided, it should be in the conll metadata
+					reply = grew_request (
+						'saveConll',
+						data = {'project_id': project_name, 'sample_id': sample_name},
+						files={'conll_file': inf},
+					)
+				print(reply)
 
 	print('========== [getSamples]')
 	reply = grew_request (
