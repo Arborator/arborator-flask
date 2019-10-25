@@ -7,6 +7,7 @@ import os
 import re, base64
 from ..conll3 import conll3
 from collections import OrderedDict
+from flask_cors import cross_origin
 
 
 # local imports
@@ -134,8 +135,7 @@ def project_info(project_name):
 					lengths.append(length)
 
 			sample["tokens"] = sum(lengths)
-			sample["averageSentenceLength"] = sum(lengths)/len(lengths)
-			# sample["averageSentenceLength"] = 0
+			if len(lengths) > 0 : sample["averageSentenceLength"] = sum(lengths)/len(lengths)
 
 			sample["exo"] = "" # TODO : create the table in the db and update it
 			samples.append(sample)
@@ -320,7 +320,8 @@ def search_project(project_name):
 
 
 
-@project.route('/<project_name>/upload', methods=["POST"])
+@project.route('/<project_name>/upload', methods=["POST", "OPTIONS"])
+@cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
 def sample_upload(project_name):
 	"""
 	project/<projectname>/upload
