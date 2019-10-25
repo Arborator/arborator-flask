@@ -110,6 +110,7 @@ def project_info(project_name):
 	nb_samples=0
 	nb_sentences=0
 	sum_nb_tokens=0
+	average_tokens_per_sample=0
 	if data:
 		nb_samples = len(data)
 		samples = []
