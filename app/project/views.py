@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, jsonify, request, Response, abort
 from flask_login import login_required, current_user
 from werkzeug import secure_filename
-import json
+import json, logging
 from functools import wraps
 import os
 import re, base64
@@ -16,6 +16,8 @@ from ..models import *
 from ...grew_server.test.test_server import send_request as grew_request
 from ...config import Config
 
+
+logging.getLogger('flask_cors').level = logging.DEBUG
 
 def get_access_for_project(user_id, project_id):
 	"""
@@ -321,7 +323,8 @@ def search_project(project_name):
 
 
 @project.route('/<project_name>/upload', methods=["POST", "OPTIONS"])
-@cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
+@cross_origin()
+# @cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
 def sample_upload(project_name):
 	"""
 	project/<projectname>/upload
