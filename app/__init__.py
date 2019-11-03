@@ -19,7 +19,7 @@ db = SQLAlchemy()
 
 login_manager = LoginManager()
 # Throws error if placed above db initialization
-from .models import *
+from .models.models import *
 
 
 
@@ -36,18 +36,18 @@ def create_app(config_name):
 	# commented to get a real 401 error in case of acces to an unauthorized page:
 	# login_manager.login_view = "auth.choose_provider" 
 
-	from . import models
+	from .models import models
 
-	from .admin import admin as admin_blueprint
+	from .controllers.admin import admin as admin_blueprint
 	app.register_blueprint(admin_blueprint, url_prefix='/api/admin')
 
-	from .auth import auth as auth_blueprint
+	from .controllers.auth import auth as auth_blueprint
 	app.register_blueprint(auth_blueprint)
 
-	from .home import home as home_blueprint
+	from .controllers.home import home as home_blueprint
 	app.register_blueprint(home_blueprint, url_prefix='/api')
 
-	from .project import project as project_blueprint
+	from .controllers.project import project as project_blueprint
 	app.register_blueprint(project_blueprint, url_prefix='/api/projects')
 
 	@app.errorhandler(403)
