@@ -1,0 +1,621 @@
+from flask import render_template, flash, redirect, url_for, jsonify, request, Response, abort
+from flask_login import login_required, current_user
+from werkzeug import secure_filename
+import json, logging
+from functools import wraps
+import os
+import re, base64
+from ...utils.conll3 import conll3
+from collections import OrderedDict
+from flask_cors import cross_origin
+
+
+# local imports
+from . import project
+from ...models.models import *
+from ....grew_server.test.test_server import send_request as grew_request
+from ....config import Config
+
+from ...services import project_service
+
+
+logging.getLogger('flask_cors').level = logging.DEBUG
+
+def get_access_for_project(user_id, project_id):
+	"""
+	Returns the access rights of a user for a given project
+
+	str int -> int
+	"""
+	return project_service.get_access_for_project(project_id, user_id)
+
+
+
+def requires_access_level(access_level):
+	"""
+	except for superadmins
+	"""
+	def decorator(f):
+		@wraps(f)
+		def decorated_function(*args, **kwargs):
+
+			# not authenticated -> login
+			if not current_user.id:
+				return redirect(url_for('auth.login'))
+
+			if kwargs.get("project_name"):
+				project_id = Project.query.filter_by(name=kwargs["project_name"]).first().id
+			elif kwargs.get("id"):
+				project_id = kwargs["id"]
+			else:
+				abort(400)
+
+			projectaccess = get_access_for_project(current_user.id, project_id)
+
+			print("project_access for current user: {}".format(projectaccess))
+			
+			if not current_user.super_admin: # super_admin are always admin even if it's not in the table
+				if projectaccess is None or projectaccess < access_level:
+					abort(403)
+					# return redirect(url_for('home.home_page'))
+
+			return f(*args, **kwargs)
+		return decorated_function
+	return decorator
+
+
+############################ controlers
+
+
+@project.route('/<project_name>/', methods=['GET'])
+# @login_required
+# @requires_access_level(2)
+def project_info(project_name):
+	"""
+	GET project information
+
+	list of samples (403 si projet privé et utilisateur pas de rôle)
+	pê admin names, nb samples, nb arbres, description	
+
+	infos: {
+                name: projectname,
+                admins : [],
+                samples: [
+                    { samplename: 'P_ABJ_GWA_10_Steven.lifestory_PRO', sentences: 80, tokens: 20, averageSentenceLength: 12.6, roles :{validators: [], annotators: []}, treesFrom: ['parser', 'tella', 'j.D'], exo: 'percentage'}, 
+	"""
+	current_user.id ="rinema56@gmail.com"
+	project = Project.query.filter_by(projectname=project_name).first()
+	# print(project)
+	roles = sorted(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
+
+	if not roles and project.is_private:
+		abort(403)
+
+	admins = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=2).all()
+	admins = [a.userid for a in admins]
+	guests = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=1).all()
+	guests = [g.userid for g in guests]
+
+	reply = grew_request (
+		'getSamples',
+		data = {'project_id': project.projectname}
+		)
+	js = json.loads(reply)
+	data = js.get("data")
+	samples=[]
+	nb_samples=0
+	nb_sentences=0
+	sum_nb_tokens=0
+	average_tokens_per_sample=0
+	if data:
+		nb_samples = len(data)
+		samples = []
+		sample_lengths = []
+		for sa in data:
+			sample={'samplename':sa['name'], 'sentences':sa['size'], 'treesFrom':sa['users'], "roles":{}}
+			lengths = []
+			for r,label in SampleRole.ROLES:
+				role = db.session.query(User, SampleRole).filter(
+					User.id == SampleRole.userid).filter(
+						SampleRole.projectid==project.id).filter(
+							SampleRole.samplename==sa['name']).filter(
+								SampleRole.role==r).all()
+				sample["roles"][label] = [a.as_json() for a,b in role]
+
+			reply = json.loads(grew_request('getConll', data={'project_id': project.projectname, 'sample_id':sa["name"]}))
+			# print(json.loads(reply))
+			
+			if reply.get("status") == "OK":
+				truc = reply.get("data", {})
+				for sent_id, dico in truc.items():
+					conll = list(dico.values())[0]
+					t = conll3.conll2tree(conll)
+					length = len(t)
+					lengths.append(length)
+
+			sample["tokens"] = sum(lengths)
+			if len(lengths) > 0 : sample["averageSentenceLength"] = sum(lengths)/len(lengths)
+
+			sample["exo"] = "" # TODO : create the table in the db and update it
+			samples.append(sample)
+			sample_lengths += [sample["tokens"]]
+
+		sum_nb_tokens = sum(sample_lengths)
+		average_tokens_per_sample = sum(sample_lengths)/len(sample_lengths)
+			 
+		reply = grew_request('getSentIds', data={'project_id': project_name})
+		js = json.loads(reply)
+		data = js.get("data")
+		if data:
+			nb_sentences = len(data)
+
+	image = str(base64.b64encode(project.image))
+
+	js = json.dumps({
+		"name":project.projectname,
+		"is_private":project.is_private,
+		"description":project.description,
+		"image":image,
+		"samples":samples,
+		"admins":admins,
+		"guests":guests,
+		"number_samples":nb_samples,
+		"number_sentences":nb_sentences,
+		"number_tokens":sum_nb_tokens,
+		"averageSentenceLength":average_tokens_per_sample}, default=str)
+
+	resp = Response(js, status=200,  mimetype='application/json')
+
+	return resp
+
+@project.route('/<project_name>/', methods=['POST'])
+# @login_required
+# @requires_access_level(2)
+def project_update(project_name):
+	"""
+	modifie project info
+
+	par exemple
+	ajouter admin / guest users:{nom:access, nom:access, nom:"" (pour enlever)}
+	changer nom du projet project:{nom:nouveaunom,description:nouvelledescription,isprivate:True, image:blob}
+	# TODO : change the projectname in grew also !
+	
+	"""
+	# print(request.json,project_name)
+	if not request.json:
+		abort(400)
+	project = Project.query.filter_by(projectname=project_name).first()
+	# print(987,project)
+	if not project:
+		abort(400)
+	if request.json.get("users"):
+		for k,v in request.json.get("users").items():
+			user = User.query.filter_by(id=k).first()
+			if user:
+				pa = ProjectAccess.query.filter_by(userid=user.id, projectid=project.id).first()
+				if pa:
+					pa.accesslevel=v
+				else:
+					pa = ProjectAccess(userid=user.id, projectid=project.id, accesslevel=v )
+					db.session.add(pa)
+			else:
+				abort(400)
+	if request.json.get("project"):
+		for k,v in request.json.get("project").items():
+			setattr(project,k,v)
+	db.session.commit()
+	return project_info(project_name)
+
+
+
+
+@project.route('/<project_name>/delete', methods=['DELETE'])
+# @login_required
+# @requires_access_level(2)
+def delete_project(project_name):
+	"""
+	Delete a project
+	no json
+	"""
+
+	# current_user.super_admin = True
+	# current_user.id = "rinema56@gmail.com"
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(400)
+	p_access = get_access_for_project(current_user.id, project.id)
+	if p_access >=2 or current_user.super_admin: # p_access and p_access >=2
+		print(project)
+		db.session.delete(project)
+		related_accesses = ProjectAccess.query.filter_by(projectid=project.id).delete()
+		related_sample_roles = SampleRole.query.filter_by(projectid=project.id).delete()
+		db.session.commit()
+
+		print ('========== [eraseProject]')
+		reply = grew_request('eraseProject', data={'project_id': project.projectname})
+	else:
+		print("p_access to low for project {}".format(project.projectname))
+		abort(403)
+	
+	projects = Project.query.all()
+	js = json.dumps([p.as_json() for p in projects])
+	resp = Response(js, status=200,  mimetype='application/json')
+	
+	return resp
+
+
+
+# TODO: on est là !
+@project.route('/<project_name>/search', methods=["GET","POST"])
+def search_project(project_name):
+	"""
+	expects json with grew pattern such as
+	{
+	"pattern":"pattern { N [upos=\"NUM\"] }"
+	}
+	important: simple and double quotes must be escaped!
+
+
+	returns:
+	{'sample_id': 'P_WAZP_07_Imonirhuas.Life.Story_PRO', 'sent_id': 'P_WAZP_07_Imonirhuas-Life-Story_PRO_97', 'nodes': {'N': 'Bernard_11'}, 'edges': {}}, {'sample_id':...
+	"""
+
+	project = Project.query.filter_by(projectname=project_name).first()
+
+	if not project:
+		abort(404)
+	if not request.json:
+		abort(400)
+
+	pattern = request.json.get("pattern")
+	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
+	if reply["status"] != "OK":
+		abort(400)
+
+	trees={}
+	# trees = list()
+	matches={}
+	reendswithnumbers = re.compile(r"_(\d+)$")
+
+	for m in reply["data"]:
+		if reendswithnumbers.search(list(m["nodes"].values())[0]):
+			user_id = reendswithnumbers.sub("", list(m["nodes"].values())[0])
+		elif reendswithnumbers.search(list(m["edges"].values())[0]):
+			user_id = reendswithnumbers.sub("",list(m["edges"].values())[0])
+
+		else:
+			abort(409)
+
+		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
+		if conll["status"] != "OK":
+			abort(404)
+		conll = conll["data"]
+
+
+		# adding trees
+		# {trees:{sent_id:{"sentence":sentence, "conlls":{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
+	
+		if m["sent_id"] not in trees:
+			t = conll3.conll2tree(conll)
+			s = t.sentence()
+			trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll}}
+		else:
+			trees[m["sent_id"]]["conlls"].update(user_id=conll)
+		nodes = []
+		for k in m['nodes'].values():
+			nodes +=[k.split("_")[-1]]
+
+		edges = []
+		for k in m['edges'].values():
+			edges +=[k.split("_")[-1]]
+
+		matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
+
+	js = json.dumps({"trees":trees,"matches":matches})
+	resp = Response(js, status=200,  mimetype='application/json')
+
+	return resp
+	
+
+
+
+@project.route('/<project_name>/upload', methods=["POST", "OPTIONS"])
+@cross_origin()
+# @cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
+def sample_upload(project_name):
+	"""
+	project/<projectname>/upload
+	POST multipart
+	multipart (fichier conll), import_user (if not contained in the file's metadata)
+
+	TODO: verify either importuser or provided in conll (all the trees must have it)
+	more generally: test conll!
+	"""
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(404)
+
+	fichiers = request.files.to_dict(flat=False).get("files")
+	import_user = request.form.get("import_user", "")
+	if fichiers:
+
+		reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
+
+		# checking already existing samples in the project
+		print('========== [getSamples]')
+		reply = grew_request (
+				'getSamples',
+				data = {'project_id': project_name}
+					)
+		js = json.loads(reply)
+		data = js.get("data")
+		if data:
+			samples = [sa['name'] for sa in data]
+		else:
+			samples = []
+
+		for f in fichiers:
+			filename = secure_filename(f.filename)
+			sample_name = reextensions.sub("", filename)
+
+			# writing file to upload folder
+			f.save(os.path.join(Config.UPLOAD_FOLDER, filename))
+
+			if sample_name not in samples:
+				# create a new sample in the grew project
+				print ('========== [newSample]')
+				reply = grew_request ('newSample', data={'project_id': project_name, 'sample_id': sample_name })
+				print (reply)
+
+			else:
+				print("/!\ sample already exists")
+
+			with open(os.path.join(Config.UPLOAD_FOLDER, filename), 'rb') as inf:
+				print ('========== [saveConll]')
+				if import_user:
+					reply = grew_request (
+						'saveConll',
+						data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
+						files={'conll_file': inf},
+					)
+				else: # if no import_user has been provided, it should be in the conll metadata
+					reply = grew_request (
+						'saveConll',
+						data = {'project_id': project_name, 'sample_id': sample_name},
+						files={'conll_file': inf},
+					)
+				print(reply)
+
+	print('========== [getSamples]')
+	reply = grew_request (
+			'getSamples',
+			data = {'project_id': project_name}
+				)
+	samples = {"samples":[sa['name'] for sa in json.loads(reply)['data']]}
+	js = json.dumps(samples)
+	resp = Response(js, status=200,  mimetype='application/json')
+
+	return resp
+
+
+
+@project.route('/<project_name>/export/zip', methods=["POST", "GET"])
+def sample_export(project_name):
+	data = request.json
+	samplenames = data['samples']
+	sampletrees = list()
+	for samplename in samplenames: 
+		reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':samplename}))
+		if reply.get("status") == "OK":	sampletrees.append( servSampleTrees(reply.get("data", {})  )	)
+	# print(sampletrees[0])
+	# print(reply)
+	resp = Response({}, status=200,  mimetype='application/zip', headers={'Content-Disposition':'attachment;filename=dump.zip'})
+	return resp
+	
+def servSampleTrees(samples):
+	trees={}
+	for sentId, users in samples.items():	
+		for userId, conll in users.items():
+			# tree = conll3.conll2tree(conll)
+			if sentId not in trees: trees[sentId] = { "conlls": {}}
+			trees[sentId]["conlls"][userId] = conll
+	js = json.dumps(trees)
+	return js
+
+def servTreeToOutputs(tree):
+	return None
+
+
+@project.route('/<project_name>/sample/<sample_name>', methods=['GET'])
+# @login_required
+def samplepage(project_name, sample_name):
+	"""
+	GET
+	nb_sentences, nb_trees, list of annotators, list of validators
+
+	TODO: tester si le projet est privé
+	pour l'arbre : annotateur ne peut pas voir d'autres arbres sauf la base
+
+
+	returns:
+	{
+    "P_ABJ_GWA_10_Steven-lifestory_PRO_1": {
+		"sentence": "fdfdfsf",
+		"conlls":{
+        "yuchen": "# elan_id = ABJ_GWA_10_M_001 ABJ_GWA_10_M_002 ABJ_GWA_10_M_003\n# sent_id = P_ABJ_GWA_10_Steven-lifestory_PRO_1\n# sent_translation = I stay with my mother in the village. #\n# text = I dey stay with my moder //+ # for village //\n1\tI\t_\tINTJ\t_\tCase=Nom|endali=2610|Number=Sing|Person=1|PronType=Prs|
+		....
+	"""
+	print ("========[getConll]")
+	reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':sample_name}))
+	trees={}
+	reendswithnumbers = re.compile(r"_(\d+)$")
+	
+	if reply.get("status") == "OK":
+		samples = reply.get("data", {})			
+		for sentId, users in samples.items():	
+			for userId, conll in users.items():
+				tree = conll3.conll2tree(conll)
+				if sentId not in trees: trees[sentId] = {"sentence":tree.sentence(), "conlls": {}}
+				trees[sentId]["conlls"][userId] = conll
+		js = json.dumps(trees)
+		resp = Response(js, status=200,  mimetype='application/json')
+		return resp
+	else:
+		abort(409)
+
+
+@project.route('/<project_name>/sample/<sample_name>/search', methods=['GET'])
+# @login_required
+def search_sample(project_name, sample_name):
+	"""
+	Aplly a grew search inside a project and sample
+	"""
+	project = Project.query.filter_by(projectname=project_name).first()
+
+	if not project:
+		abort(404)
+	if not request.json:
+		abort(400)
+
+	# TODO : test if sample exists
+
+	pattern = request.json.get("pattern")
+
+	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
+	if reply["status"] != "OK":
+		abort(400)
+
+	trees={}
+	matches={}
+	reendswithnumbers = re.compile(r"_(\d+)$")
+
+	for m in reply["data"]:
+		if m["sample_id"] != sample_name:
+			continue
+		if reendswithnumbers.search(list(m["nodes"].values())[0]):
+			user_id = reendswithnumbers.sub("", list(m["nodes"].values())[0])
+		elif reendswithnumbers.search(list(m["edges"].values())[0]):
+			user_id = reendswithnumbers.sub("",list(m["edges"].values())[0])
+
+		else:
+			abort(409)
+
+		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
+		if conll["status"] != "OK":
+			abort(404)
+		conll = conll["data"]
+
+		# adding trees
+		# {trees:{sent_id:{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
+		trees.get(m["sent_id"],{})[user_id] = conll
+
+		nodes = []
+		for k in m['nodes'].values():
+			nodes +=[k.split("_")[-1]]
+
+		edges = []
+		for k in m['edges'].values():
+			edges +=[k.split("_")[-1]]
+
+		matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
+
+
+	js = json.dumps({"trees":trees,"matches":matches})
+	resp = Response(js, status=200,  mimetype='application/json')
+
+	return resp
+
+
+
+
+@project.route('/<project_name>/sample/<sample_name>/users', methods=['GET'])
+# @login_required
+def sampleusers(project_name, sample_name):
+	"""
+	project/<projectname>/<samplename>/users
+	POST
+	json {username:status} statut: annotator, validator
+	DELETE
+	enlever tout statut
+	
+	"""
+	print ("========[sampleusers]")
+
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(404)
+
+	sampleroles = SampleRole.query.filter_by(projectid=project.id, samplename=sample_name).all()
+	sampleroles = {sr.userid:sr.role.value for sr in sampleroles}
+	print(sampleroles)
+	js = json.dumps(sampleroles)
+	resp = Response(js, status=200,  mimetype='application/json')
+	return resp
+
+
+
+
+@project.route('/<project_name>/sample/<sample_name>/users', methods=['POST'])
+# @login_required
+def userrole(project_name, sample_name):
+	"""
+	project/<projectname>/<samplename>/users
+	POST
+	json {username:status} statut: annotator, validator
+	if status is empty: DELETE user
+	enlever tout statut
+	
+	"""
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(404)
+	if not request.json:
+		abort(400)
+
+	# TODO : check that sample exists
+	# TODO? : check that user exists ?
+	
+	for u,r in request.json.items():
+
+		
+		if r:
+			sr = SampleRole(userid=u, samplename=sample_name, projectid=project.id, role=r)
+			db.session.add(sr)
+		else:
+			sr = SampleRole.query.filter_by(projectid=project.id, samplename=sample_name, userid=u).first()
+			if sr:
+				db.session.delete(sr)
+		db.session.commit()
+	return sampleusers(project_name, sample_name)
+
+
+
+
+
+
+
+@project.route('/<project_name>/sample/<sample_name>', methods=['DELETE'])
+# @login_required
+def delete_sample(project_name, sample_name):
+	"""
+	Delete a sample and everything in the db related to this sample
+	"""
+	project = Project.query.filter_by(projectname=project_name).first()
+	if not project:
+		abort(400)
+	reply = json.loads(grew_request ('eraseSample', data={'project_id': project_name, 'sample_id': sample_name}))
+	related_sample_roles = SampleRole.query.filter_by(projectid=project.id).delete()
+	db.session.commit()
+	return project_info(project_name)
+
+
+@project.route('/<project_name>/sample/<sample_name>', methods=['POST'])
+# @login_required
+def update_sample(project_name, sample_name):
+	"""
+	TODO 
+	"""
+	pass
+
+	
+
