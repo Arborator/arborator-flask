@@ -21,50 +21,32 @@ from ...services import project_service
 
 logging.getLogger('flask_cors').level = logging.DEBUG
 
-def get_access_for_project(user_id, project_id):
-	"""
-	Returns the access rights of a user for a given project
-
-	str int -> int
-	"""
-	return project_service.get_access_for_project(project_id, user_id)
-
-
 
 def requires_access_level(access_level):
-	"""
-	except for superadmins
-	"""
+	"""	decorator for access control. except for superadmins """
 	def decorator(f):
 		@wraps(f)
 		def decorated_function(*args, **kwargs):
 
 			# not authenticated -> login
-			if not current_user.id:
-				return redirect(url_for('auth.login'))
+			if not current_user.id: return redirect(url_for('auth.login'))
 
-			if kwargs.get("project_name"):
-				project_id = Project.query.filter_by(name=kwargs["project_name"]).first().id
-			elif kwargs.get("id"):
-				project_id = kwargs["id"]
-			else:
-				abort(400)
+			if kwargs.get("project_name"): project_id = project_service.get_by_name(kwargs["project_name"]).id
+			elif kwargs.get("id"): project_id = kwargs["id"]
+			else: abort(400)
 
-			projectaccess = get_access_for_project(current_user.id, project_id)
+			project_access = project_service.get_access_for_project(project_id, current_user.id)
 
-			print("project_access for current user: {}".format(projectaccess))
+			print("project_access for current user: {}".format(project_access))
 			
 			if not current_user.super_admin: # super_admin are always admin even if it's not in the table
-				if projectaccess is None or projectaccess < access_level:
+				if project_access is None or project_access < access_level:
 					abort(403)
 					# return redirect(url_for('home.home_page'))
 
 			return f(*args, **kwargs)
 		return decorated_function
 	return decorator
-
-
-############################ controlers
 
 
 @project.route('/<project_name>/', methods=['GET'])
@@ -83,89 +65,11 @@ def project_info(project_name):
                 samples: [
                     { samplename: 'P_ABJ_GWA_10_Steven.lifestory_PRO', sentences: 80, tokens: 20, averageSentenceLength: 12.6, roles :{validators: [], annotators: []}, treesFrom: ['parser', 'tella', 'j.D'], exo: 'percentage'}, 
 	"""
-	current_user.id ="rinema56@gmail.com"
-	project = Project.query.filter_by(projectname=project_name).first()
-	# print(project)
-	roles = sorted(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
-
-	if not roles and project.is_private:
-		abort(403)
-
-	admins = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=2).all()
-	admins = [a.userid for a in admins]
-	guests = ProjectAccess.query.filter_by(projectid=project.id, accesslevel=1).all()
-	guests = [g.userid for g in guests]
-
-	reply = grew_request (
-		'getSamples',
-		data = {'project_id': project.projectname}
-		)
-	js = json.loads(reply)
-	data = js.get("data")
-	samples=[]
-	nb_samples=0
-	nb_sentences=0
-	sum_nb_tokens=0
-	average_tokens_per_sample=0
-	if data:
-		nb_samples = len(data)
-		samples = []
-		sample_lengths = []
-		for sa in data:
-			sample={'samplename':sa['name'], 'sentences':sa['size'], 'treesFrom':sa['users'], "roles":{}}
-			lengths = []
-			for r,label in SampleRole.ROLES:
-				role = db.session.query(User, SampleRole).filter(
-					User.id == SampleRole.userid).filter(
-						SampleRole.projectid==project.id).filter(
-							SampleRole.samplename==sa['name']).filter(
-								SampleRole.role==r).all()
-				sample["roles"][label] = [a.as_json() for a,b in role]
-
-			reply = json.loads(grew_request('getConll', data={'project_id': project.projectname, 'sample_id':sa["name"]}))
-			# print(json.loads(reply))
-			
-			if reply.get("status") == "OK":
-				truc = reply.get("data", {})
-				for sent_id, dico in truc.items():
-					conll = list(dico.values())[0]
-					t = conll3.conll2tree(conll)
-					length = len(t)
-					lengths.append(length)
-
-			sample["tokens"] = sum(lengths)
-			if len(lengths) > 0 : sample["averageSentenceLength"] = sum(lengths)/len(lengths)
-
-			sample["exo"] = "" # TODO : create the table in the db and update it
-			samples.append(sample)
-			sample_lengths += [sample["tokens"]]
-
-		sum_nb_tokens = sum(sample_lengths)
-		average_tokens_per_sample = sum(sample_lengths)/len(sample_lengths)
-			 
-		reply = grew_request('getSentIds', data={'project_id': project_name})
-		js = json.loads(reply)
-		data = js.get("data")
-		if data:
-			nb_sentences = len(data)
-
-	image = str(base64.b64encode(project.image))
-
-	js = json.dumps({
-		"name":project.projectname,
-		"is_private":project.is_private,
-		"description":project.description,
-		"image":image,
-		"samples":samples,
-		"admins":admins,
-		"guests":guests,
-		"number_samples":nb_samples,
-		"number_sentences":nb_sentences,
-		"number_tokens":sum_nb_tokens,
-		"averageSentenceLength":average_tokens_per_sample}, default=str)
-
+	current_user.id ="rinema56@gmail.com" # TODO : handle when user is really anonymous
+	project_infos = project_service.get_infos(project_name, current_user)
+	if project_infos == 403: abort(403) 
+	js = json.dumps(project_infos, default=str)
 	resp = Response(js, status=200,  mimetype='application/json')
-
 	return resp
 
 @project.route('/<project_name>/', methods=['POST'])
@@ -181,13 +85,9 @@ def project_update(project_name):
 	# TODO : change the projectname in grew also !
 	
 	"""
-	# print(request.json,project_name)
-	if not request.json:
-		abort(400)
+	if not request.json: abort(400)
 	project = Project.query.filter_by(projectname=project_name).first()
-	# print(987,project)
-	if not project:
-		abort(400)
+	if not project: abort(400)
 	if request.json.get("users"):
 		for k,v in request.json.get("users").items():
 			user = User.query.filter_by(id=k).first()
@@ -198,8 +98,7 @@ def project_update(project_name):
 				else:
 					pa = ProjectAccess(userid=user.id, projectid=project.id, accesslevel=v )
 					db.session.add(pa)
-			else:
-				abort(400)
+			else: abort(400)
 	if request.json.get("project"):
 		for k,v in request.json.get("project").items():
 			setattr(project,k,v)

@@ -12,7 +12,7 @@ from ... import db
 from ...models.models import *
 from ....config import Config
 from ....grew_server.test.test_server import send_request as grew_request
-from ..project.views import requires_access_level, get_access_for_project
+from ..project.views import requires_access_level
 
 
 
