@@ -214,12 +214,11 @@ def sample_upload(project_name):
 	if fichiers:
 		reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
 		samples  = project_service.get_samples(project_name)
-		for f in fichiers: project_service.upload_project(f, reextensions=reextensions, existing_samples=samples)
+		for f in fichiers: project_service.upload_project(f, project_name, import_user, reextensions=reextensions, existing_samples=samples)
 
 	samples = {"samples":project_service.get_samples(project_name)}
 	js = json.dumps(samples)
 	resp = Response(js, status=200,  mimetype='application/json')
-
 	return resp
 
 
@@ -378,22 +377,15 @@ def userrole(project_name, sample_name):
 
 
 
-
-
-
-
 @project.route('/<project_name>/sample/<sample_name>', methods=['DELETE'])
 # @login_required
 def delete_sample(project_name, sample_name):
 	"""
 	Delete a sample and everything in the db related to this sample
 	"""
-	project = Project.query.filter_by(projectname=project_name).first()
-	if not project:
-		abort(400)
-	reply = json.loads(grew_request ('eraseSample', data={'project_id': project_name, 'sample_id': sample_name}))
-	related_sample_roles = SampleRole.query.filter_by(projectid=project.id).delete()
-	db.session.commit()
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	project_service.delete_sample(project_name, project.id, sample_name)
 	return project_info(project_name)
 
 
@@ -404,6 +396,3 @@ def update_sample(project_name, sample_name):
 	TODO 
 	"""
 	pass
-
-	
-

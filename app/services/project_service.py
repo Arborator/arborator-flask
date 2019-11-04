@@ -1,3 +1,4 @@
+import os
 from ..models.models import *
 from ...grew_server.test.test_server import send_request as grew_request
 from ...config import Config
@@ -112,9 +113,18 @@ def create_add_sample_role(user_id, sample_name, project_id, role):
     sr = SampleRole(userid=user_id, samplename=sample_name, projectid=project_id, role=role)
     project_dao.add_sample_role(sr)
 
+def delete_sample(project_name, project_id, sample_name):
+    ''' delete sample given the infos. delete it from grew and db '''
+    grew_request('eraseSample', data={'project_id': project_name, 'sample_id': sample_name})
+    related_sample_roles = project_dao.delete_sample_role_by_project(project_id)
+
 def delete_sample_role(sample_role):
     ''' delete a sample role '''
     project_dao.delete_sample_role(sample_role)
+
+def delete_sample_role_by_project(project_id):
+    ''' delete a sample role by filtering a project id '''
+    return project_dao.delete_sample_role_by_project(project_id)
 
 def get_samples(project_name):
     ''' get existing samples for a project. from Grew.'''
@@ -140,7 +150,7 @@ def samples2trees(samples):
             trees[sentId]["conlls"][userId] = conll
     return trees
 
-def upload_project(fileobject, reextensions=None, existing_samples=[]):
+def upload_project(fileobject, project_name, import_user, reextensions=None, existing_samples=[]):
     ''' 
     upload project into grew and filesystem (upload-folder, see Config). need a file object from request
     Will compile reextensions if no one is specified (better specify it before a loop)

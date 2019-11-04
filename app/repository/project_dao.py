@@ -50,3 +50,9 @@ def delete_sample_role(sample_role):
     """ delete a sample role """
     db.session.delete(sr)
     db.session.commit()
+
+def delete_sample_role_by_project(project_id):
+    """ delete a sample role given a project id """
+    sr = SampleRole.query.filter_by(projectid=project_id).delete()
+    db.session.commit()
+    return sr
