@@ -14,9 +14,10 @@ from flask_cors import cross_origin
 from . import project
 from ...models.models import *
 from ....grew_server.test.test_server import send_request as grew_request
+from ...utils import grew_utils
 from ....config import Config
 
-from ...services import project_service
+from ...services import project_service, user_service
 
 
 logging.getLogger('flask_cors').level = logging.DEBUG
@@ -86,22 +87,18 @@ def project_update(project_name):
 	
 	"""
 	if not request.json: abort(400)
-	project = Project.query.filter_by(projectname=project_name).first()
+	project = project_service.get_by_name(project_name)
 	if not project: abort(400)
 	if request.json.get("users"):
 		for k,v in request.json.get("users").items():
-			user = User.query.filter_by(id=k).first()
+			user = user_service.get_by_id(k)
 			if user:
-				pa = ProjectAccess.query.filter_by(userid=user.id, projectid=project.id).first()
-				if pa:
-					pa.accesslevel=v
-				else:
-					pa = ProjectAccess(userid=user.id, projectid=project.id, accesslevel=v )
-					db.session.add(pa)
+				pa = project_service.get_project_access(project.id, user.id)
+				if pa: pa.accesslevel=v
+				else: project_service.create_add_project_access(user.id, proejct.id, v)
 			else: abort(400)
 	if request.json.get("project"):
-		for k,v in request.json.get("project").items():
-			setattr(project,k,v)
+		for k,v in request.json.get("project").items(): setattr(project,k,v)
 	db.session.commit()
 	return project_info(project_name)
 
@@ -116,30 +113,18 @@ def delete_project(project_name):
 	Delete a project
 	no json
 	"""
-
 	# current_user.super_admin = True
 	# current_user.id = "rinema56@gmail.com"
-	project = Project.query.filter_by(projectname=project_name).first()
-	if not project:
-		abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project:	abort(400)
 	p_access = get_access_for_project(current_user.id, project.id)
 	if p_access >=2 or current_user.super_admin: # p_access and p_access >=2
-		print(project)
-		db.session.delete(project)
-		related_accesses = ProjectAccess.query.filter_by(projectid=project.id).delete()
-		related_sample_roles = SampleRole.query.filter_by(projectid=project.id).delete()
-		db.session.commit()
-
-		print ('========== [eraseProject]')
-		reply = grew_request('eraseProject', data={'project_id': project.projectname})
+		project_service.delete(project)
 	else:
 		print("p_access to low for project {}".format(project.projectname))
 		abort(403)
-	
-	projects = Project.query.all()
-	js = json.dumps([p.as_json() for p in projects])
+	js = json.dumps( project_service.get_all(json=True) )
 	resp = Response(js, status=200,  mimetype='application/json')
-	
 	return resp
 
 
@@ -159,20 +144,15 @@ def search_project(project_name):
 	{'sample_id': 'P_WAZP_07_Imonirhuas.Life.Story_PRO', 'sent_id': 'P_WAZP_07_Imonirhuas-Life-Story_PRO_97', 'nodes': {'N': 'Bernard_11'}, 'edges': {}}, {'sample_id':...
 	"""
 
-	project = Project.query.filter_by(projectname=project_name).first()
-
-	if not project:
-		abort(404)
-	if not request.json:
-		abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	if not request.json: abort(400)
 
 	pattern = request.json.get("pattern")
 	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
-	if reply["status"] != "OK":
-		abort(400)
+	if reply["status"] != "OK": abort(400)
 
 	trees={}
-	# trees = list()
 	matches={}
 	reendswithnumbers = re.compile(r"_(\d+)$")
 
@@ -181,15 +161,11 @@ def search_project(project_name):
 			user_id = reendswithnumbers.sub("", list(m["nodes"].values())[0])
 		elif reendswithnumbers.search(list(m["edges"].values())[0]):
 			user_id = reendswithnumbers.sub("",list(m["edges"].values())[0])
-
-		else:
-			abort(409)
+		else: abort(409)
 
 		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
-		if conll["status"] != "OK":
-			abort(404)
+		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
-
 
 		# adding trees
 		# {trees:{sent_id:{"sentence":sentence, "conlls":{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
@@ -230,67 +206,17 @@ def sample_upload(project_name):
 	TODO: verify either importuser or provided in conll (all the trees must have it)
 	more generally: test conll!
 	"""
-	project = Project.query.filter_by(projectname=project_name).first()
-	if not project:
-		abort(404)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
 
 	fichiers = request.files.to_dict(flat=False).get("files")
 	import_user = request.form.get("import_user", "")
 	if fichiers:
-
 		reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
+		samples  = project_service.get_samples(project_name)
+		for f in fichiers: project_service.upload_project(f, reextensions=reextensions, existing_samples=samples)
 
-		# checking already existing samples in the project
-		print('========== [getSamples]')
-		reply = grew_request (
-				'getSamples',
-				data = {'project_id': project_name}
-					)
-		js = json.loads(reply)
-		data = js.get("data")
-		if data:
-			samples = [sa['name'] for sa in data]
-		else:
-			samples = []
-
-		for f in fichiers:
-			filename = secure_filename(f.filename)
-			sample_name = reextensions.sub("", filename)
-
-			# writing file to upload folder
-			f.save(os.path.join(Config.UPLOAD_FOLDER, filename))
-
-			if sample_name not in samples:
-				# create a new sample in the grew project
-				print ('========== [newSample]')
-				reply = grew_request ('newSample', data={'project_id': project_name, 'sample_id': sample_name })
-				print (reply)
-
-			else:
-				print("/!\ sample already exists")
-
-			with open(os.path.join(Config.UPLOAD_FOLDER, filename), 'rb') as inf:
-				print ('========== [saveConll]')
-				if import_user:
-					reply = grew_request (
-						'saveConll',
-						data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
-						files={'conll_file': inf},
-					)
-				else: # if no import_user has been provided, it should be in the conll metadata
-					reply = grew_request (
-						'saveConll',
-						data = {'project_id': project_name, 'sample_id': sample_name},
-						files={'conll_file': inf},
-					)
-				print(reply)
-
-	print('========== [getSamples]')
-	reply = grew_request (
-			'getSamples',
-			data = {'project_id': project_name}
-				)
-	samples = {"samples":[sa['name'] for sa in json.loads(reply)['data']]}
+	samples = {"samples":project_service.get_samples(project_name)}
 	js = json.dumps(samples)
 	resp = Response(js, status=200,  mimetype='application/json')
 
@@ -305,24 +231,11 @@ def sample_export(project_name):
 	sampletrees = list()
 	for samplename in samplenames: 
 		reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':samplename}))
-		if reply.get("status") == "OK":	sampletrees.append( servSampleTrees(reply.get("data", {})  )	)
+		if reply.get("status") == "OK":	sampletrees.append( project_service.servSampleTrees(reply.get("data", {})  )	)
 	# print(sampletrees[0])
 	# print(reply)
 	resp = Response({}, status=200,  mimetype='application/zip', headers={'Content-Disposition':'attachment;filename=dump.zip'})
 	return resp
-	
-def servSampleTrees(samples):
-	trees={}
-	for sentId, users in samples.items():	
-		for userId, conll in users.items():
-			# tree = conll3.conll2tree(conll)
-			if sentId not in trees: trees[sentId] = { "conlls": {}}
-			trees[sentId]["conlls"][userId] = conll
-	js = json.dumps(trees)
-	return js
-
-def servTreeToOutputs(tree):
-	return None
 
 
 @project.route('/<project_name>/sample/<sample_name>', methods=['GET'])
@@ -335,32 +248,24 @@ def samplepage(project_name, sample_name):
 	TODO: tester si le projet est privé
 	pour l'arbre : annotateur ne peut pas voir d'autres arbres sauf la base
 
-
 	returns:
 	{
     "P_ABJ_GWA_10_Steven-lifestory_PRO_1": {
 		"sentence": "fdfdfsf",
 		"conlls":{
-        "yuchen": "# elan_id = ABJ_GWA_10_M_001 ABJ_GWA_10_M_002 ABJ_GWA_10_M_003\n# sent_id = P_ABJ_GWA_10_Steven-lifestory_PRO_1\n# sent_translation = I stay with my mother in the village. #\n# text = I dey stay with my moder //+ # for village //\n1\tI\t_\tINTJ\t_\tCase=Nom|endali=2610|Number=Sing|Person=1|PronType=Prs|
+		"yuchen": "# elan_id = ABJ_GWA_10_M_001 ABJ_GWA_10_M_002 ABJ_GWA_10_M_003\n# sent_id = P_ABJ_GWA_10_Steven-lifestory_PRO_1\n# sent_translation = I stay with my mother in the village. #\n# text = I dey stay with my moder //+ # for village //\n1\tI\t_\tINTJ\t_\tCase=Nom|endali=2610|Number=Sing|Person=1|PronType=Prs|
 		....
 	"""
 	print ("========[getConll]")
 	reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':sample_name}))
-	trees={}
 	reendswithnumbers = re.compile(r"_(\d+)$")
 	
 	if reply.get("status") == "OK":
 		samples = reply.get("data", {})			
-		for sentId, users in samples.items():	
-			for userId, conll in users.items():
-				tree = conll3.conll2tree(conll)
-				if sentId not in trees: trees[sentId] = {"sentence":tree.sentence(), "conlls": {}}
-				trees[sentId]["conlls"][userId] = conll
-		js = json.dumps(trees)
+		js = json.dumps( project_service.samples2trees(samples) )
 		resp = Response(js, status=200,  mimetype='application/json')
 		return resp
-	else:
-		abort(409)
+	else: abort(409)
 
 
 @project.route('/<project_name>/sample/<sample_name>/search', methods=['GET'])
@@ -381,27 +286,22 @@ def search_sample(project_name, sample_name):
 	pattern = request.json.get("pattern")
 
 	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
-	if reply["status"] != "OK":
-		abort(400)
+	if reply["status"] != "OK": abort(400)
 
 	trees={}
 	matches={}
 	reendswithnumbers = re.compile(r"_(\d+)$")
 
 	for m in reply["data"]:
-		if m["sample_id"] != sample_name:
-			continue
+		if m["sample_id"] != sample_name: continue
 		if reendswithnumbers.search(list(m["nodes"].values())[0]):
 			user_id = reendswithnumbers.sub("", list(m["nodes"].values())[0])
 		elif reendswithnumbers.search(list(m["edges"].values())[0]):
 			user_id = reendswithnumbers.sub("",list(m["edges"].values())[0])
-
-		else:
-			abort(409)
+		else: abort(409)
 
 		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
-		if conll["status"] != "OK":
-			abort(404)
+		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
 
 		# adding trees
@@ -440,12 +340,9 @@ def sampleusers(project_name, sample_name):
 	"""
 	print ("========[sampleusers]")
 
-	project = Project.query.filter_by(projectname=project_name).first()
-	if not project:
-		abort(404)
-
-	sampleroles = SampleRole.query.filter_by(projectid=project.id, samplename=sample_name).all()
-	sampleroles = {sr.userid:sr.role.value for sr in sampleroles}
+	project = project_service.get_by_name(project_name) 
+	if not project: abort(404)
+	sampleroles = project_service.get_samples_roles(project.id, sample_name)
 	print(sampleroles)
 	js = json.dumps(sampleroles)
 	resp = Response(js, status=200,  mimetype='application/json')
@@ -466,25 +363,17 @@ def userrole(project_name, sample_name):
 	
 	"""
 	project = Project.query.filter_by(projectname=project_name).first()
-	if not project:
-		abort(404)
-	if not request.json:
-		abort(400)
+	if not project: abort(404)
+	if not request.json: abort(400)
 
 	# TODO : check that sample exists
 	# TODO? : check that user exists ?
 	
 	for u,r in request.json.items():
-
-		
-		if r:
-			sr = SampleRole(userid=u, samplename=sample_name, projectid=project.id, role=r)
-			db.session.add(sr)
+		if r: project_service.create_add_sample_role(u, sample_name, project.id, r)
 		else:
 			sr = SampleRole.query.filter_by(projectid=project.id, samplename=sample_name, userid=u).first()
-			if sr:
-				db.session.delete(sr)
-		db.session.commit()
+			if sr:	project_service.delete_sample_role(sr)
 	return sampleusers(project_name, sample_name)
 
 

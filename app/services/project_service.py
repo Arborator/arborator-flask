@@ -3,6 +3,7 @@ from ...grew_server.test.test_server import send_request as grew_request
 from ...config import Config
 from ..utils.conll3 import conll3
 from ..repository import project_dao
+from werkzeug import secure_filename
 
 def get_project_access(project_id, user_id):
     ''' return the project access level given a project id and user id. returns 0 if the projject access is false '''
@@ -11,9 +12,34 @@ def get_project_access(project_id, user_id):
     if not project_access: return 0
     return project_access.access_level
 
+def add_project_access(project_access):
+    ''' add a project access '''
+    project_dao.add_access(project_access)
+
+def create_add_project_access(user_id, project_id, access_level):
+    ''' create and add a new projejct access given the args '''
+    pa = ProjectAccess(userid=user_id, projectid=project_id, accesslevel=access_level )
+    project_dao.add_access(pa)
+
+def get_all(json=False):
+    ''' get all the projects. if json is true, returns the list of json'''
+    if json: return project_dao.find_all()
+    else: return [p.as_json() for p in project_dao.find_all()]
+
 def get_by_name(project_name):
     ''' get project by name '''
     return project_dao.find_by_name(project_name)
+
+def delete_by_name(project_name):
+    ''' delete a project from db and grew given its name '''
+    project = project_dao.find_by_name(project_name)
+    project_dao.delete(project)
+    grew_request('eraseProject', data={'project_id': p.projectname})
+
+def delete(project):
+    ''' delete the given project from db and grew '''
+    project_dao.delete(project)
+    grew_request('eraseProject', data={'project_id': project.projectname})
 
 def get_infos(project_name, current_user):
     ''' get project informations available for the current user '''
@@ -77,4 +103,93 @@ def get_infos(project_name, current_user):
     image = str(base64.b64encode(project.image))
     return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "samples":samples, "admins":admins,  "guests":guests, "number_samples":nb_samples, "number_sentences":nb_sentences, "number_tokens":sum_nb_tokens, "averageSentenceLength":average_tokens_per_sample}
 
+def add_sample_role(sample_role):
+    ''' add a sample role '''
+    project_dao.add_sample_role(sample_role)
 
+def create_add_sample_role(user_id, sample_name, project_id, role):
+    ''' create and add a new sample role '''
+    sr = SampleRole(userid=user_id, samplename=sample_name, projectid=project_id, role=role)
+    project_dao.add_sample_role(sr)
+
+def delete_sample_role(sample_role):
+    ''' delete a sample role '''
+    project_dao.delete_sample_role(sample_role)
+
+def get_samples(project_name):
+    ''' get existing samples for a project. from Grew.'''
+    reply = grew_request ('getSamples',	data = {'project_id': project_name}	)
+    js = json.loads(reply)
+    data = js.get("data")
+    if data: return [sa['name'] for sa in data]
+    else: return []
+
+def get_samples_roles(project_id, sample_name, json=False):
+    ''' returns the samples roles for the given sample in the given project. can be returned in a json format '''
+    sampleroles = SampleRole.query.filter_by(projectid=project_id, samplename=sample_name).all()
+    if json: return {sr.userid:sr.role.value for sr in sampleroles}
+    else: return sampleroles
+
+def samples2trees(samples):
+    ''' transforms a list of samples into a trees object '''
+    trees={}
+    for sentId, users in samples.items():	
+        for userId, conll in users.items():
+            tree = conll3.conll2tree(conll)
+            if sentId not in trees: trees[sentId] = {"sentence":tree.sentence(), "conlls": {}}
+            trees[sentId]["conlls"][userId] = conll
+    return trees
+
+def upload_project(fileobject, reextensions=None, existing_samples=[]):
+    ''' 
+    upload project into grew and filesystem (upload-folder, see Config). need a file object from request
+    Will compile reextensions if no one is specified (better specify it before a loop)
+    '''
+
+    if reextensions == None : reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
+
+    filename = secure_filename(fileobject.filename)
+    sample_name = reextensions.sub("", filename)
+
+    # writing file to upload folder
+    fileobject.save(os.path.join(Config.UPLOAD_FOLDER, filename))
+
+    if sample_name not in existing_samples:
+        # create a new sample in the grew project
+        print ('========== [newSample]')
+        reply = grew_request ('newSample', data={'project_id': project_name, 'sample_id': sample_name })
+        print (reply)
+
+    else:
+        print("/!\ sample already exists")
+
+    with open(os.path.join(Config.UPLOAD_FOLDER, filename), 'rb') as inf:
+        print ('========== [saveConll]')
+        if import_user:
+            reply = grew_request (
+                'saveConll',
+                data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
+                files={'conll_file': inf},
+            )
+        else: # if no import_user has been provided, it should be in the conll metadata
+            reply = grew_request (
+                'saveConll',
+                data = {'project_id': project_name, 'sample_id': sample_name},
+                files={'conll_file': inf},
+            )
+        print(reply)
+
+def servSampleTrees(samples):
+    ''' get samples in form of json trees '''
+    trees={}
+    for sentId, users in samples.items():	
+        for userId, conll in users.items():
+            # tree = conll3.conll2tree(conll)
+            if sentId not in trees: trees[sentId] = { "conlls": {}}
+            trees[sentId]["conlls"][userId] = conll
+    js = json.dumps(trees)
+    return js
+
+def servTreeToOutputs(tree):
+    ''' ? TODO : ???? '''
+    return None
