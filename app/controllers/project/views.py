@@ -225,15 +225,41 @@ def sample_upload(project_name):
 
 @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
 def sample_export(project_name):
-	data = request.json
+	data = request.get_json(force=True)
 	samplenames = data['samples']
 	sampletrees = list()
 	for samplename in samplenames: 
 		reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':samplename}))
 		if reply.get("status") == "OK":	sampletrees.append( project_service.servSampleTrees(reply.get("data", {})  )	)
-	# print(sampletrees[0])
+	print( type(sampletrees[0]) )
+	treeDict = json.loads(sampletrees[0])
+	print(treeDict.keys())
+	print(treeDict['P_WAZK_07_As-e-dey-Hot-News-Read_PRO_1']['conlls'].keys())
+	print(treeDict['P_WAZK_07_As-e-dey-Hot-News-Read_PRO_1']['conlls']['pouick'] )
+
+	# for sampletree in sampletrees: print( sampletr )
+
+	samplecontentfiles = [ project_service.sampletree2contentfile(sampletree) for sampletree in sampletrees ]
+
+	print(samplecontentfiles[0])
+	open('testgg.conll', 'w').write(samplecontentfiles[0]['pouick'])
+
+
+	# memory_file = project_service.contentfiles2zip(samplecontentfiles)
+
+	# memory_file = io.BytesIO()
+    # with zipfile.ZipFile(memory_file, 'w') as zf:
+    #     for sample in samplecontentfiles:
+    #         for fuser, filecontent in sample.items():
+    #             data = zipfile.ZipInfo('{}.conll'.format( fuser) )
+    #             data.date_time = time.localtime(time.time())[:6]
+    #             data.compress_type = zipfile.ZIP_DEFLATED
+    #             zf.writestr(data, filecontent)
+    # memory_file.seek(0)
+
+	# project_service.samples2trees(sampletrees[0])
 	# print(reply)
-	resp = Response({}, status=200,  mimetype='application/zip', headers={'Content-Disposition':'attachment;filename=dump.zip'})
+	resp = Response(memory_file, status=200,  mimetype='application/zip', headers={'Content-Disposition':'attachment;filename=dump.zip'})
 	return resp
 
 

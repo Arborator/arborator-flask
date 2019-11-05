@@ -1,4 +1,4 @@
-import os
+import os, json, zipfile, time, io
 from ..models.models import *
 from ...grew_server.test.test_server import send_request as grew_request
 from ...config import Config
@@ -199,6 +199,28 @@ def servSampleTrees(samples):
             trees[sentId]["conlls"][userId] = conll
     js = json.dumps(trees)
     return js
+
+def sampletree2contentfile(tree):
+    if isinstance( tree, str ): tree = json.loads(tree)
+    usertrees = dict()
+    for sentId in tree.keys():
+        for user, conll in tree[sentId]['conlls'].items():
+            if user not in usertrees: usertrees[user] = list()
+            usertrees[user].append(conll)
+    for user, content in usertrees.items(): usertrees[user] = '\n'.join(usertrees[user])
+    return usertrees
+
+def contentfiles2zip( sampletrees):
+    memory_file = io.BytesIO()
+    with zipfile.ZipFile(memory_file, 'w') as zf:
+        for sample in sampletrees:
+            for fuser, filecontent in sample.items():
+                data = zipfile.ZipInfo('{}.conll'.format( fuser) )
+                data.date_time = time.localtime(time.time())[:6]
+                data.compress_type = zipfile.ZIP_DEFLATED
+                zf.writestr(data, filecontent)
+    memory_file.seek(0)
+    return memory_file
 
 def servTreeToOutputs(tree):
     ''' ? TODO : ???? '''
