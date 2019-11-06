@@ -303,7 +303,8 @@ def search_sample(project_name, sample_name):
 	if not project: abort(404)
 	if not request.json: abort(400)
 
-	# TODO : test if sample exists
+	samples = {"samples":project_service.get_samples(project_name)}
+	if not sample_name in samples["samples"]: abort(404)
 
 	pattern = request.json.get("pattern")
 	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
