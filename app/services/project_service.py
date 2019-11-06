@@ -109,9 +109,12 @@ def add_sample_role(sample_role):
     project_dao.add_sample_role(sample_role)
 
 def create_add_sample_role(user_id, sample_name, project_id, role):
-    ''' create and add a new sample role '''
-    sr = SampleRole(userid=user_id, samplename=sample_name, projectid=project_id, role=role)
-    project_dao.add_sample_role(sr)
+    ''' create and add a new sample role, if there is an old role it is deleted'''
+    existing_role = project_dao.get_user_role(project_id, sample_name, user_id)
+    if existing_role:
+        project_dao.delete_sample_role(existing_role)
+    new_sr = SampleRole(userid=user_id, samplename=sample_name, projectid=project_id, role=role)
+    project_dao.add_sample_role(new_sr)
 
 def delete_sample(project_name, project_id, sample_name):
     ''' delete sample given the infos. delete it from grew and db '''
@@ -139,6 +142,9 @@ def get_samples_roles(project_id, sample_name, json=False):
     sampleroles = SampleRole.query.filter_by(projectid=project_id, samplename=sample_name).all()
     if json: return {sr.userid:sr.role.value for sr in sampleroles}
     else: return sampleroles
+
+def get_possible_roles():
+    return project_dao.get_possible_roles()
 
 def samples2trees(samples):
     ''' transforms a list of samples into a trees object '''

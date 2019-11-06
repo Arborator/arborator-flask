@@ -43,12 +43,12 @@ def find_all():
 
 def add_sample_role(sample_role):
     """ save a sample role """
-    db.session.add(sr)
+    db.session.add(sample_role)
     db.session.commit()
 
 def delete_sample_role(sample_role):
     """ delete a sample role """
-    db.session.delete(sr)
+    db.session.delete(sample_role)
     db.session.commit()
 
 def delete_sample_role_by_project(project_id):
@@ -56,3 +56,6 @@ def delete_sample_role_by_project(project_id):
     sr = SampleRole.query.filter_by(projectid=project_id).delete()
     db.session.commit()
     return sr
+
+def get_user_role(project_id, sample_name, user_id):
+    return SampleRole.query.filter_by(projectid=project_id, samplename=sample_name, userid=user_id).first()

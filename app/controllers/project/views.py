@@ -369,9 +369,8 @@ def sampleusers(project_name, sample_name):
 
 	project = project_service.get_by_name(project_name) 
 	if not project: abort(404)
-	sampleroles = project_service.get_samples_roles(project.id, sample_name)
-	print(sampleroles)
-	js = json.dumps(sampleroles)
+	sampleusers = project_service.get_samples_roles(project.id, sample_name, json=True)
+	js = json.dumps(sampleusers)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
 
@@ -389,18 +388,28 @@ def userrole(project_name, sample_name):
 	enlever tout statut
 	
 	"""
-	project = Project.query.filter_by(projectname=project_name).first()
+	project = project_service.get_by_name(project_name)
 	if not project: abort(404)
 	if not request.json: abort(400)
 
-	# TODO : check that sample exists
-	# TODO? : check that user exists ?
 	
+
+	# # TODO : check that sample exists
+	samples = {"samples":project_service.get_samples(project_name)}
+	if not sample_name in samples["samples"]: abort(404)
+	possible_roles = [x[0] for x in project_service.get_possible_roles()]
+
 	for u,r in request.json.items():
-		if r: project_service.create_add_sample_role(u, sample_name, project.id, r)
+		user = user_service.get_by_id(u)
+		if not user: abort(400)
+		if r:
+			if r not in possible_roles:
+				abort(400)
+			project_service.create_add_sample_role(u, sample_name, project.id, r)
 		else:
 			sr = SampleRole.query.filter_by(projectid=project.id, samplename=sample_name, userid=u).first()
-			if sr:	project_service.delete_sample_role(sr)
+			if sr:
+				project_service.delete_sample_role(sr)
 	return sampleusers(project_name, sample_name)
 
 
