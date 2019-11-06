@@ -66,7 +66,7 @@ def project_info(project_name):
                 samples: [
                     { samplename: 'P_ABJ_GWA_10_Steven.lifestory_PRO', sentences: 80, tokens: 20, averageSentenceLength: 12.6, roles :{validators: [], annotators: []}, treesFrom: ['parser', 'tella', 'j.D'], exo: 'percentage'}, 
 	"""
-	current_user.id ="rinema56@gmail.com" # TODO : handle when user is really anonymous
+	# current_user.id ="rinema56@gmail.com" # TODO : handle when user is really anonymous
 	project_infos = project_service.get_infos(project_name, current_user)
 	if project_infos == 403: abort(403) 
 	js = json.dumps(project_infos, default=str)
@@ -117,13 +117,15 @@ def delete_project(project_name):
 	# current_user.id = "rinema56@gmail.com"
 	project = project_service.get_by_name(project_name)
 	if not project:	abort(400)
-	p_access = get_access_for_project(current_user.id, project.id)
-	if p_access >=2 or current_user.super_admin: # p_access and p_access >=2
+	# p_access = get_access_for_project(current_user.id, project.id)
+	p_access = project_service.get_project_access(project.id, current_user.id)
+	if p_access >=2 or current_user.super_admin:
 		project_service.delete(project)
 	else:
 		print("p_access to low for project {}".format(project.projectname))
 		abort(403)
-	js = json.dumps( project_service.get_all(json=True) )
+	projects = project_service.get_all()
+	js = json.dumps(projects)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
 

@@ -8,7 +8,7 @@ from werkzeug import secure_filename
 
 def get_project_access(project_id, user_id):
     ''' return the project access level given a project id and user id. returns 0 if the projject access is false '''
-    project_access = project_dao.get_project_access(project_id, user_id)
+    project_access = project_dao.get_access(project_id, user_id)
     # if no access links this project and user, the user is a guest
     if not project_access: return 0
     return project_access.access_level
