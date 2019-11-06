@@ -299,17 +299,13 @@ def search_sample(project_name, sample_name):
 	"""
 	Aplly a grew search inside a project and sample
 	"""
-	project = Project.query.filter_by(projectname=project_name).first()
-
-	if not project:
-		abort(404)
-	if not request.json:
-		abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	if not request.json: abort(400)
 
 	# TODO : test if sample exists
 
 	pattern = request.json.get("pattern")
-
 	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
 	if reply["status"] != "OK": abort(400)
 
@@ -331,8 +327,12 @@ def search_sample(project_name, sample_name):
 
 		# adding trees
 		# {trees:{sent_id:{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
-		trees.get(m["sent_id"],{})[user_id] = conll
-
+		if m["sent_id"] not in trees:
+			t = conll3.conll2tree(conll)
+			s = t.sentence()
+			trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll}}
+		else:
+			trees[m["sent_id"]]["conlls"].update(user_id=conll)
 		nodes = []
 		for k in m['nodes'].values():
 			nodes +=[k.split("_")[-1]]
@@ -342,7 +342,6 @@ def search_sample(project_name, sample_name):
 			edges +=[k.split("_")[-1]]
 
 		matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
-
 
 	js = json.dumps({"trees":trees,"matches":matches})
 	resp = Response(js, status=200,  mimetype='application/json')
