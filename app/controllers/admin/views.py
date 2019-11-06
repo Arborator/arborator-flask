@@ -96,7 +96,7 @@ def addproject(project_name, is_private, image=b"", description=""):
 	db.session.add(project)
 	db.session.commit()
 	grewanswer = addprojectongrew(project_name)
-	if grewanswer != 'ok':
+	if grewanswer != 'OK':
 		return {"errormessage":"Cannot create project on grew."}
 	return {"message":"Project {project_name} created.".format(project_name=project_name)}
 
@@ -108,7 +108,6 @@ def create_project():
 	"""
 	Create a project
 	"""
-	
 	if not request.json:
 		abort(404)
 	imagefilename = request.json.get("imagefile",None)
