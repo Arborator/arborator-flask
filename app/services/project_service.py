@@ -5,6 +5,7 @@ from ...config import Config
 from ..utils.conll3 import conll3
 from ..repository import project_dao
 from werkzeug import secure_filename
+from datetime import datetime
 
 def get_project_access(project_id, user_id):
     ''' return the project access given a project id and user id. returns 0 if the project access is false '''
@@ -49,6 +50,7 @@ def delete(project):
 def get_infos(project_name, current_user):
     ''' get project informations available for the current user '''
     project = project_dao.find_by_name(project_name)
+    # TODO : handle anonymous user
     roles = project_dao.get_roles(project.id, current_user.id)
 
     if not roles and project.is_private: return 403
@@ -160,6 +162,23 @@ def samples2trees(samples):
             trees[sentId]["conlls"][userId] = conll
     return trees
 
+def add_or_keep_timestamps(conll_file):
+    ''' adds a timestamp on the tree if there is not one '''
+    # TODO : do this more efficiently
+    tmpfile = os.path.join(Config.UPLOAD_FOLDER, "tmp.conllu")
+    trees = conll3.conllFile2trees(conll_file)
+    for t in trees:
+        if t.sentencefeatures.get("timestamp"):
+            continue
+        else:
+            now = datetime.now()
+            timestamp = datetime.timestamp(now)
+            t.sentencefeatures["timestamp"] = str(timestamp)
+        # TODO check format of the conll while we're at it ?
+
+    conll3.trees2conllFile(trees, tmpfile)
+    return tmpfile
+
 def upload_project(fileobject, project_name, import_user, reextensions=None, existing_samples=[]):
     ''' 
     upload project into grew and filesystem (upload-folder, see Config). need a file object from request
@@ -183,7 +202,10 @@ def upload_project(fileobject, project_name, import_user, reextensions=None, exi
     else:
         print("/!\ sample already exists")
 
-    with open(os.path.join(Config.UPLOAD_FOLDER, filename), 'rb') as inf:
+    # timestamping if needed
+    tmpfile = add_or_keep_timestamps(os.path.join(Config.UPLOAD_FOLDER, filename))
+
+    with open(tmpfile, 'rb') as inf:
         print ('========== [saveConll]')
         if import_user:
             reply = grew_request (
@@ -198,6 +220,7 @@ def upload_project(fileobject, project_name, import_user, reextensions=None, exi
                 files={'conll_file': inf},
             )
         print(reply)
+    if reply["status"] != "OK": abort(400)
 
 def servSampleTrees(samples):
     ''' get samples in form of json trees '''

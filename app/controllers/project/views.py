@@ -69,6 +69,7 @@ def project_info(project_name):
 	# id ="rinema56@gmail.com" # TODO : handle when user is really anonymous
 	# current_user = user_service.get_by_id(id)
 	project_infos = project_service.get_infos(project_name, current_user)
+	# print(project_infos)
 	if project_infos == 403: abort(403) 
 	js = json.dumps(project_infos, default=str)
 	resp = Response(js, status=200,  mimetype='application/json')
@@ -230,9 +231,11 @@ def sample_upload(project_name):
 	if fichiers:
 		reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
 		samples  = project_service.get_samples(project_name)
-		for f in fichiers: project_service.upload_project(f, project_name, import_user, reextensions=reextensions, existing_samples=samples)
+		for f in fichiers:
+			project_service.upload_project(f, project_name, import_user, reextensions=reextensions, existing_samples=samples)
 
 	samples = {"samples":project_service.get_samples(project_name)}
+	# print(samples)
 	js = json.dumps(samples)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
@@ -304,6 +307,7 @@ def samplepage(project_name, sample_name):
 	if reply.get("status") == "OK":
 		samples = reply.get("data", {})			
 		js = json.dumps( project_service.samples2trees(samples) )
+		# print(js)
 		resp = Response(js, status=200,  mimetype='application/json')
 		return resp
 	else: abort(409)
