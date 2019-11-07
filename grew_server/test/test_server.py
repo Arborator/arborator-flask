@@ -177,7 +177,13 @@ def send_request(fct_name, data={}, files={}):
 
 # print ('========== [eraseProject]')
 # print ('       ... project_id -> proj_2')
-# reply = send_request ('eraseProject', data={'project_id': 'proj_2'})
+# reply = send_request ('eraseProject', data={'project_id': 'Marine test 2'})
+# print (reply)
+
+# print ("\n***************************************************************************\n")
+
+# print ('========== [renameProject]')
+# reply = send_request ('renameProject', data={'project_id': 'Naijaa', "new_project_id":"Naija"})
 # print (reply)
 
 # print ("\n***************************************************************************\n")
@@ -186,15 +192,15 @@ print ('========== [getProjects]')
 reply = send_request ('getProjects')
 print (reply)
 
-print ('========== [getSamples]')
-print ('       ... project_id -> French')
-reply = send_request ('getSamples', data={'project_id': 'French'})
-print (reply)
+# print ('========== [getSamples]')
+# print ('       ... project_id -> French')
+# reply = send_request ('getSamples', data={'project_id': 'French'})
+# print (reply)
 
-print ('========== [getSamples]')
-print ('       ... project_id -> Naija')
-reply = send_request ('getSamples', data={'project_id': 'Naija'})
-print (reply)
+# print ('========== [getSamples]')
+# print ('       ... project_id -> Naija')
+# reply = send_request ('getSamples', data={'project_id': 'Naija'})
+# print (reply)
 
 # print ('========== [getConll]')
 # reply = send_request ('getConll', data={'project_id':'FrenchTest', "sample_id":'peripitiesVoiture'})

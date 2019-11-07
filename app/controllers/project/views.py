@@ -66,7 +66,8 @@ def project_info(project_name):
                 samples: [
                     { samplename: 'P_ABJ_GWA_10_Steven.lifestory_PRO', sentences: 80, tokens: 20, averageSentenceLength: 12.6, roles :{validators: [], annotators: []}, treesFrom: ['parser', 'tella', 'j.D'], exo: 'percentage'}, 
 	"""
-	# current_user.id ="rinema56@gmail.com" # TODO : handle when user is really anonymous
+	# id ="rinema56@gmail.com" # TODO : handle when user is really anonymous
+	# current_user = user_service.get_by_id(id)
 	project_infos = project_service.get_infos(project_name, current_user)
 	if project_infos == 403: abort(403) 
 	js = json.dumps(project_infos, default=str)
@@ -82,9 +83,7 @@ def project_update(project_name):
 
 	par exemple
 	ajouter admin / guest users:{nom:access, nom:access, nom:"" (pour enlever)}
-	changer nom du projet project:{nom:nouveaunom,description:nouvelledescription,isprivate:True, image:blob}
-	# TODO : change the projectname in grew also !
-	
+	changer nom du projet project:{projectname:nouveaunom,description:nouvelledescription,isprivate:True, image:blob}
 	"""
 	if not request.json: abort(400)
 	project = project_service.get_by_name(project_name)
@@ -94,13 +93,28 @@ def project_update(project_name):
 			user = user_service.get_by_id(k)
 			if user:
 				pa = project_service.get_project_access(project.id, user.id)
-				if pa: pa.accesslevel=v
-				else: project_service.create_add_project_access(user.id, proejct.id, v)
+				if pa:
+					if v: # update
+						pa.accesslevel = v
+					else: # delete an existing project access
+						project_service.delete_project_access(pa)
+				else:
+					if v: # create
+						project_service.create_add_project_access(user.id, project.id, v)
+					else:
+						pass
+
 			else: abort(400)
 	if request.json.get("project"):
-		for k,v in request.json.get("project").items(): setattr(project,k,v)
+		print("**here**")
+		for k,v in request.json.get("project").items():
+			if k == "projectname":
+				reply = json.loads(grew_request("renameProject",data={"project_id":project_name, "new_project_id":v}))
+				if reply["status"] != "OK": abort(400)
+				# update project_name if it went well
+			setattr(project,k,v)
 	db.session.commit()
-	return project_info(project_name)
+	return project_info(project.projectname)
 
 
 
@@ -118,7 +132,7 @@ def delete_project(project_name):
 	project = project_service.get_by_name(project_name)
 	if not project:	abort(400)
 	# p_access = get_access_for_project(current_user.id, project.id)
-	p_access = project_service.get_project_access(project.id, current_user.id)
+	p_access = project_service.get_project_access(project.id, current_user.id).accesslevel
 	if p_access >=2 or current_user.super_admin:
 		project_service.delete(project)
 	else:

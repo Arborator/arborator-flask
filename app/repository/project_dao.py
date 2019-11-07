@@ -7,7 +7,12 @@ def get_access(project_id, user_id):
 
 def add_access(project_access):
     """ add a project access object """
-    db.session.add(proejct_access)
+    db.session.add(project_access)
+    db.session.commit()
+
+def delete_project_access(project_access):
+    """ delete a project access """
+    db.session.delete(project_access)
     db.session.commit()
 
 def get_admins(project_id):

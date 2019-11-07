@@ -7,20 +7,24 @@ from ..repository import project_dao
 from werkzeug import secure_filename
 
 def get_project_access(project_id, user_id):
-    ''' return the project access level given a project id and user id. returns 0 if the projject access is false '''
+    ''' return the project access given a project id and user id. returns 0 if the project access is false '''
     project_access = project_dao.get_access(project_id, user_id)
     # if no access links this project and user, the user is a guest
     if not project_access: return 0
-    return project_access.access_level
+    return project_access
 
 def add_project_access(project_access):
     ''' add a project access '''
     project_dao.add_access(project_access)
 
 def create_add_project_access(user_id, project_id, access_level):
-    ''' create and add a new projejct access given the args '''
-    pa = ProjectAccess(userid=user_id, projectid=project_id, accesslevel=access_level )
+    ''' create and add a new project access given the args if there is an old access it is deleted '''
+    pa = ProjectAccess(userid=user_id, projectid=project_id, accesslevel=access_level)
     project_dao.add_access(pa)
+
+def delete_project_access(project_access):
+    ''' deletes a project access '''
+    project_dao.delete_project_access(project_access)
 
 def get_all(json=False):
     ''' get all the projects. if json is true, returns the list of json'''
