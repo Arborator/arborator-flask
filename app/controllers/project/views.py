@@ -66,7 +66,7 @@ def project_info(project_name):
                 samples: [
                     { samplename: 'P_ABJ_GWA_10_Steven.lifestory_PRO', sentences: 80, tokens: 20, averageSentenceLength: 12.6, roles :{validators: [], annotators: []}, treesFrom: ['parser', 'tella', 'j.D'], exo: 'percentage'}, 
 	"""
-	# id ="rinema56@gmail.com" # TODO : handle when user is really anonymous
+	id ="rinema56@gmail.com" # TODO : handle when user is really anonymous
 	# current_user = user_service.get_by_id(id)
 	project_infos = project_service.get_infos(project_name, current_user)
 	# print(project_infos)
