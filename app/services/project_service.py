@@ -50,8 +50,12 @@ def delete(project):
 def get_infos(project_name, current_user):
     ''' get project informations available for the current user '''
     project = project_dao.find_by_name(project_name)
-    # TODO : handle anonymous user
-    roles = project_dao.get_roles(project.id, current_user.id)
+    # current_user.id = "rinema56@gmail.com"
+    if not current_user.is_authenticated: # TODO : handle anonymous user
+        # print("Anonymous User ")
+        roles = []
+    else:
+        roles = project_dao.get_roles(project.id, current_user.id)
 
     if not roles and project.is_private: return 403
 

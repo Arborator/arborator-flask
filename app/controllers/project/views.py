@@ -66,10 +66,9 @@ def project_info(project_name):
                 samples: [
                     { samplename: 'P_ABJ_GWA_10_Steven.lifestory_PRO', sentences: 80, tokens: 20, averageSentenceLength: 12.6, roles :{validators: [], annotators: []}, treesFrom: ['parser', 'tella', 'j.D'], exo: 'percentage'}, 
 	"""
-	id ="rinema56@gmail.com" # TODO : handle when user is really anonymous
+	# id ="rinema56@gmail.com"
 	# current_user = user_service.get_by_id(id)
-	project_infos = project_service.get_infos(project_name, current_user)
-	# print(project_infos)
+	project_infos = project_service.get_infos(project_name, current_user) # FIX : handles anonymous user
 	if project_infos == 403: abort(403) 
 	js = json.dumps(project_infos, default=str)
 	resp = Response(js, status=200,  mimetype='application/json')
