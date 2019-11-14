@@ -451,3 +451,34 @@ def update_sample(project_name, sample_name):
 	TODO 
 	"""
 	pass
+
+
+@project.route("/<project_name>/sample/<sample_name>/saveTrees", methods=["POST"])
+def save_trees(project_name, sample_name):
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	if not request.json: abort(400)
+
+	samples = {"samples":project_service.get_samples(project_name)}
+	if not sample_name in samples["samples"]: abort(404)
+
+	data = request.json
+	if data:
+		trees = data.get("trees")
+		user_id = data.get("user_id")
+		# if not user_id: abort(400)
+		for tree in trees:
+			sent_id = tree.get("sent_id")
+			conll = tree.get("conll")
+			# if not sent_id: abort(400)
+			if not conll: abort(400)
+
+			reply = send_request (
+				'saveGraph',
+				data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':user_id, 'sent_id':sent_id, "conll_graph":conll}
+				)
+			resp = json.loads(reply)
+			if resp["status"] != "OK": abort(404)
+			
+	resp = Response(dict(), status=200,  mimetype='application/json')
+	return resp
