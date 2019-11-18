@@ -8,7 +8,7 @@ import re, base64
 from ...utils.conll3 import conll3
 from collections import OrderedDict
 from flask_cors import cross_origin
-
+import io, zipfile, time
 
 # local imports
 from . import project
@@ -226,7 +226,8 @@ def sample_upload(project_name):
 	if not project: abort(404)
 
 	fichiers = request.files.to_dict(flat=False).get("files")
-	import_user = request.form.get("import_user", "")
+	import_user = request.form.get("import_user", "") # TODO : change import_user
+	# print("IMPORT USER: {}".format(import_user))
 	if fichiers:
 		reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
 		samples  = project_service.get_samples(project_name)
@@ -241,43 +242,31 @@ def sample_upload(project_name):
 
 
 
-@project.route('/<project_name>/export/zip', methods=["POST", "GET"])
+# @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
+@project.route('/<project_name>/export/zip', methods=["GET"])
 def sample_export(project_name):
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	if not request.json: abort(400)
+	
 	data = request.get_json(force=True)
 	samplenames = data['samples']
 	sampletrees = list()
 	for samplename in samplenames: 
 		reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':samplename}))
-		if reply.get("status") == "OK":	sampletrees.append( project_service.servSampleTrees(reply.get("data", {})  )	)
-	print( type(sampletrees[0]) )
-	treeDict = json.loads(sampletrees[0])
-	print(treeDict.keys())
-	print(treeDict['P_WAZK_07_As-e-dey-Hot-News-Read_PRO_1']['conlls'].keys())
-	print(treeDict['P_WAZK_07_As-e-dey-Hot-News-Read_PRO_1']['conlls']['pouick'] )
+		if reply.get("status") == "OK":
 
-	# for sampletree in sampletrees: print( sampletr )
+			# {"sent_id_1":{"conlls":{"user_1":"conllstring"}}}
+			sample_tree = project_service.servSampleTrees(reply.get("data", {})  )
+			sampletrees.append(sample_tree)
+		else:
+			print("Error: {}".format(reply.get("message")))
 
+	# [ {user_1:conllForWholeSample, user_2:conllForWholeSample}, {user_1:conllForWholeSample2, user_2:conllForWholeSample2}]
 	samplecontentfiles = [ project_service.sampletree2contentfile(sampletree) for sampletree in sampletrees ]
+	memory_file = project_service.contentfiles2zip(samplenames, samplecontentfiles)
 
-	print(samplecontentfiles[0])
-	open('testgg.conll', 'w').write(samplecontentfiles[0]['pouick'])
-
-
-	# memory_file = project_service.contentfiles2zip(samplecontentfiles)
-
-	# memory_file = io.BytesIO()
-    # with zipfile.ZipFile(memory_file, 'w') as zf:
-    #     for sample in samplecontentfiles:
-    #         for fuser, filecontent in sample.items():
-    #             data = zipfile.ZipInfo('{}.conll'.format( fuser) )
-    #             data.date_time = time.localtime(time.time())[:6]
-    #             data.compress_type = zipfile.ZIP_DEFLATED
-    #             zf.writestr(data, filecontent)
-    # memory_file.seek(0)
-
-	# project_service.samples2trees(sampletrees[0])
-	# print(reply)
-	resp = Response(memory_file, status=200,  mimetype='application/zip', headers={'Content-Disposition':'attachment;filename=dump.zip'})
+	resp = Response(memory_file, status=200,  mimetype='application/zip', headers={'Content-Disposition':'attachment;filename=dump.{}.zip'.format(project_name)})
 	return resp
 
 

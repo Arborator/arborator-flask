@@ -223,8 +223,9 @@ def upload_project(fileobject, project_name, import_user, reextensions=None, exi
                 data = {'project_id': project_name, 'sample_id': sample_name},
                 files={'conll_file': inf},
             )
-        print(reply)
-    if reply["status"] != "OK": abort(400)
+    reply = json.loads(reply)
+    if reply.get("status") != "OK":
+        abort(400)
 
 def servSampleTrees(samples):
     ''' get samples in form of json trees '''
@@ -247,12 +248,12 @@ def sampletree2contentfile(tree):
     for user, content in usertrees.items(): usertrees[user] = '\n'.join(usertrees[user])
     return usertrees
 
-def contentfiles2zip( sampletrees):
+def contentfiles2zip(samplenames, sampletrees):
     memory_file = io.BytesIO()
     with zipfile.ZipFile(memory_file, 'w') as zf:
-        for sample in sampletrees:
+        for samplename, sample in zip(samplenames, sampletrees):
             for fuser, filecontent in sample.items():
-                data = zipfile.ZipInfo('{}.conll'.format( fuser) )
+                data = zipfile.ZipInfo('{}.{}.conll'.format(samplename, fuser) )
                 data.date_time = time.localtime(time.time())[:6]
                 data.compress_type = zipfile.ZIP_DEFLATED
                 zf.writestr(data, filecontent)
