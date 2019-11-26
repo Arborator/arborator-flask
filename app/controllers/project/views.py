@@ -301,7 +301,7 @@ def samplepage(project_name, sample_name):
 	else: abort(409)
 
 
-@project.route('/<project_name>/sample/<sample_name>/search', methods=['GET'])
+@project.route('/<project_name>/sample/<sample_name>/search', methods=['GET', 'POST'])
 # @login_required
 def search_sample(project_name, sample_name):
 	"""
