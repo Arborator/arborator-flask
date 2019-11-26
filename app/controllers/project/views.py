@@ -185,13 +185,7 @@ def search_project(project_name):
 
 		# adding trees
 		# {trees:{sent_id:{"sentence":sentence, "conlls":{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
-	
-		if m["sent_id"] not in trees:
-			t = conll3.conll2tree(conll)
-			s = t.sentence()
-			trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll}}
-		else:
-			trees[m["sent_id"]]["conlls"].update(user_id=conll)
+
 		nodes = []
 		for k in m['nodes'].values():
 			nodes +=[k.split("_")[-1]]
@@ -200,11 +194,19 @@ def search_project(project_name):
 		for k in m['edges'].values():
 			edges +=[k.split("_")[-1]]
 
-		matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
+		if m["sent_id"] not in trees:
+			t = conll3.conll2tree(conll)
+			s = t.sentence()
+			trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll},"matches":{"edges":edges,"nodes":nodes}}
+		else:
+			trees[m["sent_id"]]["conlls"].update(user_id=conll)
+		
+
+		# matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
 
 	js = json.dumps({"trees":trees,"matches":matches})
 	resp = Response(js, status=200,  mimetype='application/json')
-
+	# print(11111)
 	return resp
 	
 
