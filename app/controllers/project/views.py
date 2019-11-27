@@ -169,7 +169,7 @@ def search_project(project_name):
 	if reply["status"] != "OK": abort(400)
 
 	trees={}
-	matches={}
+	# matches={}
 	reendswithnumbers = re.compile(r"_(\d+)$")
 
 	for m in reply["data"]:
@@ -182,29 +182,9 @@ def search_project(project_name):
 		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
 		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
+		trees=project_service.formatTrees(m, trees, conll, user_id)
 
-		# adding trees
-		# {trees:{sent_id:{"sentence":sentence, "conlls":{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
-
-		nodes = []
-		for k in m['nodes'].values():
-			nodes +=[k.split("_")[-1]]
-
-		edges = []
-		for k in m['edges'].values():
-			edges +=[k.split("_")[-1]]
-
-		if m["sent_id"] not in trees:
-			t = conll3.conll2tree(conll)
-			s = t.sentence()
-			trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll},"matches":{"edges":edges,"nodes":nodes}}
-		else:
-			trees[m["sent_id"]]["conlls"].update(user_id=conll)
-		
-
-		# matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
-
-	js = json.dumps({"trees":trees,"matches":matches})
+	js = json.dumps({"trees":trees})
 	resp = Response(js, status=200,  mimetype='application/json')
 	# print(11111)
 	return resp
@@ -303,7 +283,7 @@ def samplepage(project_name, sample_name):
 	else: abort(409)
 
 
-@project.route('/<project_name>/sample/<sample_name>/search', methods=['GET'])
+@project.route('/<project_name>/sample/<sample_name>/search', methods=['GET', 'POST'])
 # @login_required
 def search_sample(project_name, sample_name):
 	"""
@@ -335,26 +315,26 @@ def search_sample(project_name, sample_name):
 		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
 		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
+		trees=project_service.formatTrees(m, trees, conll, user_id)
+		# # adding trees
+		# # {trees:{sent_id:{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
+		# if m["sent_id"] not in trees:
+		# 	t = conll3.conll2tree(conll)
+		# 	s = t.sentence()
+		# 	trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll}}
+		# else:
+		# 	trees[m["sent_id"]]["conlls"].update(user_id=conll)
+		# nodes = []
+		# for k in m['nodes'].values():
+		# 	nodes +=[k.split("_")[-1]]
 
-		# adding trees
-		# {trees:{sent_id:{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
-		if m["sent_id"] not in trees:
-			t = conll3.conll2tree(conll)
-			s = t.sentence()
-			trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll}}
-		else:
-			trees[m["sent_id"]]["conlls"].update(user_id=conll)
-		nodes = []
-		for k in m['nodes'].values():
-			nodes +=[k.split("_")[-1]]
+		# edges = []
+		# for k in m['edges'].values():
+		# 	edges +=[k.split("_")[-1]]
 
-		edges = []
-		for k in m['edges'].values():
-			edges +=[k.split("_")[-1]]
+		# matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
 
-		matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
-
-	js = json.dumps({"trees":trees,"matches":matches})
+	js = json.dumps({"trees":trees})
 	resp = Response(js, status=200,  mimetype='application/json')
 
 	return resp

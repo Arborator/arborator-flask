@@ -162,7 +162,7 @@ def samples2trees(samples):
     for sentId, users in samples.items():	
         for userId, conll in users.items():
             tree = conll3.conll2tree(conll)
-            if sentId not in trees: trees[sentId] = {"sentence":tree.sentence(), "conlls": {}}
+            if sentId not in trees: trees[sentId] = {"sentence":tree.sentence(), "conlls": {}, "matches":{}}
             trees[sentId]["conlls"][userId] = conll
     return trees
 
@@ -259,6 +259,29 @@ def contentfiles2zip(samplenames, sampletrees):
                 zf.writestr(data, filecontent)
     memory_file.seek(0)
     return memory_file
+
+def formatTrees(m, trees, conll, user_id):
+    '''
+    m is the query result from grew
+    list of trees
+    '''
+    nodes = []
+    for k in m['nodes'].values():
+        nodes +=[k.split("_")[-1]]
+
+    edges = []
+    for k in m['edges'].values():
+        edges +=[k.split("_")[-1]]
+
+    if m["sent_id"] not in trees:
+        t = conll3.conll2tree(conll)
+        s = t.sentence()
+        trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll},"matches":{"edges":edges,"nodes":nodes}}
+    else:
+        trees[m["sent_id"]]["conlls"].update(user_id=conll)
+    
+    return trees
+		
 
 def servTreeToOutputs(tree):
     ''' ? TODO : ???? '''
