@@ -184,7 +184,7 @@ def search_project(project_name):
 		conll = conll["data"]
 		trees=project_service.formatTrees(m, trees, conll, user_id)
 
-	js = json.dumps({"trees":trees})
+	js = json.dumps(trees)
 	resp = Response(js, status=200,  mimetype='application/json')
 	# print(11111)
 	return resp
@@ -334,7 +334,7 @@ def search_sample(project_name, sample_name):
 
 		# matches[m["sent_id"]+'____'+user_id] = {"edges":edges,"nodes":nodes}
 
-	js = json.dumps({"trees":trees})
+	js = json.dumps(trees)
 	resp = Response(js, status=200,  mimetype='application/json')
 
 	return resp

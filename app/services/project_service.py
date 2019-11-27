@@ -276,9 +276,10 @@ def formatTrees(m, trees, conll, user_id):
     if m["sent_id"] not in trees:
         t = conll3.conll2tree(conll)
         s = t.sentence()
-        trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll},"matches":{"edges":edges,"nodes":nodes}}
+        trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll},"matches":{user_id:{"edges":edges,"nodes":nodes}}}
     else:
         trees[m["sent_id"]]["conlls"].update(user_id=conll)
+        trees[m["sent_id"]]["matches"].update(user_id={"edges":edges,"nodes":nodes})
     
     return trees
 		
