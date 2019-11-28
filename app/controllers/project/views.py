@@ -340,8 +340,6 @@ def search_sample(project_name, sample_name):
 	return resp
 
 
-
-
 @project.route('/<project_name>/sample/<sample_name>/users', methods=['GET'])
 # @login_required
 def sampleusers(project_name, sample_name):
@@ -462,4 +460,40 @@ def save_trees(project_name, sample_name):
 				abort(404)
 			
 	resp = Response(dict(), status=200,  mimetype='application/json')
+	return resp
+
+
+
+
+@project.route("/<project_name>/relation_table/current_user", methods=["GET"])
+# @login_required
+def get_relation_table_current_user(project_name):
+	project = project_service.get_by_name(project_name)
+	if not project:
+		print("problem with proj")
+		abort(404)
+
+	reply = grew_request (
+				'searchPatternInGraphs',
+				data = {'project_id': project_name, "pattern":'pattern { e: GOV -> DEP}', "clusters":["e; GOV.upos; DEP.upos"]}
+				)
+	response = json.loads(reply)
+	if response["status"] != "OK": abort(400)
+	# current_user.id = "gael.guibon"
+	data = response.get("data")
+	for e, v in data.items():
+		print("edge", e)
+		for gov, vv in v.items():
+			for dep, vvv in vv.items():
+				trees = dict()
+				for elt in vvv:
+					if elt.get("user_id") != current_user.id: continue
+					conll = json.loads(grew_request("getConll", data={"sample_id":elt["sample_id"], "project_id":project_name, "sent_id":elt["sent_id"], "user_id":current_user.id}))
+					if conll["status"] != "OK": abort(404)
+					conll = conll["data"]
+					trees=project_service.formatTrees_user(elt, trees, conll)
+				data[e][gov][dep] = trees
+
+	js = json.dumps(data)
+	resp = Response(js, status=200,  mimetype='application/json')
 	return resp

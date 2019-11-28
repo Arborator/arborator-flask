@@ -284,6 +284,27 @@ def formatTrees(m, trees, conll, user_id):
     return trees
 		
 
+def formatTrees_user(m, trees, conll):
+    '''
+    m is the query result from grew
+    list of trees
+    '''
+    nodes = m["nodes"]
+    edges = m["edges"]
+    user_id = m["user_id"]
+
+
+    if m["sent_id"] not in trees:
+        t = conll3.conll2tree(conll)
+        s = t.sentence()
+        trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll},"matches":{user_id:{"edges":edges,"nodes":nodes}}}
+    else:
+        trees[m["sent_id"]]["conlls"].update(user_id=conll)
+        trees[m["sent_id"]]["matches"].update(user_id={"edges":edges,"nodes":nodes})
+    
+    return trees
+		
+
 def servTreeToOutputs(tree):
     ''' ? TODO : ???? '''
     return None
