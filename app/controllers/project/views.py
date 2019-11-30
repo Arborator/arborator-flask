@@ -184,6 +184,8 @@ def search_project(project_name):
 		conll = conll["data"]
 		trees=project_service.formatTrees(m, trees, conll, user_id)
 
+	print('trees', trees)
+
 	js = json.dumps(trees)
 	resp = Response(js, status=200,  mimetype='application/json')
 	# print(11111)
