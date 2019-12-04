@@ -156,13 +156,13 @@ def get_samples_roles(project_id, sample_name, json=False):
 def get_possible_roles():
     return project_dao.get_possible_roles()
 
-def samples2trees(samples):
+def samples2trees(samples, sample_name):
     ''' transforms a list of samples into a trees object '''
     trees={}
     for sentId, users in samples.items():	
         for userId, conll in users.items():
             tree = conll3.conll2tree(conll)
-            if sentId not in trees: trees[sentId] = {"sentence":tree.sentence(), "conlls": {}, "matches":{}}
+            if sentId not in trees: trees[sentId] = {"samplename":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
             trees[sentId]["conlls"][userId] = conll
     return trees
 
@@ -276,7 +276,7 @@ def formatTrees(m, trees, conll, user_id):
     if m["sent_id"] not in trees:
         t = conll3.conll2tree(conll)
         s = t.sentence()
-        trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll},"matches":{user_id:{"edges":edges,"nodes":nodes}}}
+        trees[m["sent_id"]] = {"samplename":m['sample_id'] ,"sentence":s, "conlls":{user_id:conll},"matches":{user_id:{"edges":edges,"nodes":nodes}}}
     else:
         trees[m["sent_id"]]["conlls"].update(user_id=conll)
         trees[m["sent_id"]]["matches"].update(user_id={"edges":edges,"nodes":nodes})

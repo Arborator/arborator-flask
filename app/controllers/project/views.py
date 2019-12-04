@@ -167,7 +167,6 @@ def search_project(project_name):
 	pattern = request.json.get("pattern")
 	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
 	if reply["status"] != "OK": abort(400)
-
 	trees={}
 	# matches={}
 	reendswithnumbers = re.compile(r"_(\d+)$")
@@ -183,8 +182,6 @@ def search_project(project_name):
 		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
 		trees=project_service.formatTrees(m, trees, conll, user_id)
-
-	print('trees', trees)
 
 	js = json.dumps(trees)
 	resp = Response(js, status=200,  mimetype='application/json')
@@ -278,7 +275,7 @@ def samplepage(project_name, sample_name):
 	
 	if reply.get("status") == "OK":
 		samples = reply.get("data", {})			
-		js = json.dumps( project_service.samples2trees(samples) )
+		js = json.dumps( project_service.samples2trees(samples, sample_name) )
 		# print(js)
 		resp = Response(js, status=200,  mimetype='application/json')
 		return resp
@@ -471,6 +468,7 @@ def save_trees(project_name, sample_name):
 # @login_required
 def get_relation_table_current_user(project_name):
 	project = project_service.get_by_name(project_name)
+	print('project', project)
 	if not project:
 		print("problem with proj")
 		abort(404)
@@ -484,13 +482,15 @@ def get_relation_table_current_user(project_name):
 	# current_user.id = "gael.guibon"
 	data = response.get("data")
 	for e, v in data.items():
-		print("edge", e)
+		# print("edge", e)
 		for gov, vv in v.items():
 			for dep, vvv in vv.items():
 				trees = dict()
 				for elt in vvv:
 					if elt.get("user_id") != current_user.id: continue
 					conll = json.loads(grew_request("getConll", data={"sample_id":elt["sample_id"], "project_id":project_name, "sent_id":elt["sent_id"], "user_id":current_user.id}))
+					# conll = json.loads(grew_request("getConll", data={"sample_id":elt["sample_id"], "project_id":project_name, "sent_id":elt["sent_id"], "user_id":"marine"}))
+
 					if conll["status"] != "OK": abort(404)
 					conll = conll["data"]
 					trees=project_service.formatTrees_user(elt, trees, conll)
