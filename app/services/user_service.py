@@ -1,5 +1,5 @@
 from ..models.models import *
-from ...grew_server.test.test_server import send_request as grew_request
+from ..utils.grew_utils import grew_request, upload_project
 from ...config import Config
 from ..utils.conll3 import conll3
 from ..repository import user_dao

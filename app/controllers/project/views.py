@@ -13,8 +13,7 @@ import io, zipfile, time
 # local imports
 from . import project
 from ...models.models import *
-from ....grew_server.test.test_server import send_request as grew_request
-from ...utils import grew_utils
+from ...utils.grew_utils import grew_request, upload_project
 from ....config import Config
 
 from ...services import project_service, user_service

@@ -11,7 +11,7 @@ from .forms import ProjectForm, UploadForm, UserAssignForm, ACCESS
 from ... import db
 from ...models.models import *
 from ....config import Config
-from ....grew_server.test.test_server import send_request as grew_request
+from ...utils.grew_utils import grew_request, upload_project
 from ..project.views import requires_access_level
 
 

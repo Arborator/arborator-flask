@@ -1,8 +1,8 @@
 import os, json, zipfile, time, io
 from ..models.models import *
-from ...grew_server.test.test_server import send_request as grew_request
 from ...config import Config
 from ..utils.conll3 import conll3
+from ..utils.grew_utils import grew_request, upload_project
 from ..repository import project_dao
 from werkzeug import secure_filename
 from datetime import datetime
