@@ -41,6 +41,10 @@ def upload_project(fileobject, reextensions=None):
             )
         print(reply)
 
+if (len(sys.argv) > 1 and sys.argv[1] == "local"):
+    server = 'http://localhost:8080'
+else:
+    server = 'http://arborator.grew.fr'
 
 def grew_request(fct_name, data={}, files={}):
     try:
