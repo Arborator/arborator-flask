@@ -280,7 +280,7 @@ def samplepage(project_name, sample_name):
 		resp = Response(js, status=200,  mimetype='application/json')
 		return resp
 	else: abort(409)
-
+ 
 
 @project.route('/<project_name>/sample/<sample_name>/search', methods=['GET', 'POST'])
 # @login_required
