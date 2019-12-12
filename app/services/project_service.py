@@ -6,6 +6,7 @@ from ..utils.grew_utils import grew_request, upload_project
 from ..repository import project_dao
 from werkzeug import secure_filename
 from datetime import datetime
+from flask import abort
 
 def get_project_access(project_id, user_id):
     ''' return the project access given a project id and user id. returns 0 if the project access is false '''
@@ -193,6 +194,7 @@ def upload_project(fileobject, project_name, import_user, reextensions=None, exi
 
     filename = secure_filename(fileobject.filename)
     sample_name = reextensions.sub("", filename)
+    # print("sampleName: ", sample_name)
 
     # writing file to upload folder
     fileobject.save(os.path.join(Config.UPLOAD_FOLDER, filename))
@@ -226,6 +228,13 @@ def upload_project(fileobject, project_name, import_user, reextensions=None, exi
     reply = json.loads(reply)
     if reply.get("status") != "OK":
         abort(400)
+
+def get_timestamp(conll):
+    t = re.search("# timestamp = (\d+\.\d+)\n", conll).groups()
+    if t:
+        return t[0]
+    else:
+        return False
 
 def servSampleTrees(samples):
     ''' get samples in form of json trees '''

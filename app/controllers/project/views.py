@@ -207,7 +207,7 @@ def sample_upload(project_name):
 
 	fichiers = request.files.to_dict(flat=False).get("files")
 	import_user = request.form.get("import_user", "") # TODO : change import_user
-	# print("IMPORT USER: {}".format(import_user))
+	print("IMPORT USER: {}".format(import_user))
 	if fichiers:
 		reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
 		samples  = project_service.get_samples(project_name)
@@ -232,18 +232,26 @@ def sample_export(project_name):
 	data = request.get_json(force=True)
 	samplenames = data['samples']
 	sampletrees = list()
+	samplecontentfiles = list()
 	for samplename in samplenames: 
 		reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':samplename}))
 		if reply.get("status") == "OK":
 
 			# {"sent_id_1":{"conlls":{"user_1":"conllstring"}}}
-			sample_tree = project_service.servSampleTrees(reply.get("data", {})  )
-			sampletrees.append(sample_tree)
+			sample_tree = project_service.servSampleTrees(reply.get("data", {})  )	
+			sample_content = project_service.sampletree2contentfile(sample_tree)
+
+			# finding the last tree
+			timestamps = [(user, project_service.get_timestamp(conll)) for (user, conll) in sample_content.items()]
+			# print(timestamps)
+			last = sorted([u for (u, t) in timestamps], key=lambda x: x[1])[-1] #pb les timestamps sont pas mis à jour
+			# print(last)
+			sample_content["last"] = sample_content[last]
+			samplecontentfiles.append(sample_content)
+
 		else:
 			print("Error: {}".format(reply.get("message")))
 
-	# [ {user_1:conllForWholeSample, user_2:conllForWholeSample}, {user_1:conllForWholeSample2, user_2:conllForWholeSample2}]
-	samplecontentfiles = [ project_service.sampletree2contentfile(sampletree) for sampletree in sampletrees ]
 	memory_file = project_service.contentfiles2zip(samplenames, samplecontentfiles)
 
 	resp = Response(memory_file, status=200,  mimetype='application/zip', headers={'Content-Disposition':'attachment;filename=dump.{}.zip'.format(project_name)})
