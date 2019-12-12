@@ -446,7 +446,7 @@ def save_trees(project_name, sample_name):
 		trees = data.get("trees")
 		# no user_id was sent : save to current_user, else save to provided user
 		# user_id = data.get("user_id", current_user.id)
-		user_id = data.get("user_id", "marine")
+		user_id = data.get("user_id", current_user.id)
 		# if not user_id: abort(400)
 		for tree in trees:
 			# print(tree)
