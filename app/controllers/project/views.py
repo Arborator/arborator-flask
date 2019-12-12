@@ -223,7 +223,7 @@ def sample_upload(project_name):
 
 
 # @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
-@project.route('/<project_name>/export/zip', methods=["GET"])
+@project.route('/<project_name>/export/zip', methods=["POST"])
 def sample_export(project_name):
 	project = project_service.get_by_name(project_name)
 	if not project: abort(404)
