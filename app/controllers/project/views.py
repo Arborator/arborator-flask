@@ -14,7 +14,7 @@ import io, zipfile, time
 from . import project
 from ...models.models import *
 from ...utils.grew_utils import grew_request, upload_project
-from ....config import Config
+from config import Config
 
 from ...services import project_service, user_service
 

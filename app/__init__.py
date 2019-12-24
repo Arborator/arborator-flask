@@ -11,7 +11,7 @@ from flask_bootstrap import Bootstrap
 
 
 # local imports
-from ..config import app_config
+from config import app_config
 # from .project import get_access_for_project
 
 # db variable initialization
