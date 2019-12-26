@@ -1,7 +1,139 @@
 # Arborator-Flask
-This a flask port of the [arborator-server](https://github.com/Arborator/arborator-server) as commisioned by [Kim Gerdes](https://github.com/kimgerdes)
+This the back-end of the Arborator-Grew redevelopement of the [arborator-server](https://github.com/Arborator/arborator-server).
 
-* `export FLASK_CONFIG=development; export FLASK_APP=run.py`
+# installation
+
+```sh
+sudo apt install python3-flask python3-pip
+pip3 install --user -r requirements.txt
+pip3 install --user  futures flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap
+python3 -m pip install flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap flask-cors pyopenssl uwsgi
+checkout https://github.com/Arborator/arborator-flask.git
+```
+
+
+# run locally
+
+`export FLASK_APP=run.py; export FLASK_CONFIG=development; flask run --cert=adhoc`
+
+### in case of problems try: 
+```shell
+sudo pip3 uninstall flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap
+sudo pip3 install flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap
+pip3 install sqlathanor
+pip3 install flask-cors
+pip3 install pyopenssl
+```
+	
+-------------
+
+
+# deployment
+
+**Goal**: install arborator-flask so that it servers in httpS on https://arborapi.xxx.fr:5000/api/home/projects/
+
+[This](https://medium.com/@thucnc/deploy-a-python-flask-restful-api-app-with-gunicorn-supervisor-and-nginx-62b20d62691f) and [this](https://serverfault.com/questions/828130/how-to-run-nginx-ssl-on-non-standard-port) helped a lot.
+
+Internally, flask will run on 5001. Externally it will run on 5000
+
+## Preparation
+New server arborapi.xxx.fr (small vps)
+
+### As root:
+```
+ssh root@arborapi.xxx.fr
+adduser arborator
+```
+
+nginx installed?
+Use arborator-flask/deployment/arborator-flask.nginx.conf
+`service nginx restart`
+
+supervisor installed?
+```
+apt install supervisor
+cp deployment/arborator-flask.conf /etc/supervisor/conf.d/`
+certbot installed?
+apt-get install certbot python-certbot-nginx
+certbot --nginx
+Toutes les module python installed?
+python3 -m pip install flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap flask-cors pyopenssl uwsgi
+```
+
+### As arborator:
+```
+ssh arborator@arborapi.xxx.fr
+git clone https://github.com/Arborator/arborator-flask.git
+cd /home/arborator/arborator-flask/
+```
+
+### For testing:
+```
+python3 wsgi.py
+gunicorn -b localhost:5001 -w 4 wsgi
+(by default it looks for “application”. If it’s not called “application”, add it: gunicorn -b localhost:5001 -w 4 wsgi:myapp)
+gunicorn -c gunicorn.conf.py wsgi
+```
+
+### Start
+```
+sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl avail
+sudo supervisorctl restart arborator-flask
+```
+
+
+### Check and debug
+Is it working on https://arborapi.xxx.fr:5000/api/home/projects/ ?
+Test locally with
+`curl localhost:5001/api/home/projects/`
+
+Check who’s running on port 5000 and 5001: 
+```
+lsof -i:5000
+lsof -i:5001
+```
+
+From remote (note that strangely, it doesn’t work with https as in the browser)
+`curl http://arborapi.xxx.fr:5000/api/home/projects/`
+
+
+If address already in use for second run: 
+```
+killall python3
+killall gunicorn
+```
+
+
+
+
+
+
+-------------
+
+
+
+	
+# structure
+	deux routes : 
+	home/views : 
+			/ (rien) --> template : home/index.html
+			/q --> template: home/quickie.html
+	auth/views : /login etc
+	
+authomatic:
+	auth/views.py
+	auth/auth_config.py : par provider 
+	
+
+modif
+	
+
+new install :
+
+
+
 
 # Development
 To create database
@@ -32,40 +164,4 @@ Then run
 
 
 Check out the guide on the [Wiki page](https://github.com/Arborator/arborator-server/wiki).
-
-# 2019
-installer :  
-	sudo apt install python3-flask python3-pip
-	pip3 install --user -r requirements.txt 
-	pip3 install --user  futures flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap
-
-
-si problème : 
-	sudo pip3 uninstall flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap
-	sudo pip3 install flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap
-	
-faire tourner :
-	export FLASK_APP=run.py; export FLASK_CONFIG=development; flask run --cert=adhoc
-	
-	
-structure : 
-	deux routes : 
-	home/views : 
-			/ (rien) --> template : home/index.html
-			/q --> template: home/quickie.html
-	auth/views : /login etc
-	
-authomatic:
-	auth/views.py
-	auth/auth_config.py : par provider 
-	
-
-modif
-	
-
-new install :
-
-pip3 install sqlathanor
-pip3 install flask-cors
-pip3 install pyopenssl
 
