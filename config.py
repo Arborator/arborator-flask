@@ -18,7 +18,8 @@ class Config(object):
 
     # Put any configurations here that are common across all environments
     FIRSTADMINKEY="azer"
-    UPLOAD_FOLDER = "grew_server/test/data/"
+    # UPLOAD_FOLDER = "grew_server/test/data/"
+    UPLOAD_FOLDER = "app/test/data/"
 
     # if both are uncommented then vue can access the session cookie
     SESSION_COOKIE_HTTPONLY = False

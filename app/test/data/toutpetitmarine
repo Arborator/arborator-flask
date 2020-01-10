@@ -1,0 +1,12 @@
+1	et	et	COO	COO	_	3	suj	_	_
+2	vous	vous	CLS	CLS	_	3	suj	_	_
+3	faites	faire	VRB	VPP	_	0	suj	_	_
+4	quoi	quoi	PRQ	INT	_	3	suj	_	_
+5	alors	alors	ADV	ADV	_	4	dm	_	_
+6	pour	pour	PRE	PRE	_	3	ad	_	_
+7	les	le	DET	DET	_	8	suj	_	_
+8	vacances	vacance	NOM	NOM	_	6	dep	_	_
+
+1	vous	vous	CLS	CLS	_	3	suj	_	_
+2	avez	avoir	VRB	VRB	_	3	suj	_	_
+3	prévu	prévoir	VPP	VPP	_	0	root	_	_

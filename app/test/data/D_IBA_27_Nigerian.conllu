@@ -1,0 +1,1923 @@
+# elan_id = IBA_27_SP1_01
+# sent_id = D_IBA_27_Nigerian-Police_0
+# sent_translation = Ehn. Good morning o.
+# speaker_id = 1
+# text = " ehn " good morning o !//
+1	"	_	PUNCT	_	_	2	punct	_	2200|2413
+2	ehn	_	INTJ	_	_	5	discourse	_	2413|2626
+3	"	_	PUNCT	_	_	2	punct	_	2626|2839
+4	good	_	ADJ	_	_	5	dep	_	2839|3052
+5	morning	_	NOUN	_	_	0	root	_	3052|3265
+6	o	_	PART	_	PartType=Disc	5	mod:emph	_	3265|3478
+7	!//	_	PUNCT	_	_	5	punct	_	3478|3697
+
+# elan_id = IBA_27_SP2_01
+# sent_id = D_IBA_27_Nigerian-Police_1
+# sent_translation = morning. It is well o. Thank you.
+# speaker_id = 2
+# text = morning //
+1	morning	_	NOUN	_	_	0	root	_	3564|3813
+2	//	_	PUNCT	_	_	1	punct	_	3813|4062
+
+# elan_id = IBA_27_SP2_01
+# sent_id = D_IBA_27_Nigerian-Police_2
+# sent_translation = morning. It is well o. Thank you.
+# speaker_id = 2
+# text = na wa o //
+1	na	_	PART	_	PartType=Cop	0	root	_	4062|4311
+2	wa	_	INTJ	_	_	1	comp:pred	_	4311|4560
+3	o	_	PART	_	PartType=Disc	1	mod:emph	_	4560|4809
+4	//	_	PUNCT	_	_	1	punct	_	4809|5058
+
+# elan_id = IBA_27_SP2_01
+# sent_id = D_IBA_27_Nigerian-Police_3
+# sent_translation = morning. It is well o. Thank you.
+# speaker_id = 2
+# text = thank you //
+1	thank	_	VERB	_	_	0	root	_	5058|5307
+2	you	_	PRON	_	Case=Acc|PronType=Prs|Person=2|Number=Sing	1	comp:obj	_	5307|5556
+3	//	_	PUNCT	_	_	1	punct	_	5556|5809
+
+# elan_id = IBA_27_SP1_02
+# sent_id = D_IBA_27_Nigerian-Police_4
+# sent_translation = Did you hear the news they gave this morning?
+# speaker_id = 1
+# text = you hear di news wey dem talk dis morning ?//
+1	you	_	PRON	_	Case=Nom|PronType=Prs|Person=2|Number=Sing	2	subj	_	5320|5612
+2	hear	_	VERB	_	_	0	root	_	5612|5904
+3	di	_	DET	_	PronType=Art|Definite=Def	4	det	_	5904|6196
+4	news	_	NOUN	_	Number=Plur	2	comp:obj	_	6196|6488
+5	wey	_	SCONJ	_	_	4	dep	_	6488|6780
+6	dem	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	7	subj	_	6780|7072
+7	talk	_	VERB	_	_	5	comp	_	7072|7364
+8	dis	_	DET	_	PronType=Prox|Number=Sing	9	det	_	7364|7656
+9	morning	_	NOUN	_	_	7	comp:obj	_	7656|7948
+10	?//	_	PUNCT	_	_	2	punct	_	7948|8246
+
+# elan_id = IBA_27_SP2_02
+# sent_id = D_IBA_27_Nigerian-Police_5
+# sent_translation = I have not heard anything.
+# speaker_id = 2
+# text = I never hear anytin //
+1	I	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	2	subj	_	8037|8325
+2	never	_	AUX	_	Polarity=Neg|Aspect=Perf	0	root	_	8325|8613
+3	hear	_	VERB	_	_	2	comp:aux	_	8613|8901
+4	anytin	_	NOUN	_	_	3	comp:obj	_	8901|9189
+5	//	_	PUNCT	_	_	2	punct	_	9189|9481
+
+# elan_id = IBA_27_SP1_03
+# sent_id = D_IBA_27_Nigerian-Police_6
+# sent_translation = Ah. You didn't turn on your radio to where you could hear it.
+# speaker_id = 1
+# text = " ah " you no open your radio for where you go fit hear am ?//
+1	"	_	PUNCT	_	_	2	punct	_	9086|9370
+2	ah	_	INTJ	_	_	6	discourse	_	9370|9654
+3	"	_	PUNCT	_	_	2	punct	_	9654|9938
+4	you	_	PRON	_	Case=Nom|PronType=Prs|Person=2|Number=Sing	6	subj	_	9938|10222
+5	no	_	PART	_	Polarity=Neg	6	mod	_	10222|10506
+6	open	_	VERB	_	_	0	root	_	10506|10790
+7	your	_	ADJ	_	PronType=Prs|Person=2|Number=Sing|Poss=Yes	9	dep	_	10790|11074
+8	radio	_	NOUN	_	_	6	comp:obj	_	11074|11358
+9	for	_	ADP	_	_	6	mod	_	11358|11642
+10	where	_	ADV	_	PronType=Int	9	comp	_	11642|11926
+11	you	_	PRON	_	Case=Nom|PronType=Prs|Person=2|Number=Sing	12	subj	_	11926|12210
+12	go	_	AUX	_	Tense=Prosp	10	dep	_	12210|12494
+13	fit	_	AUX	_	_	12	comp:aux	_	12494|12778
+14	hear	_	VERB	_	_	13	comp:aux	_	12778|13062
+15	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	14	comp:obj	_	13062|13346
+16	?//	_	PUNCT	_	_	6	punct	_	13346|13641
+
+# elan_id = IBA_27_SP2_03
+# sent_id = D_IBA_27_Nigerian-Police_7
+# sent_translation = I did not open it at all.
+# speaker_id = 2
+# text = I no open it at all //
+1	I	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	3	subj	_	13641|13852
+2	no	_	PART	_	Polarity=Neg	3	mod	_	13852|14063
+3	open	_	VERB	_	_	0	root	_	14063|14274
+4	it	_	PRON	_	Case=Acc|Person=3	3	comp:obj	_	14274|14485
+5	at	_	ADP	_	_	3	mod	_	14485|14696
+6	all	_	ADV	_	_	5	comp	_	14696|14907
+7	//	_	PUNCT	_	_	3	punct	_	14907|15120
+
+# elan_id = IBA_27_SP1_04
+# sent_id = D_IBA_27_Nigerian-Police_8
+# sent_translation = They said that one man was coming from Lagos.
+# speaker_id = 1
+# text = de talk sey [ one man dey come from Lagos ] //
+1	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	2	subj	_	15120|15408
+2	talk	_	VERB	_	_	0	root	_	15408|15696
+3	sey	_	SCONJ	_	_	2	comp:obj	_	15696|15984
+4	[	_	PUNCT	_	_	7	punct	_	15984|16272
+5	one	_	NUM	_	NumType=Card	6	dep	_	16272|16560
+6	man	_	NOUN	_	_	7	subj	_	16560|16848
+7	dey	_	AUX	_	Aspect=Imp	3	comp	_	16848|17136
+8	come	_	VERB	_	_	7	comp:aux	_	17136|17424
+9	from	_	ADP	_	_	8	comp:obl	_	17424|17712
+10	Lagos	_	PROPN	_	_	9	comp	_	17712|18000
+11	]	_	PUNCT	_	_	7	punct	_	18000|18288
+12	//	_	PUNCT	_	_	2	punct	_	18288|18580
+
+# elan_id = IBA_27_SP2_04
+# sent_id = D_IBA_27_Nigerian-Police_9
+# sent_translation = What did he do?
+# speaker_id = 2
+# text = wetin e do ?//
+1	wetin	_	PRON	_	PronType=Int	0	root	_	19370|19578
+2	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	3	subj	_	19578|19786
+3	do	_	VERB	_	_	1	comp:cleft	_	19786|19994
+4	?//	_	PUNCT	_	_	1	punct	_	19994|20204
+
+# elan_id = IBA_27_SP1_05
+# sent_id = D_IBA_27_Nigerian-Police_10
+# sent_translation = He entered a vehicle. A public vehicle o. When he was coming,
+# speaker_id = 1
+# text = e enter { motor || public motor } wey im dey come //
+1	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	2	subj	_	20246|20496
+2	enter	_	VERB	_	_	0	root	_	20496|20746
+3	{	_	PUNCT	_	_	4	punct	_	20746|20996
+4	motor	_	NOUN	_	_	2	comp:obj	_	20996|21246
+5	||	_	PUNCT	_	_	7	punct	_	21246|21496
+6	public	_	ADJ	_	_	7	dep	_	21496|21746
+7	motor	_	NOUN	_	_	4	conj:dicto	_	21746|21996
+8	}	_	PUNCT	_	_	4	punct	_	21996|22246
+9	wey	_	SCONJ	_	_	7	dep	_	22246|22496
+10	im	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	11	subj	_	22496|22746
+11	dey	_	AUX	_	Aspect=Imp	9	comp	_	22746|22996
+12	come	_	VERB	_	_	11	comp:aux	_	22996|23246
+13	//	_	PUNCT	_	_	2	punct	_	23246|23500
+
+# elan_id = IBA_27_SP1_06
+# sent_id = D_IBA_27_Nigerian-Police_11
+# sent_translation = it was night around eh, ten o'clock in the night.
+# speaker_id = 1
+# text = na night o //
+1	na	_	PART	_	PartType=Cop	0	root	_	24600|24870
+2	night	_	NOUN	_	_	1	comp:pred	_	24870|25140
+3	o	_	PART	_	PartType=Disc	1	mod:emph	_	25140|25410
+4	//	_	PUNCT	_	_	1	punct	_	25410|25680
+
+# sent_id = D_IBA_27_Nigerian-Police_12
+# text = around " eh " ten o'clock in di night //
+1	around	_	ADV	_	_	0	root	_	25680|25950
+2	"	_	PUNCT	_	_	3	punct	_	25950|26220
+3	eh	_	INTJ	_	_	6	discourse	_	26220|26490
+4	"	_	PUNCT	_	_	3	punct	_	26490|26760
+5	ten	_	NUM	_	NumType=Card	6	dep	_	26760|27030
+6	o'clock	_	ADV	_	_	1	comp	_	27030|27300
+7	in	_	ADP	_	_	6	mod	_	27300|27570
+8	di	_	DET	_	PronType=Art|Definite=Def	9	det	_	27570|27840
+9	night	_	NOUN	_	_	7	comp	_	27840|28110
+10	//	_	PUNCT	_	_	1	punct	_	28110|28380
+
+# elan_id = IBA_27_SP1_07
+# sent_id = D_IBA_27_Nigerian-Police_13
+# sent_translation = When he got to guru maharaji,
+# speaker_id = 1
+# text = im come reach " eh " Guru Maharaji //
+1	im	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	2	subj	_	29400|29611
+2	come	_	AUX	_	Aspect=Real	0	root	_	29611|29822
+3	reach	_	VERB	_	_	2	comp:aux	_	29822|30033
+4	"	_	PUNCT	_	_	5	punct	_	30033|30244
+5	eh	_	INTJ	_	_	7	discourse	_	30244|30455
+6	"	_	PUNCT	_	_	5	punct	_	30455|30666
+7	Guru	_	PROPN	_	_	3	comp:obj	_	30666|30877
+8	Maharaji	_	PROPN	_	_	7	flat	_	30877|31088
+9	//	_	PUNCT	_	_	2	punct	_	31088|31300
+
+# elan_id = IBA_27_SP2_05
+# sent_id = D_IBA_27_Nigerian-Police_14
+# sent_translation = Hm hm.
+# speaker_id = 2
+# text = hnhn //
+1	hnhn	_	INTJ	_	_	0	root	_	31974|32147
+2	//	_	PUNCT	_	_	1	punct	_	32147|32320
+
+# elan_id = IBA_27_SP1_08
+# sent_id = D_IBA_27_Nigerian-Police_15
+# sent_translation = A police man  stopped their vehicle.
+# speaker_id = 1
+# text = naim police man con stop deir moto //
+1	naim	_	ADV	_	_	4	mod:periph	_	32469|32919
+2	police	_	NOUN	_	_	3	compound	_	32919|33369
+3	man	_	NOUN	_	_	4	subj	_	33369|33819
+4	con	_	AUX	_	Aspect=Real	0	root	_	33819|34269
+5	stop	_	VERB	_	_	4	comp:aux	_	34269|34719
+6	deir	_	PRON	_	PronType=Prs|Person=3|Number=Plur|Poss=Yes	7	dep	_	34719|35169
+7	moto	_	NOUN	_	_	5	comp:obj	_	35169|35619
+8	//	_	PUNCT	_	_	4	punct	_	35619|36074
+
+# elan_id = IBA_27_SP1_09
+# sent_id = D_IBA_27_Nigerian-Police_16
+# sent_translation = They were searching it.
+# speaker_id = 1
+# text = dem dey search am //
+1	dem	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	2	subj	_	36760|36944
+2	dey	_	AUX	_	Aspect=Imp	0	root	_	36944|37128
+3	search	_	VERB	_	_	2	comp:aux	_	37128|37312
+4	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	3	comp:obj	_	37312|37496
+5	//	_	PUNCT	_	_	2	punct	_	37496|37680
+
+# elan_id = IBA_27_SP1_10
+# sent_id = D_IBA_27_Nigerian-Police_17
+# sent_translation = Searched everybody in the vehicle.
+# speaker_id = 1
+# text = search everybody inside di motor //
+1	search	_	VERB	_	_	0	root	_	38555|38849
+2	everybody	_	NOUN	_	_	1	comp:obj	_	38849|39143
+3	inside	_	ADP	_	_	2	dep	_	39143|39437
+4	di	_	DET	_	PronType=Art|Definite=Def	5	det	_	39437|39731
+5	motor	_	NOUN	_	_	3	comp	_	39731|40025
+6	//	_	PUNCT	_	_	1	punct	_	40025|40320
+
+# elan_id = IBA_27_SP1_11
+# sent_id = D_IBA_27_Nigerian-Police_18
+# sent_translation = They saw some money on him.
+# speaker_id = 1
+# text = de see money for im hand //
+1	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	2	subj	_	40880|41105
+2	see	_	VERB	_	_	0	root	_	41105|41330
+3	money	_	NOUN	_	_	2	comp:obj	_	41330|41555
+4	for	_	ADP	_	_	2	comp:obl	_	41555|41780
+5	im	_	ADJ	_	PronType=Prs|Person=3|Number=Sing|Poss=Yes	6	dep	_	41780|42005
+6	hand	_	NOUN	_	_	4	comp	_	42005|42230
+7	//	_	PUNCT	_	_	2	punct	_	42230|42460
+
+# elan_id = IBA_27_SP1_12
+# sent_id = D_IBA_27_Nigerian-Police_19
+# sent_translation = just so you'd see how Nigeria is o.
+# speaker_id = 1
+# text = make you see as Nigeria be o //
+1	make	_	AUX	_	Mood=Jus	0	root	_	42975|43253
+2	you	_	PRON	_	Case=Nom|PronType=Prs|Person=2|Number=Sing	1	subj	_	43253|43531
+3	see	_	VERB	_	_	1	comp:aux	_	43531|43809
+4	as	_	ADP	_	_	3	comp:obj	_	43809|44087
+5	Nigeria	_	PROPN	_	_	6	subj	_	44087|44365
+6	be	_	VERB	_	_	4	comp	_	44365|44643
+7	o	_	PART	_	PartType=Disc	1	mod:emph	_	44643|44921
+8	//	_	PUNCT	_	_	1	punct	_	44921|45200
+
+# elan_id = IBA_27_SP1_13 IBA_27_SP1_14
+# sent_id = D_IBA_27_Nigerian-Police_20
+# sent_translation = The money they saw with him They asked the man to alight, just the man alone,  in that vehicle going to Ibadan.
+# speaker_id = 1
+# text = di money wey de see for im hand < de come drop { di man || only di man } inside di moto wey dey come Ibadan //
+1	di	_	DET	_	PronType=Art|Definite=Def	2	det	_	45580|45797
+2	money	_	NOUN	_	_	11	dislocated	_	45797|46014
+3	wey	_	SCONJ	_	_	2	dep	_	46014|46231
+4	de	_	PRON	_	Aspect=Imp	5	subj	_	46231|46448
+5	see	_	VERB	_	_	3	comp	_	46448|46665
+6	for	_	ADP	_	_	5	comp:obl	_	46665|46882
+7	im	_	ADJ	_	PronType=Prs|Person=3|Number=Sing|Poss=Yes	8	dep	_	46882|47099
+8	hand	_	NOUN	_	_	6	comp	_	47099|47316
+9	<	_	PUNCT	_	_	2	punct	_	47316|47540
+10	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	11	subj	_	48020|48210
+11	come	_	AUX	_	Aspect=Real	0	root	_	48210|48400
+12	drop	_	NOUN	_	_	11	comp:aux	_	48400|48590
+13	{	_	PUNCT	_	_	15	punct	_	48590|48780
+14	di	_	DET	_	PronType=Art|Definite=Def	15	det	_	48780|48970
+15	man	_	NOUN	_	_	12	comp:obj	_	48970|49160
+16	||	_	PUNCT	_	_	19	punct	_	49160|49350
+17	only	_	ADV	_	_	19	mod	_	49350|49540
+18	di	_	DET	_	PronType=Art|Definite=Def	19	det	_	49540|49730
+19	man	_	NOUN	_	_	15	conj:dicto	_	49730|49920
+20	}	_	PUNCT	_	_	15	punct	_	49920|50110
+21	inside	_	ADP	_	_	12	comp:obl	_	49920|50110
+22	di	_	DET	_	PronType=Art|Definite=Def	23	det	_	50110|50300
+23	moto	_	NOUN	_	_	21	comp	_	50300|50490
+24	wey	_	SCONJ	_	_	23	dep	_	50490|50680
+25	dey	_	AUX	_	Aspect=Imp	24	comp	_	50680|50870
+26	come	_	VERB	_	_	25	comp:aux	_	50870|51060
+27	Ibadan	_	PROPN	_	_	26	comp:obj	_	51060|51250
+28	//	_	PUNCT	_	_	11	punct	_	51250|51457
+
+# elan_id = IBA_27_SP2_06
+# sent_id = D_IBA_27_Nigerian-Police_21
+# sent_translation = Ah.
+# speaker_id = 2
+# text = ah !//
+1	ah	_	INTJ	_	_	0	root	_	51761|51925
+2	!//	_	PUNCT	_	_	1	punct	_	51925|52089
+
+# elan_id = IBA_27_SP1_15
+# sent_id = D_IBA_27_Nigerian-Police_22
+# sent_translation = The police took him to their own vehicle.
+# speaker_id = 1
+# text = police man come carry am go inside deir own motor //
+1	police	_	NOUN	_	_	2	compound	_	52760|53027
+2	man	_	NOUN	_	_	3	subj	_	53027|53294
+3	come	_	AUX	_	Aspect=Real	0	root	_	53294|53561
+4	carry	_	VERB	_	_	3	comp:aux	_	53561|53828
+5	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	4	comp:obj	_	53828|54095
+6	go	_	VERB	_	_	4	compound:svc	_	54095|54362
+7	inside	_	ADP	_	_	6	comp:obl	_	54362|54629
+8	deir	_	ADJ	_	PronType=Prs|Person=3|Number=Plur|Poss=Yes	10	det	_	54629|54896
+9	own	_	ADJ	_	_	10	dep	_	54896|55163
+10	motor	_	NOUN	_	_	7	comp	_	55163|55430
+11	//	_	PUNCT	_	_	3	punct	_	55430|55700
+
+# elan_id = IBA_27_SP2_07
+# sent_id = D_IBA_27_Nigerian-Police_23
+# sent_translation = Ah!
+# speaker_id = 2
+# text = ah !//
+1	ah	_	INTJ	_	_	0	root	_	55486|55593
+2	!//	_	PUNCT	_	_	1	punct	_	55593|55700
+
+# elan_id = IBA_27_SP1_16
+# sent_id = D_IBA_27_Nigerian-Police_24
+# sent_translation = Tied him like a thief.
+# speaker_id = 1
+# text = come tie am like thief //
+1	come	_	AUX	_	Aspect=Real	0	root	_	56220|56476
+2	tie	_	NOUN	_	_	1	comp:aux	_	56476|56732
+3	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	2	comp:obj	_	56732|56988
+4	like	_	ADP	_	_	2	mod	_	56988|57244
+5	thief	_	NOUN	_	_	4	comp	_	57244|57500
+6	//	_	PUNCT	_	_	1	punct	_	57500|57760
+
+# elan_id = IBA_27_SP1_17
+# sent_id = D_IBA_27_Nigerian-Police_25
+# sent_translation = Collected all the money. About e one hundred and sixteen thousand naira.
+# speaker_id = 1
+# text = collect all di money > about " eh " one hundred and sixteen thousand naira //
+1	collect	_	VERB	_	_	0	root	_	58520|58775
+2	all	_	DET	_	_	3	mod	_	58775|59030
+3	di	_	DET	_	PronType=Art|Definite=Def	4	det	_	59030|59285
+4	money	_	NOUN	_	_	1	comp:obj	_	59285|59540
+5	>	_	PUNCT	_	_	6	punct	_	59540|59795
+6	about	_	ADP	_	_	1	dislocated	_	59795|60050
+7	"	_	PUNCT	_	_	8	punct	_	60050|60305
+8	eh	_	INTJ	_	_	15	discourse	_	60305|60560
+9	"	_	PUNCT	_	_	8	punct	_	60560|60815
+10	one	_	NUM	_	NumType=Card	11	dep	_	60815|61070
+11	hundred	_	NUM	_	NumType=Card	15	dep	_	61070|61325
+12	and	_	CCONJ	_	_	14	cc	_	61325|61580
+13	sixteen	_	NUM	_	NumType=Card	14	dep	_	61580|61835
+14	thousand	_	NUM	_	NumType=Card	11	conj:coord	_	61835|62090
+15	naira	_	NOUN	_	_	6	comp	_	62090|62345
+16	//	_	PUNCT	_	_	1	punct	_	62345|62613
+
+# elan_id = IBA_27_SP2_08
+# sent_id = D_IBA_27_Nigerian-Police_26
+# sent_translation = They did not kill him?
+# speaker_id = 2
+# text = de no kill am ?//
+1	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	3	subj	_	62328|62489
+2	no	_	PART	_	Polarity=Neg	3	mod	_	62489|62650
+3	kill	_	VERB	_	_	0	root	_	62650|62811
+4	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	3	comp:obj	_	62811|62972
+5	?//	_	PUNCT	_	_	3	punct	_	62972|63137
+
+# elan_id = IBA_27_SP1_18
+# sent_id = D_IBA_27_Nigerian-Police_27
+# sent_translation = E, the man, they did not kill him. They interviewed the man that I heard this morning, but they did not kill the man.
+# speaker_id = 1
+# text = " eh " di man < de no kill am //
+1	"	_	PUNCT	_	_	2	punct	_	63968|64141
+2	eh	_	VERB	_	_	9	discourse	_	64141|64314
+3	"	_	PUNCT	_	PronType=Art|Definite=Def	2	punct	_	64314|64487
+4	di	_	DET	_	PronType=Art|Definite=Def	5	det	_	64314|64487
+5	man	_	NOUN	_	_	9	dislocated	_	64487|64660
+6	<	_	PUNCT	_	_	9	punct	_	64660|64833
+7	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	9	subj	_	64833|65006
+8	no	_	PART	_	Polarity=Neg	9	mod	_	65006|65179
+9	kill	_	VERB	_	_	0	root	_	65179|65352
+10	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	9	comp:obj	_	65352|65525
+11	//	_	PUNCT	_	_	9	punct	_	65525|65698
+
+# elan_id = IBA_27_SP1_18
+# sent_id = D_IBA_27_Nigerian-Police_28
+# sent_translation = E, the man, they did not kill him. They interviewed the man that I heard this morning, but they did not kill the man.
+# speaker_id = 1
+# text = dem dey interview di man wey me < I dey hear dis morning |c but de no kill di man //
+1	dem	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	2	subj	_	65698|65871
+2	dey	_	AUX	_	Aspect=Imp	0	root	_	65871|66044
+3	interview	_	VERB	_	_	2	comp:aux	_	66044|66217
+4	di	_	DET	_	PronType=Art|Definite=Def	5	det	_	66217|66390
+5	man	_	NOUN	_	_	3	comp:obj	_	66390|66563
+6	wey	_	SCONJ	_	_	5	dep	_	66563|66736
+7	me	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	10	dislocated	_	66736|66909
+8	<	_	PUNCT	_	_	7	punct	_	66909|67082
+9	I	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	10	subj	_	67082|67255
+10	dey	_	AUX	_	Aspect=Imp	6	comp	_	67255|67428
+11	hear	_	VERB	_	_	10	comp:aux	_	67428|67601
+12	dis	_	DET	_	PronType=Prox|Number=Sing	13	det	_	67601|67774
+13	morning	_	NOUN	_	_	11	comp:obj	_	67774|67947
+14	|c	_	PUNCT	_	_	18	punct	_	67947|68120
+15	but	_	CCONJ	_	_	18	cc	_	68120|68293
+16	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	18	subj	_	68293|68466
+17	no	_	PART	_	Polarity=Neg	18	mod	_	68466|68639
+18	kill	_	VERB	_	_	2	conj:coord	_	68639|68812
+19	di	_	DET	_	PronType=Art|Definite=Def	20	det	_	68812|68985
+20	man	_	NOUN	_	_	18	comp:obj	_	68985|69174
+21	//	_	PUNCT	_	_	2	punct	_	68985|69174
+
+# elan_id = IBA_27_SP2_09
+# sent_id = D_IBA_27_Nigerian-Police_29
+# sent_translation = Ah.
+# speaker_id = 2
+# text = ah !//
+1	ah	_	INTJ	_	_	0	root	_	68830|69012
+2	!//	_	PUNCT	_	_	1	punct	_	69012|69195
+
+# elan_id = IBA_27_SP1_19
+# sent_id = D_IBA_27_Nigerian-Police_30
+# sent_translation = The thing I want to ask you is that the police that is supposed to secure people, are now turning into armed robbers, is it good?
+# speaker_id = 1
+# text = di tin wey me I want ask you be sey [ police { wey suppose " eh " dey secure people |c wey dey con dey be turn to armed robber } < e good ?// ] //
+1	di	_	DET	_	PronType=Art|Definite=Def	2	det	_	69174|69432
+2	tin	_	NOUN	_	_	9	subj	_	69432|69690
+3	wey	_	SCONJ	_	_	2	dep	_	69690|69948
+4	me	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	6	dislocated	_	69948|70206
+5	I	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	6	subj	_	70206|70464
+6	want	_	VERB	_	Mood=Ind|Tense=Past|VerbForm=Fin	3	comp	_	70464|70722
+7	ask	_	VERB	_	_	6	comp:obj	_	70722|70980
+8	you	_	PRON	_	Case=Acc|PronType=Prs|Person=2|Number=Sing	7	comp:obj	_	70980|71238
+9	be	_	VERB	_	_	0	root	_	71238|71496
+10	sey	_	SCONJ	_	_	9	comp:obj	_	71496|71754
+11	[	_	PUNCT	_	_	35	punct	_	71754|72012
+12	police	_	NOUN	_	_	35	dislocated	_	72012|72270
+13	{	_	PUNCT	_	_	14	punct	_	72270|72528
+14	wey	_	SCONJ	_	_	12	dep	_	72528|72786
+15	suppose	_	VERB	_	Mood=Imp	14	comp	_	72786|73044
+16	"	_	PUNCT	_	_	17	punct	_	73044|73302
+17	eh	_	INTJ	_	_	19	discourse	_	73302|73560
+18	"	_	PUNCT	_	_	17	punct	_	73560|73818
+19	dey	_	AUX	_	Aspect=Imp	15	comp:pred	_	73818|74076
+20	secure	_	VERB	_	_	19	comp:aux	_	74076|74334
+21	people	_	NOUN	_	_	20	comp:obj	_	74334|74592
+22	|c	_	PUNCT	_	_	23	punct	_	74592|74850
+23	wey	_	SCONJ	_	_	14	conj:coord	_	74850|75108
+24	dey	_	AUX	_	Aspect=Imp	23	comp	_	75108|75366
+25	con	_	AUX	_	Aspect=Real	24	comp:aux	_	75366|75624
+26	dey	_	AUX	_	Aspect=Imp	25	mod	_	75624|75882
+27	be	_	VERB	_	_	26	comp:aux	_	75882|76140
+28	turn	_	VERB	_	_	27	comp:pred	_	76140|76398
+29	to	_	ADP	_	_	28	comp:obl	_	76398|76656
+30	armed	_	ADJ	_	_	31	dep	_	76656|76914
+31	robber	_	NOUN	_	_	29	comp	_	76914|77172
+32	}	_	PUNCT	_	_	14	punct	_	77172|77430
+33	<	_	PUNCT	_	_	12	punct	_	77430|77688
+34	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	35	subj:expl	_	77688|77946
+35	good	_	ADJ	_	_	10	comp	_	77946|78204
+36	?//	_	PUNCT	_	_	35	punct	_	78204|78462
+37	]	_	PUNCT	_	_	35	punct	_	78462|78720
+38	//	_	PUNCT	_	_	9	punct	_	78720|78978
+
+# elan_id = IBA_27_SP2_10
+# sent_id = D_IBA_27_Nigerian-Police_31
+# sent_translation = It's not good at all.
+# speaker_id = 2
+# text = [eng it's not good at all eng] for dis Nigeria wey we dey talk //
+1	[eng	_	PUNCT	_	Case=Acc|Person=3	2	punct	_	79015|79202
+2	it's	_	PART	_	Case=Acc|Person=3	0	root	_	79015|79202
+3	not	_	PART	_	Polarity=Neg	2	mod	_	79202|79389
+4	good	_	ADJ	_	_	2	comp:pred	_	79389|79576
+5	at	_	ADP	_	_	4	mod	_	79576|79763
+6	all	_	ADV	_	_	5	comp	_	79763|79950
+7	eng]	_	PUNCT	_	_	2	punct	_	79950|80137
+8	for	_	ADP	_	_	4	mod	_	79844|80095
+9	dis	_	DET	_	PronType=Prox|Number=Sing	10	det	_	80095|80346
+10	Nigeria	_	PROPN	_	_	8	comp	_	80346|80597
+11	wey	_	SCONJ	_	_	10	dep	_	80597|80848
+12	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	13	subj	_	80848|81099
+13	dey	_	AUX	_	Aspect=Imp	11	comp	_	81099|81350
+14	talk	_	VERB	_	_	13	comp:aux	_	81350|81601
+15	//	_	PUNCT	_	_	2	punct	_	81601|81857
+
+# elan_id = IBA_27_SP2_11
+# sent_id = D_IBA_27_Nigerian-Police_32
+# sent_translation = the Nigeria we are in is o, is, a different one o. Before Before we don't behave like that. But now now?
+# speaker_id = 2
+# text = { di || di || di } Nigeria wey we dey { is || " eh eh " na || na } different one o //
+1	{	_	PUNCT	_	_	2	punct	_	80688|80875
+2	di	_	DET	_	PronType=Art|Definite=Def	8	det	_	80875|81062
+3	||	_	PUNCT	_	_	4	punct	_	81062|81249
+4	di	_	DET	_	PronType=Art|Definite=Def	2	conj:dicto	_	81249|81436
+5	||	_	PUNCT	_	_	6	punct	_	81436|81623
+6	di	_	DET	_	PronType=Art|Definite=Def	4	conj:dicto	_	81623|81810
+7	}	_	PUNCT	_	_	2	punct	_	81810|81997
+8	Nigeria	_	PROPN	_	_	13	subj	_	81997|82184
+9	wey	_	SCONJ	_	_	8	dep	_	82184|82371
+10	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	11	subj	_	82371|82558
+11	dey	_	VERB	_	Aspect=Imp	9	comp	_	82558|82745
+12	{	_	PUNCT	_	_	13	punct	_	82745|82932
+13	is	na	VERB	_	_	0	root	_	82932|83119
+14	||	_	PUNCT	_	_	16	punct	_	83306|83493
+15	"	_	PUNCT	_	_	16	punct	_	83306|83493
+16	eh	_	INTJ	_	_	19	discourse	_	83493|83680
+17	eh	_	INTJ	_	_	19	discourse	_	83680|83867
+18	"	_	PUNCT	_	_	17	punct	_	83867|84054
+19	na	_	PART	_	PartType=Cop	13	conj:dicto	_	84241|84428
+20	||	_	PUNCT	_	_	21	punct	_	84428|84615
+21	na	_	PART	_	PartType=Cop	19	conj:dicto	_	84615|84802
+22	}	_	PUNCT	_	_	13	punct	_	84802|84989
+23	different	_	ADJ	_	_	24	dep	_	84989|85176
+24	one	_	PRON	_	NumType=Card	21	comp:pred	_	85176|85363
+25	o	_	PART	_	PartType=Disc	13	mod:emph	_	85363|85550
+26	//	_	PUNCT	_	_	13	punct	_	85550|85737
+
+# elan_id = IBA_27_SP1_21
+# sent_id = D_IBA_27_Nigerian-Police_33
+# sent_translation = ehen
+# speaker_id = 1
+# text = ehen //
+1	ehen	_	INTJ	_	_	0	root	_	84960|86155
+2	//	_	PUNCT	_	_	1	punct	_	86155|87350
+
+# elan_id = IBA_27_SP2_11
+# sent_id = D_IBA_27_Nigerian-Police_34
+# sent_translation = the Nigeria we are in is o, is, a different one o. Before Before we don't behave like that. But now now?
+# speaker_id = 2
+# text = { before |r before } we no dey do like dat |c but { now || now } ?//
+1	{	_	PUNCT	_	_	2	punct	_	85737|85924
+2	before	_	ADP	_	_	8	mod:periph	_	85924|86111
+3	|r	_	PUNCT	_	_	4	punct	_	86111|86298
+4	before	_	ADP	_	_	2	compound:redup	_	86298|86485
+5	}	_	PUNCT	_	_	2	punct	_	86485|86672
+6	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	8	subj	_	86672|86859
+7	no	_	PART	_	Polarity=Neg	8	mod	_	86859|87046
+8	dey	_	AUX	_	Aspect=Imp	0	root	_	87046|87233
+9	do	_	VERB	_	_	8	comp:aux	_	87233|87420
+10	like	_	ADP	_	_	9	comp:obl	_	87420|87607
+11	dat	_	PRON	_	PronType=Dem|Number=Sing	10	comp	_	87607|87794
+12	|c	_	PUNCT	_	_	15	punct	_	87794|87981
+13	but	_	CCONJ	_	_	15	cc	_	87981|88168
+14	{	_	PUNCT	_	_	15	punct	_	88168|88355
+15	now	_	ADV	_	_	8	conj:coord	_	88355|88542
+16	||	_	PUNCT	_	_	17	punct	_	88542|88729
+17	now	_	ADV	_	_	15	compound:redup	_	88729|88916
+18	}	_	PUNCT	_	_	15	punct	_	88916|89103
+19	?//	_	PUNCT	_	_	8	punct	_	89103|89298
+
+# elan_id = IBA_27_SP1_22
+# sent_id = D_IBA_27_Nigerian-Police_35
+# sent_translation = See o. The police man has turned into an armed robber.
+# speaker_id = 1
+# text = " see o " policeman don turn to armed robber now //
+1	"	_	PUNCT	_	_	2	punct	_	87350|87624
+2	see	_	VERB	_	_	6	parataxis:discourse	_	87624|87898
+3	o	_	PART	_	PartType=Disc	2	mod:emph	_	87898|88172
+4	"	_	PUNCT	_	_	2	punct	_	88172|88446
+5	policeman	_	NOUN	_	_	6	subj	_	88446|88720
+6	don	_	AUX	_	Aspect=Perf	0	root	_	88720|88994
+7	turn	_	VERB	_	_	6	comp:aux	_	88994|89268
+8	to	_	ADP	_	_	7	comp:obl	_	89268|89542
+9	armed	_	ADJ	_	_	10	dep	_	89542|89816
+10	robber	_	NOUN	_	_	8	comp	_	89816|90090
+11	now	_	ADV	_	_	7	mod	_	90090|90364
+12	//	_	PUNCT	_	_	6	punct	_	90364|90640
+
+# elan_id = IBA_27_SP1_23
+# sent_id = D_IBA_27_Nigerian-Police_36
+# sent_translation = Where are we going in Nigeria?
+# speaker_id = 1
+# text = where we dey go for Nigeria ?//
+1	where	_	ADV	_	PronType=Int	0	root	_	91740|91973
+2	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	3	subj	_	91973|92206
+3	dey	_	AUX	_	Aspect=Imp	1	comp:cleft	_	92206|92439
+4	go	_	VERB	_	_	3	comp:aux	_	92439|92672
+5	for	_	ADP	_	_	4	comp:obl	_	92672|92905
+6	Nigeria	_	PROPN	_	_	5	comp	_	92905|93138
+7	?//	_	PUNCT	_	_	1	punct	_	93138|93376
+
+# elan_id = IBA_27_SP2_12
+# sent_id = D_IBA_27_Nigerian-Police_37
+# sent_translation = I saw something la~ it's almost around twenty five years.
+# speaker_id = 2
+# text = [eng I saw someting eng] //
+1	[eng	_	PUNCT	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	3	punct	_	93860|94356
+2	I	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	3	subj	_	93860|94356
+3	saw	_	VERB	_	_	0	root	_	94356|94852
+4	someting	_	NOUN	_	_	3	comp:obj	_	94852|95348
+5	eng]	_	PUNCT	_	_	3	punct	_	94852|95348
+6	//	_	PUNCT	_	_	3	punct	_	94852|95348
+
+# sent_id = D_IBA_27_Nigerian-Police_38
+# text = " like " [eng it's almost around twenty five years eng] //
+1	"	_	PUNCT	_	_	2	punct	_	95348|95844
+2	like	_	ADP	_	_	5	discourse	_	95348|95844
+3	"	_	PUNCT	_	_	2	punct	_	95348|95844
+4	[eng	_	PUNCT	_	_	5	punct	_	95348|95844
+5	it's	_	PART	_	Case=Acc|Person=3	0	root	_	95844|96340
+6	almost	_	ADV	_	_	7	mod	_	96340|96836
+7	around	_	ADV	_	_	8	mod	_	96836|97332
+8	twenty	_	NUM	_	_	10	dep	_	97332|97828
+9	five	_	NUM	_	NumType=Card	8	flat	_	97828|98324
+10	years	_	NOUN	_	_	5	comp:pred	_	98324|98820
+11	eng]	_	PUNCT	_	_	5	punct	_	98820|99320
+12	//	_	PUNCT	_	_	5	punct	_	98820|99320
+
+# elan_id = IBA_27_SP2_13
+# sent_id = D_IBA_27_Nigerian-Police_39
+# sent_translation = From kano, one man entered a vehicle to Kano.
+# speaker_id = 2
+# text = from Kano //
+1	from	_	ADP	_	_	0	root	_	99960|100398
+2	Kano	_	PROPN	_	_	1	comp	_	100398|100836
+3	//	_	PUNCT	_	_	1	punct	_	100836|101274
+
+# sent_id = D_IBA_27_Nigerian-Police_40
+# text = one man enter motor to Kano //
+1	one	_	DET	_	PronType=Art|Definite=Spec|Number=Sing	2	det	_	101274|101712
+2	man	_	NOUN	_	_	3	subj	_	101712|102150
+3	enter	_	VERB	_	_	0	root	_	102150|102588
+4	motor	_	NOUN	_	_	3	comp:obj	_	102588|103026
+5	to	_	ADP	_	_	4	dep	_	103026|103464
+6	Kano	_	PROPN	_	_	5	comp	_	103464|103902
+7	//	_	PUNCT	_	_	3	punct	_	103902|104340
+
+# elan_id = IBA_27_SP1_24
+# sent_id = D_IBA_27_Nigerian-Police_41
+# sent_translation = Hm hm.
+# speaker_id = 1
+# text = hm //
+1	hm	_	INTJ	_	_	0	root	_	100800|101150
+2	//	_	PUNCT	_	_	1	punct	_	101150|101500
+
+# elan_id = IBA_27_SP1_25
+# sent_id = D_IBA_27_Nigerian-Police_42
+# sent_translation = Hm.
+# speaker_id = 1
+# text = hm //
+1	hm	_	INTJ	_	_	0	root	_	104350|104603
+2	//	_	PUNCT	_	_	1	punct	_	104603|104857
+
+# elan_id = IBA_27_SP2_14
+# sent_id = D_IBA_27_Nigerian-Police_43
+# sent_translation = From Kano he was to continue to Hadejia.
+# speaker_id = 2
+# text = [eng from Kano < he is going to Hadejia eng] //
+1	[eng	_	PUNCT	_	_	6	punct	_	105160|105366
+2	from	_	ADP	_	_	6	mod:periph	_	105160|105366
+3	Kano	_	PROPN	_	_	2	comp	_	105366|105572
+4	<	_	PUNCT	_	_	2	punct	_	105572|105778
+5	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	6	subj	_	105778|105984
+6	is	_	AUX	_	_	0	root	_	105984|106190
+7	going	_	VERB	_	_	6	comp:pred	_	106190|106396
+8	to	_	ADP	_	_	7	comp:obl	_	106396|106602
+9	Hadejia	_	PROPN	_	_	8	comp	_	106602|106808
+10	eng]	_	PUNCT	_	_	6	punct	_	106808|107020
+11	//	_	PUNCT	_	_	6	punct	_	106808|107020
+
+# elan_id = IBA_27_SP1_26
+# sent_id = D_IBA_27_Nigerian-Police_44
+# sent_translation = hm.
+# speaker_id = 1
+# text = hm //
+1	hm	_	INTJ	_	_	0	root	_	107038|107349
+2	//	_	PUNCT	_	_	1	punct	_	107349|107660
+
+# elan_id = IBA_27_SP2_15
+# sent_id = D_IBA_27_Nigerian-Police_45
+# sent_translation = He called a taxi driver. to carry him to Hadejia.
+# speaker_id = 2
+# text = he call taxi driver { to || to } carry him to Hadejia //
+1	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	2	subj	_	107930|108179
+2	call	_	VERB	_	_	0	root	_	108179|108428
+3	taxi	_	NOUN	_	_	4	compound	_	108428|108677
+4	driver	_	NOUN	_	_	2	comp:obj	_	108677|108926
+5	{	_	PUNCT	_	_	6	punct	_	108926|109175
+6	to	_	ADP	_	_	2	comp:pred	_	109175|109424
+7	||	_	PUNCT	_	_	8	punct	_	109424|109673
+8	to	_	ADP	_	_	6	conj:dicto	_	109673|109922
+9	}	_	PUNCT	_	_	6	punct	_	109922|110171
+10	carry	_	VERB	_	_	8	comp	_	110171|110420
+11	him	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	10	comp:obj	_	110420|110669
+12	to	_	ADP	_	_	10	comp:obl	_	110669|110918
+13	Hadejia	_	NOUN	_	_	12	comp	_	110918|111167
+14	//	_	PUNCT	_	_	2	punct	_	111167|111418
+
+# elan_id = IBA_27_SP1_27
+# sent_id = D_IBA_27_Nigerian-Police_46
+# sent_translation = Hm.
+# speaker_id = 1
+# text = hm //
+1	hm	_	INTJ	_	_	0	root	_	109340|109480
+2	//	_	PUNCT	_	_	1	punct	_	109480|109620
+
+# elan_id = IBA_27_SP1_28
+# sent_id = D_IBA_27_Nigerian-Police_47
+# sent_translation = Hm.
+# speaker_id = 1
+# text = hm //
+1	hm	_	INTJ	_	_	0	root	_	111418|111585
+2	//	_	PUNCT	_	_	1	punct	_	111585|111753
+
+# elan_id = IBA_27_SP2_16
+# sent_id = D_IBA_27_Nigerian-Police_48
+# sent_translation = While he was going he said "ah, this road, is not  clear".
+# speaker_id = 2
+# text = [eng when he is going < he say [ " ah " this road is not clear ] eng] //
+1	[eng	_	PUNCT	_	_	8	punct	_	111753|111991
+2	when	_	SCONJ	_	_	8	mod:periph	_	111753|111991
+3	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	4	subj	_	111991|112229
+4	is	_	AUX	_	_	2	comp	_	112229|112467
+5	going	_	VERB	_	_	4	comp:aux	_	112467|112705
+6	<	_	PUNCT	_	_	2	punct	_	112705|112943
+7	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	8	subj	_	112943|113181
+8	say	_	VERB	_	_	0	root	_	113181|113419
+9	[	_	PUNCT	_	_	15	punct	_	113419|113657
+10	"	_	PUNCT	_	_	11	punct	_	113657|113895
+11	ah	_	INTJ	_	_	15	discourse	_	113895|114133
+12	"	_	PUNCT	_	_	11	punct	_	114133|114371
+13	this	_	DET	_	PronType=Prox|Number=Sing	14	det	_	114371|114609
+14	road	_	NOUN	_	_	15	subj	_	114609|114847
+15	is	_	VERB	_	_	8	parataxis:obj	_	114847|115085
+16	not	_	PART	_	Polarity=Neg	15	comp:pred	_	115085|115323
+17	clear	_	ADJ	_	_	16	comp:pred	_	115323|115561
+18	]	_	PUNCT	_	_	15	punct	_	115561|115799
+19	eng]	_	PUNCT	_	_	8	punct	_	115799|116040
+20	//	_	PUNCT	_	_	8	punct	_	115799|116040
+
+# elan_id = IBA_27_SP1_29
+# sent_id = D_IBA_27_Nigerian-Police_49
+# sent_translation = Hm.
+# speaker_id = 1
+# text = hm //
+1	hm	_	INTJ	_	_	0	root	_	116500|116643
+2	//	_	PUNCT	_	_	1	punct	_	116643|116786
+
+# elan_id = IBA_27_SP2_17
+# sent_id = D_IBA_27_Nigerian-Police_50
+# sent_translation = Let me take you to the police station. To sleep there till morning.
+# speaker_id = 2
+# text = make I { go you || carry you go } police station to sleep there till morning //
+1	make	_	AUX	_	Mood=Jus	0	root	_	116855|117139
+2	I	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	1	subj	_	117139|117423
+3	{	_	PUNCT	_	_	4	punct	_	117423|117707
+4	go	_	VERB	_	_	1	comp:aux	_	117707|117991
+5	you	_	PRON	_	Case=Nom|PronType=Prs|Person=2|Number=Sing	4	comp:obj	_	117991|118275
+6	||	_	PUNCT	_	_	7	punct	_	118275|118559
+7	carry	_	VERB	_	_	4	conj:dicto	_	118559|118843
+8	you	_	PRON	_	Case=Acc|PronType=Prs|Person=2|Number=Sing	7	comp:obj	_	118843|119127
+9	go	_	VERB	_	_	7	compound:svc	_	119127|119411
+10	}	_	PUNCT	_	_	4	punct	_	119411|119695
+11	police	_	NOUN	_	_	12	compound	_	119695|119979
+12	station	_	NOUN	_	_	9	comp:obj	_	119979|120263
+13	to	_	ADP	_	_	9	mod	_	120263|120547
+14	sleep	_	VERB	_	_	13	comp	_	120547|120831
+15	there	_	ADV	_	PronType=Dem	14	comp:obj	_	120831|121115
+16	till	_	ADP	_	_	14	mod	_	121115|121399
+17	morning	_	NOUN	_	_	16	comp	_	121399|121683
+18	//	_	PUNCT	_	_	1	punct	_	121683|121980
+
+# elan_id = IBA_27_SP2_18
+# sent_id = D_IBA_27_Nigerian-Police_51
+# sent_translation = After he carried him to the police station, they saw him, the money that was inside they collected it, and  he left. The man left.
+# speaker_id = 2
+# text = after e go carry im go to di police station < de see him //
+1	after	_	ADP	_	_	13	mod:periph	_	122480|122727
+2	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	3	subj	_	122727|122974
+3	go	_	AUX	_	Tense=Prosp	1	comp	_	122974|123221
+4	carry	_	VERB	_	_	3	comp:aux	_	123221|123468
+5	im	_	PRON	_	PronType=Prs|Person=3|Number=Sing	4	comp:obj	_	123468|123715
+6	go	_	VERB	_	_	4	compound:svc	_	123715|123962
+7	to	_	ADP	_	_	6	comp:obl	_	123962|124209
+8	di	_	DET	_	PronType=Art|Definite=Def	10	det	_	124209|124456
+9	police	_	NOUN	_	_	10	compound	_	124456|124703
+10	station	_	NOUN	_	_	7	comp	_	124703|124950
+11	<	_	PUNCT	_	_	1	punct	_	124950|125197
+12	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	13	subj	_	125197|125444
+13	see	_	VERB	_	_	0	root	_	125444|125691
+14	him	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	13	comp:obj	_	125691|125938
+15	//	_	PUNCT	_	_	13	punct	_	125938|126185
+
+# elan_id = IBA_27_SP2_18
+# sent_id = D_IBA_27_Nigerian-Police_52
+# sent_translation = After he carried him to the police station, they saw him, the money that was inside they collected it, and  he left. The man left.
+# speaker_id = 2
+# text = di money wey dey inside < { de collect it |c and he go } //
+1	di	_	DET	_	PronType=Art|Definite=Def	2	det	_	126185|126432
+2	money	_	NOUN	_	_	8	dislocated	_	126432|126679
+3	wey	_	SCONJ	_	_	2	dep	_	126679|126926
+4	dey	_	VERB	_	_	3	comp	_	126926|127173
+5	inside	_	ADP	_	_	4	comp:pred	_	127173|127420
+6	<	_	PUNCT	_	_	2	punct	_	127420|127667
+7	{	_	PUNCT	_	_	8	punct	_	127667|127914
+8	de	_	AUX	_	Aspect=Imp	0	root	_	127914|128161
+9	collect	_	VERB	_	_	8	comp:aux	_	128161|128408
+10	it	_	PRON	_	Case=Acc|Person=3	9	comp:obj	_	128408|128655
+11	|c	_	PUNCT	_	_	14	punct	_	128655|128902
+12	and	_	CCONJ	_	_	14	cc	_	128902|129149
+13	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	14	subj	_	129149|129396
+14	go	_	AUX	_	Tense=Prosp	8	conj:coord	_	129396|129643
+15	}	_	PUNCT	_	_	8	punct	_	129643|129890
+16	//	_	PUNCT	_	_	8	punct	_	129890|130137
+
+# elan_id = IBA_27_SP2_18
+# sent_id = D_IBA_27_Nigerian-Police_53
+# sent_translation = After he carried him to the police station, they saw him, the money that was inside they collected it, and  he left. The man left.
+# speaker_id = 2
+# text = di man go //
+1	di	_	DET	_	PronType=Art|Definite=Def	2	det	_	130137|130384
+2	man	_	NOUN	_	_	3	subj	_	130384|130631
+3	go	_	VERB	_	_	0	root	_	130631|130878
+4	//	_	PUNCT	_	_	3	punct	_	130878|131140
+
+# elan_id = IBA_27_SP2_19
+# sent_id = D_IBA_27_Nigerian-Police_54
+# sent_translation = When he got there, they said that the man had gone back to Adeja.
+# speaker_id = 2
+# text = when he reach dere in the morning < de say dat [ the man < e don go back to Adeja ] //
+1	when	_	ADV	_	PronType=Int	10	mod:periph	_	131600|131853
+2	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	3	subj	_	131853|132106
+3	reach	_	VERB	_	_	1	comp	_	132106|132359
+4	dere	_	ADV	_	PronType=Dem	3	comp:obj	_	132359|132612
+5	in	_	ADP	_	_	3	mod	_	132865|133118
+6	the	_	DET	_	PronType=Art|Definite=Def	7	det	_	133118|133371
+7	morning	_	NOUN	_	_	5	comp	_	133371|133624
+8	<	_	PUNCT	_	_	1	punct	_	133877|134130
+9	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	10	subj	_	134130|134383
+10	say	_	VERB	_	_	0	root	_	134383|134636
+11	dat	_	SCONJ	_	_	10	comp:obj	_	134636|134889
+12	[	_	PUNCT	_	_	17	punct	_	134889|135142
+13	the	_	DET	_	PronType=Art|Definite=Def	14	det	_	135142|135395
+14	man	_	NOUN	_	_	17	dislocated	_	135395|135648
+15	<	_	PUNCT	_	_	14	punct	_	135648|135901
+16	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	17	subj	_	135901|136154
+17	don	_	AUX	_	Aspect=Perf	11	comp	_	136154|136407
+18	go	_	VERB	_	_	17	comp:aux	_	136407|136660
+19	back	_	ADV	_	_	18	mod	_	136660|136913
+20	to	_	ADP	_	_	18	comp:obl	_	136913|137166
+21	Adeja	_	PROPN	_	_	20	comp	_	137166|137419
+22	]	_	PUNCT	_	_	17	punct	_	137419|137672
+23	//	_	PUNCT	_	_	10	punct	_	137672|137940
+
+# elan_id = IBA_27_SP1_30
+# sent_id = D_IBA_27_Nigerian-Police_55
+# sent_translation = Ahn Ahn.
+# speaker_id = 1
+# text = a'ah //
+1	a'ah	_	INTJ	_	_	0	root	_	137603|137951
+2	//	_	PUNCT	_	_	1	punct	_	137951|138300
+
+# elan_id = IBA_27_SP2_20
+# sent_id = D_IBA_27_Nigerian-Police_56
+# sent_translation = That man said "why"?
+# speaker_id = 2
+# text = dat man say [ why ?// ] //
+1	dat	_	PRON	_	PronType=Dem|Number=Sing	2	dep	_	138300|138468
+2	man	_	NOUN	_	_	3	subj	_	138468|138636
+3	say	_	VERB	_	_	0	root	_	138636|138804
+4	[	_	PUNCT	_	_	5	punct	_	138804|138972
+5	why	_	ADV	_	PronType=Int	3	mod	_	138972|139140
+6	?//	_	PUNCT	_	_	5	punct	_	139140|139308
+7	]	_	PUNCT	_	_	5	punct	_	139140|139308
+8	//	_	PUNCT	_	_	3	punct	_	139308|139480
+
+# elan_id = IBA_27_SP2_21
+# sent_id = D_IBA_27_Nigerian-Police_57
+# sent_translation = Wasn't it what he and the man talked about together?
+# speaker_id = 2
+# text = no be { di || di } tin wey { him |c and { ta- || him } } talk togeda ?//
+1	no	_	PART	_	Polarity=Neg	2	mod	_	140840|141048
+2	be	_	VERB	_	_	0	root	_	141048|141256
+3	{	_	PUNCT	_	_	4	punct	_	141256|141464
+4	di	_	DET	_	PronType=Art|Definite=Def	8	det	_	141464|141672
+5	||	_	PUNCT	_	_	6	punct	_	141672|141880
+6	di	_	DET	_	PronType=Art|Definite=Def	4	conj:dicto	_	141880|142088
+7	}	_	PUNCT	_	_	4	punct	_	142088|142296
+8	tin	_	NOUN	_	_	2	comp:pred	_	142296|142504
+9	wey	_	SCONJ	_	_	8	dep	_	142504|142712
+10	{	_	PUNCT	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	11	punct	_	142712|142920
+11	him	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	20	subj	_	142712|142920
+12	|c	_	PUNCT	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	15	punct	_	142712|142920
+13	and	_	CCONJ	_	_	15	cc	_	142920|143128
+14	{	_	PUNCT	_	_	15	punct	_	143128|143336
+15	ta-	_	XX	_	_	11	conj:coord	_	143336|143544
+16	||	_	PUNCT	_	_	17	punct	_	143544|143752
+17	him	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	15	conj:dicto	_	143752|143960
+18	}	_	PUNCT	_	_	15	punct	_	143960|144168
+19	}	_	PUNCT	_	_	11	punct	_	143960|144168
+20	talk	_	VERB	_	_	9	comp	_	144168|144376
+21	togeda	_	ADV	_	_	20	mod	_	144376|144584
+22	?//	_	PUNCT	_	_	2	punct	_	144584|144800
+
+# elan_id = IBA_27_SP2_22
+# sent_id = D_IBA_27_Nigerian-Police_58
+# sent_translation = After, he went to meet all their people at Adeja.
+# speaker_id = 2
+# text = after < he go { to || to } meet all deir people at Hadejia //
+1	after	_	ADP	_	_	4	mod:periph	_	145320|145624
+2	<	_	PUNCT	_	_	1	punct	_	145624|145928
+3	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	4	subj	_	145928|146232
+4	go	_	VERB	_	_	0	root	_	146232|146536
+5	{	_	PUNCT	_	_	6	punct	_	146536|146840
+6	to	_	ADP	_	_	4	mod	_	146536|146840
+7	||	_	PUNCT	_	_	8	punct	_	146840|147144
+8	to	_	ADP	_	_	6	conj:dicto	_	146840|147144
+9	}	_	PUNCT	_	_	6	punct	_	146840|147144
+10	meet	_	VERB	_	_	8	comp	_	147144|147448
+11	all	_	DET	_	_	12	mod	_	147448|147752
+12	deir	_	ADJ	_	PronType=Prs|Person=3|Number=Plur|Poss=Yes	13	dep	_	147752|148056
+13	people	_	NOUN	_	_	10	comp:obj	_	148056|148360
+14	at	_	ADP	_	_	10	comp:obl	_	148360|148664
+15	Hadejia	_	PROPN	_	_	14	comp	_	148664|148968
+16	//	_	PUNCT	_	_	4	punct	_	148968|149280
+
+# elan_id = IBA_27_SP2_23
+# sent_id = D_IBA_27_Nigerian-Police_59
+# sent_translation = that
+# speaker_id = 2
+# text = dat & //
+1	dat	_	DET	_	_	2	orphan	_	149700|149827
+2	&	_	X	_	_	0	root	_	149827|149955
+3	//	_	PUNCT	_	_	2	punct	_	149827|149955
+
+# elan_id = IBA_27_SP2_24
+# sent_id = D_IBA_27_Nigerian-Police_60
+# sent_translation = eh e when he got to the car park, he asked to see the chairman of the National Union for cab. That he wants to see Alhaji Imoh.
+# speaker_id = 2
+# text = " eh " when e reach garage < e call di chairman of di National Union for Cab dat [ he want to see Alhaji Imoh ] //
+1	"	_	PUNCT	_	_	2	punct	_	150440|150723
+2	eh	_	INTJ	_	_	10	discourse	_	150723|151006
+3	"	_	PUNCT	_	_	2	punct	_	151006|151289
+4	when	_	ADV	_	PronType=Int	10	mod:periph	_	151289|151572
+5	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	6	subj	_	151572|151855
+6	reach	_	VERB	_	_	4	comp	_	151855|152138
+7	garage	_	NOUN	_	_	6	comp:obj	_	152138|152421
+8	<	_	PUNCT	_	_	4	punct	_	152421|152704
+9	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	10	subj	_	152704|152987
+10	call	_	VERB	_	_	0	root	_	152987|153270
+11	di	_	DET	_	PronType=Art|Definite=Def	12	det	_	153270|153553
+12	chairman	_	NOUN	_	_	10	comp:obj	_	153553|153836
+13	of	_	ADP	_	_	12	dep	_	153836|154119
+14	di	_	DET	_	PronType=Art|Definite=Def	16	det	_	154119|154402
+15	National	_	PROPN	_	_	16	dep	_	154402|154685
+16	Union	_	PROPN	_	_	13	comp	_	154685|154968
+17	for	_	PROPN	_	_	16	dep	_	154968|155251
+18	Cab	_	PROPN	_	_	17	comp	_	155251|155534
+19	dat	_	SCONJ	_	PronType=Dem|Number=Sing	10	comp:obj	_	155534|155817
+20	[	_	PUNCT	_	_	22	punct	_	155817|156100
+21	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	22	subj	_	156100|156383
+22	want	_	VERB	_	_	19	comp	_	156383|156666
+23	to	_	ADP	_	_	22	comp:pred	_	156666|156949
+24	see	_	VERB	_	_	23	comp	_	156949|157232
+25	Alhaji	_	PROPN	_	_	24	comp:obj	_	157232|157515
+26	Imoh	_	PROPN	_	_	25	flat	_	157515|157798
+27	]	_	PUNCT	_	_	22	punct	_	157798|158100
+28	//	_	PUNCT	_	_	10	punct	_	157798|158100
+
+# elan_id = IBA_27_SP2_25
+# sent_id = D_IBA_27_Nigerian-Police_61
+# sent_translation = They carried him to his house.
+# speaker_id = 2
+# text = de carry him to im house //
+1	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	2	subj	_	159040|159195
+2	carry	_	VERB	_	_	0	root	_	159195|159350
+3	him	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	2	comp:obj	_	159350|159505
+4	to	_	ADP	_	_	2	comp:obl	_	159505|159660
+5	im	_	ADJ	_	PronType=Prs|Person=3|Number=Sing|Poss=Yes	6	dep	_	159660|159815
+6	house	_	NOUN	_	_	4	comp	_	159815|159970
+7	//	_	PUNCT	_	_	2	punct	_	159970|160130
+
+# elan_id = IBA_27_SP2_26
+# sent_id = D_IBA_27_Nigerian-Police_62
+# sent_translation = When he got to his house he said "ah" XX this ma~ ma~ erm. He called his name that that man did they see him or XX? They said "no"
+# speaker_id = 2
+# text = when e reach im house <+ de say [ " ah " dis { man || ma- || ( " em " e call im name // ) dat dis man } < you saw him or ?// ] //
+1	when	_	ADV	_	PronType=Int	8	mod:periph	_	160130|160319
+2	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	3	subj	_	160319|160508
+3	reach	_	VERB	_	_	1	comp	_	160508|160697
+4	im	_	ADJ	_	PronType=Prs|Person=3|Number=Sing|Poss=Yes	5	dep	_	160697|160886
+5	house	_	NOUN	_	_	3	comp:obj	_	160886|161075
+6	<+	_	PUNCT	_	_	1	punct	_	161075|161264
+7	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	8	subj	_	161264|161453
+8	say	_	VERB	_	_	0	root	_	161453|161642
+9	[	_	PUNCT	_	_	35	punct	_	161642|161831
+10	"	_	PUNCT	_	_	11	punct	_	161831|162020
+11	ah	_	INTJ	_	_	35	discourse	_	162020|162209
+12	"	_	PUNCT	_	_	11	punct	_	162209|162398
+13	dis	_	DET	_	PronType=Prox|Number=Sing	15	det	_	162398|162587
+14	{	_	PUNCT	_	_	15	punct	_	162587|162776
+15	man	_	NOUN	_	_	35	dislocated	_	162776|162965
+16	||	_	PUNCT	_	_	17	punct	_	162965|163154
+17	ma-	_	XX	_	_	15	conj:dicto	_	163154|163343
+18	||	_	PUNCT	_	_	31	punct	_	163532|163721
+19	(	_	PUNCT	_	_	24	punct	_	163532|163721
+20	"	_	PUNCT	_	_	21	punct	_	163532|163721
+21	em	_	INTJ	_	_	24	discourse	_	163721|163910
+22	"	_	PUNCT	_	_	21	punct	_	163910|164099
+23	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	24	subj	_	164288|164477
+24	call	_	VERB	_	_	31	parataxis:parenth	_	164477|164666
+25	im	_	PRON	_	PronType=Prs|Person=3|Number=Sing|Poss=Yes	26	dep	_	164666|164855
+26	name	_	NOUN	_	_	24	comp:obj	_	164855|165044
+27	//	_	PUNCT	_	_	24	punct	_	165044|165233
+28	)	_	PUNCT	_	_	24	punct	_	165044|165233
+29	dat	_	PRON	_	PronType=Dem|Number=Sing	31	cc	_	165422|165611
+30	dis	_	DET	_	PronType=Prox|Number=Sing	31	det	_	165611|165800
+31	man	_	NOUN	_	_	17	conj:dicto	_	165800|165989
+32	}	_	PUNCT	_	_	15	punct	_	165989|166178
+33	<	_	PUNCT	_	_	15	punct	_	165989|166178
+34	you	_	PRON	_	Case=Nom|PronType=Prs|Person=2|Number=Sing	35	subj	_	166178|166367
+35	saw	_	VERB	_	_	8	parataxis:obj	_	166367|166556
+36	him	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	35	comp:obj	_	166556|166745
+37	or	_	CCONJ	_	_	35	orphan	_	166745|166934
+38	?//	_	PUNCT	_	_	35	punct	_	166934|167123
+39	]	_	PUNCT	_	_	35	punct	_	167123|167312
+40	//	_	PUNCT	_	_	8	punct	_	167312|167501
+
+# elan_id = IBA_27_SP2_26
+# sent_id = D_IBA_27_Nigerian-Police_63
+# sent_translation = When he got to his house he said "ah" XX this ma~ ma~ erm. He called his name that that man did they see him or XX? They said "no"
+# speaker_id = 2
+# text = de say [ no // ] //
+1	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	2	subj	_	167501|167690
+2	say	_	VERB	_	_	0	root	_	167690|167879
+3	[	_	PUNCT	_	_	4	punct	_	167879|168068
+4	no	_	INTJ	_	Polarity=Neg	2	parataxis:obj	_	168068|168257
+5	//	_	PUNCT	_	_	4	punct	_	168257|168446
+6	]	_	PUNCT	_	_	4	punct	_	168446|168635
+7	//	_	PUNCT	_	_	2	punct	_	168635|168840
+
+# elan_id = IBA_27_SP2_27
+# sent_id = D_IBA_27_Nigerian-Police_64
+# sent_translation = They said before he left Lagos he had  called that he was coming. But he has not been seen.
+# speaker_id = 2
+# text = de say [ before he left at Lagos < he don phone dat he is coming |c but e no see am at all ] //
+1	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	2	subj	_	169400|169650
+2	say	_	VERB	_	_	0	root	_	169650|169900
+3	[	_	PUNCT	_	_	11	punct	_	169900|170150
+4	before	_	ADP	_	_	11	mod:periph	_	170150|170400
+5	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	6	det	_	170400|170650
+6	left	_	VERB	_	_	4	comp	_	170650|170900
+7	at	_	ADP	_	_	6	comp:obl	_	170900|171150
+8	Lagos	_	PROPN	_	_	7	comp	_	171150|171400
+9	<	_	PUNCT	_	_	4	punct	_	171400|171650
+10	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	11	subj	_	171650|171900
+11	don	_	AUX	_	Aspect=Perf	2	parataxis:obj	_	171900|172150
+12	phone	_	VERB	_	_	11	comp:aux	_	172150|172400
+13	dat	_	SCONJ	_	PronType=Dem|Number=Sing	12	mod	_	172400|172650
+14	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	15	subj	_	172650|172900
+15	is	dey	AUX	_	_	13	comp	_	172900|173150
+16	coming	_	VERB	_	_	15	comp:pred	_	173150|173400
+17	|c	_	PUNCT	_	_	21	punct	_	173400|173650
+18	but	_	CCONJ	_	_	21	cc	_	173650|173900
+19	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	21	subj	_	173900|174150
+20	no	_	PART	_	Polarity=Neg	21	mod	_	174150|174400
+21	see	_	VERB	_	_	11	conj:coord	_	174400|174650
+22	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	21	comp:obj	_	174650|174900
+23	at	_	ADP	_	_	21	mod	_	174900|175150
+24	all	_	ADV	_	_	23	comp	_	175150|175400
+25	]	_	PUNCT	_	_	11	punct	_	175400|175672
+26	//	_	PUNCT	_	_	2	punct	_	175400|175672
+
+# elan_id = IBA_27_SP2_28
+# sent_id = D_IBA_27_Nigerian-Police_65
+# sent_translation = He said this is what happened,
+# speaker_id = 2
+# text = he say [ dis is di dis thing wey e happen // ] //
+1	he	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	2	subj	_	175780|175911
+2	say	_	VERB	_	_	0	root	_	175911|176042
+3	[	_	PUNCT	_	_	5	punct	_	176042|176173
+4	dis	_	DET	_	PronType=Prox|Number=Sing	5	det	_	176173|176304
+5	is	na	VERB	_	_	2	parataxis:obj	_	176304|176435
+6	di	_	DET	_	PronType=Art|Definite=Def	8	det	_	176435|176566
+7	dis	_	DET	_	PronType=Prox|Number=Sing	8	det	_	176566|176697
+8	thing	_	NOUN	_	_	5	comp:pred	_	176697|176828
+9	wey	_	SCONJ	_	_	8	dep	_	176828|176959
+10	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	11	subj	_	176959|177090
+11	happen	_	VERB	_	_	9	comp	_	177090|177221
+12	//	_	PUNCT	_	_	5	punct	_	177221|177352
+13	]	_	PUNCT	_	_	5	punct	_	177352|177483
+14	//	_	PUNCT	_	_	2	punct	_	177483|177618
+
+# elan_id = IBA_27_SP2_29
+# sent_id = D_IBA_27_Nigerian-Police_66
+# sent_translation = After that man went to the general police station at Adeja, He called their master there.
+# speaker_id = 2
+# text = after dat man go di " eh " General Police Station at " eh " Hadejia <+ e call deir master dere //
+1	after	_	ADP	_	_	19	mod:periph	_	178360|178746
+2	dat	_	DET	_	PronType=Dem|Number=Sing	3	det	_	178746|179132
+3	man	_	NOUN	_	_	4	subj	_	179132|179518
+4	go	_	VERB	_	_	1	comp	_	179518|179904
+5	di	_	DET	_	PronType=Art|Definite=Def	11	det	_	179904|180290
+6	"	_	PUNCT	_	_	7	punct	_	180290|180676
+7	eh	_	INTJ	_	_	5	discourse	_	180676|181062
+8	"	_	PUNCT	_	_	7	punct	_	181062|181448
+9	General	_	PROPN	_	_	11	dep	_	181448|181834
+10	Police	_	PROPN	_	_	11	compound	_	181834|182220
+11	Station	_	NOUN	_	_	4	comp:obj	_	182220|182606
+12	at	_	ADP	_	_	11	dep	_	182606|182992
+13	"	_	PUNCT	_	_	14	punct	_	182992|183378
+14	eh	_	INTJ	_	_	16	discourse	_	183378|183764
+15	"	_	PUNCT	_	_	14	punct	_	183764|184150
+16	Hadejia	_	NOUN	_	_	12	comp	_	184150|184536
+17	<+	_	PUNCT	_	_	1	punct	_	184536|184922
+18	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	19	subj	_	184922|185308
+19	call	_	VERB	_	_	0	root	_	185308|185694
+20	deir	_	ADJ	_	PronType=Prs|Person=3|Number=Plur|Poss=Yes	21	dep	_	185694|186080
+21	master	_	NOUN	_	_	19	comp:obj	_	186080|186466
+22	dere	_	ADV	_	PronType=Dem	19	mod	_	186466|186852
+23	//	_	PUNCT	_	_	19	punct	_	186852|187240
+
+# elan_id = IBA_27_SP1_31
+# sent_id = D_IBA_27_Nigerian-Police_67
+# sent_translation = So, what you are trying to tell me now is that  eh, the police station that should be secure because the man did not want the place is not secure..
+# speaker_id = 1
+# text = so wetin you dey try dey tell me now be sey [ " eh " police station wey suppose dey secure ( because di man no want & ) < di place no secure ] //
+1	so	_	ADV	_	_	10	discourse	_	187484|187728
+2	wetin	_	PRON	_	PronType=Int	10	subj	_	187728|187972
+3	you	_	PRON	_	Case=Nom|PronType=Prs|Person=2|Number=Sing	4	subj	_	187972|188216
+4	dey	_	AUX	_	Aspect=Imp	2	dep	_	188216|188460
+5	try	_	VERB	_	_	4	comp:aux	_	188460|188704
+6	dey	_	AUX	_	Aspect=Imp	5	comp:pred	_	188704|188948
+7	tell	_	VERB	_	_	6	comp:aux	_	188948|189192
+8	me	_	PRON	_	Case=Acc|PronType=Prs|Person=1|Number=Sing	7	comp:obj	_	189192|189436
+9	now	_	ADV	_	_	7	mod	_	189436|189680
+10	be	_	VERB	_	_	0	root	_	189680|189924
+11	sey	_	SCONJ	_	_	10	comp:pred	_	189924|190168
+12	[	_	PUNCT	_	_	34	punct	_	190168|190412
+13	"	_	PUNCT	_	_	14	punct	_	190412|190656
+14	eh	_	INTJ	_	_	34	discourse	_	190656|190900
+15	"	_	PUNCT	_	_	14	punct	_	190900|191144
+16	police	_	NOUN	_	_	17	compound	_	191144|191388
+17	station	_	NOUN	_	_	34	dislocated	_	191388|191632
+18	wey	_	SCONJ	_	_	17	dep	_	191632|191876
+19	suppose	_	VERB	_	Mood=Imp	18	comp	_	191876|192120
+20	dey	_	VERB	_	Aspect=Imp	19	comp:pred	_	192120|192364
+21	secure	_	ADJ	_	_	20	comp:aux	_	192364|192608
+22	(	_	PUNCT	_	_	23	punct	_	192608|192852
+23	because	_	SCONJ	_	_	17	parataxis:parenth	_	192852|193096
+24	di	_	DET	_	PronType=Art|Definite=Def	25	det	_	193096|193340
+25	man	_	NOUN	_	_	27	subj	_	193340|193584
+26	no	_	PART	_	Polarity=Neg	27	mod	_	193584|193828
+27	want	_	VERB	_	_	23	comp	_	193828|194072
+28	&	_	X	_	_	27	comp:obj	_	194072|194316
+29	)	_	PUNCT	_	_	23	punct	_	194316|194560
+30	<	_	PUNCT	_	_	17	punct	_	194560|194804
+31	di	_	DET	_	PronType=Art|Definite=Def	32	det	_	194804|195048
+32	place	_	NOUN	_	_	34	subj	_	195048|195292
+33	no	_	PART	_	Polarity=Neg	34	mod	_	195292|195536
+34	secure	_	ADJ	_	_	11	comp	_	195536|195780
+35	]	_	PUNCT	_	_	10	punct	_	195780|196041
+36	//	_	PUNCT	_	_	10	punct	_	195780|196041
+
+# elan_id = IBA_27_SP2_30
+# sent_id = D_IBA_27_Nigerian-Police_68
+# sent_translation = #
+# speaker_id = 2
+# text = if & //
+1	if	_	SCONJ	_	_	2	orphan	_	187560|187749
+2	&	_	X	_	_	0	root	_	187749|187938
+3	//	_	PUNCT	_	_	2	punct	_	187749|187938
+
+# elan_id = IBA_27_SP2_31
+# sent_id = D_IBA_27_Nigerian-Police_69
+# sent_translation = It is not secure at all.
+# speaker_id = 2
+# text = e no secure at all //
+1	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	3	subj	_	193587|193817
+2	no	_	PART	_	Polarity=Neg	3	mod	_	193817|194047
+3	secure	_	ADJ	_	_	0	root	_	194047|194277
+4	at	_	ADP	_	_	3	comp:obl	_	194277|194507
+5	all	_	ADV	_	_	3	mod	_	194507|194737
+6	//	_	PUNCT	_	_	3	punct	_	194737|194969
+
+# elan_id = IBA_27_SP2_32
+# sent_id = D_IBA_27_Nigerian-Police_70
+# sent_translation = Ah Ah
+# speaker_id = 2
+# text = a'ah !//
+1	a'ah	_	INTJ	_	_	0	root	_	196123|196256
+2	!//	_	PUNCT	_	_	1	punct	_	196256|196390
+
+# elan_id = IBA_27_SP1_32
+# sent_id = D_IBA_27_Nigerian-Police_71
+# sent_translation = The man that the driver dropped at the police station, they killed him and collected his money.
+# speaker_id = 1
+# text = di man wey dat driver go drop for police station < de don kill am collect im money //
+1	di	_	DET	_	PronType=Art|Definite=Def	2	det	_	196350|196589
+2	man	_	NOUN	_	_	13	dislocated	_	196589|196828
+3	wey	_	SCONJ	_	_	2	dep	_	196828|197067
+4	dat	_	DET	_	PronType=Dem|Number=Sing	5	det	_	197067|197306
+5	driver	_	NOUN	_	_	6	subj	_	197306|197545
+6	go	_	AUX	_	Tense=Prosp	3	comp	_	197545|197784
+7	drop	_	NOUN	_	_	6	comp:aux	_	197784|198023
+8	for	_	ADP	_	_	7	comp:obl	_	198023|198262
+9	police	_	NOUN	_	_	10	compound	_	198262|198501
+10	station	_	NOUN	_	_	8	comp	_	198501|198740
+11	<	_	PUNCT	_	_	2	punct	_	198740|198979
+12	de	_	PRON	_	_	13	subj	_	198979|199218
+13	don	_	AUX	_	Aspect=Perf	0	root	_	199218|199457
+14	kill	_	VERB	_	_	13	comp:aux	_	199457|199696
+15	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	14	comp:obj	_	199696|199935
+16	collect	_	VERB	_	_	14	compound:svc	_	199935|200174
+17	im	_	ADJ	_	PronType=Prs|Person=3|Number=Sing|Poss=Yes	18	dep	_	200174|200413
+18	money	_	NOUN	_	_	16	comp:obj	_	200413|200652
+19	//	_	PUNCT	_	_	13	punct	_	200652|200907
+
+# elan_id = IBA_27_SP2_33
+# sent_id = D_IBA_27_Nigerian-Police_72
+# sent_translation = They killed him.
+# speaker_id = 2
+# text = de kill am //
+1	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	2	subj	_	198756|198908
+2	kill	_	VERB	_	_	0	root	_	198908|199060
+3	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	2	comp:obj	_	199060|199212
+4	//	_	PUNCT	_	_	2	punct	_	199212|199365
+
+# elan_id = IBA_27_SP2_34
+# sent_id = D_IBA_27_Nigerian-Police_73
+# sent_translation = Hm,  collected his money.
+# speaker_id = 2
+# text = " hm " collect his money //
+1	"	_	PUNCT	_	_	2	punct	_	200111|200295
+2	hm	_	INTJ	_	_	4	discourse	_	200295|200479
+3	"	_	PUNCT	_	_	2	punct	_	200479|200663
+4	collect	_	VERB	_	_	0	root	_	200663|200847
+5	his	im	ADJ	_	PronType=Prs|Person=3|Number=Sing|Poss=Yes	6	dep	_	200847|201031
+6	money	_	NOUN	_	_	4	comp:obj	_	201031|201215
+7	//	_	PUNCT	_	_	4	punct	_	201215|201401
+
+# elan_id = IBA_27_SP1_33
+# sent_id = D_IBA_27_Nigerian-Police_74
+# sent_translation = Ah Ah.
+# speaker_id = 1
+# text = " ah " !//
+1	"	_	PUNCT	_	_	2	punct	_	201402|201586
+2	ah	_	INTJ	_	_	0	root	_	201586|201770
+3	"	_	PUNCT	_	_	2	punct	_	201770|201954
+4	!//	_	PUNCT	_	_	2	punct	_	201954|202140
+
+# elan_id = IBA_27_SP1_34
+# sent_id = D_IBA_27_Nigerian-Police_75
+# sent_translation = So, what we saying about Nigeria is that Nigeria has turned to another thing from the top.
+# speaker_id = 1
+# text = so wetin we dey talk for Nigeria < na im be sey Nigeria don & //
+1	so	_	ADV	_	_	9	discourse	_	202720|203023
+2	wetin	_	PRON	_	_	9	dislocated	_	203023|203326
+3	we	_	PRON	_	_	4	subj	_	203326|203629
+4	dey	_	AUX	_	_	2	dep	_	203629|203932
+5	talk	_	VERB	_	_	4	comp:aux	_	203932|204235
+6	for	_	ADP	_	_	5	comp:obl	_	204235|204538
+7	Nigeria	_	PROPN	_	_	6	comp	_	204538|204841
+8	<	_	PUNCT	_	_	2	punct	_	204841|205144
+9	na	_	PART	_	_	0	root	_	205144|205447
+10	im	_	PRON	_	_	9	comp:pred	_	205447|205750
+11	be	_	PART	_	_	9	comp:cleft	_	205750|206053
+12	sey	_	SCONJ	_	_	11	comp:pred	_	206053|206356
+13	Nigeria	_	PROPN	_	_	14	subj	_	206356|206659
+14	don	_	AUX	_	_	12	comp	_	206659|206962
+15	&	_	X	_	_	14	comp:aux	_	206962|207265
+16	//	_	PUNCT	_	_	9	punct	_	206962|207265
+
+# elan_id = IBA_27_SP2_35
+# sent_id = D_IBA_27_Nigerian-Police_76
+# sent_translation = The Nige~, the Nigeria we are in is XX XX.
+# speaker_id = 2
+# text = { di Nige- || di Nigeria } wey we dey < e don turn to anoda tin from di top //
+1	{	_	PUNCT	_	_	3	punct	_	204041|204247
+2	di	_	DET	_	PronType=Art|Definite=Def	3	det	_	204247|204453
+3	Nige-	_	XX	_	_	13	dislocated	_	204453|204659
+4	||	_	PUNCT	_	_	6	punct	_	204659|204865
+5	di	_	DET	_	PronType=Art|Definite=Def	6	det	_	204865|205071
+6	Nigeria	_	PROPN	_	_	3	conj:dicto	_	205071|205277
+7	}	_	PUNCT	_	_	3	punct	_	205277|205483
+8	wey	_	SCONJ	_	_	6	dep	_	205483|205689
+9	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	10	subj	_	205689|205895
+10	dey	_	AUX	_	Aspect=Imp	8	comp	_	205895|206101
+11	<	_	PUNCT	_	_	3	punct	_	206307|206515
+12	e	_	PRON	_	Case=Nom|Person=3|Number=Sing	13	subj	_	207265|207568
+13	don	_	AUX	_	Aspect=Perf	0	root	_	207568|207871
+14	turn	_	VERB	_	_	13	comp:aux	_	207871|208174
+15	to	_	ADP	_	_	14	comp:obl	_	208174|208477
+16	anoda	_	DET	_	_	17	det	_	208477|208780
+17	tin	_	NOUN	_	_	15	comp	_	208780|209083
+18	from	_	ADP	_	_	14	comp:obl	_	209083|209386
+19	di	_	DET	_	PronType=Art|Definite=Def	20	det	_	209386|209689
+20	top	_	NOUN	_	_	18	comp	_	209689|209992
+21	//	_	PUNCT	_	_	13	punct	_	209992|210300
+
+# elan_id = IBA_27_SP2_36
+# sent_id = D_IBA_27_Nigerian-Police_77
+# sent_translation = Another XX.
+# speaker_id = 2
+# text = anoda & //
+1	anoda	_	DET	_	_	2	orphan	_	209298|209799
+2	&	_	X	_	_	0	root	_	209799|210300
+3	//	_	PUNCT	_	_	2	punct	_	209799|210300
+
+# elan_id = IBA_27_SP2_37
+# sent_id = D_IBA_27_Nigerian-Police_78
+# sent_translation = Ah. Yes.
+# speaker_id = 2
+# text = " ah " yes //
+1	"	_	PUNCT	_	_	2	punct	_	210620|210737
+2	ah	_	INTJ	_	_	0	root	_	210737|210854
+3	"	_	PUNCT	_	_	2	punct	_	210854|210971
+4	yes	_	INTJ	_	Polarity=Pos	2	flat	_	210971|211088
+5	//	_	PUNCT	_	_	2	punct	_	211088|211206
+
+# elan_id = IBA_27_SP1_35
+# sent_id = D_IBA_27_Nigerian-Police_79
+# sent_translation = Yes? Isn't it so?
+# speaker_id = 1
+# text = abi ?//
+1	abi	_	CCONJ	_	_	0	root	_	211319|211559
+2	?//	_	PUNCT	_	_	1	punct	_	211559|211799
+
+# elan_id = IBA_27_SP2_38
+# sent_id = D_IBA_27_Nigerian-Police_80
+# sent_translation = Yeah.
+# speaker_id = 2
+# text = yeah //
+1	yeah	_	INTJ	_	_	0	root	_	211711|211937
+2	//	_	PUNCT	_	_	1	punct	_	211937|212164
+
+# elan_id = IBA_27_SP1_35
+# sent_id = D_IBA_27_Nigerian-Police_81
+# sent_translation = Yes? Isn't it so?
+# speaker_id = 1
+# text = no be so ?//
+1	no	_	PART	_	Polarity=Neg	2	mod	_	211799|212039
+2	be	_	VERB	_	_	0	root	_	212039|212279
+3	so	_	ADV	_	_	2	comp:pred	_	212279|212519
+4	?//	_	PUNCT	_	_	2	punct	_	212519|212762
+
+# elan_id = IBA_27_SP2_39
+# sent_id = D_IBA_27_Nigerian-Police_82
+# sent_translation = It is so.
+# speaker_id = 2
+# text = na so //
+1	na	_	PART	_	PartType=Cop	0	root	_	212659|212916
+2	so	_	ADV	_	_	1	comp:pred	_	212916|213173
+3	//	_	PUNCT	_	_	1	punct	_	213173|213432
+
+# elan_id = IBA_27_SP1_36
+# sent_id = D_IBA_27_Nigerian-Police_83
+# sent_translation = What can we do? Before Nigeria will return to its former glory o.
+# speaker_id = 1
+# text = wetin we go fit do before Nigeria go come back o ?//
+1	wetin	_	PRON	_	PronType=Int	0	root	_	213577|213965
+2	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	3	subj	_	213965|214353
+3	go	_	AUX	_	Tense=Prosp	1	comp:cleft	_	214353|214741
+4	fit	_	AUX	_	_	3	comp:aux	_	214741|215129
+5	do	_	VERB	_	_	4	comp:aux	_	215129|215517
+6	before	_	ADP	_	_	5	comp:obl	_	215517|215905
+7	Nigeria	_	PROPN	_	_	8	subj	_	215905|216293
+8	go	_	AUX	_	Tense=Prosp	6	comp	_	216293|216681
+9	come	_	VERB	_	_	8	comp:aux	_	216681|217069
+10	back	_	ADV	_	_	9	compound:prt	_	217069|217457
+11	o	_	PART	_	PartType=Disc	1	mod:emph	_	217457|217845
+12	?//	_	PUNCT	_	_	1	punct	_	217845|218242
+
+# elan_id = IBA_27_SP2_40
+# sent_id = D_IBA_27_Nigerian-Police_84
+# sent_translation = Ah. Ehn. I don't know what we can do. It is only God we will ask to help us o.
+# speaker_id = 2
+# text = ah !//
+1	ah	_	INTJ	_	_	0	root	_	214824|215015
+2	!//	_	PUNCT	_	_	1	punct	_	215015|215206
+
+# elan_id = IBA_27_SP2_40
+# sent_id = D_IBA_27_Nigerian-Police_85
+# sent_translation = Ah. Ehn. I don't know what we can do. It is only God we will ask to help us o.
+# speaker_id = 2
+# text = " ehn " I dont know wetin we can do //
+1	"	_	PUNCT	_	_	2	punct	_	215206|215397
+2	ehn	_	INTJ	_	_	5	discourse	_	215397|215588
+3	"	_	PUNCT	_	_	2	punct	_	215588|215779
+4	I	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	5	subj	_	215779|215970
+5	dont	_	VERB	_	_	0	root	_	215970|216161
+6	know	_	VERB	_	_	5	comp:pred	_	216161|216352
+7	wetin	_	PRON	_	PronType=Int	6	comp:obj	_	216352|216543
+8	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	9	subj	_	216543|216734
+9	can	_	AUX	_	_	7	dep	_	216734|216925
+10	do	_	VERB	_	_	9	comp:aux	_	216925|217116
+11	//	_	PUNCT	_	_	5	punct	_	217116|217307
+
+# elan_id = IBA_27_SP2_40
+# sent_id = D_IBA_27_Nigerian-Police_86
+# sent_translation = Ah. Ehn. I don't know what we can do. It is only God we will ask to help us o.
+# speaker_id = 2
+# text = { na || na } only God >+ we go say [ make e help us o ] //
+1	{	_	PUNCT	_	_	2	punct	_	217307|217498
+2	na	_	PART	_	PartType=Cop	0	root	_	217498|217689
+3	||	_	PUNCT	_	_	4	punct	_	217689|217880
+4	na	_	PART	_	PartType=Cop	2	conj:dicto	_	217880|218071
+5	}	_	PUNCT	_	_	2	punct	_	218071|218262
+6	only	_	ADJ	_	_	7	dep	_	218262|218453
+7	God	_	PROPN	_	_	4	comp:pred	_	218453|218644
+8	>+	_	PUNCT	_	_	10	punct	_	218644|218835
+9	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	10	subj	_	218835|219026
+10	go	_	AUX	_	Tense=Prosp	4	comp:cleft	_	219026|219217
+11	say	_	VERB	_	_	10	comp:aux	_	219217|219408
+12	[	_	PUNCT	_	_	13	punct	_	219408|219599
+13	make	_	AUX	_	Mood=Jus	11	parataxis:obj	_	219599|219790
+14	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	13	subj	_	219790|219981
+15	help	_	VERB	_	_	13	comp:aux	_	219981|220172
+16	us	_	PRON	_	Case=Acc|PronType=Prs|Person=1|Number=Plur	15	comp:obj	_	220172|220363
+17	o	_	PART	_	PartType=Disc	13	mod:emph	_	220363|220554
+18	]	_	PUNCT	_	_	13	punct	_	220554|220745
+19	//	_	PUNCT	_	_	2	punct	_	220745|220937
+
+# elan_id = IBA_27_SP1_37
+# sent_id = D_IBA_27_Nigerian-Police_87
+# sent_translation = in everything we say God God God.
+# speaker_id = 1
+# text = { everytin |r everytin } we dey say < { God |r God |r God } //
+1	{	_	PUNCT	_	_	2	punct	_	221067|221228
+2	everytin	_	NOUN	_	_	11	dislocated	_	221228|221389
+3	|r	_	PUNCT	_	_	4	punct	_	221389|221550
+4	everytin	_	NOUN	_	_	2	compound:redup	_	221550|221711
+5	}	_	PUNCT	_	_	2	punct	_	221711|221872
+6	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	7	subj	_	221872|222033
+7	dey	_	AUX	_	Aspect=Imp	2	mod	_	222033|222194
+8	say	_	VERB	_	_	7	comp:aux	_	222194|222355
+9	<	_	PUNCT	_	_	2	punct	_	222355|222516
+10	{	_	PUNCT	_	_	11	punct	_	222355|222516
+11	God	_	PROPN	_	_	0	root	_	222516|222677
+12	|r	_	PUNCT	_	_	13	punct	_	222677|222838
+13	God	_	PROPN	_	_	11	compound:redup	_	222838|222999
+14	|r	_	PUNCT	_	_	15	punct	_	222999|223160
+15	God	_	PROPN	_	_	13	compound:redup	_	223160|223321
+16	}	_	PUNCT	_	_	11	punct	_	223321|223482
+17	//	_	PUNCT	_	_	11	punct	_	223482|223655
+
+# elan_id = IBA_27_SP2_41
+# sent_id = D_IBA_27_Nigerian-Police_88
+# sent_translation = They say
+# speaker_id = 2
+# text = de say & //
+1	de	_	PRON	_	_	2	subj	_	222254|222378
+2	say	_	VERB	_	_	0	root	_	222378|222502
+3	&	_	X	_	_	2	comp:obj	_	222502|222627
+4	//	_	PUNCT	_	_	2	punct	_	222502|222627
+
+# elan_id = IBA_27_SP2_42
+# sent_id = D_IBA_27_Nigerian-Police_89
+# sent_translation = if if if they say they want to do something, what do we want to ?
+# speaker_id = 2
+# text = { if || if || if } { de || de } say dat [ we want do sometin ] < wetin we want do ?//
+1	{	_	PUNCT	_	_	2	punct	_	223011|223131
+2	if	_	SCONJ	_	_	22	mod:periph	_	223131|223251
+3	||	_	PUNCT	_	_	4	punct	_	223251|223371
+4	if	_	SCONJ	_	_	2	conj:dicto	_	223371|223491
+5	||	_	PUNCT	_	_	6	punct	_	223491|223611
+6	if	_	SCONJ	_	_	4	conj:dicto	_	223611|223731
+7	}	_	PUNCT	_	_	2	punct	_	223731|223851
+8	{	_	PUNCT	_	_	9	punct	_	223851|223971
+9	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	13	subj	_	223971|224091
+10	||	_	PUNCT	_	_	11	punct	_	224091|224211
+11	de	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	9	conj:dicto	_	224211|224331
+12	}	_	PUNCT	_	_	9	punct	_	224331|224451
+13	say	_	VERB	_	_	6	comp	_	224451|224571
+14	dat	_	SCONJ	_	PronType=Dem|Number=Sing	13	comp:obj	_	224691|224811
+15	[	_	PUNCT	_	_	17	punct	_	224811|224931
+16	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	17	subj	_	224811|224931
+17	want	_	VERB	_	Mood=Ind	14	comp	_	224931|225051
+18	do	_	VERB	_	_	17	comp:pred	_	225051|225171
+19	sometin	_	NOUN	_	_	18	comp:obj	_	225171|225291
+20	]	_	PUNCT	_	_	17	punct	_	225291|225411
+21	<	_	PUNCT	_	_	2	punct	_	225411|225531
+22	wetin	_	PRON	_	PronType=Int	0	root	_	225531|225651
+23	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	24	subj	_	225651|225771
+24	want	_	VERB	_	Mood=Ind	22	comp:cleft	_	225771|225891
+25	do	_	VERB	_	_	24	comp:pred	_	225891|226011
+26	?//	_	PUNCT	_	_	22	punct	_	226011|226140
+
+# elan_id = IBA_27_SP1_38
+# sent_id = D_IBA_27_Nigerian-Police_90
+# sent_translation = You see?
+# speaker_id = 1
+# text = you see ?//
+1	you	_	PRON	_	Case=Nom|PronType=Prs|Person=2|Number=Sing	2	subj	_	226500|226596
+2	see	_	VERB	_	_	0	root	_	226596|226692
+3	?//	_	PUNCT	_	_	2	punct	_	226692|226790
+
+# elan_id = IBA_27_SP1_39
+# sent_id = D_IBA_27_Nigerian-Police_91
+# sent_translation = The thing we can do, the thing we can do me, I know God can do everything. But God will not come down from heaven above to do it here. It is us We will take steps ourselves, to change our mind. Come closer to God. So that things will be okay, as we want it to be.
+# speaker_id = 1
+# text = di tin wey we fit do || di tin wey we fit do & //
+1	di	_	DET	_	_	2	det	_	227399|227698
+2	tin	_	NOUN	_	_	14	dislocated	_	227698|227997
+3	wey	_	SCONJ	_	_	2	dep	_	227997|228296
+4	we	_	PRON	_	_	5	subj	_	228296|228595
+5	fit	_	AUX	_	_	3	comp	_	228595|228894
+6	do	_	VERB	_	_	5	comp:aux	_	228894|229193
+7	||	_	PUNCT	_	_	9	punct	_	229193|229492
+8	di	_	DET	_	_	9	det	_	229492|229791
+9	tin	_	NOUN	_	_	2	conj:dicto	_	229791|230090
+10	wey	_	SCONJ	_	_	9	dep	_	230090|230389
+11	we	_	PRON	_	_	12	subj	_	230389|230688
+12	fit	_	AUX	_	_	10	comp	_	230688|230987
+13	do	_	VERB	_	_	12	comp:aux	_	230987|231286
+14	&	_	X	_	_	0	root	_	231585|231884
+15	//	_	PUNCT	_	_	14	punct	_	231585|231884
+
+# sent_id = D_IBA_27_Nigerian-Police_92
+# text = me < I know sey [ God fit do everything ] |c but { we || God } no go come down from heaven yonder con do am here //
+1	me	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	4	dislocated	_	231884|232183
+2	<	_	PUNCT	_	_	1	punct	_	232183|232482
+3	I	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Sing	4	subj	_	232482|232781
+4	know	_	VERB	_	_	0	root	_	232781|233080
+5	sey	_	SCONJ	_	_	4	comp:obj	_	233080|233379
+6	[	_	PUNCT	_	_	8	punct	_	233379|233678
+7	God	_	PROPN	_	_	8	vocative	_	233678|233977
+8	fit	_	AUX	_	_	5	comp	_	233977|234276
+9	do	_	VERB	_	_	8	comp:aux	_	234276|234575
+10	everything	_	NOUN	_	_	9	comp:obj	_	234575|234874
+11	]	_	PUNCT	_	_	8	punct	_	234874|235173
+12	|c	_	PUNCT	_	_	20	punct	_	235173|235472
+13	but	_	CCONJ	_	_	20	cc	_	235472|235771
+14	{	_	PUNCT	_	_	15	punct	_	235771|236070
+15	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	20	subj	_	236070|236369
+16	||	_	PUNCT	_	_	17	punct	_	236369|236668
+17	God	_	PROPN	_	_	15	conj:dicto	_	236668|236967
+18	}	_	PUNCT	_	_	15	punct	_	236967|237266
+19	no	_	PART	_	Polarity=Neg	20	mod	_	237266|237565
+20	go	_	AUX	_	Tense=Prosp	4	conj:coord	_	237565|237864
+21	come	_	VERB	_	_	20	comp:aux	_	237864|238163
+22	down	_	ADP	_	_	21	compound:prt	_	238163|238462
+23	from	_	ADP	_	_	21	comp:obl	_	238462|238761
+24	heaven	_	NOUN	_	_	23	comp	_	238761|239060
+25	yonder	_	NOUN	_	_	24	dep	_	239060|239359
+26	con	_	AUX	_	Aspect=Real	20	conj:coord	_	239359|239658
+27	do	_	VERB	_	_	26	comp:aux	_	239658|239957
+28	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	27	comp:obj	_	239957|240256
+29	here	_	ADV	_	PronType=Dem	27	mod	_	240256|240555
+30	//	_	PUNCT	_	_	4	punct	_	240555|240854
+
+# elan_id = IBA_27_SP2_43
+# sent_id = D_IBA_27_Nigerian-Police_93
+# sent_translation = All the people who gave ah
+# speaker_id = 2
+# text = all di people wey get " ah " & //
+1	all	_	DET	_	_	2	mod	_	227338|227513
+2	di	_	DET	_	_	3	det	_	227513|227688
+3	people	_	NOUN	_	_	9	dislocated	_	227688|227863
+4	wey	_	SCONJ	_	_	3	dep	_	227863|228038
+5	get	_	VERB	_	_	4	comp	_	228038|228213
+6	"	_	PUNCT	_	_	7	punct	_	228213|228388
+7	ah	_	INTJ	_	_	3	discourse	_	228388|228563
+8	"	_	PUNCT	_	_	7	punct	_	228563|228738
+9	&	_	X	_	_	0	root	_	228738|228920
+10	//	_	PUNCT	_	_	9	punct	_	228738|228920
+
+# elan_id = IBA_27_SP2_44
+# sent_id = D_IBA_27_Nigerian-Police_94
+# sent_translation = Yes.
+# speaker_id = 2
+# text = yes //
+1	yes	_	INTJ	_	Polarity=Pos	0	root	_	233323|233591
+2	//	_	PUNCT	_	_	1	punct	_	233591|233859
+
+# elan_id = IBA_27_SP2_45
+# sent_id = D_IBA_27_Nigerian-Police_95
+# sent_translation = Everyday.
+# speaker_id = 2
+# text = everyday //
+1	everyday	_	NOUN	_	_	0	root	_	236831|237214
+2	//	_	PUNCT	_	_	1	punct	_	237214|237597
+
+# elan_id = IBA_27_SP1_39
+# sent_id = D_IBA_27_Nigerian-Police_96
+# sent_translation = The thing we can do, the thing we can do me, I know God can do everything. But God will not come down from heaven above to do it here. It is us We will take steps ourselves, to change our mind. Come closer to God. So that things will be okay, as we want it to be.
+# speaker_id = 1
+# text = na we >+ we go { come oursef |c change our mind |c come closer to God } so dat tins go dey okay as we want am //
+1	na	_	PART	_	PartType=Cop	0	root	_	240854|241153
+2	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	1	comp:pred	_	241153|241452
+3	>+	_	PUNCT	_	_	5	punct	_	241452|241751
+4	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	5	subj	_	241751|242050
+5	go	_	AUX	_	Tense=Prosp	1	comp:cleft	_	242050|242349
+6	{	_	PUNCT	_	_	7	punct	_	242349|242648
+7	come	_	VERB	_	_	5	comp:aux	_	242648|242947
+8	oursef	_	PRON	_	PronType=Prs|Person=1|Number=Plur	7	comp:obj	_	242947|243246
+9	|c	_	PUNCT	_	_	10	punct	_	243246|243545
+10	change	_	NOUN	_	_	7	conj:coord	_	243545|243844
+11	our	_	PRON	_	PronType=Prs|Person=1|Number=Plur|Poss=Yes	12	det	_	243844|244143
+12	mind	_	NOUN	_	_	10	comp:obj	_	244143|244442
+13	|c	_	PUNCT	_	_	14	punct	_	244442|244741
+14	come	_	VERB	_	_	10	conj:coord	_	244741|245040
+15	closer	_	ADJ	_	_	14	comp:obj	_	245040|245339
+16	to	_	ADP	_	_	15	dep	_	245339|245638
+17	God	_	PROPN	_	_	16	comp	_	245638|245937
+18	}	_	PUNCT	_	_	7	punct	_	245937|246236
+19	so	_	SCONJ	_	_	14	mod	_	246236|246535
+20	dat	_	PRON	_	PronType=Dem|Number=Sing	19	fixed	_	246535|246834
+21	tins	_	NOUN	_	Number=Plur	22	subj	_	246834|247133
+22	go	_	AUX	_	Tense=Prosp	19	comp	_	247133|247432
+23	dey	_	VERB	_	_	22	comp:aux	_	247432|247731
+24	okay	_	ADJ	_	_	23	comp:pred	_	247731|248030
+25	as	_	ADP	_	_	23	mod	_	248030|248329
+26	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	27	subj	_	248329|248628
+27	want	_	VERB	_	_	25	comp	_	248628|248927
+28	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	27	comp:obj	_	248927|249226
+29	//	_	PUNCT	_	_	1	punct	_	249226|249558
+
+# elan_id = IBA_27_SP2_46
+# sent_id = D_IBA_27_Nigerian-Police_97
+# sent_translation = Mind to,
+# speaker_id = 2
+# text = mind to & //
+1	mind	_	NOUN	_	_	0	root	_	243633|243886
+2	to	_	ADP	_	_	1	dep	_	243886|244139
+3	&	_	X	_	_	2	comp	_	244139|244394
+4	//	_	PUNCT	_	_	1	punct	_	244139|244394
+
+# elan_id = IBA_27_SP2_47 IBA_27_SP2_48
+# sent_id = D_IBA_27_Nigerian-Police_98
+# sent_translation = XX Ehen.
+# speaker_id = 2
+# text = XX ehen //
+1	XX	_	PUNCT	_	_	2	punct	_	247401|249504
+2	ehen	_	INTJ	_	_	0	root	_	249504|249773
+3	//	_	PUNCT	_	_	2	punct	_	249773|250042
+
+# elan_id = IBA_27_SP1_40
+# sent_id = D_IBA_27_Nigerian-Police_99
+# sent_translation = The police that is supposed to take care of people they are the ones now killing people, they are the ones now robbing people.
+# speaker_id = 1
+# text = police wey e suppose to dey take care of people < na im >+ con dey kill people //
+1	police	_	NOUN	_	_	12	dislocated	_	250090|250336
+2	wey	_	SCONJ	_	_	1	dep	_	250336|250582
+3	e	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	4	subj	_	250582|250828
+4	suppose	_	VERB	_	Mood=Imp	2	comp	_	250828|251074
+5	to	_	ADP	_	_	4	comp:pred	_	251074|251320
+6	dey	_	AUX	_	Aspect=Imp	5	comp	_	251320|251566
+7	take	_	VERB	_	_	6	comp:aux	_	251566|251812
+8	care	_	NOUN	_	_	7	comp:obj	_	251812|252058
+9	of	_	ADP	_	_	8	dep	_	252058|252304
+10	people	_	NOUN	_	_	9	comp	_	252304|252550
+11	<	_	PUNCT	_	_	1	punct	_	252550|252796
+12	na	_	PART	_	PartType=Cop	0	root	_	252796|253042
+13	im	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	12	comp:pred	_	253042|253288
+14	>+	_	PUNCT	_	_	15	punct	_	253288|253534
+15	con	_	AUX	_	Aspect=Real	12	comp:cleft	_	253534|253780
+16	dey	_	AUX	_	Aspect=Imp	15	comp:aux	_	253780|254026
+17	kill	_	VERB	_	_	16	comp:aux	_	254026|254272
+18	people	_	NOUN	_	_	17	comp:obj	_	254272|254518
+19	//	_	PUNCT	_	_	12	punct	_	254518|254764
+
+# elan_id = IBA_27_SP2_49
+# sent_id = D_IBA_27_Nigerian-Police_100
+# sent_translation = To eh, to help us?
+# speaker_id = 2
+# text = { to || " eh " to } help us //
+1	{	_	PUNCT	_	_	2	punct	_	251425|251608
+2	to	_	ADP	_	_	0	root	_	251608|251791
+3	||	_	PUNCT	_	_	7	punct	_	251791|251974
+4	"	_	PUNCT	_	_	5	punct	_	251974|252157
+5	eh	_	INTJ	_	_	7	discourse	_	252157|252340
+6	"	_	PUNCT	_	_	5	punct	_	252340|252523
+7	to	_	ADP	_	_	2	conj:dicto	_	252523|252706
+8	}	_	PUNCT	_	_	2	punct	_	252706|252889
+9	help	_	VERB	_	_	7	comp	_	252889|253072
+10	us	_	PRON	_	Case=Acc|PronType=Prs|Person=1|Number=Plur	9	comp:obj	_	253072|253255
+11	//	_	PUNCT	_	_	2	punct	_	253255|253446
+
+# elan_id = IBA_27_SP2_50
+# sent_id = D_IBA_27_Nigerian-Police_101
+# sent_translation = It is them who are the highway robbers now.
+# speaker_id = 2
+# text = { na || na || na } dem be { highwa- || high- || highway } robber now //
+1	{	_	PUNCT	_	_	2	punct	_	254106|254282
+2	na	_	PART	_	PartType=Cop	0	root	_	254282|254458
+3	||	_	PUNCT	_	_	4	punct	_	254458|254634
+4	na	_	PART	_	PartType=Cop	2	conj:dicto	_	254634|254810
+5	||	_	PUNCT	_	_	6	punct	_	254810|254986
+6	na	_	PART	_	PartType=Cop	4	conj:dicto	_	254986|255162
+7	}	_	PUNCT	_	_	2	punct	_	255162|255338
+8	dem	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Plur	6	comp:pred	_	255338|255514
+9	be	_	VERB	_	_	6	comp:cleft	_	255514|255690
+10	{	_	PUNCT	_	_	11	punct	_	255690|255866
+11	highwa-	_	XX	_	_	17	compound	_	255866|256042
+12	||	_	PUNCT	_	_	13	punct	_	256042|256218
+13	high-	_	XX	_	_	11	conj:dicto	_	256218|256394
+14	||	_	PUNCT	_	_	15	punct	_	256394|256570
+15	highway	_	NOUN	_	_	13	conj:dicto	_	256570|256746
+16	}	_	PUNCT	_	_	15	punct	_	256746|256922
+17	robber	_	NOUN	_	_	9	comp:pred	_	256922|257098
+18	now	_	ADV	_	_	9	mod	_	257098|257274
+19	//	_	PUNCT	_	_	2	punct	_	257274|257468
+
+# elan_id = IBA_27_SP1_40
+# sent_id = D_IBA_27_Nigerian-Police_102
+# sent_translation = The police that is supposed to take care of people they are the ones now killing people, they are the ones now robbing people.
+# speaker_id = 1
+# text = na im >+ dey rob people //
+1	na	_	PART	_	PartType=Cop	0	root	_	254764|255010
+2	im	_	PRON	_	Case=Nom|PronType=Prs|Person=3|Number=Sing	1	comp:pred	_	255010|255256
+3	>+	_	PUNCT	_	_	4	punct	_	255256|255502
+4	dey	_	AUX	_	Aspect=Imp	1	comp:cleft	_	255502|255748
+5	rob	_	VERB	_	_	4	comp:aux	_	255748|255994
+6	people	_	NOUN	_	_	5	comp:obj	_	255994|256240
+7	//	_	PUNCT	_	_	1	punct	_	256240|256506
+
+# elan_id = IBA_27_SP1_41
+# sent_id = D_IBA_27_Nigerian-Police_103
+# sent_translation = Ah! Everythimg, change has come o. Buhari has said that change change change.
+# speaker_id = 1
+# text = " ah " everytin < change don come o //
+1	"	_	PUNCT	_	_	2	punct	_	257727|258000
+2	ah	_	INTJ	_	_	7	discourse	_	258000|258273
+3	"	_	PUNCT	_	_	2	punct	_	258273|258546
+4	everytin	_	NOUN	_	_	7	mod:periph	_	258546|258819
+5	<	_	PUNCT	_	_	4	punct	_	258819|259092
+6	change	_	NOUN	_	_	7	subj	_	259092|259365
+7	don	_	AUX	_	Aspect=Perf	0	root	_	259365|259638
+8	come	_	VERB	_	_	7	comp:aux	_	259638|259911
+9	o	_	PART	_	PartType=Disc	7	mod:emph	_	259911|260184
+10	//	_	PUNCT	_	_	7	punct	_	260184|260457
+
+# elan_id = IBA_27_SP2_51
+# sent_id = D_IBA_27_Nigerian-Police_104
+# sent_translation = Hm. Everything has changed o.
+# speaker_id = 2
+# text = hm !//
+1	hm	_	INTJ	_	_	0	root	_	260127|260361
+2	!//	_	PUNCT	_	_	1	punct	_	260361|260595
+
+# elan_id = IBA_27_SP1_41
+# sent_id = D_IBA_27_Nigerian-Police_105
+# sent_translation = Ah! Everythimg, change has come o. Buhari has said that change change change.
+# speaker_id = 1
+# text = Buhari don talk am sey [ change |r change |r change ] //
+1	Buhari	_	PROPN	_	_	2	subj	_	260457|260730
+2	don	_	AUX	_	Aspect=Perf	0	root	_	260730|261003
+3	talk	_	VERB	_	_	2	comp:aux	_	261003|261276
+4	am	_	PRON	_	Case=Acc|PronType=Prs|Person=3|Number=Sing	3	comp:obj	_	261276|261549
+5	sey	_	SCONJ	_	_	3	comp:obj	_	261549|261822
+6	[	_	PUNCT	_	_	7	punct	_	261822|262095
+7	change	_	NOUN	_	_	5	comp	_	262095|262368
+8	|r	_	PUNCT	_	_	9	punct	_	262368|262641
+9	change	_	NOUN	_	_	7	conj:coord	_	262641|262914
+10	|r	_	PUNCT	_	_	11	punct	_	262914|263187
+11	change	_	NOUN	_	_	9	conj:coord	_	263187|263460
+12	]	_	PUNCT	_	_	7	punct	_	263460|263733
+13	//	_	PUNCT	_	_	2	punct	_	263733|264013
+
+# elan_id = IBA_27_SP2_51
+# sent_id = D_IBA_27_Nigerian-Police_106
+# sent_translation = Hm. Everything has changed o.
+# speaker_id = 2
+# text = everytin don change o //
+1	everytin	_	NOUN	_	_	2	subj	_	260595|260829
+2	don	_	AUX	_	Aspect=Perf	0	root	_	260829|261063
+3	change	_	NOUN	_	_	2	comp:aux	_	261063|261297
+4	o	_	PART	_	PartType=Disc	2	mod:emph	_	261297|261531
+5	//	_	PUNCT	_	_	2	punct	_	261531|261765
+
+# elan_id = IBA_27_SP2_52
+# sent_id = D_IBA_27_Nigerian-Police_107
+# sent_translation = Change has, everything has changed. Not in a small way. It is only God we can look up to for
+# speaker_id = 2
+# text = change don & //
+1	change	_	NOUN	_	_	2	subj	_	262361|262620
+2	don	_	AUX	_	_	0	root	_	262620|262879
+3	&	_	X	_	_	2	comp:aux	_	262879|263138
+4	//	_	PUNCT	_	_	2	punct	_	262879|263138
+
+# elan_id = IBA_27_SP2_52
+# sent_id = D_IBA_27_Nigerian-Police_108
+# sent_translation = Change has, everything has changed. Not in a small way. It is only God we can look up to for
+# speaker_id = 2
+# text = everytin don change o //
+1	everytin	_	NOUN	_	_	2	subj	_	263138|263397
+2	don	_	AUX	_	Aspect=Perf	0	root	_	263397|263656
+3	change	_	NOUN	_	_	2	comp:aux	_	263656|263915
+4	o	_	PART	_	PartType=Disc	2	mod:emph	_	263915|264174
+5	//	_	PUNCT	_	_	2	punct	_	264174|264433
+
+# elan_id = IBA_27_SP2_52
+# sent_id = D_IBA_27_Nigerian-Police_109
+# sent_translation = Change has, everything has changed. Not in a small way. It is only God we can look up to for
+# speaker_id = 2
+# text = no be small one //
+1	no	_	PART	_	Polarity=Neg	2	mod	_	264433|264692
+2	be	_	VERB	_	_	0	root	_	264692|264951
+3	small	_	ADJ	_	_	4	dep	_	264951|265210
+4	one	_	PRON	_	NumType=Card	2	comp:pred	_	265210|265469
+5	//	_	PUNCT	_	_	2	punct	_	265469|265728
+
+# elan_id = IBA_27_SP1_42
+# sent_id = D_IBA_27_Nigerian-Police_110
+# sent_translation = So, let God save us as we have said.
+# speaker_id = 1
+# text = so make God save us as you don talk o //
+1	so	_	ADV	_	_	2	discourse	_	264553|264799
+2	make	_	AUX	_	Mood=Jus	0	root	_	264799|265045
+3	God	_	PROPN	_	_	2	subj	_	265045|265291
+4	save	_	VERB	_	_	2	comp:aux	_	265291|265537
+5	us	_	PRON	_	Case=Acc|PronType=Prs|Person=1|Number=Plur	4	comp:obj	_	265537|265783
+6	as	_	ADP	_	_	4	mod	_	265783|266029
+7	you	_	PRON	_	Case=Nom|PronType=Prs|Person=2|Number=Sing	8	subj	_	266029|266275
+8	don	_	AUX	_	Aspect=Perf	6	comp	_	266275|266521
+9	talk	_	VERB	_	_	8	comp:aux	_	266521|266767
+10	o	_	PART	_	PartType=Disc	2	mod:emph	_	266767|267013
+11	//	_	PUNCT	_	_	2	punct	_	267013|267264
+
+# elan_id = IBA_27_SP2_52
+# sent_id = D_IBA_27_Nigerian-Police_111
+# sent_translation = Change has, everything has changed. Not in a small way. It is only God we can look up to for
+# speaker_id = 2
+# text = only God >+ we can see for //
+1	only	_	ADJ	_	_	2	dep	_	265728|265987
+2	God	_	PROPN	_	_	5	vocative	_	265987|266246
+3	>+	_	PUNCT	_	_	5	punct	_	266246|266505
+4	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	5	subj	_	266505|266764
+5	can	_	AUX	_	_	0	root	_	266764|267023
+6	see	_	VERB	_	_	5	comp:aux	_	267023|267282
+7	for	_	ADP	_	_	6	comp:obl	_	267282|267541
+8	//	_	PUNCT	_	_	5	punct	_	267541|267820
+
+# elan_id = IBA_27_SP2_53
+# sent_id = D_IBA_27_Nigerian-Police_112
+# sent_translation = And we will pray to God and we too. We will call ourselves to behave normally.
+# speaker_id = 2
+# text = and we go pray for God to save us |c and we sef < we go call oursef to do normal //
+1	and	_	CCONJ	_	_	3	cc	_	268160|268507
+2	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	3	subj	_	268507|268854
+3	go	_	AUX	_	Tense=Prosp	0	root	_	268854|269201
+4	pray	_	VERB	_	_	3	comp:aux	_	269201|269548
+5	for	_	ADP	_	_	4	comp:obl	_	269548|269895
+6	God	_	PROPN	_	_	5	comp	_	269895|270242
+7	to	_	ADP	_	_	5	comp	_	270242|270589
+8	save	_	VERB	_	_	7	comp	_	270589|270936
+9	us	_	PRON	_	Case=Acc|PronType=Prs|Person=1|Number=Plur	8	comp:obj	_	270936|271283
+10	|c	_	PUNCT	_	_	16	punct	_	271283|271630
+11	and	_	CCONJ	_	_	16	cc	_	271630|271977
+12	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	16	dislocated	_	271977|272324
+13	sef	_	PART	_	PartType=Disc	12	dep	_	272324|272671
+14	<	_	PUNCT	_	_	12	punct	_	272671|273018
+15	we	_	PRON	_	Case=Nom|PronType=Prs|Person=1|Number=Plur	16	subj	_	273018|273365
+16	go	_	AUX	_	Tense=Prosp	3	conj:coord	_	273365|273712
+17	call	_	VERB	_	_	16	comp:aux	_	273712|274059
+18	oursef	_	PRON	_	PronType=Prs|Person=1|Number=Plur	17	comp:obj	_	274059|274406
+19	to	_	ADP	_	_	17	comp:pred	_	274406|274753
+20	do	_	VERB	_	_	19	comp	_	274753|275100
+21	normal	_	ADJ	_	_	20	comp:obj	_	275100|275447
+22	//	_	PUNCT	_	_	3	punct	_	275447|275808
+
+# elan_id = IBA_27_SP1_44
+# sent_id = D_IBA_27_Nigerian-Police_113
+# sent_translation = So o.
+# speaker_id = 1
+# text = so o !//
+1	so	_	SCONJ	_	_	0	root	_	271300|271547
+2	o	_	PART	_	PartType=Disc	1	mod:emph	_	271547|271794
+3	!//	_	PUNCT	_	_	2	punct	_	271794|272042
+
+# elan_id = IBA_27_SP1_45
+# sent_id = D_IBA_27_Nigerian-Police_114
+# sent_translation = Hm m.
+# speaker_id = 1
+# text = hm !//
+1	hm	_	INTJ	_	_	0	root	_	275683|276141
+2	!//	_	PUNCT	_	_	1	punct	_	276141|276600
+
+# elan_id = IBA_27_SP2_54
+# sent_id = D_IBA_27_Nigerian-Police_115
+# sent_translation = That is the problem o.
+# speaker_id = 2
+# text = dat is di problem o !//
+1	dat	_	PRON	_	PronType=Dem|Number=Sing	2	subj	_	276600|276826
+2	is	_	VERB	_	_	0	root	_	276826|277052
+3	di	_	DET	_	PronType=Art|Definite=Def	4	det	_	277052|277278
+4	problem	_	NOUN	_	_	2	comp:pred	_	277278|277504
+5	o	_	PART	_	PartType=Disc	2	mod:emph	_	277504|277730
+6	!//	_	PUNCT	_	_	2	punct	_	277730|277957
+
+# elan_id = IBA_27_SP1_46
+# sent_id = D_IBA_27_Nigerian-Police_116
+# sent_translation = Thank you o. God will bless you o.
+# speaker_id = 1
+# text = tank you o !//
+1	tank	_	NOUN	_	_	0	root	_	277649|277900
+2	you	_	PRON	_	Case=Acc|PronType=Prs|Person=2|Number=Sing	1	comp:obj	_	277900|278151
+3	o	_	PART	_	PartType=Disc	1	mod:emph	_	278151|278402
+4	!//	_	PUNCT	_	_	1	punct	_	278402|278653
+
+# elan_id = IBA_27_SP2_55
+# sent_id = D_IBA_27_Nigerian-Police_117
+# sent_translation = Yes sir.
+# speaker_id = 2
+# text = yes Sir //
+1	yes	_	INTJ	_	Polarity=Pos	0	root	_	278572|278720
+2	Sir	_	PROPN	_	_	1	vocative	_	278720|278868
+3	//	_	PUNCT	_	_	1	punct	_	278868|279017
+
+# elan_id = IBA_27_SP1_46
+# sent_id = D_IBA_27_Nigerian-Police_118
+# sent_translation = Thank you o. God will bless you o.
+# speaker_id = 1
+# text = God go bless you o //
+1	God	_	PROPN	_	_	2	subj	_	278653|278904
+2	go	_	AUX	_	Tense=Prosp	0	root	_	278904|279155
+3	bless	_	VERB	_	_	2	comp:aux	_	279155|279406
+4	you	_	PRON	_	Case=Acc|PronType=Prs|Person=2|Number=Sing	3	comp:obj	_	279406|279657
+5	o	_	PART	_	PartType=Disc	2	mod:emph	_	279657|279908
+6	//	_	PUNCT	_	_	2	punct	_	279908|280160
+
+# elan_id = IBA_27_SP2_56
+# sent_id = D_IBA_27_Nigerian-Police_119
+# sent_translation = Amen.
+# speaker_id = 2
+# text = amen !//
+1	amen	_	INTJ	_	_	0	root	_	279606|279948
+2	!//	_	PUNCT	_	_	1	punct	_	279948|280290
+
