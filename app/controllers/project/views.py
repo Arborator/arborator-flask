@@ -48,7 +48,6 @@ def requires_access_level(access_level):
 		return decorated_function
 	return decorator
 
-
 @project.route('/<project_name>/', methods=['GET'])
 # @login_required
 # @requires_access_level(2)
@@ -217,6 +216,43 @@ def sample_upload(project_name):
 	samples = {"samples":project_service.get_samples(project_name)}
 	# print(samples)
 	js = json.dumps(samples)
+	resp = Response(js, status=200,  mimetype='application/json')
+	return resp
+
+@project.route('/create', methods=["POST"])
+@cross_origin()
+def create_project():
+	''' create an emty project'''
+	project_name = request.form.get("project_name", "")
+	creator = request.form.get("import_user", "") 
+	project_service.create_empty_project(project_name, creator)
+	js = json.dumps({})
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
+@project.route('/<project_name>/create/upload', methods=["POST", "OPTIONS"])
+@cross_origin()
+# @cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
+def project_create_upload(project_name):
+	"""
+	projects/<projectname>/create
+	POST multipart
+	create a project with a starter sample
+	"""
+
+	fichiers = request.files.to_dict(flat=False).get("files")
+	import_user = request.form.get("import_user", "") 
+	print("IMPORT USER: {}\t create project: {}".format(import_user, project_name))
+	if fichiers:
+		reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
+		# samples  = project_service.get_samples(project_name)
+		for f in fichiers:
+			project_service.upload_project(f, project_name, import_user, reextensions=reextensions)
+
+	# samples = {"samples":project_service.get_samples(project_name)}
+	# print(samples)
+	# js = json.dumps(samples)
+	js = json.dumps({})
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
 

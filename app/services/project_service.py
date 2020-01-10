@@ -127,6 +127,15 @@ def create_add_sample_role(user_id, sample_name, project_id, role):
     new_sr = SampleRole(userid=user_id, samplename=sample_name, projectid=project_id, role=role)
     project_dao.add_sample_role(new_sr)
 
+def create_empty_project(project_name, creator):
+    ''' create an empty project '''
+    new_project = grew_request('newProject', data={'project_id': project_name})
+    print('new_project', new_project)
+    project = Project(projectname=project_name)
+    print('projecttoooo', project)
+    project_dao.add_project(project)
+
+
 def delete_sample(project_name, project_id, sample_name):
     ''' delete sample given the infos. delete it from grew and db '''
     grew_request('eraseSample', data={'project_id': project_name, 'sample_id': sample_name})
@@ -184,11 +193,13 @@ def add_or_keep_timestamps(conll_file):
     conll3.trees2conllFile(trees, tmpfile)
     return tmpfile
 
+
 def upload_project(fileobject, project_name, import_user, reextensions=None, existing_samples=[]):
     ''' 
     upload project into grew and filesystem (upload-folder, see Config). need a file object from request
     Will compile reextensions if no one is specified (better specify it before a loop)
     '''
+    print('upload_project service')
 
     if reextensions == None : reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
 
@@ -203,7 +214,7 @@ def upload_project(fileobject, project_name, import_user, reextensions=None, exi
         # create a new sample in the grew project
         print ('========== [newSample]')
         reply = grew_request ('newSample', data={'project_id': project_name, 'sample_id': sample_name })
-        print (reply)
+        print ('reply = ', reply)
 
     else:
         print("/!\ sample already exists")

@@ -24,7 +24,7 @@ def home_page():
 	"""
 	# current_user.id = "rinema56@gmail.com"
 	projects = Project.query.all()
-
+	
 	projects_info = list()
 	if current_user.is_authenticated:
 		for project in projects:
@@ -36,6 +36,8 @@ def home_page():
 		for project in projects:
 			projects_info.append(project.as_json())
 	print(666,projects_info)
+	print('projects', projects)
+
 	js = json.dumps(projects_info)
 	resp = Response(js, status=200,  mimetype='application/json')
 	
