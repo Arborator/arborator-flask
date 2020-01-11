@@ -112,7 +112,8 @@ def get_infos(project_name, current_user):
         if data:
             nb_sentences = len(data)
 
-    image = str(base64.b64encode(project.image))
+    if project.image != None: image = str(base64.b64encode(project.image))
+    else: image = ''
     return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "samples":samples, "admins":admins,  "guests":guests, "number_samples":nb_samples, "number_sentences":nb_sentences, "number_tokens":sum_nb_tokens, "averageSentenceLength":average_tokens_per_sample}
 
 def add_sample_role(sample_role):
@@ -127,13 +128,18 @@ def create_add_sample_role(user_id, sample_name, project_id, role):
     new_sr = SampleRole(userid=user_id, samplename=sample_name, projectid=project_id, role=role)
     project_dao.add_sample_role(new_sr)
 
-def create_empty_project(project_name, creator):
+def create_empty_project(project_name, creator, project_description, project_private):
     ''' create an empty project '''
     new_project = grew_request('newProject', data={'project_id': project_name})
     print('new_project', new_project)
-    project = Project(projectname=project_name)
+    private = False
+    if project_private == 'true': private = True
+    project = Project(projectname=project_name, description=project_description, is_private=private)
     print('projecttoooo', project)
     project_dao.add_project(project)
+    p = project_dao.find_by_name(project_name)
+    pa = ProjectAccess(projectid=p.id, userid=creator)
+    project_dao.add_access(pa)
 
 
 def delete_sample(project_name, project_id, sample_name):

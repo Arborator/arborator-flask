@@ -130,7 +130,10 @@ def delete_project(project_name):
 	project = project_service.get_by_name(project_name)
 	if not project:	abort(400)
 	# p_access = get_access_for_project(current_user.id, project.id)
-	p_access = project_service.get_project_access(project.id, current_user.id).accesslevel
+	pa = project_service.get_project_access(project.id, current_user.id)
+	p_access=0
+	if pa == 0: print('unauthorized, pa 0, error on crreation no access set'); project_service.delete(project)
+	else: p_access = project_service.get_project_access(project.id, current_user.id).accesslevel
 	if p_access >=2 or current_user.super_admin:
 		project_service.delete(project)
 	else:
@@ -225,7 +228,10 @@ def create_project():
 	''' create an emty project'''
 	project_name = request.form.get("project_name", "")
 	creator = request.form.get("import_user", "") 
-	project_service.create_empty_project(project_name, creator)
+	project_description = request.form.get("description", "")
+	# project_image = ''
+	project_private = request.form.get("private", False)
+	project_service.create_empty_project(project_name, creator, project_description, project_private)
 	js = json.dumps({})
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
