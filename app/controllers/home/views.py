@@ -28,9 +28,12 @@ def home_page():
 	projects_info = list()
 	if current_user.is_authenticated:
 		for project in projects:
-			roles = sorted(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
-			if not roles:
-				roles = []
+			# roles = sorted(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
+			# TODO : choose to only obtain project roles (admin, guest, none) and not sample roles (annotator, etc)
+			# roles = list(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
+			# roles = [{'project':role.projectid, 'role':role.role.value}  for role in roles]
+			roles = [] # temp ignore
+			if not roles: roles = []
 			projects_info.append(project.as_json(include={"roles":roles}))
 	else:
 		for project in projects:

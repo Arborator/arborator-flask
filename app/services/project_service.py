@@ -7,6 +7,7 @@ from ..repository import project_dao
 from werkzeug import secure_filename
 from datetime import datetime
 from flask import abort
+from decimal import Decimal
 
 def get_project_access(project_id, user_id):
     ''' return the project access given a project id and user id. returns 0 if the project access is false '''
@@ -84,7 +85,8 @@ def get_infos(project_name, current_user):
                         SampleRole.projectid==project.id).filter(
                             SampleRole.samplename==sa['name']).filter(
                                 SampleRole.role==r).all()
-                sample["roles"][label] = [a.as_json() for a,b in role]
+                # sample["roles"][label] = [a.as_json() for a,b in role]
+                sample["roles"][label] = [{'key':a.username,'value':a.username} for a,b in role]
 
             reply = json.loads(grew_request('getConll', data={'project_id': project.projectname, 'sample_id':sa["name"]}))
             
@@ -97,9 +99,10 @@ def get_infos(project_name, current_user):
                     lengths.append(length)
 
             sample["tokens"] = sum(lengths)
-            if len(lengths) > 0 : sample["averageSentenceLength"] = sum(lengths)/len(lengths)
+            if len(lengths) > 0 : sample["averageSentenceLength"] = float( round( Decimal(sum(lengths)/len(lengths)) , 2) )
 
             sample["exo"] = "" # TODO : create the table in the db and update it
+            print('sample', sample)
             samples.append(sample)
             sample_lengths += [sample["tokens"]]
 
@@ -119,6 +122,18 @@ def get_infos(project_name, current_user):
 def add_sample_role(sample_role):
     ''' add a sample role '''
     project_dao.add_sample_role(sample_role)
+
+def add_or_delete_sample_role(user, sample_name, project_name, role, delete):
+    ''' create and add a new sample role, if there is an old role it is deleted'''
+    p = project_dao.find_by_name(project_name)
+    existing_role = project_dao.get_user_role(p.id, sample_name, user.id)
+    print('eisting role', existing_role)
+    if existing_role: project_dao.delete_sample_role(existing_role)
+    if delete: 
+        print('delete')
+        project_dao.delete_sample_role(existing_role)
+    new_sr = SampleRole(userid=user.id, samplename=sample_name, projectid=p.id, role=role)
+    project_dao.add_sample_role(new_sr)
 
 def create_add_sample_role(user_id, sample_name, project_id, role):
     ''' create and add a new sample role, if there is an old role it is deleted'''
@@ -153,6 +168,12 @@ def delete_sample_role(sample_role):
 def delete_sample_role_by_project(project_id):
     ''' delete a sample role by filtering a project id '''
     return project_dao.delete_sample_role_by_project(project_id)
+
+def get_sample(sample_name, project_name, current_user):
+    ''' retrieve a sample infos given the project name and sample name'''
+    p = get_infos(project_name, current_user)
+    sample = [s for s in p['samples'] if s['samplename'] == sample_name][0]
+    return sample
 
 def get_samples(project_name):
     ''' get existing samples for a project. from Grew.'''

@@ -34,7 +34,7 @@ def find_by_name(project_name):
 
 def get_roles(project_id, user_id):
     """ returns the sorted set of roles from roles for each sample."""
-    return sorted(set(SampleRole.query.filter_by(projectid=project_id, userid=user_id).all()))
+    return set(SampleRole.query.filter_by(projectid=project_id, userid=user_id).all())
 
 def get_possible_roles():
     """ returns the overall possible roles """
