@@ -266,6 +266,7 @@ def project_create_upload(project_name):
 
 # @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
 @project.route('/<project_name>/export/zip', methods=["POST"])
+@cross_origin()
 def sample_export(project_name):
 	project = project_service.get_by_name(project_name)
 	if not project: abort(404)
@@ -273,6 +274,7 @@ def sample_export(project_name):
 	
 	data = request.get_json(force=True)
 	samplenames = data['samples']
+	print("requested zip", samplenames, project_name)
 	sampletrees = list()
 	samplecontentfiles = list()
 	for samplename in samplenames: 

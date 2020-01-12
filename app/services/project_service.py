@@ -123,8 +123,7 @@ def add_sample_role(sample_role):
 def create_add_sample_role(user_id, sample_name, project_id, role):
     ''' create and add a new sample role, if there is an old role it is deleted'''
     existing_role = project_dao.get_user_role(project_id, sample_name, user_id)
-    if existing_role:
-        project_dao.delete_sample_role(existing_role)
+    if existing_role: project_dao.delete_sample_role(existing_role)
     new_sr = SampleRole(userid=user_id, samplename=sample_name, projectid=project_id, role=role)
     project_dao.add_sample_role(new_sr)
 
