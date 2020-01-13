@@ -49,6 +49,19 @@ def delete(project):
     project_dao.delete(project)
     grew_request('eraseProject', data={'project_id': project.projectname})
 
+def get_settings_infos(project_name, current_user):
+    ''' get project informations without any samples '''
+    project = project_dao.find_by_name(project_name)
+    if not current_user.is_authenticated: # TODO : handle anonymous user
+        roles = []
+    else: roles = project_dao.get_roles(project.id, current_user.id)
+    if not roles and project.is_private: return 403
+    admins = [a.userid for a in project_dao.get_admins(project.id)]
+    guests = [g.userid for g in project_dao.get_guests(project.id)]
+    if project.image != None: image = str(base64.b64encode(project.image))
+    else: image = ''
+    return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "admins":admins, "guests":guests}
+
 def get_infos(project_name, current_user):
     ''' get project informations available for the current user '''
     project = project_dao.find_by_name(project_name)

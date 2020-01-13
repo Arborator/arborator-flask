@@ -72,6 +72,16 @@ def project_info(project_name):
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
 
+@project.route('/<project_name>/settings/infos')
+def project_settings_infos(project_name):
+	''' get project infos for settings view. Without bottleneck infos on samples '''
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	if project_infos == 403: abort(403) 
+	js = json.dumps(project_infos, default=str)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
+
 @project.route('/<project_name>/', methods=['POST'])
 # @login_required
 # @requires_access_level(2)
