@@ -413,6 +413,7 @@ def sampleusers(project_name, sample_name):
 
 @project.route('/sample/<role>/add', methods=['POST'])
 def addRole2Sample(role):
+	''' add or displace (toggle fashion) a role to a user for a specific in-project sample '''
 	if not request.json: abort(400)
 	req = request.json
 	samples = {"samples":project_service.get_samples(req['projectname'])}
@@ -432,19 +433,21 @@ def addRole2Sample(role):
 
 @project.route('/sample/<role>/remove', methods=['POST'])
 def removeRole2Sample(role):
+	''' remove a role to a user for a specific in-project sample '''
 	if not request.json: abort(400)
 	req = request.json
-	print('req', req)
 	samples = {"samples":project_service.get_samples(req['projectname'])}
+	res = {}
 	if 'samplename' in req:
-		print('hello')
 		if not req['samplename'] in samples["samples"]: abort(404)
 		possible_roles = [x[0] for x in project_service.get_possible_roles()]
 		roleInt = [r[0] for r in project_service.get_possible_roles() if r[1] == role][0]
 		user = user_service.get_by_username(req['username'])
 		if not user: abort(400)
 		project_service.add_or_delete_sample_role(user, req['samplename'], req['projectname'], roleInt, True)
-	js = json.dumps({})
+		sample = project_service.get_sample(req['samplename'], req['projectname'], current_user)
+		res = sample
+	js = json.dumps(res)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
 

@@ -127,11 +127,11 @@ def add_or_delete_sample_role(user, sample_name, project_name, role, delete):
     ''' create and add a new sample role, if there is an old role it is deleted'''
     p = project_dao.find_by_name(project_name)
     existing_role = project_dao.get_user_role(p.id, sample_name, user.id)
-    print('eisting role', existing_role)
+    print('existing role', existing_role)
     if existing_role: project_dao.delete_sample_role(existing_role)
-    if delete: 
-        print('delete')
-        project_dao.delete_sample_role(existing_role)
+    # if delete: 
+    #     print('delete')
+    #     project_dao.delete_sample_role(existing_role)
     new_sr = SampleRole(userid=user.id, samplename=sample_name, projectid=p.id, role=role)
     project_dao.add_sample_role(new_sr)
 

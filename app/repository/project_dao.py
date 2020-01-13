@@ -58,8 +58,13 @@ def add_sample_role(sample_role):
 
 def delete_sample_role(sample_role):
     """ delete a sample role """
-    db.session.delete(sample_role)
+    rows_deleted = db.session.delete(sample_role)
+    # rows_deleted = SampleRole.query.filter_by(id=sample_role.id, samplename=sample_role.samplename).delete()
+    # db.session.flush()
     db.session.commit()
+    # db.session.expire_all()
+    print( 'deleted ', rows_deleted )
+    return rows_deleted
 
 def delete_sample_role_by_project(project_id):
     """ delete a sample role given a project id """
