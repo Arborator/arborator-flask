@@ -272,6 +272,35 @@ def project_create_upload(project_name):
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
 
+@project.route('/<project_name>/update_config', methods=["POST"])
+@cross_origin()
+# @cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
+def project_update_config(project_name):
+	"""
+	Update the project configuration
+
+	relations : [["comp", "subj"], [":obj"], ["@x"]] # relations available in the dropdown menu
+	cat : ["NOUN", "ADV"] # pos available in the dropdown menu
+	sentencefeatures : ["text", "sent_id"] # sentence features shown in order
+	features : ["lemma", "gloss"] # node features shown in order
+	"""
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	pa = project_service.get_project_access(project.id, current_user.id)
+	if pa < 2: abort(403)
+	if not request.json: abort(400)
+
+	data = request.get_json(force=True)
+
+	# defaults
+	if not data.get("relations"):
+		data["relations"] = [["subj", "comp", "vocative", "det", "dep", "mod", "conj", "cc", "parataxis", "fixed", "flat", "compound", "discourse", "dislocated", "goeswith", "orphan", "punct", "root"],[":aux",":caus",":cleft",":pred",":appos"],["@comp","@mod","@subj","@dep","@det"]]
+	if not data.get("cat"):
+		data["cat"] = ["ADJ", "ADP", "ADV", "AUX", "CCONJ", "DET", "INTJ", "NOUN", "NUM", "PART", "PRON", "PROPN", "PUNCT", "SCONJ", "VERB", "X"]
+	js = json.dumps(data)
+	resp = Response(js, status=200,  mimetype='application/json')
+	return resp
+
 
 
 # @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
