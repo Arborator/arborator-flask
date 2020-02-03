@@ -81,6 +81,39 @@ def project_settings_infos(project_name):
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
+@project.route('/<project_name>/<target_role>/add', methods=['POST'])
+def project_userrole_add(project_name, target_role):
+	""" add an admin/guest to the project {'user_id':id}"""
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	user = user_service.get_by_id(request.json.get("user_id"))
+	if user: 
+		pa = project_service.get_project_access(project.id, user.id)
+		accesslevel_dict = {v: k for k, v in dict(ProjectAccess.ACCESS).items()}
+		if pa: pa.accesslevel = accesslevel_dict[target_role]
+		else: project_service.create_add_project_access(user.id, project.id, accesslevel_dict[target_role])
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	if project_infos == 403: abort(403) 
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
+
+
+@project.route('/<project_name>/<target_role>/remove', methods=['POST'])
+def project_userrole_remove(project_name, target_role):
+	""" remove an admin/guest to the project {'user_id':id}"""
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	user = user_service.get_by_id(request.json.get("user_id"))
+	if user: 
+		pa = project_service.get_project_access(project.id, user.id)
+		if pa: project_service.delete_project_access(pa)
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	if project_infos == 403: abort(403) 
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
+
 
 @project.route('/<project_name>/', methods=['POST'])
 # @login_required
@@ -123,6 +156,8 @@ def project_update(project_name):
 			setattr(project,k,v)
 	db.session.commit()
 	return project_info(project.projectname)
+
+
 
 
 
