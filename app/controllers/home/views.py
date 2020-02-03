@@ -8,6 +8,7 @@ import os, re, json
 from . import home
 from ...models.models import *
 from ... import db
+from ...services import project_service, user_service
 
 # from ...app.admin import views as adminviews
 
@@ -32,12 +33,15 @@ def home_page():
 			# TODO : choose to only obtain project roles (admin, guest, none) and not sample roles (annotator, etc)
 			# roles = list(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
 			# roles = [{'project':role.projectid, 'role':role.role.value}  for role in roles]
-			roles = [] # temp ignore
-			if not roles: roles = []
-			projects_info.append(project.as_json(include={"roles":roles}))
+			infos = project_service.get_infos(project.projectname, current_user)
+			# roles = [] # temp ignore
+			# if not roles: roles = []
+			if not infos: infos = {"admins":[], "guests":[]}
+			print('HEREEEE',infos)
+			projects_info.append(project.as_json(include={"admins":infos['admins'],"guests":infos['guests']}))
 	else:
 		for project in projects:
-			projects_info.append(project.as_json())
+			projects_info.append(project.as_json(include={"admins":[],"guests":[]}))
 	print(666,projects_info)
 	print('projects', projects)
 

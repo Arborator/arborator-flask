@@ -55,7 +55,7 @@ def get_settings_infos(project_name, current_user):
     if not current_user.is_authenticated: # TODO : handle anonymous user
         roles = []
     else: roles = project_dao.get_roles(project.id, current_user.id)
-    if not roles and project.is_private: return 403
+    # if not roles and project.is_private: return 403 # removed for now -> the check is done in view and for each actions
     admins = [a.userid for a in project_dao.get_admins(project.id)]
     guests = [g.userid for g in project_dao.get_guests(project.id)]
     if project.image != None: image = str(base64.b64encode(project.image))
@@ -72,7 +72,7 @@ def get_infos(project_name, current_user):
     else:
         roles = project_dao.get_roles(project.id, current_user.id)
 
-    if not roles and project.is_private: return 403
+    # if not roles and project.is_private: return 403 # removed for now -> the check is done in view and for each actions
 
     admins = [a.userid for a in project_dao.get_admins(project.id)]
     guests = [g.userid for g in project_dao.get_guests(project.id)]
@@ -165,7 +165,7 @@ def create_empty_project(project_name, creator, project_description, project_pri
     print('projecttoooo', project)
     project_dao.add_project(project)
     p = project_dao.find_by_name(project_name)
-    pa = ProjectAccess(projectid=p.id, userid=creator)
+    pa = ProjectAccess(userid=creator, projectid=p.id, accesslevel=2)
     project_dao.add_access(pa)
 
 

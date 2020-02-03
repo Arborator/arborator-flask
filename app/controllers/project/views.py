@@ -35,12 +35,12 @@ def requires_access_level(access_level):
 			elif kwargs.get("id"): project_id = kwargs["id"]
 			else: abort(400)
 
-			project_access = project_service.get_access_for_project(project_id, current_user.id)
+			project_access = project_service.get_project_access(project_id, current_user.id)
 
 			print("project_access for current user: {}".format(project_access))
 			
 			if not current_user.super_admin: # super_admin are always admin even if it's not in the table
-				if project_access is None or project_access < access_level:
+				if project_access is None or project_access.accesslevel.code < access_level:
 					abort(403)
 					# return redirect(url_for('home.home_page'))
 
@@ -67,7 +67,7 @@ def project_info(project_name):
 	# id ="rinema56@gmail.com"
 	# current_user = user_service.get_by_id(id)
 	project_infos = project_service.get_infos(project_name, current_user) # FIX : handles anonymous user
-	if project_infos == 403: abort(403) 
+	# if project_infos == 403: abort(403)  # removed for now -> the check is done in view and for each actions
 	js = json.dumps(project_infos, default=str)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
@@ -76,12 +76,13 @@ def project_info(project_name):
 def project_settings_infos(project_name):
 	''' get project infos for settings view. Without bottleneck infos on samples '''
 	project_infos = project_service.get_settings_infos(project_name, current_user)
-	if project_infos == 403: abort(403) 
+	# if project_infos == 403: abort(403) # removed for now -> the check is done in view and for each actions
 	js = json.dumps(project_infos, default=str)
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
 @project.route('/<project_name>/<target_role>/add', methods=['POST'])
+@requires_access_level(2)
 def project_userrole_add(project_name, target_role):
 	""" add an admin/guest to the project {'user_id':id}"""
 	if not request.json: abort(400)
@@ -100,6 +101,7 @@ def project_userrole_add(project_name, target_role):
 
 
 @project.route('/<project_name>/<target_role>/remove', methods=['POST'])
+@requires_access_level(2)
 def project_userrole_remove(project_name, target_role):
 	""" remove an admin/guest to the project {'user_id':id}"""
 	if not request.json: abort(400)
@@ -117,7 +119,7 @@ def project_userrole_remove(project_name, target_role):
 
 @project.route('/<project_name>/', methods=['POST'])
 # @login_required
-# @requires_access_level(2)
+@requires_access_level(2)
 def project_update(project_name):
 	"""
 	modifie project info
@@ -164,7 +166,7 @@ def project_update(project_name):
 
 @project.route('/<project_name>/delete', methods=['DELETE'])
 # @login_required
-# @requires_access_level(2)
+@requires_access_level(2)
 def delete_project(project_name):
 	"""
 	Delete a project
@@ -178,7 +180,7 @@ def delete_project(project_name):
 	pa = project_service.get_project_access(project.id, current_user.id)
 	p_access=0
 	if pa == 0: print('unauthorized, pa 0, error on crreation no access set'); project_service.delete(project)
-	else: p_access = project_service.get_project_access(project.id, current_user.id).accesslevel
+	else: p_access = project_service.get_project_access(project.id, current_user.id).accesslevel.code
 	if p_access >=2 or current_user.super_admin:
 		project_service.delete(project)
 	else:
@@ -240,6 +242,7 @@ def search_project(project_name):
 @project.route('/<project_name>/upload', methods=["POST", "OPTIONS"])
 @cross_origin()
 # @cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
+@requires_access_level(1)
 def sample_upload(project_name):
 	"""
 	project/<projectname>/upload
@@ -272,7 +275,8 @@ def sample_upload(project_name):
 def create_project():
 	''' create an emty project'''
 	project_name = request.form.get("project_name", "")
-	creator = request.form.get("import_user", "") 
+	# creator = request.form.get("import_user", "") 
+	creator = current_user.id
 	project_description = request.form.get("description", "")
 	# project_image = ''
 	project_private = request.form.get("private", False)
@@ -310,6 +314,7 @@ def project_create_upload(project_name):
 @project.route('/<project_name>/update_config', methods=["POST"])
 @cross_origin()
 # @cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
+@requires_access_level(2)
 def project_update_config(project_name):
 	"""
 	Update the project configuration
@@ -341,6 +346,7 @@ def project_update_config(project_name):
 # @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
 @project.route('/<project_name>/export/zip', methods=["POST"])
 @cross_origin()
+@requires_access_level(1)
 def sample_export(project_name):
 	project = project_service.get_by_name(project_name)
 	if not project: abort(404)
@@ -486,6 +492,7 @@ def sampleusers(project_name, sample_name):
 
 
 @project.route('/sample/<role>/add', methods=['POST'])
+@requires_access_level(2)
 def addRole2Sample(role):
 	''' add or displace (toggle fashion) a role to a user for a specific in-project sample '''
 	if not request.json: abort(400)
@@ -506,6 +513,7 @@ def addRole2Sample(role):
 	return resp
 
 @project.route('/sample/<role>/remove', methods=['POST'])
+@requires_access_level(2)
 def removeRole2Sample(role):
 	''' remove a role to a user for a specific in-project sample '''
 	if not request.json: abort(400)
@@ -528,6 +536,7 @@ def removeRole2Sample(role):
 
 @project.route('/<project_name>/sample/<sample_name>/users', methods=['POST'])
 # @login_required
+@requires_access_level(2)
 def userrole(project_name, sample_name):
 	"""
 	project/<projectname>/<samplename>/users
@@ -563,6 +572,7 @@ def userrole(project_name, sample_name):
 
 @project.route('/<project_name>/sample/<sample_name>', methods=['DELETE'])
 # @login_required
+@requires_access_level(2)
 def delete_sample(project_name, sample_name):
 	"""
 	Delete a sample and everything in the db related to this sample
@@ -575,6 +585,7 @@ def delete_sample(project_name, sample_name):
 
 @project.route('/<project_name>/sample/<sample_name>', methods=['POST'])
 # @login_required
+@requires_access_level(2)
 def update_sample(project_name, sample_name):
 	"""
 	TODO 
@@ -584,6 +595,7 @@ def update_sample(project_name, sample_name):
 
 @project.route("/<project_name>/sample/<sample_name>/saveTrees", methods=["POST"])
 # @login_required
+@requires_access_level(1)
 def save_trees(project_name, sample_name):
 	project = project_service.get_by_name(project_name)
 	if not project:
