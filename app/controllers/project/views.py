@@ -40,8 +40,8 @@ def requires_access_level(access_level):
 			print("project_access for current user: {}".format(project_access))
 			
 			if not current_user.super_admin: # super_admin are always admin even if it's not in the table
-				if project_access is None or project_access.accesslevel.code < access_level:
-					abort(403)
+				if isinstance(project_access, int): abort(403) 
+				if project_access is None or project_access.accesslevel.code < access_level: abort(403)
 					# return redirect(url_for('home.home_page'))
 
 			return f(*args, **kwargs)
