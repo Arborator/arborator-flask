@@ -73,4 +73,69 @@ def delete_sample_role_by_project(project_id):
     return sr
 
 def get_user_role(project_id, sample_name, user_id):
+    """ retrieve a user role """
     return SampleRole.query.filter_by(projectid=project_id, samplename=sample_name, userid=user_id).first()
+
+def add_cat(project_name, cat):
+    """ add a category to the project cats list """
+    project = Project.query.filter_by(projectname=project_name).first()
+    catLabel = CatLabel(value=cat, project_id=project.id)
+    project.cats.append( catLabel )
+    db.session.commit()
+    return CatLabel.query.filter_by(project_id=project.id).all()
+
+def delete_cat(project_name, cat):
+    """ delete a category from a project cats list """
+    project = Project.query.filter_by(projectname=project_name).first()
+    catLabel = CatLabel.query.filter_by(value=cat, project_id=project.id).delete()
+    db.session.commit()
+    return CatLabel.query.filter_by(project_id=project.id).all()
+
+def add_stock( project_name ):
+    """ add an empty stock to a project and returns the list of its stocks """
+    project = Project.query.filter_by(projectname=project_name).first()
+    stock = LabelStock()
+    project.relations.append( stock )
+    db.session.commit()
+    return LabelStock.query.filter_by(project_id=project.id).all()
+
+def delete_stock( project_name, stockid ):
+    """ delete a stock and returns the project stock list """
+    project = Project.query.filter_by(projectname=project_name).first()
+    stock = LabelStock.query.filter_by( project_id=project.id, id=stockid ).delete()
+    Label.query.filter_by(stock_id=stockid).delete()
+    db.session.commit()
+    return LabelStock.query.filter_by(project_id=project.id).all()
+
+def add_label( project_name, stock_id, label):
+    """ add a label to a project stock """
+    project = Project.query.filter_by(projectname=project_name).first()
+    stock = LabelStock.query.get(stock_id)
+    newlabel = Label(value=label, stock_id=stock_id)
+    stock.labels.append( newlabel )
+    db.session.commit()
+    return LabelStock.query.filter_by(project_id=project.id).all()
+
+def delete_label( project_name, stock_id, label ):
+    """ delete a label from a project stock """
+    project = Project.query.filter_by(projectname=project_name).first()
+    label = Label.query.filter_by(value=label, stock_id=stock_id).delete()
+    db.session.commit()
+    return LabelStock.query.filter_by(project_id=project.id).all()
+
+def delete_label_by_id( label_id):
+    """ delete label by id """
+    Label.query.filter_by(id=label_id).delete()
+    db.session.commit()
+
+def find_project_cats(project_id):
+    """ get the list of cats for project config """
+    return CatLabel.query.filter_by(project_id=project_id).all()
+
+def find_project_stocks(project_id):
+    """ find all the stocks for a given project """
+    return LabelStock.query.filter_by(project_id=project_id).all()
+
+def find_stock_labels(stock_id):
+    """ find all the labels for a given stock """
+    return Label.query.filter_by(stock_id=stock_id).all()

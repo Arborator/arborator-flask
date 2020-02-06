@@ -139,6 +139,33 @@ class Project(db.Model, BaseM):
 	# users = db.relationship('User', backref='project_user',lazy='dynamic')
 	#texts = db.relationship('Text', backref='project_text',lazy='dynamic')
 	is_private = db.Column(db.Boolean, default=False)
+	relations = db.relationship('LabelStock')
+	cats = db.relationship('CatLabel')
+
+
+class LabelStock(db.Model):
+	__tablename__ = 'labelstocks'
+	id = db.Column(db.Integer, primary_key=True)
+	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+	project = db.relationship('Project')
+	labels = db.relationship('Label')
+
+
+class Label(db.Model):
+	__tablename__ = 'labels'
+	id = db.Column(db.Integer, primary_key=True)
+	stock_id = db.Column(db.Integer, db.ForeignKey('labelstocks.id'))
+	stock = db.relationship('LabelStock')
+	value = db.Column(db.String(256), nullable=False)
+
+
+class CatLabel(db.Model):
+	__tablename__ = 'catlabels'
+	id = db.Column(db.Integer, primary_key=True)
+	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+	project = db.relationship('Project')
+	value = db.Column(db.String(256), nullable=False)
+
 
 class ProjectAccess(db.Model):
 	__tablename__ = 'projectaccess'
@@ -148,7 +175,6 @@ class ProjectAccess(db.Model):
 	projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))
 	userid = db.Column(db.String(256), db.ForeignKey('users.id'))
 	accesslevel = db.Column(ChoiceType(ACCESS, impl=db.Integer()))
-
 
 
 # class and annotation project settings

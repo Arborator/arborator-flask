@@ -58,9 +58,48 @@ def get_settings_infos(project_name, current_user):
     # if not roles and project.is_private: return 403 # removed for now -> the check is done in view and for each actions
     admins = [a.userid for a in project_dao.get_admins(project.id)]
     guests = [g.userid for g in project_dao.get_guests(project.id)]
+    cats = [c.value for c in project_dao.find_project_cats(project.id)]
+    stocks = project_dao.find_project_stocks(project.id)
+    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
     if project.image != None: image = str(base64.b64encode(project.image))
     else: image = ''
-    return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "admins":admins, "guests":guests}
+    return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "admins":admins, "guests":guests, "cats":cats, "labels":labels}
+
+
+def add_cat_label(project_name, current_user, cat):
+    """ add a cat to a project """
+    return [c.value for c in project_dao.add_cat(project_name, cat)]
+
+def remove_cat_label(project_name, current_user, cat):
+    """ delete a cat from a project cats list """
+    return [c.value for c in project_dao.delete_cat(project_name, cat)]
+
+def add_stock(project_name):
+    """ add a stock """
+    stocks = project_dao.add_stock(project_name)
+    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+    return labels
+
+def remove_stock(project_name, stockid):
+    """ remove a stock """
+    stocks = project_dao.delete_stock(project_name, stockid)
+    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+    return labels
+
+def add_label(project_name, stock_id, label):
+    """ add a label to a project stock """
+    stocks = project_dao.add_label(project_name, stock_id, label)
+    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+    return labels
+
+def remove_label(project_name, label_id, stock_id, label ):
+    """ remove a label from its project stock """
+    # stocks = project_dao.delete_label(project_name, stock_id, label)
+    project_dao.delete_label_by_id(label_id)
+    project = project_dao.find_by_name(project_name)
+    stocks = project_dao.find_project_stocks(project.id)
+    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+    return labels
 
 def get_infos(project_name, current_user):
     ''' get project informations available for the current user '''

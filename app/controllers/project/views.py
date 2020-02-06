@@ -342,6 +342,62 @@ def project_update_config(project_name):
 	return resp
 
 
+@project.route('/<project_name>/config/cat/<action>', methods=["POST"])
+@cross_origin()
+@requires_access_level(2)
+def project_cat_add(project_name, action):
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	if not request.json: abort(400)
+	data = request.get_json(force=True)
+
+	if not data.get("cat"): abort(400)
+	cats = list()
+	if action == 'add':	cats = project_service.add_cat_label(project_name, current_user, data.get("cat") )
+	elif action == 'delete': cats = project_service.remove_cat_label(project_name, current_user, data.get("cat") )
+	else: abort(400)
+	js = json.dumps(cats, default=str)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
+@project.route('/<project_name>/config/stock/<action>', methods=["POST"])
+@cross_origin()
+@requires_access_level(2)
+def project_stock_add(project_name, action):
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	if not request.json: abort(400)
+	data = request.get_json(force=True)
+
+	if not data.get("stockid"): abort(400)
+	labels = list()
+	if action == 'add': labels = project_service.add_stock(project_name)
+	elif action == 'delete': labels = project_service.remove_stock(project_name, data.get("stockid"))
+	else: abort(400)
+	js = json.dumps(labels, default=str)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
+@project.route('/<project_name>/config/label/<action>', methods=["POST"])
+@cross_origin()
+@requires_access_level(2)
+def project_label_add(project_name, action):
+	project = project_service.get_by_name(project_name)
+	print(1)
+	if not project: abort(404)
+	if not request.json: abort(400)
+	data = request.get_json(force=True)
+
+	print(2, data)
+	if not data.get("stockid"): abort(400)
+	labels = list()
+	if action == 'add': labels = project_service.add_label(project_name, data.get("stockid"), data.get("label"))
+	elif action == 'delete': labels = project_service.remove_label(project_name, data.get("labelid"), data.get("stockid"), data.get("label"))
+	else: abort(400)
+	js = json.dumps(labels, default=str)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
 
 # @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
 @project.route('/<project_name>/export/zip', methods=["POST"])

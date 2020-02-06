@@ -50,6 +50,10 @@ def create_app(config_name):
 	from .controllers.project import project as project_blueprint
 	app.register_blueprint(project_blueprint, url_prefix='/api/projects')
 
+	@app.before_first_request
+	def create_tables():
+		db.create_all()
+
 	@app.errorhandler(403)
 	def forbidden(error):
 		return render_template('errors/403.html', title='Forbidden'), 403
