@@ -136,18 +136,11 @@ def login(provider_name):
 @auth.route('/login/userinfos', methods=['GET', 'POST'])
 def getUserInfos():
     # print(session)
-    print('USERINFOS')
     user_id = session.get("user_id")
-    print('user_id', user_id)
     user = load_user(user_id)
-    print('super_admin ?', user.super_admin)
     user.last_seen=datetime.utcnow()
-    print('user', user)
-    print('user json', user.as_json())
     db.session.commit()
     js = json.dumps(user.as_json(), default=str) # returns empty data !
-    print('user jjson str', js)
-    print(json.dumps(user, cls=AlchemyEncoder) )
     js = json.dumps(user, cls=AlchemyEncoder)
     resp = Response(js, status=200,  mimetype='application/json')
     return resp

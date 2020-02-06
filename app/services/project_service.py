@@ -113,8 +113,10 @@ def get_infos(project_name, current_user):
 
     # if not roles and project.is_private: return 403 # removed for now -> the check is done in view and for each actions
 
+    print(time.monotonic(), 'admins START')
     admins = [a.userid for a in project_dao.get_admins(project.id)]
     guests = [g.userid for g in project_dao.get_guests(project.id)]
+    print(time.monotonic(), 'admins DONE')
 
     reply = grew_request ( 'getSamples', data = {'project_id': project.projectname} )
     js = json.loads(reply)
@@ -128,6 +130,7 @@ def get_infos(project_name, current_user):
         nb_samples = len(data)
         samples = []
         sample_lengths = []
+        print(time.monotonic(), 'big for START')
         for sa in data:
             sample={'samplename':sa['name'], 'sentences':sa['size'], 'treesFrom':sa['users'], "roles":{}}
             lengths = []
@@ -154,18 +157,21 @@ def get_infos(project_name, current_user):
             if len(lengths) > 0 : sample["averageSentenceLength"] = float( round( Decimal(sum(lengths)/len(lengths)) , 2) )
 
             sample["exo"] = "" # TODO : create the table in the db and update it
-            print('sample', sample)
+            # print('sample', sample)
             samples.append(sample)
             sample_lengths += [sample["tokens"]]
 
+        print(time.monotonic(), 'big for DONE')
+
         sum_nb_tokens = sum(sample_lengths)
         average_tokens_per_sample = sum(sample_lengths)/len(sample_lengths)
-             
+
+        print(time.monotonic(), 'average DONE')
+
         reply = grew_request('getSentIds', data={'project_id': project_name})
         js = json.loads(reply)
         data = js.get("data")
-        if data:
-            nb_sentences = len(data)
+        if data: nb_sentences = len(data)
 
     if project.image != None: image = str(base64.b64encode(project.image))
     else: image = ''

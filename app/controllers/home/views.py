@@ -37,13 +37,12 @@ def home_page():
 			# roles = [] # temp ignore
 			# if not roles: roles = []
 			if not infos: infos = {"admins":[], "guests":[]}
-			print('HEREEEE',infos)
 			projects_info.append(project.as_json(include={"admins":infos['admins'],"guests":infos['guests']}))
 	else:
 		for project in projects:
 			projects_info.append(project.as_json(include={"admins":[],"guests":[]}))
-	print(666,projects_info)
-	print('projects', projects)
+	# print(666,projects_info)
+	# print('projects', projects)
 
 	js = json.dumps(projects_info)
 	resp = Response(js, status=200,  mimetype='application/json')

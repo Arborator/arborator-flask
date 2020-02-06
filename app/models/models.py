@@ -15,15 +15,15 @@ class BaseM(object):
 	def as_json(self, exclude=[], include={}):
 		json_rep = dict()
 		for k in vars(self):
-			print(getattr(self, k))
+			# print(getattr(self, k))
 			if k in exclude:
 				# print(k)
 				continue
 			elif k[0] == "_":
 				continue
 			elif type(getattr(self, k)) is bytes:
-				print('yay')
-				print(getattr(self, k))
+				# print('yay')
+				# print(getattr(self, k))
 				json_rep[k] = str(base64.b64encode(getattr(self, k)))
 				# json_rep[k] = str(getattr(self, k))
 			else:

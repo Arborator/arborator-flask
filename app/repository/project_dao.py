@@ -63,7 +63,6 @@ def delete_sample_role(sample_role):
     db.session.flush()
     # db.session.commit()
     # db.session.expire_all()
-    print( 'deleted ', rows_deleted )
     return rows_deleted
 
 def delete_sample_role_by_project(project_id):
