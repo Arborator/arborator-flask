@@ -141,6 +141,8 @@ class Project(db.Model, BaseM):
 	is_private = db.Column(db.Boolean, default=False)
 	relations = db.relationship('LabelStock')
 	cats = db.relationship('CatLabel')
+	show_all_trees = db.Column(db.Boolean, default=True)
+	is_open = db.Column(db.Boolean, default=False)
 
 
 class LabelStock(db.Model):
@@ -192,7 +194,7 @@ class ProjectAccess(db.Model):
 
 class SampleRole(db.Model):
 	__tablename__ = 'samplerole'
-	ROLES =  [(1, 'annotator'), (2, 'validator'), (3, 'supervalidator'), (4, 'prof')]
+	ROLES =  [(1, 'annotator'), (2, 'validator'), (3, 'prof')]
 	id = db.Column(db.Integer, primary_key=True)
 	samplename = db.Column(db.String(256), nullable=False)
 	projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))

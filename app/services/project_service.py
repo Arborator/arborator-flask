@@ -63,7 +63,7 @@ def get_settings_infos(project_name, current_user):
     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
     if project.image != None: image = str(base64.b64encode(project.image))
     else: image = ''
-    return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "admins":admins, "guests":guests, "cats":cats, "labels":labels}
+    return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "admins":admins, "guests":guests, "cats":cats, "labels":labels, "is_open":project.is_open, "show_all_trees":project.show_all_trees}
 
 
 def add_cat_label(project_name, current_user, cat):
@@ -100,6 +100,16 @@ def remove_label(project_name, label_id, stock_id, label ):
     stocks = project_dao.find_project_stocks(project.id)
     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
     return labels
+
+def change_show_all_trees(project_name, value):
+    """ set show all trees and return the new project  """
+    project = project_dao.set_show_all_trees(project_name, value)
+    return project
+
+def change_is_open(project_name, value):
+    """ set is open and return the new project  """
+    project = project_dao.set_is_open(project_name, value)
+    return project
 
 def get_infos(project_name, current_user):
     ''' get project informations available for the current user '''
@@ -200,13 +210,17 @@ def create_add_sample_role(user_id, sample_name, project_id, role):
     new_sr = SampleRole(userid=user_id, samplename=sample_name, projectid=project_id, role=role)
     project_dao.add_sample_role(new_sr)
 
-def create_empty_project(project_name, creator, project_description, project_private):
+def create_empty_project(project_name, creator, project_description, project_private, project_open, project_showalltrees):
     ''' create an empty project '''
     new_project = grew_request('newProject', data={'project_id': project_name})
     print('new_project', new_project)
     private = False
     if project_private == 'true': private = True
-    project = Project(projectname=project_name, description=project_description, is_private=private)
+    isopen = False
+    if project_open == 'true': isopen = True
+    showalltrees = True
+    if project_showalltrees == 'false': showalltrees = False
+    project = Project(projectname=project_name, description=project_description, is_private=private, is_open=isopen, show_all_trees=showalltrees)
     print('projecttoooo', project)
     project_dao.add_project(project)
     p = project_dao.find_by_name(project_name)
@@ -246,6 +260,17 @@ def get_samples_roles(project_id, sample_name, json=False):
     sampleroles = SampleRole.query.filter_by(projectid=project_id, samplename=sample_name).all()
     if json: return {sr.userid:sr.role.value for sr in sampleroles}
     else: return sampleroles
+
+def get_user_sample_role(project_id, sample_name, user_id):
+    """ return the current user sample role """
+    return project_dao.get_user_role(project_id, sample_name, user_id)
+
+def is_annotator(project_id, sample_name, user_id):
+    """ return true is the user is an annotatror for this project sample """
+    sr = project_dao.get_user_role(project_id, sample_name, user_id)
+    if sr == None: return False
+    elif sr.role == 1: return True
+    else : return False
 
 def get_possible_roles():
     return project_dao.get_possible_roles()

@@ -138,3 +138,17 @@ def find_project_stocks(project_id):
 def find_stock_labels(stock_id):
     """ find all the labels for a given stock """
     return Label.query.filter_by(stock_id=stock_id).all()
+
+def set_show_all_trees(project_name, value):
+    """ change the value of showAllTrees """
+    project = Project.query.filter_by(projectname=project_name).first()
+    project.show_all_trees = value
+    db.session.commit()
+    return project
+
+def set_is_open(project_name, value):
+    """ change the value of is_open """
+    project = Project.query.filter_by(projectname=project_name).first()
+    project.is_open = value
+    db.session.commit()
+    return project

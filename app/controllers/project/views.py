@@ -116,6 +116,30 @@ def project_userrole_remove(project_name, target_role):
 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
 	return resp
 
+@project.route('/<project_name>/showalltrees', methods=['POST'])
+@requires_access_level(2)
+def project_show_all_trees(project_name):
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	value = request.json.get("value")
+	project_service.change_show_all_trees(project_name, value)
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
+
+@project.route('/<project_name>/openproject', methods=['POST'])
+@requires_access_level(2)
+def project_open_project(project_name):
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	value = request.json.get("value")
+	project_service.change_is_open(project_name, value)
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
+
 
 @project.route('/<project_name>/', methods=['POST'])
 # @login_required
@@ -242,7 +266,7 @@ def search_project(project_name):
 @project.route('/<project_name>/upload', methods=["POST", "OPTIONS"])
 @cross_origin()
 # @cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
-@requires_access_level(1)
+@requires_access_level(2)
 def sample_upload(project_name):
 	"""
 	project/<projectname>/upload
@@ -280,7 +304,9 @@ def create_project():
 	project_description = request.form.get("description", "")
 	# project_image = ''
 	project_private = request.form.get("private", False)
-	project_service.create_empty_project(project_name, creator, project_description, project_private)
+	project_isopen = request.form.get("is_open", False)
+	project_showAllTrees = request.form.get("show_all_trees", True)
+	project_service.create_empty_project(project_name, creator, project_description, project_private, project_isopen, project_showAllTrees)
 	js = json.dumps({})
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
@@ -547,14 +573,16 @@ def sampleusers(project_name, sample_name):
 	return resp
 
 
-@project.route('/sample/<role>/add', methods=['POST'])
+@project.route('/<project_name>/sample/<role>/add', methods=['POST'])
 @requires_access_level(2)
-def addRole2Sample(role):
+def addRole2Sample(project_name, role):
 	''' add or displace (toggle fashion) a role to a user for a specific in-project sample '''
+	print('1')
 	if not request.json: abort(400)
 	req = request.json
 	samples = {"samples":project_service.get_samples(req['projectname'])}
 	res = {}
+	print(2, req)
 	if 'samplename' in req:
 		if not req['samplename'] in samples["samples"]: abort(404)
 		possible_roles = [x[0] for x in project_service.get_possible_roles()]
@@ -568,9 +596,9 @@ def addRole2Sample(role):
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
 
-@project.route('/sample/<role>/remove', methods=['POST'])
+@project.route('/<project_name>/sample/<role>/remove', methods=['POST'])
 @requires_access_level(2)
-def removeRole2Sample(role):
+def removeRole2Sample(project_name, role):
 	''' remove a role to a user for a specific in-project sample '''
 	if not request.json: abort(400)
 	req = request.json
@@ -651,13 +679,16 @@ def update_sample(project_name, sample_name):
 
 @project.route("/<project_name>/sample/<sample_name>/saveTrees", methods=["POST"])
 # @login_required
-@requires_access_level(1)
+# @requires_access_level(1)
 def save_trees(project_name, sample_name):
 	project = project_service.get_by_name(project_name)
 	if not project:
 		print("problem with proj")
 		abort(404)
 	if not request.json: abort(400)
+	if not project.is_open:
+		if not project_service.is_annotator(project.id, sample_name, current_user.id): abort(403)
+	
 
 	samples = {"samples":project_service.get_samples(project_name)}
 	if not sample_name in samples["samples"]:
