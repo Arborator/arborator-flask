@@ -3,7 +3,8 @@ from ..models.models import *
 from ...config import Config
 from ..utils.conll3 import conll3
 from ..utils.grew_utils import grew_request, upload_project
-from ..repository import project_dao, user_dao
+from ..repository import project_dao, user_dao, robot_dao
+from ..services import robot_service
 from werkzeug import secure_filename
 from datetime import datetime
 from flask import abort
@@ -128,9 +129,14 @@ def change_is_open(project_name, value):
     project = project_dao.set_is_open(project_name, value)
     return project
 
-def add_default_user_tree(project, user_id):
+def add_default_user_tree(project, user_id, username, robot=False):
     """ add a default user tree """
-    project_dao.add_defaultusertree(project, user_id)
+    if robot:
+        project_dao.add_defaultusertree_robot(project, username, True )
+    else: 
+        user = user_dao.find_by_id(user_id)
+        print(user.as_json())
+        project_dao.add_defaultusertree(project, user_id, user.username)
 
 def remove_default_user_tree(dut_id):
     """ remove a default user tree """
@@ -240,12 +246,11 @@ def get_project_treesfrom(project_name):
     if len(treesFrom) < 1: return []
     users = user_dao.find_by_usernames(treesFrom)
     d, a = {}, []
-    for rowproxy in users:
-        # rowproxy.items() returns an array like [(key0, value0), (key1, value1)]
-        for column, value in rowproxy.items():
-            # build up the dictionary
-            d = {**d, **{column: value}}
+    for rowproxy in users: # rowproxy.items() returns an array like [(key0, value0), (key1, value1)]
+        for column, value in rowproxy.items(): d = {**d, **{column: value}} # build up the dictionary
         a.append(d)
+    r = robot_service.get_by_projectid_userlike(project.id)
+    a.extend(r)
     return a
 
 def add_sample_role(sample_role):
@@ -380,10 +385,11 @@ def samples2trees_with_restrictions(samples, sample_name, current_user, project_
     ''' transforms a list of samples into a trees object and restrict it to user trees and default tree(s) '''
     trees={}
     p = project_dao.find_by_name(project_name)
-    default_user_trees_ids = [dut.user_id for dut in project_dao.find_default_user_trees(p.id)]
+    default_user_trees_ids = [dut.username for dut in project_dao.find_default_user_trees(p.id)]
 
     default_usernames = list()
-    if len(default_user_trees_ids) > 0: default_usernames = user_dao.find_username_by_ids(default_user_trees_ids)
+    default_usernames = default_user_trees_ids
+    # if len(default_user_trees_ids) > 0: default_usernames = user_dao.find_username_by_ids(default_user_trees_ids)
     if current_user.username not in default_usernames: default_usernames.append(current_user.username)
     for sentId, users in samples.items():	
         filtered_users = { username: users[username] for username in default_usernames  if username in users}
@@ -411,12 +417,12 @@ def add_or_keep_timestamps(conll_file):
     return tmpfile
 
 
-def upload_project(fileobject, project_name, import_user, reextensions=None, existing_samples=[]):
+def upload_sample(fileobject, project_name, import_user, reextensions=None, existing_samples=[]):
     ''' 
-    upload project into grew and filesystem (upload-folder, see Config). need a file object from request
+    upload sample into grew and filesystem (upload-folder, see Config). need a file object from request
     Will compile reextensions if no one is specified (better specify it before a loop)
     '''
-    print('upload_project service')
+    print('upload_sample service')
 
     if reextensions == None : reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
 
@@ -456,6 +462,7 @@ def upload_project(fileobject, project_name, import_user, reextensions=None, exi
     reply = json.loads(reply)
     if reply.get("status") != "OK":
         abort(400)
+
 
 def get_timestamp(conll):
     t = re.search("# timestamp = (\d+\.\d+)\n", conll).groups()

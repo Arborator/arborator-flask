@@ -147,9 +147,15 @@ def delete_label_by_id( label_id):
     Label.query.filter_by(id=label_id).delete()
     db.session.commit()
 
-def add_defaultusertree(project, user_id):
+def add_defaultusertree(project, user_id, username):
     """ add a defaultusertree to a project """
-    dut = DefaultUserTrees(project_id=project.id, project=project, user_id=user_id)
+    dut = DefaultUserTrees(project_id=project.id, project=project, user_id=user_id, username=username)
+    project.default_user_trees.append( dut )
+    db.session.commit()
+
+def add_defaultusertree_robot(project, username, robot):
+    """ add a defaultusertree to a project """
+    dut = DefaultUserTrees(project_id=project.id, project=project, username=username, robot=robot)
     project.default_user_trees.append( dut )
     db.session.commit()
 

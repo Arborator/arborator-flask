@@ -182,6 +182,16 @@ class DefaultUserTrees(db.Model, BaseM):
 	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
 	project = db.relationship('Project')
 	user_id = db.Column(db.String(256), db.ForeignKey('users.id'))
+	username = db.Column(db.String(256), nullable=False)#db.ForeignKey('users.username'))
+	robot = db.Column(db.Boolean, default=False)
+
+class Robot(db.Model, BaseM):
+	__tablename__ = 'robots'
+	id = db.Column(db.Integer, primary_key=True)
+	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+	project = db.relationship('Project')
+	username = db.Column(db.String(256), nullable=False)
+
 
 
 # class and annotation project settings

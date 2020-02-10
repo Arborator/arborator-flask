@@ -16,7 +16,7 @@ from ...models.models import *
 from ...utils.grew_utils import grew_request, upload_project
 from ....config import Config
 
-from ...services import project_service, user_service
+from ...services import project_service, user_service, robot_service
 
 
 logging.getLogger('flask_cors').level = logging.DEBUG
@@ -128,12 +128,20 @@ def project_userrole_remove(project_name, target_role):
 @project.route('/<project_name>/defaultusertrees/add', methods=['POST'])
 @requires_access_level(2)
 def project_defaultusertrees_add(project_name):
-	""" add a defaultusertree to the project {'user_id':id}"""
+	""" add a defaultusertree to the project {'user':user}"""
 	if not request.json: abort(400)
 	project = project_service.get_by_name(project_name)
 	if not project: abort(400)
-	user = user_service.get_by_id(request.json.get("user_id"))
-	if user: project_service.add_default_user_tree(project, user.id)
+	
+	selected = json.loads(request.json.get("user"))
+	print('selected', selected)
+	if 'robot' in selected:
+		r = robot_service.get_by_id(selected['id'])
+		project_service.add_default_user_tree(project, r.id, r.username, robot=True)
+	else:
+		# user = user_service.get_by_id(request.json.get("user_id"))
+		user = user_service.get_by_id(selected['id'])
+		if user: project_service.add_default_user_tree(project, user.id, user.username)
 	project_infos = project_service.get_settings_infos(project_name, current_user)
 	if project_infos == 403: abort(403) 
 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
@@ -316,13 +324,18 @@ def sample_upload(project_name):
 	if not project: abort(404)
 
 	fichiers = request.files.to_dict(flat=False).get("files")
-	import_user = request.form.get("import_user", "") # TODO : change import_user
+	robot_active = request.form.get("robot", "false")
+	robot_name = request.form.get("robotname", "")
+	if robot_active == 'true': 
+		import_user = robot_name
+		robot_service.create_or_get_robot_for_project(robot_name, project.id)
+
+	else : import_user = request.form.get("import_user", "") # TODO : change import_user
 	print("IMPORT USER: {}".format(import_user))
 	if fichiers:
 		reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
 		samples  = project_service.get_samples(project_name)
-		for f in fichiers:
-			project_service.upload_project(f, project_name, import_user, reextensions=reextensions, existing_samples=samples)
+		for f in fichiers: project_service.upload_sample(f, project_name, import_user, reextensions=reextensions, existing_samples=samples)
 
 	samples = {"samples":project_service.get_samples(project_name)}
 	# print(samples)
