@@ -3,7 +3,7 @@ from ..models.models import *
 from ...config import Config
 from ..utils.conll3 import conll3
 from ..utils.grew_utils import grew_request, upload_project
-from ..repository import project_dao
+from ..repository import project_dao, user_dao
 from werkzeug import secure_filename
 from datetime import datetime
 from flask import abort
@@ -61,9 +61,10 @@ def get_settings_infos(project_name, current_user):
     cats = [c.value for c in project_dao.find_project_cats(project.id)]
     stocks = project_dao.find_project_stocks(project.id)
     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+    defaultUserTrees = [u.as_json() for u in project_dao.find_default_user_trees(project.id)]
     if project.image != None: image = str(base64.b64encode(project.image))
     else: image = ''
-    return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "admins":admins, "guests":guests, "cats":cats, "labels":labels, "is_open":project.is_open, "show_all_trees":project.show_all_trees}
+    return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "admins":admins, "guests":guests, "cats":cats, "labels":labels, "is_open":project.is_open, "show_all_trees":project.show_all_trees, "default_user_trees":defaultUserTrees}
 
 
 def add_cat_label(project_name, current_user, cat):
@@ -73,6 +74,13 @@ def add_cat_label(project_name, current_user, cat):
 def remove_cat_label(project_name, current_user, cat):
     """ delete a cat from a project cats list """
     return [c.value for c in project_dao.delete_cat(project_name, cat)]
+
+def parse_txtcats(project, cats):
+    """ parse and replace all the cats by these ones """
+    lines = cats.split('\n')
+    lines = [line for line in lines if not line.startswith('#')]
+    categories = lines[0].split(',')
+    return [c.value for c in project_dao.set_cats(project, categories)]
 
 def add_stock(project_name):
     """ add a stock """
@@ -101,6 +109,15 @@ def remove_label(project_name, label_id, stock_id, label ):
     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
     return labels
 
+def parse_txtlabels(project, labels):
+    """ parse and replace all the labels by these ones. taking multiple columns (rows) """
+    lines = labels.split('\n')
+    lines = [line for line in lines if not line.startswith('#')]
+    labelstocks_with_labels =  [line.split(',') for line in lines]
+    stocks = project_dao.set_stock_and_labels(project, labelstocks_with_labels)
+    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+    return labels
+
 def change_show_all_trees(project_name, value):
     """ set show all trees and return the new project  """
     project = project_dao.set_show_all_trees(project_name, value)
@@ -110,6 +127,25 @@ def change_is_open(project_name, value):
     """ set is open and return the new project  """
     project = project_dao.set_is_open(project_name, value)
     return project
+
+def add_default_user_tree(project, user_id):
+    """ add a default user tree """
+    project_dao.add_defaultusertree(project, user_id)
+
+def remove_default_user_tree(dut_id):
+    """ remove a default user tree """
+    project_dao.delete_defaultusertree_by_id(dut_id)
+
+def get_hub_summary():
+    """ summary version for the hub. lighter. """
+    projects_info = list()
+    projects = Project.query.all()
+    for project in projects:
+        admins = [a.userid for a in project_dao.get_admins(project.id)]
+        guests = [g.userid for g in project_dao.get_guests(project.id)]
+        projects_info.append(project.as_json(include={"admins":[],"guests":[]}))
+    return projects_info
+
 
 def get_infos(project_name, current_user):
     ''' get project informations available for the current user '''
@@ -153,28 +189,32 @@ def get_infos(project_name, current_user):
                 # sample["roles"][label] = [a.as_json() for a,b in role]
                 sample["roles"][label] = [{'key':a.username,'value':a.username} for a,b in role]
 
-            reply = json.loads(grew_request('getConll', data={'project_id': project.projectname, 'sample_id':sa["name"]}))
+            # gael : removed temporarily for request time (need to be done in grew)
+            sample["exo"] = "" # dummy
+            sample["tokens"] = 0 # dummy
+
+            # reply = json.loads(grew_request('getConll', data={'project_id': project.projectname, 'sample_id':sa["name"]}))
             
-            if reply.get("status") == "OK":
-                truc = reply.get("data", {})
-                for sent_id, dico in truc.items():
-                    conll = list(dico.values())[0]
-                    t = conll3.conll2tree(conll)
-                    length = len(t)
-                    lengths.append(length)
+            # if reply.get("status") == "OK":
+            #     truc = reply.get("data", {})
+            #     for sent_id, dico in truc.items():
+            #         conll = list(dico.values())[0]
+            #         t = conll3.conll2tree(conll)
+            #         length = len(t)
+            #         lengths.append(length)
 
-            sample["tokens"] = sum(lengths)
-            if len(lengths) > 0 : sample["averageSentenceLength"] = float( round( Decimal(sum(lengths)/len(lengths)) , 2) )
+            # sample["tokens"] = sum(lengths)
+            # if len(lengths) > 0 : sample["averageSentenceLength"] = float( round( Decimal(sum(lengths)/len(lengths)) , 2) )
 
-            sample["exo"] = "" # TODO : create the table in the db and update it
-            # print('sample', sample)
+            # sample["exo"] = "" # TODO : create the table in the db and update it
+            # # print('sample', sample)
             samples.append(sample)
-            sample_lengths += [sample["tokens"]]
+            # sample_lengths += [sample["tokens"]]
 
         print(time.monotonic(), 'big for DONE')
-
-        sum_nb_tokens = sum(sample_lengths)
-        average_tokens_per_sample = sum(sample_lengths)/len(sample_lengths)
+        # gael : removed temporarily for request time (need to be done in grew)
+        # sum_nb_tokens = sum(sample_lengths)
+        # average_tokens_per_sample = sum(sample_lengths)/len(sample_lengths)
 
         print(time.monotonic(), 'average DONE')
 
@@ -187,6 +227,27 @@ def get_infos(project_name, current_user):
     else: image = ''
     return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "samples":samples, "admins":admins,  "guests":guests, "number_samples":nb_samples, "number_sentences":nb_sentences, "number_tokens":sum_nb_tokens, "averageSentenceLength":average_tokens_per_sample}
 
+
+def get_project_treesfrom(project_name):
+    """ get users from treesFrom values """
+    project = project_dao.find_by_name(project_name)
+    reply = grew_request ( 'getSamples', data = {'project_id': project_name} )
+    js = json.loads(reply)
+    data = js.get("data")
+    treesFrom = list()
+    if data: treesFrom = [ sa['users'] for sa in data]
+    treesFrom = list( set([item for sublist in treesFrom for item in sublist]) )
+    if len(treesFrom) < 1: return []
+    users = user_dao.find_by_usernames(treesFrom)
+    d, a = {}, []
+    for rowproxy in users:
+        # rowproxy.items() returns an array like [(key0, value0), (key1, value1)]
+        for column, value in rowproxy.items():
+            # build up the dictionary
+            d = {**d, **{column: value}}
+        a.append(d)
+    return a
+
 def add_sample_role(sample_role):
     ''' add a sample role '''
     project_dao.add_sample_role(sample_role)
@@ -197,11 +258,13 @@ def add_or_delete_sample_role(user, sample_name, project_name, role, delete):
     existing_role = project_dao.get_user_role(p.id, sample_name, user.id)
     print('existing role', existing_role)
     if existing_role: project_dao.delete_sample_role(existing_role)
-    # if delete: 
+    if delete: return True 
     #     print('delete')
     #     project_dao.delete_sample_role(existing_role)
-    new_sr = SampleRole(userid=user.id, samplename=sample_name, projectid=p.id, role=role)
-    project_dao.add_sample_role(new_sr)
+    if not delete:
+        new_sr = SampleRole(userid=user.id, samplename=sample_name, projectid=p.id, role=role)
+        project_dao.add_sample_role(new_sr)
+    return True
 
 def create_add_sample_role(user_id, sample_name, project_id, role):
     ''' create and add a new sample role, if there is an old role it is deleted'''
@@ -243,9 +306,30 @@ def delete_sample_role_by_project(project_id):
 
 def get_sample(sample_name, project_name, current_user):
     ''' retrieve a sample infos given the project name and sample name'''
-    p = get_infos(project_name, current_user)
-    sample = [s for s in p['samples'] if s['samplename'] == sample_name][0]
+    # p = get_infos(project_name, current_user)
+    # sample = [s for s in p['samples'] if s['samplename'] == sample_name][0]
+    return get_sample_roles(project_name, sample_name)
+    # return sample
+
+
+def get_sample_roles(project_name, sample_name):
+    """ subfunc as getInfos but only to retrieve roles for a given sample (limit calculation) """
+    project = project_dao.find_by_name(project_name)
+    reply = json.loads( grew_request ( 'getSamples', data = {'project_id': project_name} ) )
+    data = reply.get("data")
+    sample={'samplename':sample_name, "roles":{}}
+    if data:
+        for sa in data:
+            if sa['name'] == sample_name:
+                for r,label in project_dao.get_possible_roles():
+                    role = db.session.query(User, SampleRole).filter(
+                        User.id == SampleRole.userid).filter(
+                            SampleRole.projectid==project.id).filter(
+                                SampleRole.samplename==sa['name']).filter(
+                                    SampleRole.role==r).all()
+                    sample["roles"][label] = [{'key':a.username,'value':a.username} for a,b in role]
     return sample
+
 
 def get_samples(project_name):
     ''' get existing samples for a project. from Grew.'''
@@ -272,6 +356,13 @@ def is_annotator(project_id, sample_name, user_id):
     elif sr.role == 1: return True
     else : return False
 
+def is_validator(project_id, sample_name, user_id):
+    """ return true is the user is a validator for this project sample """
+    sr = project_dao.get_user_role(project_id, sample_name, user_id)
+    if sr == None: return False
+    elif sr.role == 2: return True
+    else : return False
+
 def get_possible_roles():
     return project_dao.get_possible_roles()
 
@@ -280,6 +371,23 @@ def samples2trees(samples, sample_name):
     trees={}
     for sentId, users in samples.items():	
         for userId, conll in users.items():
+            tree = conll3.conll2tree(conll)
+            if sentId not in trees: trees[sentId] = {"samplename":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
+            trees[sentId]["conlls"][userId] = conll
+    return trees
+
+def samples2trees_with_restrictions(samples, sample_name, current_user, project_name):
+    ''' transforms a list of samples into a trees object and restrict it to user trees and default tree(s) '''
+    trees={}
+    p = project_dao.find_by_name(project_name)
+    default_user_trees_ids = [dut.user_id for dut in project_dao.find_default_user_trees(p.id)]
+
+    default_usernames = list()
+    if len(default_user_trees_ids) > 0: default_usernames = user_dao.find_username_by_ids(default_user_trees_ids)
+    if current_user.username not in default_usernames: default_usernames.append(current_user.username)
+    for sentId, users in samples.items():	
+        filtered_users = { username: users[username] for username in default_usernames  if username in users}
+        for userId, conll in filtered_users.items():
             tree = conll3.conll2tree(conll)
             if sentId not in trees: trees[sentId] = {"samplename":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
             trees[sentId]["conlls"][userId] = conll

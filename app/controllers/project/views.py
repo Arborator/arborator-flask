@@ -81,6 +81,14 @@ def project_settings_infos(project_name):
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
+@project.route('/<project_name>/treesfrom')
+def project_treesfrom(project_name):
+	''' get users treesfrom from a project '''
+	users = project_service.get_project_treesfrom(project_name)
+	js = json.dumps(users, default=str)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
 @project.route('/<project_name>/<target_role>/add', methods=['POST'])
 @requires_access_level(2)
 def project_userrole_add(project_name, target_role):
@@ -115,6 +123,35 @@ def project_userrole_remove(project_name, target_role):
 	if project_infos == 403: abort(403) 
 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
 	return resp
+
+
+@project.route('/<project_name>/defaultusertrees/add', methods=['POST'])
+@requires_access_level(2)
+def project_defaultusertrees_add(project_name):
+	""" add a defaultusertree to the project {'user_id':id}"""
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	user = user_service.get_by_id(request.json.get("user_id"))
+	if user: project_service.add_default_user_tree(project, user.id)
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	if project_infos == 403: abort(403) 
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
+
+@project.route('/<project_name>/defaultusertrees/remove', methods=['POST'])
+@requires_access_level(2)
+def project_defaultusertrees_remove(project_name):
+	""" add a defaultusertree to the project {'dut_id':id}"""
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	project_service.remove_default_user_tree(request.json.get("dut_id"))
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	if project_infos == 403: abort(403) 
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
+
 
 @project.route('/<project_name>/showalltrees', methods=['POST'])
 @requires_access_level(2)
@@ -217,7 +254,6 @@ def delete_project(project_name):
 
 
 
-# TODO: on est là !
 @project.route('/<project_name>/search', methods=["GET","POST"])
 def search_project(project_name):
 	"""
@@ -386,6 +422,38 @@ def project_cat_add(project_name, action):
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
+@project.route('/<project_name>/config/txtcats', methods=["POST"])
+@cross_origin()
+@requires_access_level(2)
+def project_txtcats(project_name):
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	if not request.json: abort(400)
+	data = request.get_json(force=True)
+
+	if not data.get("cats"): abort(400)
+	cats = list()
+	cats = project_service.parse_txtcats(project, data.get("cats"))
+	js = json.dumps(cats, default=str)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
+@project.route('/<project_name>/config/txtlabels', methods=["POST"])
+@cross_origin()
+@requires_access_level(2)
+def project_txtlabels(project_name):
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	if not request.json: abort(400)
+	data = request.get_json(force=True)
+
+	if not data.get("labels"): abort(400)
+	labels = list()
+	labels = project_service.parse_txtlabels(project, data.get("labels"))
+	js = json.dumps(labels, default=str)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
 @project.route('/<project_name>/config/stock/<action>', methods=["POST"])
 @cross_origin()
 @requires_access_level(2)
@@ -487,8 +555,14 @@ def samplepage(project_name, sample_name):
 	reendswithnumbers = re.compile(r"_(\d+)$")
 	
 	if reply.get("status") == "OK":
-		samples = reply.get("data", {})			
-		js = json.dumps( project_service.samples2trees(samples, sample_name) )
+		samples = reply.get("data", {})	
+		project = project_service.get_by_name(project_name)
+		if not project: abort(404)
+		if project.show_all_trees or project.is_open: js = json.dumps( project_service.samples2trees(samples, sample_name) )
+		else:
+			validator = project_service.is_validator(project.id, sample_name, current_user.id)
+			if validator:  js = json.dumps( project_service.samples2trees(samples, sample_name) )
+			else:  js = json.dumps( project_service.samples2trees_with_restrictions(samples, sample_name, current_user, project_name) )
 		# print(js)
 		resp = Response(js, status=200,  mimetype='application/json')
 		return resp
@@ -616,6 +690,7 @@ def removeRole2Sample(project_name, role):
 	js = json.dumps(res)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
+
 
 
 @project.route('/<project_name>/sample/<sample_name>/users', methods=['POST'])

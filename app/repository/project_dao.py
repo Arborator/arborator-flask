@@ -60,8 +60,8 @@ def delete_sample_role(sample_role):
     """ delete a sample role """
     # rows_deleted = db.session.delete(sample_role)
     rows_deleted = SampleRole.query.filter_by(id=sample_role.id, samplename=sample_role.samplename).delete()
-    db.session.flush()
-    # db.session.commit()
+    # db.session.flush()
+    db.session.commit()
     # db.session.expire_all()
     return rows_deleted
 
@@ -80,6 +80,15 @@ def add_cat(project_name, cat):
     project = Project.query.filter_by(projectname=project_name).first()
     catLabel = CatLabel(value=cat, project_id=project.id)
     project.cats.append( catLabel )
+    db.session.commit()
+    return CatLabel.query.filter_by(project_id=project.id).all()
+
+def set_cats(project, cats):
+    """ set multiple categories to the project cats """
+    project.cats = []
+    for cat in cats:
+        catLabel = CatLabel(value=cat, project_id=project.id)
+        project.cats.append( catLabel )
     db.session.commit()
     return CatLabel.query.filter_by(project_id=project.id).all()
 
@@ -122,9 +131,31 @@ def delete_label( project_name, stock_id, label ):
     db.session.commit()
     return LabelStock.query.filter_by(project_id=project.id).all()
 
+def set_stock_and_labels(project, stocks):
+    """ set multiple stocks and their labels at once to the project labels and labelstocks """
+    project.relations = []
+    for stock in stocks:
+        ls = LabelStock()
+        for label in stock: ls.labels.append( Label(value=label) )
+        project.relations.append(ls)
+    db.session.commit()
+    return LabelStock.query.filter_by(project_id=project.id).all()
+    
+
 def delete_label_by_id( label_id):
     """ delete label by id """
     Label.query.filter_by(id=label_id).delete()
+    db.session.commit()
+
+def add_defaultusertree(project, user_id):
+    """ add a defaultusertree to a project """
+    dut = DefaultUserTrees(project_id=project.id, project=project, user_id=user_id)
+    project.default_user_trees.append( dut )
+    db.session.commit()
+
+def delete_defaultusertree_by_id( dut_id ):
+    """ delete a defaultusertree given its id """
+    DefaultUserTrees.query.filter_by(id=dut_id).delete()
     db.session.commit()
 
 def find_project_cats(project_id):
@@ -152,3 +183,9 @@ def set_is_open(project_name, value):
     project.is_open = value
     db.session.commit()
     return project
+
+def find_default_user_trees(project_id):
+    """ find userids for this project default user trees """
+    # userids = [ dut.user_id for dut in DefaultUserTrees.query.filter_by(project_id=project_id).all() ]
+    userids = DefaultUserTrees.query.filter_by(project_id=project_id).all()
+    return userids

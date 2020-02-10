@@ -52,9 +52,6 @@ class AlchemyEncoder(json.JSONEncoder):
 
 		return json.JSONEncoder.default(self, obj)
 
-
-
-
 class User(UserMixin, db.Model, BaseM):
 
 	__tablename__ = 'users'
@@ -143,6 +140,7 @@ class Project(db.Model, BaseM):
 	cats = db.relationship('CatLabel')
 	show_all_trees = db.Column(db.Boolean, default=True)
 	is_open = db.Column(db.Boolean, default=False)
+	default_user_trees = db.relationship('DefaultUserTrees')
 
 
 class LabelStock(db.Model):
@@ -177,6 +175,13 @@ class ProjectAccess(db.Model):
 	projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))
 	userid = db.Column(db.String(256), db.ForeignKey('users.id'))
 	accesslevel = db.Column(ChoiceType(ACCESS, impl=db.Integer()))
+
+class DefaultUserTrees(db.Model, BaseM):
+	__tablename__ = 'defaultusertrees'
+	id = db.Column(db.Integer, primary_key=True)
+	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+	project = db.relationship('Project')
+	user_id = db.Column(db.String(256), db.ForeignKey('users.id'))
 
 
 # class and annotation project settings
