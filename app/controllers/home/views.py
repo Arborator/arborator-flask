@@ -2,7 +2,7 @@ from flask import render_template, jsonify, abort, flash, redirect, render_templ
 
 
 from flask_login import current_user, login_required
-from flask_cors import cross_origin
+# from flask_cors import cross_origin
 import os, re, json
 
 from . import home
@@ -52,7 +52,7 @@ from ...services import project_service, user_service
 # 	resp.headers['Access-Control-Allow-Methods'] = '*'
 # 	return resp
 
-@cross_origin()
+# @cross_origin()
 @home.route('/home/projects/', methods=['GET'])
 def home_page():
 	"""
@@ -67,9 +67,9 @@ def home_page():
 	js = json.dumps(projects_info)
 	resp = Response(js, status=200,  mimetype='application/json')
 	
-	resp.headers['Access-Control-Allow-Origin'] = '*'
-	resp.headers['Access-Control-Allow-Headers'] = '*'
-	resp.headers['Access-Control-Allow-Methods'] = '*'
+	# resp.headers['Access-Control-Allow-Origin'] = '*'
+	# resp.headers['Access-Control-Allow-Headers'] = '*'
+	# resp.headers['Access-Control-Allow-Methods'] = '*'
 	return resp
 
 

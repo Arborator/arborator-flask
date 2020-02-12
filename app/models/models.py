@@ -6,7 +6,7 @@ from datetime import datetime
 # from sqlathanor import declarative_base, as_declarative
 from sqlalchemy.schema import UniqueConstraint
 import re, base64, json
-from ...app import db, login_manager
+from ...app import db, login_manager #prod
 
 from sqlalchemy.ext.declarative import DeclarativeMeta
 

@@ -1,6 +1,6 @@
 from flask_login import login_required, current_user
 from ..models.models import *
-from ...app import db, login_manager
+from ...app import db, login_manager #prod
 from sqlalchemy import text
 
 def find_by_id(user_id):

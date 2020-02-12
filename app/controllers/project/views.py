@@ -7,14 +7,14 @@ import os
 import re, base64
 from ...utils.conll3 import conll3
 from collections import OrderedDict
-from flask_cors import cross_origin
+# from flask_cors import cross_origin
 import io, zipfile, time
 
 # local imports
 from . import project
 from ...models.models import *
 from ...utils.grew_utils import grew_request, upload_project
-from ....config import Config
+from ....config import Config #prod
 
 from ...services import project_service, user_service, robot_service
 
@@ -308,7 +308,7 @@ def search_project(project_name):
 
 
 @project.route('/<project_name>/upload', methods=["POST", "OPTIONS"])
-@cross_origin()
+# @cross_origin()
 # @cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
 @requires_access_level(2)
 def sample_upload(project_name):
@@ -344,7 +344,7 @@ def sample_upload(project_name):
 	return resp
 
 @project.route('/create', methods=["POST"])
-@cross_origin()
+# @cross_origin()
 def create_project():
 	''' create an emty project'''
 	project_name = request.form.get("project_name", "")
@@ -361,7 +361,7 @@ def create_project():
 	return resp
 
 @project.route('/<project_name>/create/upload', methods=["POST", "OPTIONS"])
-@cross_origin()
+# @cross_origin()
 # @cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
 def project_create_upload(project_name):
 	"""
@@ -387,7 +387,7 @@ def project_create_upload(project_name):
 	return resp
 
 @project.route('/<project_name>/update_config', methods=["POST"])
-@cross_origin()
+# @cross_origin()
 # @cross_origin(origin='*', headers=['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'])
 @requires_access_level(2)
 def project_update_config(project_name):
@@ -418,7 +418,7 @@ def project_update_config(project_name):
 
 
 @project.route('/<project_name>/config/cat/<action>', methods=["POST"])
-@cross_origin()
+# @cross_origin()
 @requires_access_level(2)
 def project_cat_add(project_name, action):
 	project = project_service.get_by_name(project_name)
@@ -436,7 +436,7 @@ def project_cat_add(project_name, action):
 	return resp
 
 @project.route('/<project_name>/config/txtcats', methods=["POST"])
-@cross_origin()
+# @cross_origin()
 @requires_access_level(2)
 def project_txtcats(project_name):
 	project = project_service.get_by_name(project_name)
@@ -452,7 +452,7 @@ def project_txtcats(project_name):
 	return resp
 
 @project.route('/<project_name>/config/txtlabels', methods=["POST"])
-@cross_origin()
+# @cross_origin()
 @requires_access_level(2)
 def project_txtlabels(project_name):
 	project = project_service.get_by_name(project_name)
@@ -468,7 +468,7 @@ def project_txtlabels(project_name):
 	return resp
 
 @project.route('/<project_name>/config/stock/<action>', methods=["POST"])
-@cross_origin()
+# @cross_origin()
 @requires_access_level(2)
 def project_stock_add(project_name, action):
 	project = project_service.get_by_name(project_name)
@@ -486,7 +486,7 @@ def project_stock_add(project_name, action):
 	return resp
 
 @project.route('/<project_name>/config/label/<action>', methods=["POST"])
-@cross_origin()
+# @cross_origin()
 @requires_access_level(2)
 def project_label_add(project_name, action):
 	project = project_service.get_by_name(project_name)
@@ -508,7 +508,7 @@ def project_label_add(project_name, action):
 
 # @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
 @project.route('/<project_name>/export/zip', methods=["POST"])
-@cross_origin()
+# @cross_origin()
 @requires_access_level(1)
 def sample_export(project_name):
 	project = project_service.get_by_name(project_name)

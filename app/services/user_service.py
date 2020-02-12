@@ -1,6 +1,6 @@
 from ..models.models import *
 from ..utils.grew_utils import grew_request, upload_project
-from ...config import Config
+from ...config import Config #prod
 from ..utils.conll3 import conll3
 from ..repository import user_dao
 
