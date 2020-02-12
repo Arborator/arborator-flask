@@ -1,0 +1,648 @@
+1	alors	alors	ADV	ADV	_	3	periph	_	_
+2	il	il	PRO	CLS	_	3	suj	_	_
+3	fait	faire	VRB	VPP	_	0	root	_	_
+4	nuit	nuit	NOM	NOM	_	3	comp	_	_
+
+1	il	il	PRO	CLS	_	2	suj	_	_
+2	fait	faire	VRB	VPP	_	0	root	_	_
+3	froid	froid	NOM	NOM	_	2	comp	_	_
+
+1	et	et	COO	COO	_	8	mark	_	_
+2	là	là	ADV	ADV	_	8	periph	_	_
+3	dans	dans	PRE	PRE	_	8	periph	_	_
+4	la	le	DET	DET	_	5	spe	_	_
+5	nuit	nuit	NOM	NOM	_	3	dep	_	_
+6	un	un	DET	DET	_	7	spe	_	_
+7	soldat	soldat	NOM	NOM	_	8	suj	_	_
+8	monte	monter	VRB	ADJ	_	0	root	_	_
+9	la	le	DET	DET	_	10	spe	_	_
+10	garde	garde	NOM	NOM	_	8	comp	_	_
+11	devant	devant	PRE	PRE	_	8	ad	_	_
+12	une	un	DET	DET	_	14	spe	_	_
+13	immense	immense	ADJ	NOM	_	14	dep	_	_
+14	forteresse	forteresse	NOM	ADJ	_	11	dep	_	_
+15	avec	avec	PRE	PRE	_	14	dep	_	_
+16	de	de	PRE	PRE	_	15	dep	_	_
+17	puissantes	puissant	ADJ	ADJ	_	18	dep	_	_
+18	tours	tour	NOM	NOM	_	16	dep	_	_
+19	une	un	DET	DET	_	20	spe	_	_
+20	porte	porte	NOM	NOM	_	18	para	_	_
+21	cadenassée	cadenassé	ADJ	ADJ	_	20	dep	_	_
+22	porte	porte	NOM	VRB	_	20	para	_	_
+23	en	en	PRE	PRE	_	22	dep	_	_
+24	fer	fer	NOM	NOM	_	23	dep	_	_
+25	terrible	terrible	ADJ	ADJ	_	22	dep	_	_
+
+1	il	il	PRO	CLS	_	2	suj	_	_
+2	doit	devoir	VRB	VRB	_	0	root	_	_
+3	y	y	CLI	CLI	_	4	aff	_	_
+4	avoir	avoir	VNF	VNF	_	2	comp	_	_
+5	un	un	DET	DET	_	6	spe	_	_
+6	prisonnier	prisonnier	NOM	NOM	_	4	comp	_	_
+7	d'	de	PRE	PRE	_	6	dep	_	_
+8	importance	importance	NOM	NOM	_	7	dep	_	_
+9	à	à	PRE	PRE	_	4	ad	_	_
+10	l'	le	DET	DET	_	11	spe	_	_
+11	intérieur	intérieur	NOM	NOM	_	9	dep	_	_
+
+1	et	et	COO	COO	_	4	mark	_	_
+2	le	le	DET	DET	_	3	spe	_	_
+3	soldat	soldat	NOM	NOM	_	4	suj	_	_
+4	monte	monter	VRB	VRB	_	0	root	_	_
+5	la	le	DET	DET	_	6	spe	_	_
+6	garde	garde	NOM	NOM	_	4	comp	_	_
+
+1	et	et	COO	COO	_	3	mark	_	_
+2	ça	cela	PRO	PRO	_	3	suj	_	_
+3	fait	faire	VRB	VRB	_	0	root	_	_
+4	longtemps	longtemps	ADV	ADV	_	3	ad	_	_
+5	qu'	que	CSU	CSU	_	4	dep	_	_
+6	il	il	PRO	CLS	_	7	suj	_	_
+7	est	être	VRB	VRB	_	5	dep	_	_
+8	là	là	ADV	ADV	_	7	comp	_	_
+
+1	il	il	PRO	CLS	_	2	suj	_	_
+2	attend	attendre	VRB	VRB	_	0	root	_	_
+3	la	le	DET	DET	_	4	spe	_	_
+4	relève	relève	NOM	NOM	_	2	comp	_	_
+
+1	et	et	COO	COO	_	3	mark	_	_
+2	il	il	PRO	CLS	_	3	suj	_	_
+3	commence	commencer	VRB	VRB	_	0	root	_	_
+4	à	à	PRE	PRE	_	3	comp	_	_
+5	trouver	trouver	VNF	VNF	_	4	dep	_	_
+6	vraiment	vraiment	ADV	ADV	_	5	ad	_	_
+7	le	le	DET	DET	_	8	spe	_	_
+8	temps	temps	NOM	NOM	_	5	comp	_	_
+9	long	long	ADJ	ADJ	_	8	dep	_	_
+
+1	tout	tout	ADJ	ADJ	_	2	dep	_	_
+2	d'	de	PRE	PRE	_	6	periph	_	_
+3	un	un	DET	DET	_	4	spe	_	_
+4	coup	coup	NOM	NOM	_	2	dep	_	_
+5	il	il	PRO	CLS	_	6	suj	_	_
+6	entend	entendre	VRB	VRB	_	0	root	_	_
+7	oh	oh	INT	INT	_	8	dm	_	_
+8	toi	lui	PRO	PRO	_	14	periph	_	_
+9	qui	qui	PRQ	PRQ	_	10	suj	_	_
+10	monte	monter	VRB	VRB	_	8	dep	_	_
+11	la	le	DET	DET	_	12	spe	_	_
+12	garde	garde	NOM	NOM	_	10	comp	_	_
+13	au-dehors	au-dehors	ADV	ADV	_	12	ad	_	_
+14	ouvre	ouvre-moi	VRB	VPP	_	6	comp	_	_
+15	-moi	moi	CLI	VPP	_	14	dep	_	_
+16	la	le	DET	DET	_	17	spe	_	_
+17	porte	porte	NOM	NOM	_	14	comp	_	_
+
+1	s'	se	CSU	CSU	_	5	ad	_	_
+2	il	il	PRO	CLS	_	4	suj	_	_
+3	te	te	CLI	CLI	_	4	comp	_	_
+4	plaît	plaire	VRB	VRB	_	1	dep	_	_
+5	ouvre	ouvre-moi	VRB	CLI	_	0	root	_	_
+6	-moi	moi	CLI	CLI	_	5	dep	_	_
+
+1	ça	cela	PRO	PRO	_	2	suj	_	_
+2	fait	faire	VRB	VPP	_	0	root	_	_
+3	trente	trente	NUM	NUM	_	4	spe	_	_
+4	ans	an	NOM	NOM	_	2	comp	_	_
+5	qu'	que	CSU	CSU	_	4	dep	_	_
+6	on	on	CLS	CLS	_	8	suj	_	_
+7	me	me	CLI	CLI	_	8	comp	_	_
+8	garde	garder	VRB	VRB	_	5	dep	_	_
+9	ici	ici	ADV	ADV	_	8	comp	_	_
+10	sans	sans	PRE	PRE	_	8	ad	_	_
+11	boire	boire	VNF	NOM	_	10	dep	_	_
+12	et	et	COO	COO	_	13	mark	_	_
+13	sans	sans	PRE	PRE	_	10	para	_	_
+14	manger	manger	VNF	VNF	_	13	dep	_	_
+
+1	ouvre	ouvre-moi	VRB	NOM	_	0	root	_	_
+2	-moi	moi	CLI	NOM	_	1	dep	_	_
+
+1	tu	tu	CLS	CLS	_	4	suj	_	_
+2	ne	ne	CLN	CLN	_	4	ad	_	_
+3	le	le	CLI	CLI	_	4	comp	_	_
+4	regretteras	regretter	VRB	VRB	_	0	root	_	_
+5	pas	pas	ADN	ADN	_	4	ad	_	_
+6	alors	alors	ADV	ADV	_	9	periph	_	_
+7	le	le	DET	DET	_	8	spe	_	_
+8	soldat	soldat	NOM	NOM	_	9	suj	_	_
+9	dit	dire	VRB	VPP	_	0	root	_	_
+10	mais	mais	COO	COO	_	12	mark	_	_
+11	qui	qui	PRQ	PRQ	_	12	suj	_	_
+12	es	es-tu	VRB	VRB	_	9	comp	_	_
+13	-tu	tu	CLS	VRB	_	12	dep	_	_
+
+1	je	je	CLS	CLS	_	2	suj	_	_
+2	suis	être	VRB	VRB	_	0	root	_	_
+3	l'	le	DET	DET	_	4	spe	_	_
+4	impur	impur	NOM	NOM	_	2	comp	_	_
+
+1	hmm	hmm	INT	NOM	_	5	dm	_	_
+2	l'	le	DET	DET	_	3	spe	_	_
+3	impur	impur	NOM	NOM	_	5	periph	_	_
+4	je	je	CLS	CLS	_	5	suj	_	_
+5	vais	aller	VRB	VRB	_	0	root	_	_
+6	prendre	prendre	VNF	VNF	_	5	comp	_	_
+7	un	un	DET	DET	_	8	spe	_	_
+8	risque	risque	NOM	NOM	_	6	comp	_	_
+
+1	je	je	CLS	CLS	_	2	suj	_	_
+2	vais	aller	VRB	VRB	_	0	root	_	_
+3	vous	vous	CLI	CLS	_	4	comp	_	_
+4	dire	dire	VNF	VNF	_	2	comp	_	_
+5	qui	qui	PRQ	PRQ	_	7	comp	_	_
+6	c'	ce	CLS	CLS	_	7	suj	_	_
+7	est	être	VRB	VRB	_	4	comp	_	_
+
+1	c'	ce	CLS	CLS	_	2	suj	_	_
+2	est	être	VRB	VRB	_	0	root	_	_
+3	celui	celui	PRO	PRO	_	2	comp	_	_
+4	dont	dont	PRQ	PRQ	_	7	comp	_	_
+5	on	on	CLS	CLS	_	7	suj	_	_
+6	n'	ne	CLN	CLN	_	7	ad	_	_
+7	ose	oser	VRB	VRB	_	3	dep	_	_
+8	pas	pas	ADN	ADN	_	7	ad	_	_
+9	prononc~	prononc~	VNF	ADN	_	7	comp	_	_
+10	prononcer	prononcer	VNF	VNF	_	9	para	_	_
+11	le	le	DET	DET	_	12	spe	_	_
+12	nom	nom	NOM	NOM	_	10	comp	_	_
+
+1	c'	ce	CLS	CLS	_	2	suj	_	_
+2	est	être	VRB	VRB	_	0	root	_	_
+3	le	le	DET	DET	_	4	spe	_	_
+4	diable	diable	NOM	ADJ	_	2	comp	_	_
+
+1	et	et	COO	COO	_	3	mark	_	_
+2	l'	le	DET	DET	_	3	dep	_	_
+3	autre	autre	ADJ	ADJ	_	0	root	_	_
+4	qui	qui	PRQ	PRQ	_	5	suj	_	_
+5	continue	continuer	VRB	VRB	_	3	dep	_	_
+
+1	oui	oui	INT	INT	_	3	dm	_	_
+2	je	je	CLS	CLS	_	3	suj	_	_
+3	suis	être	VRB	VRB	_	0	root	_	_
+4	l'	le	DET	DET	_	5	spe	_	_
+5	impur	impur	NOM	NOM	_	3	comp	_	_
+
+1	si	si	CSU	CSU	_	7	periph	_	_
+2	tu	tu	CLS	CLS	_	4	suj	_	_
+3	me	me	CLI	CLI	_	4	comp	_	_
+4	laisses	laisser	VRB	CLI	_	1	dep	_	_
+5	sortir	sortir	VNF	VNF	_	4	comp	_	_
+6	je	je	CLS	CLS	_	7	suj	_	_
+7	serai	être	VRB	VRB	_	0	root	_	_
+8	à	à	PRE	PRE	_	7	comp	_	_
+9	ton	son	DET	DET	_	10	spe	_	_
+10	service	service	NOM	NOM	_	8	dep	_	_
+
+1	je	je	CLS	CLS	_	2	suj	_	_
+2	ferai	faire	VRB	VRB	_	0	root	_	_
+3	tout	tout	ADJ	ADJ	_	4	dep	_	_
+4	ce	ce	PRO	PRO	_	2	comp	_	_
+5	que	que	PRQ	PRQ	_	7	comp	_	_
+6	tu	tu	CLS	CLS	_	7	suj	_	_
+7	voudras	vouloir	VRB	VRB	_	4	dep	_	_
+8	le	le	DET	DET	_	9	spe	_	_
+9	soldat	soldat	NOM	NOM	_	12	suj	_	_
+10	s'	se	CLI	CLI	_	12	comp	_	_
+11	est	être	VRB	VRB	_	12	aux	_	_
+12	dit	dire	VPP	VPP	_	0	root	_	_
+13	quoi	quoi	INT	INT	_	12	dm	_	_
+
+1	l'	le	DET	DET	_	2	spe	_	_
+2	impur	impur	NOM	NOM	_	8	periph	_	_
+3	à	à	PRE	PRE	_	2	dep	_	_
+4	mon	son	DET	DET	_	5	spe	_	_
+5	service	service	NOM	NOM	_	3	dep	_	_
+6	mais	mais	COO	COO	_	8	mark	_	_
+7	c'	ce	CLS	CLS	_	8	suj	_	_
+8	est	être	VRB	VRB	_	0	root	_	_
+9	drôlement	drôlement	ADV	ADV	_	10	dep	_	_
+10	intéressant	intéressant	ADJ	ADJ	_	8	comp	_	_
+11	ça	cela	PRO	PRO	_	8	periph	_	_
+
+1	c'	ce	CLS	CLS	_	2	suj	_	_
+2	est	être	VRB	VRB	_	0	root	_	_
+3	qu'	que	CSU	CSU	_	2	comp	_	_
+4	il	il	PRO	CLS	_	5	suj	_	_
+5	a	avoir	VRB	VRB	_	3	dep	_	_
+6	un	un	DET	DET	_	8	spe	_	_
+7	certain	certain	ADJ	ADJ	_	8	dep	_	_
+8	pouvoir	pouvoir	NOM	NOM	_	5	comp	_	_
+9	ce	ce	DET	DET	_	10	spe	_	_
+10	gars	gars-là	NOM	NOM	_	5	periph	_	_
+11	-là	là	ADV	NOM	_	10	dep	_	_
+
+1	bon	bon	INT	INT	_	6	dm	_	_
+2	qu'	que	CSU	CSU	_	6	comp	_	_
+3	est-ce qu'	est-ce que	CSU	PRO	_	2	morph	_	_
+4	il	il	PRO	CLS	_	6	suj	_	_
+5	a	avoir	VRB	VRB	_	6	aux	_	_
+6	fait	faire	VPP	VPP	_	0	root	_	_
+7	le	le	DET	DET	_	8	spe	_	_
+8	soldat	soldat	NOM	NOM	_	6	periph	_	_
+
+1	il	il	PRO	CLS	_	3	suj	_	_
+2	a	avoir	VRB	VRB	_	3	aux	_	_
+3	attrapé	attraper	VPP	VPP	_	0	root	_	_
+4	son	son	DET	DET	_	5	spe	_	_
+5	sabre	sabre	NOM	NOM	_	3	comp	_	_
+
+1	il	il	PRO	CLS	_	4	suj	_	_
+2	s'	se	CLI	CLI	_	4	comp	_	_
+3	est	être	VRB	VRB	_	4	aux	_	_
+4	jeté	jeter	VPP	VPP	_	0	root	_	_
+5	sur	sur	PRE	PRE	_	4	comp	_	_
+6	la	le	DET	DET	_	7	spe	_	_
+7	porte	porte	NOM	NOM	_	5	dep	_	_
+
+1	il	il	PRO	CLS	_	3	suj	_	_
+2	a	avoir	VRB	VRB	_	3	aux	_	_
+3	fait	faire	VPP	VPP	_	0	root	_	_
+4	sauter	sauter	VNF	VNF	_	3	comp	_	_
+5	les	le	DET	DET	_	6	spe	_	_
+6	cadenas	cadenas	NOM	NOM	_	4	comp	_	_
+
+1	il	il	PRO	CLS	_	4	suj	_	_
+2	a	avoir	VRB	VRB	_	4	aux	_	_
+3	tout	tout	PRO	ADV	_	4	comp	_	_
+4	cassé	casser	VPP	VPP	_	0	root	_	_
+
+1	la	le	DET	DET	_	2	spe	_	_
+2	porte	porte	NOM	NOM	_	5	suj	_	_
+3	s'	se	CLI	CLI	_	5	aff	_	_
+4	est	être	VRB	VRB	_	5	aux	_	_
+5	ouverte	ouvrir	VPP	VPP	_	0	root	_	_
+6	et	et	COO	COO	_	11	mark	_	_
+7	pzoum	pzoum	INT	CSU	_	6	dm	_	_
+8	il	il	PRO	CLS	_	11	suj	_	_
+9	y	y	CLI	CLI	_	11	aff	_	_
+10	a	avoir	VRB	VRB	_	11	aux	_	_
+11	eu	avoir	VPP	VPP	_	5	para	_	_
+12	un	un	DET	DET	_	13	spe	_	_
+13	tourbillon	tourbillon	NOM	NOM	_	11	comp	_	_
+14	et puis	et puis	COO	COO	_	15	mark	_	_
+15	plus	plus	ADN	ADN	_	16	dep	_	_
+16	rien	rien	PRO	PRO	_	13	para	_	_
+
+1	mais	mais	COO	COO	_	4	mark	_	_
+2	il	il	PRO	CLS	_	4	suj	_	_
+3	est	être	VRB	VRB	_	4	aux	_	_
+4	parti	partir	VPP	VPP	_	0	root	_	_
+
+1	il	il	PRO	CLS	_	4	suj	_	_
+2	m'	me	CLI	CLI	_	4	comp	_	_
+3	a	avoir	VRB	VRB	_	4	aux	_	_
+4	trompé	tromper	VPP	VPP	_	0	root	_	_
+
+1	évidemment	évidemment	ADV	ADV	_	4	periph	_	_
+2	j'	je	CLS	CLS	_	4	suj	_	_
+3	aurais	avoir	VRB	VRB	_	4	aux	_	_
+4	dû	devoir	VPP	VPP	_	0	root	_	_
+5	m'	me	CLI	CLI	_	7	comp	_	_
+6	en	en	CLI	CLI	_	7	comp	_	_
+7	douter	douter	VNF	VNF	_	4	comp	_	_
+
+1	il	il	PRO	CLS	_	3	suj	_	_
+2	est	être	VRB	VRB	_	3	aux	_	_
+3	parti	partir	VPP	VPP	_	0	root	_	_
+
+1	il	il	PRO	CLS	_	4	suj	_	_
+2	m'	me	CLI	CLI	_	4	comp	_	_
+3	a	avoir	VRB	VRB	_	4	aux	_	_
+4	laissé	laisser	VPP	VPP	_	0	root	_	_
+5	comme	comme	PRE	PRE	_	4	ad	_	_
+6	ça	cela	PRO	PRO	_	5	dep	_	_
+
+1	mais	mais	COO	COO	_	7	mark	_	_
+2	qu'	que	CSU	CSU	_	7	comp	_	_
+3	est-ce	est-ce	CSU	CSU	_	2	morph	_	_
+4	-ce	ce	CLS	CSU	_	3	dep	_	_
+5	j'	je	CLS	CLS	_	7	suj	_	_
+6	ai	avoir	VRB	VRB	_	7	aux	_	_
+7	fait	faire	VPP	VPP	_	0	root	_	_
+8	là	là	ADV	ADV	_	7	ad	_	_
+
+1	oh	oh	INT	INT	_	5	dm	_	_
+2	le	le	DET	DET	_	3	spe	_	_
+3	tsar	tsar	NOM	NOM	_	5	suj	_	_
+4	me	me	CLI	CLI	_	5	comp	_	_
+5	faisait	faire	VRB	VRB	_	0	root	_	_
+6	confiance	confiance	NOM	NOM	_	5	comp	_	_
+
+1	mais	mais	COO	COO	_	4	mark	_	_
+2	oui	oui	INT	INT	_	1	dm	_	_
+3	j'	je	CLS	CLS	_	4	suj	_	_
+4	étais	être	VRB	VRB	_	0	root	_	_
+5	là	là	ADV	ADV	_	4	comp	_	_
+6	pour	pour	PRE	PRE	_	4	ad	_	_
+7	monter	monter	VNF	VNF	_	6	dep	_	_
+8	la	le	DET	DET	_	9	spe	_	_
+9	garde	garde	NOM	NOM	_	7	comp	_	_
+
+1	je	je	CLS	CLS	_	4	suj	_	_
+2	l'	le	CLI	CLI	_	4	comp	_	_
+3	ai	avoir	VRB	VRB	_	4	aux	_	_
+4	laissé	laisser	VPP	VPP	_	0	root	_	_
+5	s'	se	CLI	CLI	_	6	aff	_	_
+6	échapper	échapper	VNF	VNF	_	4	comp	_	_
+
+1	mais	mais	COO	COO	_	3	mark	_	_
+2	c'	ce	CLS	CLS	_	3	suj	_	_
+3	est	être	VRB	VRB	_	0	root	_	_
+4	terrible	terrible	ADJ	ADJ	_	3	comp	_	_
+5	oh	oh	INT	INT	_	10	dm	_	_
+6	mais	mais	COO	COO	_	10	mark	_	_
+7	quel	quel	PRQ	PRQ	_	8	dep	_	_
+8	idiot	idiot	NOM	NOM	_	10	periph	_	_
+9	je	je	CLS	CLS	_	10	suj	_	_
+10	suis	être	VRB	VRB	_	0	root	_	_
+
+1	ma	son	DET	DET	_	2	spe	_	_
+2	retraite	retraite	NOM	NOM	_	4	suj	_	_
+3	était	être	VRB	VRB	_	4	aux	_	_
+4	assurée	assurer	VPP	VPP	_	0	root	_	_
+
+1	j'	je	CLS	CLS	_	2	suj	_	_
+2	avais	avoir	VRB	VRB	_	0	root	_	_
+3	ma	son	DET	DET	_	4	spe	_	_
+4	miche	miche	NOM	NOM	_	2	comp	_	_
+5	de	de	PRE	PRE	_	4	dep	_	_
+6	pain	pain	NOM	NOM	_	5	dep	_	_
+7	chaque	chaque	DET	DET	_	8	spe	_	_
+8	jour	jour	NOM	NOM	_	2	ad	_	_
+9	j	j	CLS	INT	_	8	disflink	_	_
+
+1	'	'	X	NOM	_	3	disflink	_	_
+2	étais	être	VRB	VRB	_	3	aux	_	_
+3	payé	payer	VPP	VPP	_	0	root	_	_
+4	convenablement	convenablement	ADV	ADV	_	3	ad	_	_
+5	mais	mais	COO	COO	_	7	mark	_	_
+6	on	on	CLS	CLS	_	7	suj	_	_
+7	va	aller	VRB	VRB	_	3	para	_	_
+8	venir	venir	VNF	VNF	_	7	comp	_	_
+9	m'	me	CLI	CLI	_	10	comp	_	_
+10	arrêter	arrêter	VNF	VNF	_	8	comp	_	_
+
+1	puis	puis	COO	COO	_	3	mark	_	_
+2	euh	euh	INT	INT	_	1	dm	_	_
+3	peut-être	peut-être	ADV	ADV	_	0	root	_	_
+4	même que	même que	CSU	ADV	_	3	dep	_	_
+5	je	je	CLS	CLS	_	7	suj	_	_
+6	serai	être	VRB	VRB	_	7	aux	_	_
+7	exécuté	exécuter	VPP	VPP	_	4	dep	_	_
+
+1	je	je	CLS	CLS	_	4	suj	_	_
+2	serai	être	VRB	VRB	_	4	aux	_	_
+3	peut-être	peut-être	ADV	ADV	_	4	ad	_	_
+4	pendu	pendre	VPP	VPP	_	0	root	_	_
+
+1	oh	oh	INT	INT	_	3	dm	_	_
+2	il	il	PRO	CLS	_	3	suj	_	_
+3	vaut	valoir	VRB	VRB	_	0	root	_	_
+4	mieux	mieux	ADV	ADV	_	3	ad	_	_
+5	que	que	CSU	CSU	_	3	comp	_	_
+6	je	je	CLS	CLS	_	8	suj	_	_
+7	m'	me	CLI	CLI	_	8	comp	_	_
+8	esbigne	esbigner	VRB	VRB	_	5	dep	_	_
+9	quand	quand	CSU	CSU	_	8	ad	_	_
+10	il	il	PRO	CLS	_	9	disflink	_	_
+11	en	en	PRE	PRE	_	10	disflink	_	_
+12	quand	quand	CSU	CSU	_	9	para	_	_
+13	il	il	PRO	CLS	_	15	suj	_	_
+14	en	en	CLI	CLI	_	15	aff	_	_
+15	est	être	VRB	VRB	_	12	dep	_	_
+16	temps	temps	NOM	VPP	_	15	comp	_	_
+17	encore	encore	ADV	ADV	_	15	ad	_	_
+
+1	alors	alors	ADV	ADV	_	4	periph	_	_
+2	il	il	PRO	CLS	_	4	suj	_	_
+3	a	avoir	VRB	VRB	_	4	aux	_	_
+4	laissé	laisser	VPP	VPP	_	0	root	_	_
+5	sa	son	DET	DET	_	7	spe	_	_
+6	son	son	DET	DET	_	5	para	_	_
+7	sabre	sabre	NOM	NOM	_	4	comp	_	_
+8	son	son	DET	DET	_	9	spe	_	_
+9	sac	sac	NOM	NOM	_	7	para	_	_
+
+1	et	et	COO	COO	_	4	mark	_	_
+2	il	il	PRO	CLS	_	4	suj	_	_
+3	est	être	VRB	VRB	_	4	aux	_	_
+4	parti	partir	VPP	VPP	_	0	root	_	_
+5	à	à	PRE	PRE	_	4	ad	_	_
+6	toute	toute	ADJ	ADV	_	7	dep	_	_
+7	allure	allure	NOM	VNF	_	5	dep	_	_
+
+1	toute	tout	ADJ	ADJ	_	3	dep	_	_
+2	la	le	DET	DET	_	3	spe	_	_
+3	nuit	nuit	NOM	NOM	_	6	periph	_	_
+4	il	il	PRO	CLS	_	6	suj	_	_
+5	a	avoir	VRB	VRB	_	6	aux	_	_
+6	marché	marché	VPP	VPP	_	0	root	_	_
+
+1	et puis	et puis	COO	COO	_	7	mark	_	_
+2	dans	dans	PRE	PRE	_	7	periph	_	_
+3	la	le	DET	DET	_	4	spe	_	_
+4	journée	journée	NOM	NOM	_	2	dep	_	_
+5	il	il	PRO	CLS	_	7	suj	_	_
+6	se	se	CLI	CLI	_	7	comp	_	_
+7	cachait	cacher	VRB	VRB	_	0	root	_	_
+8	dans	dans	PRE	PRE	_	7	ad	_	_
+9	un	un	DET	DET	_	10	spe	_	_
+10	fossé	fossé	NOM	NOM	_	8	dep	_	_
+11	ou	ou	COO	COO	_	12	mark	_	_
+12	quoi	quoi	INT	PRQ	_	10	dm	_	_
+
+1	il	il	PRO	CLS	_	2	suj	_	_
+2	avait	avoir	VRB	VRB	_	0	root	_	_
+3	trop	trop	ADV	ADV	_	4	dep	_	_
+4	peur	peur	NOM	NOM	_	2	comp	_	_
+5	de	de	PRE	PRE	_	4	dep	_	_
+6	se	se	CLI	CLI	_	7	comp	_	_
+7	faire	faire	VNF	VNF	_	5	dep	_	_
+8	attraper	attraper	VNF	VNF	_	7	comp	_	_
+
+1	et	et	COO	COO	_	5	mark	_	_
+2	la	le	DET	DET	_	3	spe	_	_
+3	nuit	nuit	NOM	NOM	_	5	periph	_	_
+4	il	il	PRO	CLS	_	5	suj	_	_
+5	recommençait	recommencer	VRB	VRB	_	0	root	_	_
+6	comme	comme	PRE	PRE	_	5	ad	_	_
+7	ça	cela	PRO	PRO	_	6	dep	_	_
+8	pendant	pendant	PRE	PRE	_	5	ad	_	_
+9	trois	trois	NUM	NUM	_	10	spe	_	_
+10	jours	jour	NOM	NOM	_	8	dep	_	_
+11	et	et	COO	COO	_	13	mark	_	_
+12	trois	trois	NUM	NUM	_	13	spe	_	_
+13	nuits	nuit	NOM	NOM	_	10	para	_	_
+
+1	à	à	PRE	PRE	_	6	periph	_	_
+2	la	le	DET	DET	_	3	spe	_	_
+3	fin	fin	NOM	NOM	_	1	dep	_	_
+4	il	il	PRO	CLS	_	6	suj	_	_
+5	en	en	CLI	CLI	_	6	aff	_	_
+6	pouvait	pouvoir	VRB	VRB	_	0	root	_	_
+7	plus	plus	ADN	ADN	_	6	ad	_	_
+
+1	il	il	PRO	CLS	_	2	suj	_	_
+2	avait	avoir	VRB	VRB	_	0	root	_	_
+3	faim	faim	NOM	NOM	_	2	comp	_	_
+
+1	ses	son	DET	DET	_	2	spe	_	_
+2	chauss~	chauss~	NOM	NOM	_	7	suj	_	_
+3	ses	son	DET	DET	_	4	spe	_	_
+4	souliers	soulier	NOM	NOM	_	2	para	_	_
+5	étaient	être	VRB	VRB	_	7	aux	_	_
+6	complètement	complètement	ADV	ADV	_	7	ad	_	_
+7	usés	user	VPP	VPP	_	0	root	_	_
+
+1	il	il	PRO	CLS	_	3	suj	_	_
+2	était	être	VRB	VRB	_	3	aux	_	_
+3	exténué	exténuer	VPP	VPP	_	0	root	_	_
+
+1	il	il	PRO	CLS	_	4	suj	_	_
+2	s'	se	CLI	CLI	_	4	comp	_	_
+3	est	être	VRB	VRB	_	4	aux	_	_
+4	assis	asseoir	VPP	VPP	_	0	root	_	_
+5	sur	sur	PRE	PRE	_	4	ad	_	_
+6	un	un	DET	DET	_	7	spe	_	_
+7	talus	talus	NOM	NOM	_	5	dep	_	_
+
+1	et	et	COO	COO	_	4	mark	_	_
+2	il	il	PRO	CLS	_	4	suj	_	_
+3	a	avoir	VRB	VRB	_	4	aux	_	_
+4	crié	crier	VPP	VPP	_	0	root	_	_
+5	impur	impur	NOM	PRE	_	13	periph	_	_
+6	impur	impur	NOM	NOM	_	5	para	_	_
+7	à cause de	à cause de	PRE	PRE	_	13	periph	_	_
+8	toi	lui	PRO	PRO	_	7	dep	_	_
+9	dans	dans	PRE	PRE	_	13	comp	_	_
+10	quel	quel	PRQ	PRQ	_	11	dep	_	_
+11	état	état	NOM	NOM	_	9	dep	_	_
+12	je	je	CLS	CLS	_	13	suj	_	_
+13	suis	être	VRB	VRB	_	4	comp	_	_
+14	maintenant	maintenant	ADV	ADV	_	13	ad	_	_
+
+1	il	il	PRO	CLS	_	6	suj	_	_
+2	avait	avoir	VRB	VRB	_	6	aux	_	_
+3	pas	pas	ADN	ADN	_	5	dep	_	_
+4	plus	plus	ADN	ADN	_	5	dep	_	_
+5	tôt	tôt	ADV	ADV	_	6	ad	_	_
+6	dit	dire	VPP	VPP	_	0	root	_	_
+7	ça	cela	PRO	PRO	_	6	comp	_	_
+8	que	que	CSU	CSU	_	6	ad	_	_
+9	hip	hip	INT	DET	_	8	dm	_	_
+10	un	un	DET	DET	_	12	spe	_	_
+11	un	un	DET	DET	_	10	para	_	_
+12	tourbillon	tourbillon	NOM	NOM	_	8	dep	_	_
+
+1	et	et	COO	COO	_	4	mark	_	_
+2	l'	le	DET	DET	_	3	spe	_	_
+3	impur	impur	NOM	NOM	_	4	suj	_	_
+4	était	être	VRB	VRB	_	0	root	_	_
+5	devant	devant	PRE	PRE	_	4	comp	_	_
+6	lui	lui	PRO	PRO	_	5	dep	_	_
+
+1	quelque chose	quelque chose	PRO	PRO	_	3	suj	_	_
+2	ne	ne	CLN	CLN	_	3	ad	_	_
+3	va	aller	VRB	VRB	_	0	root	_	_
+4	pas	pas	ADN	ADN	_	3	ad	_	_
+5	jeune	jeune	ADJ	ADJ	_	6	dep	_	_
+6	homme	homme	NOM	NOM	_	3	periph	_	_
+
+1	ah	ah	INT	INT	_	4	dm	_	_
+2	non	non	INT	INT	_	1	dm	_	_
+3	ça	cela	PRO	PRO	_	4	suj	_	_
+4	va	aller	VRB	VRB	_	0	root	_	_
+5	pas du tout	pas du tout	ADN	ADN	_	4	ad	_	_
+
+1	ah	ah	INT	INT	_	3	dm	_	_
+2	ça	cela	PRO	PRO	_	3	suj	_	_
+3	va	aller	VRB	VRB	_	0	root	_	_
+4	pas du tout	pas du tout	ADN	ADN	_	3	ad	_	_
+5	dit	dire	VRB	VPP	_	3	insert	_	_
+6	le	le	DET	DET	_	7	spe	_	_
+7	soldat	soldat	NOM	NOM	_	5	suj	_	_
+
+1	regarde	regarder	VRB	VRB	_	0	root	_	_
+2	dans	dans	PRE	PRE	_	6	comp	_	_
+3	quel	quel	PRQ	PRQ	_	4	dep	_	_
+4	état	état	NOM	NOM	_	2	dep	_	_
+5	je	je	CLS	CLS	_	6	suj	_	_
+6	suis	être	VRB	VRB	_	1	comp	_	_
+7	à cause de	à cause de	PRE	PRE	_	6	comp	_	_
+8	toi	lui	PRO	PRO	_	7	dep	_	_
+
+1	tu	tu	CLS	CLS	_	2	suj	_	_
+2	vois	voir	VRB	VRB	_	6	periph	_	_
+3	mes	son	DET	DET	_	4	spe	_	_
+4	souliers	soulier	NOM	NOM	_	2	comp	_	_
+5	ils	il	CLS	CLS	_	6	suj	_	_
+6	ont	avoir	VRB	VRB	_	0	root	_	_
+7	plus	plus	NOM	NOM	_	6	ad	_	_
+8	de	de	PRE	PRE	_	6	comp	_	_
+9	semelles	semelle	NOM	NOM	_	8	dep	_	_
+
+1	et puis	et puis	COO	COO	_	3	mark	_	_
+2	j'	je	CLS	CLS	_	3	suj	_	_
+3	ai	avoir	VRB	VRB	_	0	root	_	_
+4	faim	faim	NOM	NOM	_	3	comp	_	_
+
+1	et puis	et puis	COO	COO	_	3	mark	_	_
+2	j'	je	CLS	CLS	_	3	suj	_	_
+3	ai	avoir	VRB	VRB	_	0	root	_	_
+4	soif	soif	NOM	CSU	_	3	comp	_	_
+5	on	on	CLS	CLS	_	6	suj	_	_
+6	va	aller	VRB	VRB	_	0	root	_	_
+7	arranger	arranger	VNF	VNF	_	6	comp	_	_
+8	ça	cela	PRO	PRO	_	7	comp	_	_
+9	dit	dire	VRB	VPP	_	6	insert	_	_
+10	l'	le	DET	DET	_	11	spe	_	_
+11	impur	impur	NOM	NOM	_	9	suj	_	_
+
+1	ne	ne	CLN	CLN	_	3	ad	_	_
+2	t'	te	CLI	CLS	_	3	comp	_	_
+3	inquiète	inquiéter	VRB	VRB	_	0	root	_	_
+4	pas	pas	ADN	ADN	_	3	ad	_	_
+
+1	et	et	COO	COO	_	6	mark	_	_
+2	le	le	DET	DET	_	3	spe	_	_
+3	diable	diable	NOM	NOM	_	6	periph	_	_
+4	il	il	PRO	CLS	_	6	suj	_	_
+5	a	avoir	VRB	VRB	_	6	aux	_	_
+6	commencé	commencer	VPP	VPP	_	0	root	_	_
+7	à	à	PRE	PRE	_	6	comp	_	_
+8	s'	se	CLI	CLI	_	9	aff	_	_
+9	affairer	affairer	VNF	VNF	_	7	dep	_	_
+10	à droite	à droite	ADV	ADV	_	9	ad	_	_
+11	et	et	COO	COO	_	12	mark	_	_
+12	à gauche	à gauche	ADV	ADV	_	10	para	_	_
+
+1	et	et	COO	COO	_	9	mark	_	_
+2	en	en	PRE	PRE	_	9	periph	_	_
+3	un	un	DET	DET	_	4	spe	_	_
+4	instant	instant	NOM	NOM	_	2	dep	_	_
+5	devant	devant	PRE	PRE	_	9	periph	_	_
+6	le	le	DET	DET	_	7	spe	_	_
+7	soldat	soldat	NOM	NOM	_	5	dep	_	_
+8	se	se	CLI	CLI	_	9	aff	_	_
+9	dressait	dresser	VRB	VRB	_	0	root	_	_
+10	une	un	DET	DET	_	11	spe	_	_
+11	table	table	NOM	NOM	_	9	suj	_	_
+12	fort	fort	ADV	ADJ	_	13	dep	_	_
+13	bien	bien	ADV	ADV	_	14	dep	_	_
+14	garnie	garni	ADJ	ADJ	_	11	dep	_	_
+
+1	il	il	PRO	CLS	_	3	suj	_	_
+2	y	y	CLI	CLI	_	3	aff	_	_
+3	avait	avoir	VRB	VRB	_	0	root	_	_
+4	même	même	ADV	ADV	_	3	ad	_	_
+5	de	de	PRE	PRE	_	3	comp	_	_
+6	la	le	DET	DET	_	7	spe	_	_
+7	vodka	vodka	NOM	NOM	_	5	dep	_	_
+
+1	le	le	DET	DET	_	2	spe	_	_
+2	soldat	soldat	NOM	NOM	_	3	suj	_	_
+3	était	être	VRB	VRB	_	0	root	_	_
+4	content	content	ADJ	ADJ	_	3	comp	_	_

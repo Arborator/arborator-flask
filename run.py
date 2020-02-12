@@ -1,18 +1,26 @@
 #!/usr/bin/python3
 import os
 from .app import create_app
-from flask_cors import CORS, cross_origin
+# from flask_cors import CORS, cross_origin
 from flask import render_template, flash, redirect, url_for, jsonify, request, Response, abort
+from .app.models.models import *
+# db.create_all()
 
 config_name = os.getenv('FLASK_CONFIG')
 app = create_app(config_name)
 # CORS(app)
-cors = CORS(app
-    , resources={r"/*": {"origins": "*"}}
-    ,expose_headers='Authorization', 
-    allow_headers=["Content-Type", "Authorization", "Access-Control-Allow-Credentials"],
-    supports_credentials=True)
+# prod
+# cors = CORS(app
+#     , resources={r"/*": {"origins": "*"}}
+#     ,expose_headers='Authorization', 
+#     allow_headers=["Content-Type", "Authorization", "Access-Control-Allow-Credentials"],
+#     supports_credentials=True)
 # app.config['CORS_HEADERS'] = "Content-Type", "Authorization", "Access-Control-Allow-Credentials"
+
+
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 # @app.before_request
 # def authorize_token():

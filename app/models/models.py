@@ -6,7 +6,7 @@ from datetime import datetime
 # from sqlathanor import declarative_base, as_declarative
 from sqlalchemy.schema import UniqueConstraint
 import re, base64, json
-from app import db, login_manager
+from ...app import db, login_manager #prod
 
 from sqlalchemy.ext.declarative import DeclarativeMeta
 
@@ -15,15 +15,15 @@ class BaseM(object):
 	def as_json(self, exclude=[], include={}):
 		json_rep = dict()
 		for k in vars(self):
-			print(getattr(self, k))
+			# print(getattr(self, k))
 			if k in exclude:
 				# print(k)
 				continue
 			elif k[0] == "_":
 				continue
 			elif type(getattr(self, k)) is bytes:
-				print('yay')
-				print(getattr(self, k))
+				# print('yay')
+				# print(getattr(self, k))
 				json_rep[k] = str(base64.b64encode(getattr(self, k)))
 				# json_rep[k] = str(getattr(self, k))
 			else:
@@ -51,9 +51,6 @@ class AlchemyEncoder(json.JSONEncoder):
 			return fields
 
 		return json.JSONEncoder.default(self, obj)
-
-
-
 
 class User(UserMixin, db.Model, BaseM):
 
@@ -139,6 +136,36 @@ class Project(db.Model, BaseM):
 	# users = db.relationship('User', backref='project_user',lazy='dynamic')
 	#texts = db.relationship('Text', backref='project_text',lazy='dynamic')
 	is_private = db.Column(db.Boolean, default=False)
+	relations = db.relationship('LabelStock')
+	cats = db.relationship('CatLabel')
+	show_all_trees = db.Column(db.Boolean, default=True)
+	is_open = db.Column(db.Boolean, default=False)
+	default_user_trees = db.relationship('DefaultUserTrees')
+
+
+class LabelStock(db.Model):
+	__tablename__ = 'labelstocks'
+	id = db.Column(db.Integer, primary_key=True)
+	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+	project = db.relationship('Project')
+	labels = db.relationship('Label')
+
+
+class Label(db.Model):
+	__tablename__ = 'labels'
+	id = db.Column(db.Integer, primary_key=True)
+	stock_id = db.Column(db.Integer, db.ForeignKey('labelstocks.id'))
+	stock = db.relationship('LabelStock')
+	value = db.Column(db.String(256), nullable=False)
+
+
+class CatLabel(db.Model):
+	__tablename__ = 'catlabels'
+	id = db.Column(db.Integer, primary_key=True)
+	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+	project = db.relationship('Project')
+	value = db.Column(db.String(256), nullable=False)
+
 
 class ProjectAccess(db.Model):
 	__tablename__ = 'projectaccess'
@@ -148,6 +175,22 @@ class ProjectAccess(db.Model):
 	projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))
 	userid = db.Column(db.String(256), db.ForeignKey('users.id'))
 	accesslevel = db.Column(ChoiceType(ACCESS, impl=db.Integer()))
+
+class DefaultUserTrees(db.Model, BaseM):
+	__tablename__ = 'defaultusertrees'
+	id = db.Column(db.Integer, primary_key=True)
+	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+	project = db.relationship('Project')
+	user_id = db.Column(db.String(256), db.ForeignKey('users.id'))
+	username = db.Column(db.String(256), nullable=False)#db.ForeignKey('users.username'))
+	robot = db.Column(db.Boolean, default=False)
+
+class Robot(db.Model, BaseM):
+	__tablename__ = 'robots'
+	id = db.Column(db.Integer, primary_key=True)
+	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+	project = db.relationship('Project')
+	username = db.Column(db.String(256), nullable=False)
 
 
 
@@ -166,7 +209,7 @@ class ProjectAccess(db.Model):
 
 class SampleRole(db.Model):
 	__tablename__ = 'samplerole'
-	ROLES =  [(1, 'annotator'), (2, 'validator'), (3, 'supervalidator'), (4, 'prof')]
+	ROLES =  [(1, 'annotator'), (2, 'validator'), (3, 'prof')]
 	id = db.Column(db.Integer, primary_key=True)
 	samplename = db.Column(db.String(256), nullable=False)
 	projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))

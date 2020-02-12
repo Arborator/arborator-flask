@@ -11,7 +11,7 @@ from flask_bootstrap import Bootstrap
 
 
 # local imports
-from config import app_config
+from ..config import app_config #prod
 # from .project import get_access_for_project
 
 # db variable initialization
@@ -49,6 +49,19 @@ def create_app(config_name):
 
 	from .controllers.project import project as project_blueprint
 	app.register_blueprint(project_blueprint, url_prefix='/api/projects')
+
+	@app.before_first_request
+	def create_tables():
+		db.create_all()
+
+	@app.after_request
+	def after_request(response):
+		response.headers.add('Access-Control-Allow-Origin', 'https://arborapi.ilpga.fr')
+		response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+		response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS')
+		response.headers.add('Access-Control-Expose-Headers', 'Authorization')
+		response.headers.add('Access-Control-Allow-Credentials', 'true')
+		return response
 
 	@app.errorhandler(403)
 	def forbidden(error):

@@ -2,12 +2,12 @@ from flask import Flask, render_template, request, make_response, session, redir
 from authomatic.adapters import WerkzeugAdapter
 from authomatic import Authomatic
 from flask_login import login_required, login_user, logout_user
-from app import db
+from ....app import db #prod
 from datetime import datetime
 from . import auth
 from ...models.models import User, load_user, AlchemyEncoder
 from .auth_config import CONFIG
-from config import Config
+from ....config import Config #prod
 import json
 import requests
 
@@ -136,18 +136,11 @@ def login(provider_name):
 @auth.route('/login/userinfos', methods=['GET', 'POST'])
 def getUserInfos():
     # print(session)
-    print('USERINFOS')
     user_id = session.get("user_id")
-    print('user_id', user_id)
     user = load_user(user_id)
-    print('super_admin ?', user.super_admin)
     user.last_seen=datetime.utcnow()
-    print('user', user)
-    print('user json', user.as_json())
     db.session.commit()
     js = json.dumps(user.as_json(), default=str) # returns empty data !
-    print('user jjson str', js)
-    print(json.dumps(user, cls=AlchemyEncoder) )
     js = json.dumps(user, cls=AlchemyEncoder)
     resp = Response(js, status=200,  mimetype='application/json')
     return resp
