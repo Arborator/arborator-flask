@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, jsonify, request, Response, abort
+from flask import render_template, flash, redirect, url_for, jsonify, request, Response, abort, current_app
 from flask_login import login_required, current_user
 from werkzeug import secure_filename
 import json, logging
@@ -14,7 +14,7 @@ import io, zipfile, time
 from . import project
 from ...models.models import *
 from ...utils.grew_utils import grew_request, upload_project
-from ....config import Config #prod
+# from ....config import Config #prod
 
 from ...services import project_service, user_service, robot_service
 
