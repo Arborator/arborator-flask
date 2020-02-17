@@ -190,6 +190,27 @@ def set_is_open(project_name, value):
     db.session.commit()
     return project
 
+def set_is_private(project_name, value):
+    """ change the value of is_private """
+    project = Project.query.filter_by(projectname=project_name).first()
+    project.is_private = value
+    db.session.commit()
+    return project
+
+def set_description(project_name, value):
+    """ change the description of the project """
+    project = Project.query.filter_by(projectname=project_name).first()
+    project.description = value
+    db.session.commit()
+    return project
+
+def set_image(project_name, value):
+    """ change the image of the project """
+    project = Project.query.filter_by(projectname=project_name).first()
+    project.image = value
+    db.session.commit()
+    return project
+
 def find_default_user_trees(project_id):
     """ find userids for this project default user trees """
     # userids = [ dut.user_id for dut in DefaultUserTrees.query.filter_by(project_id=project_id).all() ]

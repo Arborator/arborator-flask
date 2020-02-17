@@ -185,6 +185,43 @@ def project_open_project(project_name):
 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
 	return resp
 
+@project.route('/<project_name>/private', methods=['POST'])
+@requires_access_level(2)
+def project_private_project(project_name):
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	value = request.json.get("value")
+	project_service.change_is_private(project_name, value)
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
+
+@project.route('/<project_name>/description', methods=['POST'])
+@requires_access_level(2)
+def project_description(project_name):
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	value = request.json.get("value")
+	project_service.change_description(project_name, value)
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
+
+@project.route('/<project_name>/image', methods=['POST'])
+@requires_access_level(2)
+def project_image(project_name):
+	if not request.files: abort(400)
+	print('hey', request.files.to_dict(flat=False))
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	files = request.files.to_dict(flat=False).get("files")
+	content = request.files['files'].read()
+	project_service.change_image(project_name, content)
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
 
 @project.route('/<project_name>/', methods=['POST'])
 # @login_required

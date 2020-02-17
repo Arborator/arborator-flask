@@ -129,6 +129,21 @@ def change_is_open(project_name, value):
     project = project_dao.set_is_open(project_name, value)
     return project
 
+def change_is_private(project_name, value):
+    """ set a project to private and return the new project  """
+    project = project_dao.set_is_private(project_name, value)
+    return project
+
+def change_description(project_name, value):
+    """ set a project description and return the new project  """
+    project = project_dao.set_description(project_name, value)
+    return project
+
+def change_image(project_name, value):
+    """ set a project image (blob base64) and return the new project  """
+    project = project_dao.set_image(project_name, value)
+    return project
+
 def add_default_user_tree(project, user_id, username, robot=False):
     """ add a default user tree """
     if robot:
