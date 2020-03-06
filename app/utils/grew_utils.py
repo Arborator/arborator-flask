@@ -41,10 +41,15 @@ def upload_project(fileobject, reextensions=None):
             )
         print(reply)
 
-if (len(sys.argv) > 1 and sys.argv[1] == "local"):
-    server = 'http://localhost:8080'
-else:
-    server = 'http://arborator.grew.fr'
+# prod
+# if (len(sys.argv) > 1 and sys.argv[1] == "local"):
+#     server = 'http://localhost:8080'
+# else:
+#     server = 'http://arborator.grew.fr'
+
+# dev
+server = 'http://arborator-dev.grew.fr'
+
 
 def grew_request(fct_name, data={}, files={}):
     try:
@@ -58,6 +63,9 @@ def grew_request(fct_name, data={}, files={}):
         print ("Connection refused")
     except Exception as e:
         print ("Uncaught exception, please report %s" % e)
+
+# reply = grew_request ( 'getSamples', data = {'project_id': project.projectname} )
+# print('REPLYYY', reply)
 
 
 # print ("\n***************************************************************************\n")

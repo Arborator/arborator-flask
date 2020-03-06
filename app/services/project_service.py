@@ -199,7 +199,7 @@ def get_infos(project_name, current_user):
         sample_lengths = []
         print(time.monotonic(), 'big for START')
         for sa in data:
-            sample={'samplename':sa['name'], 'sentences':sa['size'], 'treesFrom':sa['users'], "roles":{}}
+            sample={'samplename':sa['name'], 'sentences':sa['number_sentences'], 'number_trees':sa['number_trees'], 'tokens':sa['number_tokens'], 'treesFrom':sa['users'], "roles":{}}
             lengths = []
             for r,label in project_dao.get_possible_roles():
                 role = db.session.query(User, SampleRole).filter(
@@ -212,7 +212,6 @@ def get_infos(project_name, current_user):
 
             # gael : removed temporarily for request time (need to be done in grew)
             sample["exo"] = "" # dummy
-            sample["tokens"] = 0 # dummy
 
             # reply = json.loads(grew_request('getConll', data={'project_id': project.projectname, 'sample_id':sa["name"]}))
             
@@ -475,6 +474,7 @@ def upload_sample(fileobject, project_name, import_user, reextensions=None, exis
                 files={'conll_file': inf},
             )
     reply = json.loads(reply)
+    print('REPLY S+TATIUUUSS', reply)
     if reply.get("status") != "OK":
         abort(400)
 

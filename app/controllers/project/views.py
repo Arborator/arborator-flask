@@ -318,27 +318,22 @@ def search_project(project_name):
 	if not request.json: abort(400)
 
 	pattern = request.json.get("pattern")
-	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
+	reply = json.loads(grew_request("searchPatternInGraphs",data={"project_id":project.projectname, "pattern":pattern}))
 	if reply["status"] != "OK": abort(400)
 	trees={}
 	# matches={}
 	reendswithnumbers = re.compile(r"_(\d+)$")
 
 	for m in reply["data"]:
-		if reendswithnumbers.search(list(m["nodes"].values())[0]):
-			user_id = reendswithnumbers.sub("", list(m["nodes"].values())[0])
-		elif reendswithnumbers.search(list(m["edges"].values())[0]):
-			user_id = reendswithnumbers.sub("",list(m["edges"].values())[0])
-		else: abort(409)
+		if m['user_id'] == '': abort(409)
 
-		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
+		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":m['user_id']}))
 		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
-		trees=project_service.formatTrees(m, trees, conll, user_id)
+		trees=project_service.formatTrees(m, trees, conll, m['user_id'])
 
 	js = json.dumps(trees)
 	resp = Response(js, status=200,  mimetype='application/json')
-	# print(11111)
 	return resp
 	
 
@@ -633,7 +628,7 @@ def search_sample(project_name, sample_name):
 	if not sample_name in samples["samples"]: abort(404)
 
 	pattern = request.json.get("pattern")
-	reply = json.loads(grew_request("searchPatternInSentences",data={"project_id":project.projectname, "pattern":pattern}))
+	reply = json.loads(grew_request("searchPatternInGraphs",data={"project_id":project.projectname, "pattern":pattern}))
 	if reply["status"] != "OK": abort(400)
 
 	trees={}
@@ -642,16 +637,12 @@ def search_sample(project_name, sample_name):
 
 	for m in reply["data"]:
 		if m["sample_id"] != sample_name: continue
-		if reendswithnumbers.search(list(m["nodes"].values())[0]):
-			user_id = reendswithnumbers.sub("", list(m["nodes"].values())[0])
-		elif reendswithnumbers.search(list(m["edges"].values())[0]):
-			user_id = reendswithnumbers.sub("",list(m["edges"].values())[0])
-		else: abort(409)
+		if m['user_id'] == '': abort(409)
 
-		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":user_id}))
+		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":m['user_id']}))
 		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
-		trees=project_service.formatTrees(m, trees, conll, user_id)
+		trees=project_service.formatTrees(m, trees, conll, m['user_id'])
 		# # adding trees
 		# # {trees:{sent_id:{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
 		# if m["sent_id"] not in trees:
