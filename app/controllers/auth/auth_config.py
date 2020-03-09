@@ -41,9 +41,11 @@ CONFIG = {
 
         'class_': oauth2.GitHub,
         # 'consumer_key': '031490de23f3d79f6ad1',
-        'consumer_key':'e82130012299536bd9fa',
+        # 'consumer_key':'e82130012299536bd9fa', # client id prod
+        'consumer_key':'924aedede12fde87b5f4', # client id dev
         # 'consumer_secret': '3c272d0218300e42e319d9a61091873cd6e7b02d',
-        'consumer_secret': 'b9462174b0fe58b477a403be5d95fabffa149ec2',
+        # 'consumer_secret': 'b9462174b0fe58b477a403be5d95fabffa149ec2', # client secret prod
+        'consumer_secret': '4b4e6235887137665573659c7ebd2f3980dde718', # client secret dev
         'id': authomatic.provider_id(),
         'scope': oauth2.GitHub.user_info_scope
     },
