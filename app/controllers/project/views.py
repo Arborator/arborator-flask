@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, jsonify, request, Response, abort, current_app
+from flask import render_template, flash, redirect, url_for, jsonify, request, Response, abort, current_app, make_response
 from flask_login import login_required, current_user
 from werkzeug import secure_filename
 import json, logging
@@ -296,7 +296,6 @@ def delete_project(project_name):
 	js = json.dumps(projects)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
-
 
 
 @project.route('/<project_name>/search', methods=["GET","POST"])
@@ -798,6 +797,7 @@ def update_sample(project_name, sample_name):
 # @requires_access_level(1)
 def save_trees(project_name, sample_name):
 	project = project_service.get_by_name(project_name)
+	print("save_trees",project_name, sample_name, project)
 	if not project:
 		print("problem with proj")
 		abort(404)
@@ -807,6 +807,7 @@ def save_trees(project_name, sample_name):
 	
 
 	samples = {"samples":project_service.get_samples(project_name)}
+	print(samples, sample_name in samples["samples"])
 	if not sample_name in samples["samples"]:
 		print("problem with sample")
 		abort(404)
@@ -822,6 +823,7 @@ def save_trees(project_name, sample_name):
 			# print(tree)
 			sent_id = tree.get("sent_id")
 			conll = tree.get("conll")
+			print(464564,conll)
 			# if not sent_id: abort(400)
 			if not conll: abort(400)
 
@@ -830,10 +832,14 @@ def save_trees(project_name, sample_name):
 				data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':user_id, 'sent_id':sent_id, "conll_graph":conll}
 				)
 			resp = json.loads(reply)
-			# print(resp)
-			# print(resp.get("status"))
 			if resp["status"] != "OK":
-				abort(404)
+				print(resp)
+				if "data" in resp:
+					response = jsonify({'status': 400, 'message': str(resp["data"])  })
+				else: 
+					response = jsonify({'status': 400, 'message': 'You idiots!...'  })
+				response.status_code = 400
+				abort(response)
 			
 	resp = Response(dict(), status=200,  mimetype='application/json')
 	return resp
