@@ -107,7 +107,7 @@ def login(provider_name):
                         db.session, 
                         id = results_parsed["id"],
                         auth_provider = result.user.provider.id,
-                        username = results_parsed.get("username"),
+                        username = username,
                         #email=result.user.email,
                         first_name=results_parsed.get("first_name"),
                         family_name=results_parsed.get("family_name"),

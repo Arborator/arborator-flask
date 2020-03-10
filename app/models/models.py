@@ -81,7 +81,7 @@ class User(UserMixin, db.Model, BaseM):
 		version = 2
 		while True:
 			new_nickname = nickname + str(version)
-			if User.query.filter_by(nickname=new_nickname).first() is None:
+			if User.query.filter_by(username=new_nickname).first() is None:
 				break
 			version += 1
 		return new_nickname
