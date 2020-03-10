@@ -93,3 +93,8 @@ def exists_sample(username, project_name, sample_name):
 def make_commit(data, path):
     resp = requests.put('https://api.github.com/repos/{}'.format(path), headers=base_header(), json=data)
     return resp
+
+def get_sample(username, project_name, sample_name):
+    user_repo = get_user_repository(username)
+    resp = requests.get('https://api.github.com/repos/{}/contents/{}/{}'.format(user_repo, project_name, sample_name), headers=base_header())
+    return resp
