@@ -1,4 +1,5 @@
 import os
+from cryptography.hazmat.backends import default_backend
 
 
 class Config(object):
@@ -24,6 +25,13 @@ class Config(object):
     # if both are uncommented then vue can access the session cookie
     SESSION_COOKIE_HTTPONLY = False
     SESSION_COOKIE_SECURE = True
+
+    # Github app
+    fname = 'keys/arborator-grew.pem'
+    cert_bytes = open(fname, 'rb').read()
+    PKEY = default_backend().load_pem_private_key(cert_bytes, None)
+    APP_ID = open('keys/arborator-grew-appid.txt').read()
+    INSTALATION_ID = int(open('keys/arborator-grew-installationid.txt').read())
 
 class DevelopmentConfig(Config):
     """

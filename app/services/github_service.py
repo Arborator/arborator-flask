@@ -43,7 +43,53 @@ def get_token():
     installation_id = Config.INSTALATION_ID
     resp = requests.post('https://api.github.com/installations/{}/access_tokens'.format(installation_id),
                      headers=app_headers())
-    print('Code: ', resp.status_code)
-    print('Content: ', resp.content.decode())
+    # print('Code: ', resp.status_code)
+    # print('Content: ', resp.content.decode())
     token = json.loads(resp.content.decode()).get("token")
     return token
+
+def base_header():
+    token = get_token()
+    headers = {"Authorization": "token {}".format(token),
+           "Accept": "application/vnd.github.machine-man-preview+json"}
+    return headers
+
+def user_granted_access(username):
+    resp = requests.get('https://api.github.com/users/{}'.format(username), headers=base_header())
+    if resp.status_code == 404:
+        return False
+    elif resp.status_code == 200:
+        return True
+
+
+def get_user_repository(username):
+    # get a user
+    resp = requests.get('https://api.github.com/installation/repositories', headers=base_header())
+    if resp.status_code == 404:
+        abort(404)
+    elif resp.status_code == 200:
+        repos = json.loads(resp.content.decode())["repositories"]
+        filtered_repos = []
+        for rep in repos:
+            owner = rep["owner"]
+            if owner["login"] == username:
+                filtered_repos.append(rep["full_name"])
+        return filtered_repos[0] # users should only give us access to one repository ?
+
+def exists_project_repository(username, project_name):
+    user_repo = get_user_repository(username)
+    resp = requests.get('https://api.github.com/repos/{}/contents/{}'.format(user_repo, project_name), headers=base_header())
+    if resp.status_code == 200:
+        return True
+    else:
+        print(resp.status_code, "\n", resp.content.decode())
+        return False
+
+def exists_sample(username, project_name, sample_name):
+    user_repo = get_user_repository(username)
+    resp = requests.get('https://api.github.com/repos/{}/contents/{}/{}'.format(user_repo, project_name, sample_name), headers=base_header())
+    return resp
+
+def make_commit(data, path):
+    resp = requests.put('https://api.github.com/repos/{}'.format(path), headers=base_header(), json=data)
+    return resp

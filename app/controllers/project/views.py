@@ -9,6 +9,7 @@ from ...utils.conll3 import conll3
 from collections import OrderedDict
 # from flask_cors import cross_origin
 import io, zipfile, time
+import base64
 
 # local imports
 from . import project
@@ -858,18 +859,40 @@ def get_relation_table_current_user(project_name):
 # @login_required
 # @requires_access_level(1)
 def commit_sample(project_name, sample_name):
-	print ("========[getConll]")
-	reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':sample_name}))
-	if reply.get("status") == "OK":
-		samples = reply.get("data", {})	
-		project = project_service.get_by_name(project_name)
-		if not project: abort(404)
-		js = json.dumps( project_service.samples2trees_with_restrictions(samples, sample_name, current_user, project_name) )
-		print(js)
-
 	# push to github
-	token = github_service.get_token()
-	print(token)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	access = github_service.user_granted_access(current_user.username)
+	if access:
+		print ("========[getConll]")
+		reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':sample_name}))
+		if reply.get("status") == "OK":
+			sample = reply.get("data", {})	
+			content = []
+			for sent_id in sample:
+				conll = sample[sent_id].get(current_user.username)
+				if conll:
+					content.append(conll)
+
+			content = "\n\n".join(content)
+			content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
+
+			user_repo = github_service.get_user_repository(current_user.username)
+			# project_folder = github_service.exists_project_repository(current_user.username, project_name)
+			resp = github_service.exists_sample(current_user.username, project_name, sample_name)
+			
+			if resp.status_code == 200:
+				print("updating sample")
+				sha = json.loads(resp.content.decode())["sha"]
+				data = {'sha':sha, 'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
+			else:
+				print("new sample")
+				data = {'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
+
+			path = user_repo+"/contents/"+project_name+"/"+sample_name
+			resp = github_service.make_commit(data, path)
+			print(resp.status_code)
+			print(resp.content.decode())
 			
 	resp = Response(dict(), status=200,  mimetype='application/json')
 	return resp
