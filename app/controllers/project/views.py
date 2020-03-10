@@ -878,7 +878,6 @@ def commit_sample(project_name, sample_name):
 			content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
 
 			user_repo = github_service.get_user_repository(current_user.username)
-			# project_folder = github_service.exists_project_repository(current_user.username, project_name)
 			resp = github_service.exists_sample(current_user.username, project_name, sample_name)
 			
 			if resp.status_code == 200:
@@ -893,6 +892,10 @@ def commit_sample(project_name, sample_name):
 			resp = github_service.make_commit(data, path)
 			print(resp.status_code)
 			print(resp.content.decode())
+
+	else:
+		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
+		abort(404)
 			
 	resp = Response(dict(), status=200,  mimetype='application/json')
 	return resp
@@ -936,6 +939,10 @@ def pull_sample(project_name, sample_name):
 				resp = json.loads(reply)
 				if resp["status"] != "OK":
 					abort(404)
+
+	else:
+		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
+		abort(404)
 
 	# trees have been updated -> reload
 	return samplepage(project_name, sample_name)

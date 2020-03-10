@@ -76,14 +76,14 @@ def get_user_repository(username):
                 filtered_repos.append(rep["full_name"])
         return filtered_repos[0] # users should only give us access to one repository ?
 
-def exists_project_repository(username, project_name):
-    user_repo = get_user_repository(username)
-    resp = requests.get('https://api.github.com/repos/{}/contents/{}'.format(user_repo, project_name), headers=base_header())
-    if resp.status_code == 200:
-        return True
-    else:
-        print(resp.status_code, "\n", resp.content.decode())
-        return False
+# def exists_project_repository(username, project_name):
+#     user_repo = get_user_repository(username)
+#     resp = requests.get('https://api.github.com/repos/{}/contents/{}'.format(user_repo, project_name), headers=base_header())
+#     if resp.status_code == 200:
+#         return True
+#     else:
+#         print(resp.status_code, "\n", resp.content.decode())
+#         return False
 
 def exists_sample(username, project_name, sample_name):
     user_repo = get_user_repository(username)
