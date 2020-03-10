@@ -172,6 +172,7 @@ def get_infos(project_name, current_user):
 
     reply = grew_request ( 'getSamples', data = {'project_id': project.projectname} )
     js = json.loads(reply)
+    # print("reeeply\n", js)
     data = js.get("data")
     samples=[]
     nb_samples=0
@@ -184,7 +185,7 @@ def get_infos(project_name, current_user):
         sample_lengths = []
         print(time.monotonic(), 'big for START')
         for sa in data:
-            sample={'samplename':sa['name'], 'sentences':sa['size'], 'treesFrom':sa['users'], "roles":{}}
+            sample={'samplename':sa['name'], 'sentences':sa['number_sentences'],'trees':sa['number_trees'], 'tokens':sa['number_tokens'],'treesFrom':sa['users'], "roles":{}}
             lengths = []
             for r,label in project_dao.get_possible_roles():
                 role = db.session.query(User, SampleRole).filter(
@@ -197,7 +198,7 @@ def get_infos(project_name, current_user):
 
             # gael : removed temporarily for request time (need to be done in grew)
             sample["exo"] = "" # dummy
-            sample["tokens"] = 0 # dummy
+            # sample["tokens"] = 0 # dummy
 
             # reply = json.loads(grew_request('getConll', data={'project_id': project.projectname, 'sample_id':sa["name"]}))
             
@@ -213,7 +214,7 @@ def get_infos(project_name, current_user):
             # if len(lengths) > 0 : sample["averageSentenceLength"] = float( round( Decimal(sum(lengths)/len(lengths)) , 2) )
 
             # sample["exo"] = "" # TODO : create the table in the db and update it
-            # # print('sample', sample)
+            # print('sample', sample)
             samples.append(sample)
             # sample_lengths += [sample["tokens"]]
 
@@ -386,7 +387,6 @@ def samples2trees_with_restrictions(samples, sample_name, current_user, project_
     trees={}
     p = project_dao.find_by_name(project_name)
     default_user_trees_ids = [dut.username for dut in project_dao.find_default_user_trees(p.id)]
-
     default_usernames = list()
     default_usernames = default_user_trees_ids
     # if len(default_user_trees_ids) > 0: default_usernames = user_dao.find_username_by_ids(default_user_trees_ids)

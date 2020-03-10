@@ -16,7 +16,7 @@ from ...models.models import *
 from ...utils.grew_utils import grew_request, upload_project
 from ....config import Config #prod
 
-from ...services import project_service, user_service, robot_service
+from ...services import project_service, user_service, robot_service, github_service
 
 
 logging.getLogger('flask_cors').level = logging.DEBUG
@@ -567,12 +567,16 @@ def samplepage(project_name, sample_name):
 	reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':sample_name}))
 	reendswithnumbers = re.compile(r"_(\d+)$")
 	
+	# print(">>>", reply)
 	if reply.get("status") == "OK":
 		samples = reply.get("data", {})	
 		project = project_service.get_by_name(project_name)
 		if not project: abort(404)
-		if project.show_all_trees or project.is_open: js = json.dumps( project_service.samples2trees(samples, sample_name) )
+		if project.show_all_trees or project.is_open:
+			print("show all or open")
+			js = json.dumps( project_service.samples2trees(samples, sample_name) )
 		else:
+			print("only for validator")
 			validator = project_service.is_validator(project.id, sample_name, current_user.id)
 			if validator:  js = json.dumps( project_service.samples2trees(samples, sample_name) )
 			else:  js = json.dumps( project_service.samples2trees_with_restrictions(samples, sample_name, current_user, project_name) )
@@ -847,4 +851,25 @@ def get_relation_table_current_user(project_name):
 
 	js = json.dumps(data)
 	resp = Response(js, status=200,  mimetype='application/json')
+	return resp
+
+
+@project.route("/<project_name>/sample/<sample_name>/commit", methods=["POST"])
+# @login_required
+# @requires_access_level(1)
+def commit_sample(project_name, sample_name):
+	print ("========[getConll]")
+	reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':sample_name}))
+	if reply.get("status") == "OK":
+		samples = reply.get("data", {})	
+		project = project_service.get_by_name(project_name)
+		if not project: abort(404)
+		js = json.dumps( project_service.samples2trees_with_restrictions(samples, sample_name, current_user, project_name) )
+		print(js)
+
+	# push to github
+	token = github_service.get_token()
+	print(token)
+			
+	resp = Response(dict(), status=200,  mimetype='application/json')
 	return resp

@@ -11,7 +11,7 @@ from .forms import ProjectForm, UploadForm, UserAssignForm, ACCESS
 from ... import db
 from ...models.models import *
 from ....config import Config
-from config import Config #prod
+#from config import Config #prod
 from ...utils.grew_utils import grew_request, upload_project
 from ..project.views import requires_access_level
 

@@ -41,10 +41,12 @@ def upload_project(fileobject, reextensions=None):
             )
         print(reply)
 
-if (len(sys.argv) > 1 and sys.argv[1] == "local"):
-    server = 'http://localhost:8080'
-else:
-    server = 'http://arborator.grew.fr'
+# if (len(sys.argv) > 1 and sys.argv[1] == "local"):
+#     server = 'http://localhost:8080'
+# else:
+#     server = 'http://arborator.grew.fr'
+
+server = 'http://arborator-dev.grew.fr'
 
 def grew_request(fct_name, data={}, files={}):
     try:
@@ -70,7 +72,7 @@ def grew_request(fct_name, data={}, files={}):
 # print ('========== [newSample]')
 # print ('       ... project_id -> proj_1')
 # print ('       ... sample_id -> sample_t6')
-# reply = send_request ('newSample', data={'project_id': 'proj_1', 'sample_id': 'sample_t6' })
+# reply = grew_request ('newSample', data={'project_id': 'Naija', 'sample_id': 'D_KAD_22_Chatting_at_the_restaurant_GOLD' })
 # print (reply)
 
 # print ("\n***************************************************************************\n")
@@ -102,10 +104,10 @@ def grew_request(fct_name, data={}, files={}):
 # print ('       ... sample_id -> sample_01_to_10')
 # print ('       ... user_id -> _base')
 # print ('       ... conll_file -> data/fr_gsd-ud-train_00001_00010.conllu')
-# with open('data/fr_gsd-ud-train_00001_00010.conllu', 'rb') as f:
-#     reply = send_request (
+# with open('/home/marine/Téléchargements/D_KAD_22_Chatting_at_the_restaurant_GOLD.parser.conll', 'rb') as f:
+#     reply = grew_request (
 #         'saveConll',
-#         data = {'project_id': 'proj_1', 'sample_id': 'sample_01_to_10', 'user_id': '_base' },
+#         data = {'project_id': 'Naija', 'sample_id': 'D_KAD_22_Chatting_at_the_restaurant_GOLD', 'user_id': '_base' },
 #         files={'conll_file': f},
 #     )
 #     print (reply)
