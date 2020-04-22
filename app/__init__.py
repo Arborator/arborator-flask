@@ -1,5 +1,5 @@
 
-import os, sys, logging
+import os, sys, logging, json
 from functools import wraps
 
 # third-party imports
@@ -11,7 +11,8 @@ from flask_bootstrap import Bootstrap
 
 
 # local imports
-from ..config import app_config #prod
+try: from ..config import app_config, Config # dev
+except: from config import app_config, Config # prod
 # from .project import get_access_for_project
 
 # db variable initialization
@@ -22,11 +23,21 @@ login_manager = LoginManager()
 from .models.models import *
 
 
+def setConfigProperty(config_name):
+	''' set the property json file to 'production' or 'development' '''
+	# with open('../application.json', 'r') as f: fileConfig = json.load(f)
+	# fileConfig['mode'] = config_name
+	# with open('../application.json', 'w') as f: json.dump(fileConfig, f)
+	# print('yup', Config.MODE_DEPLOY)
+
 
 def create_app(config_name):
 	app = Flask(__name__, instance_relative_config=False)
 	app.config.from_object(app_config[config_name])
 	app.config.from_pyfile('../config.py')
+	# print('hello')
+	# print('app config', app.config)
+	# setConfigProperty(config_name)
 	bootstrap = Bootstrap(app)
 	db.init_app(app)
 	login_manager.init_app(app)

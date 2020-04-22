@@ -1,6 +1,7 @@
 # Some utility functions for grew process
 from werkzeug import secure_filename
 import requests, sys
+from flask import current_app
 
 def upload_project(fileobject, reextensions=None):
     """ 
@@ -47,8 +48,10 @@ def upload_project(fileobject, reextensions=None):
 # else:
 #     server = 'http://arborator.grew.fr'
 
+if current_app.config['ENV'] == 'development': server = 'http://arborator-dev.grew.fr'
+elif if current_app.config['ENV'] == 'production': server = 'http://arborator.grew.fr'
 # dev
-server = 'http://arborator-dev.grew.fr'
+# server = 'http://arborator-dev.grew.fr'
 
 
 def grew_request(fct_name, data={}, files={}):

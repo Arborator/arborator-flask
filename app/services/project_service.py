@@ -1,6 +1,7 @@
 import os, json, zipfile, time, io
 from ..models.models import *
-from ...config import Config #prod
+try: from ...config import Config # dev
+except: from config import Config # prod
 from ..utils.conll3 import conll3
 from ..utils.grew_utils import grew_request, upload_project
 from ..repository import project_dao, user_dao, robot_dao

@@ -6,15 +6,17 @@ class Config(object):
     Common configurations
     """
 
+    # MODE_DEPLOY = 'production' # 'production' or 'development'
 
     SECRET_KEY = 'p9Bv<3Eid9%$i01jge87rt32trig87'
     basedir = os.path.dirname(os.path.abspath(__file__))
 
-
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-            'sqlite:///' + os.path.join(basedir, 'arborator.sqlite')
+    # if MODE_DEPLOY == 'production': dbName = 'prod'
+    # else: dbName = 'dev'
+    # SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+    #         'sqlite:///' + os.path.join(basedir, 'arborator_{}.sqlite'.format(dbName))
     
-    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    # SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     # Put any configurations here that are common across all environments
     FIRSTADMINKEY="azer"
@@ -25,6 +27,7 @@ class Config(object):
     SESSION_COOKIE_HTTPONLY = False
     SESSION_COOKIE_SECURE = True
 
+
 class DevelopmentConfig(Config):
     """
     Development configurations
@@ -32,6 +35,13 @@ class DevelopmentConfig(Config):
 
     DEBUG = True
     SQLALCHEMY_ECHO = False # changed it because the log was too long
+    basedir = os.path.dirname(os.path.abspath(__file__))
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+            'sqlite:///' + os.path.join(basedir, 'arborator_dev.sqlite')
+    
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+
+    ENV = 'development'
    
     
 
@@ -48,6 +58,13 @@ class ProductionConfig(Config):
     """
 
     DEBUG = False
+    basedir = os.path.dirname(os.path.abspath(__file__))
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+            'sqlite:///' + os.path.join(basedir, 'arborator_prod.sqlite')
+    
+    SQLALCHEMY_TRACK_MODIFICATIONS = True
+
+    ENV = 'production'
 
 app_config = {
     'development': DevelopmentConfig,

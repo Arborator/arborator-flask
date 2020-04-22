@@ -1,4 +1,4 @@
-from flask import render_template, jsonify, abort, flash, redirect, render_template, url_for, request, Response
+from flask import render_template, jsonify, abort, flash, redirect, render_template, url_for, request, Response, current_app
 from flask_login import current_user, login_required
 from werkzeug import secure_filename
 import os, re, json
@@ -10,8 +10,8 @@ from . import admin
 from .forms import ProjectForm, UploadForm, UserAssignForm, ACCESS
 from ... import db
 from ...models.models import *
-from ....config import Config
-# from config import Config #prod
+try: from ....config import Config #dev
+except: from config import Config #prod
 from ...utils.grew_utils import grew_request, upload_project
 from ..project.views import requires_access_level
 

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response, session, redirect, flash, url_for, Response
+from flask import Flask, render_template, request, make_response, session, redirect, flash, url_for, Response, current_app
 from authomatic.adapters import WerkzeugAdapter
 from authomatic import Authomatic
 from flask_login import login_required, login_user, logout_user
@@ -7,7 +7,8 @@ from datetime import datetime
 from . import auth
 from ...models.models import User, load_user, AlchemyEncoder
 from .auth_config import CONFIG
-from ....config import Config #prod
+try: from ....config import app_config, Config # dev
+except: from config import app_config, Config # prod
 import json
 import requests
 
@@ -70,6 +71,8 @@ def login(provider_name):
     """
     Login handler.
     """   
+    print('HIIIII')
+    print( current_app.config )
     # We need response object for the WerkzeugAdapter.
     response = make_response()
 
@@ -128,7 +131,8 @@ def login(provider_name):
            
             js = json.dumps(user.as_json(), default=str)
             resp = Response(js, status=200,  mimetype='application/json')
-            return render_template('home/redirect.html', response=resp)
+            if current_app.config['ENV'] == 'development': return render_template('home/redirect_dev.html', response=resp) #dev
+            elif current_app.config['ENV'] == 'production': return render_template('home/redirect_prod.html', response=resp) #prod
 
     return response
 

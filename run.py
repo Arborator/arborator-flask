@@ -8,6 +8,7 @@ from .app.models.models import *
 
 config_name = os.getenv('FLASK_CONFIG')
 app = create_app(config_name)
+print('yu', app.config)
 # CORS(app)
 # prod
 # cors = CORS(app
