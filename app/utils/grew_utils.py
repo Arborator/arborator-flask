@@ -49,7 +49,7 @@ def upload_project(fileobject, reextensions=None):
 #     server = 'http://arborator.grew.fr'
 
 if current_app.config['ENV'] == 'development': server = 'http://arborator-dev.grew.fr'
-elif if current_app.config['ENV'] == 'production': server = 'http://arborator.grew.fr'
+elif current_app.config['ENV'] == 'production': server = 'http://arborator.grew.fr'
 # dev
 # server = 'http://arborator-dev.grew.fr'
 
