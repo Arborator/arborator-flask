@@ -13,8 +13,7 @@ import io, zipfile, time
 # local imports
 from . import project
 from ...models.models import *
-from ...utils.grew_utils import grew_request, upload_project
-# from ....config import Config #prod
+from ...utils.grew_utils import grew_request
 
 from ...services import project_service, user_service, robot_service
 
@@ -258,7 +257,7 @@ def project_update(project_name):
 		print("**here**")
 		for k,v in request.json.get("project").items():
 			if k == "projectname":
-				reply = json.loads(grew_request("renameProject",data={"project_id":project_name, "new_project_id":v}))
+				reply = json.loads(grew_request("renameProject", current_app, data={"project_id":project_name, "new_project_id":v}))
 				if reply["status"] != "OK": abort(400)
 				# update project_name if it went well
 			setattr(project,k,v)
@@ -317,7 +316,7 @@ def search_project(project_name):
 	if not request.json: abort(400)
 
 	pattern = request.json.get("pattern")
-	reply = json.loads(grew_request("searchPatternInGraphs",data={"project_id":project.projectname, "pattern":pattern}))
+	reply = json.loads(grew_request("searchPatternInGraphs", current_app, data={"project_id":project.projectname, "pattern":pattern}))
 	if reply["status"] != "OK": abort(400)
 	trees={}
 	# matches={}
@@ -326,7 +325,7 @@ def search_project(project_name):
 	for m in reply["data"]:
 		if m['user_id'] == '': abort(409)
 
-		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":m['user_id']}))
+		conll = json.loads(grew_request("getConll", current_app, data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":m['user_id']}))
 		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
 		trees=project_service.formatTrees(m, trees, conll, m['user_id'])
@@ -552,7 +551,7 @@ def sample_export(project_name):
 	sampletrees = list()
 	samplecontentfiles = list()
 	for samplename in samplenames: 
-		reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':samplename}))
+		reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':samplename}))
 		if reply.get("status") == "OK":
 
 			# {"sent_id_1":{"conlls":{"user_1":"conllstring"}}}
@@ -595,7 +594,7 @@ def samplepage(project_name, sample_name):
 		....
 	"""
 	print ("========[getConll]")
-	reply = json.loads(grew_request('getConll', data={'project_id': project_name, 'sample_id':sample_name}))
+	reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
 	reendswithnumbers = re.compile(r"_(\d+)$")
 	
 	if reply.get("status") == "OK":
@@ -627,7 +626,7 @@ def search_sample(project_name, sample_name):
 	if not sample_name in samples["samples"]: abort(404)
 
 	pattern = request.json.get("pattern")
-	reply = json.loads(grew_request("searchPatternInGraphs",data={"project_id":project.projectname, "pattern":pattern}))
+	reply = json.loads(grew_request("searchPatternInGraphs", current_app, data={"project_id":project.projectname, "pattern":pattern}))
 	if reply["status"] != "OK": abort(400)
 
 	trees={}
@@ -638,7 +637,7 @@ def search_sample(project_name, sample_name):
 		if m["sample_id"] != sample_name: continue
 		if m['user_id'] == '': abort(409)
 
-		conll = json.loads(grew_request("getConll", data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":m['user_id']}))
+		conll = json.loads(grew_request("getConll", current_app, data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":m['user_id']}))
 		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
 		trees=project_service.formatTrees(m, trees, conll, m['user_id'])
@@ -828,7 +827,7 @@ def save_trees(project_name, sample_name):
 			if not conll: abort(400)
 
 			reply = grew_request (
-				'saveGraph',
+				'saveGraph', current_app,
 				data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':user_id, 'sent_id':sent_id, "conll_graph":conll}
 				)
 			resp = json.loads(reply)
@@ -857,7 +856,7 @@ def get_relation_table_current_user(project_name):
 		abort(404)
 
 	reply = grew_request (
-				'searchPatternInGraphs',
+				'searchPatternInGraphs', current_app,
 				data = {'project_id': project_name, "pattern":'pattern { e: GOV -> DEP}', "clusters":["e; GOV.upos; DEP.upos"]}
 				)
 	response = json.loads(reply)
@@ -871,7 +870,7 @@ def get_relation_table_current_user(project_name):
 				trees = dict()
 				for elt in vvv:
 					if elt.get("user_id") != current_user.id: continue
-					conll = json.loads(grew_request("getConll", data={"sample_id":elt["sample_id"], "project_id":project_name, "sent_id":elt["sent_id"], "user_id":current_user.id}))
+					conll = json.loads(grew_request("getConll", current_app, data={"sample_id":elt["sample_id"], "project_id":project_name, "sent_id":elt["sent_id"], "user_id":current_user.id}))
 					# conll = json.loads(grew_request("getConll", data={"sample_id":elt["sample_id"], "project_id":project_name, "sent_id":elt["sent_id"], "user_id":"marine"}))
 
 					if conll["status"] != "OK": abort(404)

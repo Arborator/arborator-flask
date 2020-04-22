@@ -3,13 +3,14 @@ from ..models.models import *
 try: from ...config import Config # dev
 except: from config import Config # prod
 from ..utils.conll3 import conll3
-from ..utils.grew_utils import grew_request, upload_project
+from ..utils.grew_utils import grew_request
 from ..repository import project_dao, user_dao, robot_dao
 from ..services import robot_service
 from werkzeug import secure_filename
 from datetime import datetime
-from flask import abort
+from flask import abort, current_app
 from decimal import Decimal
+
 
 def get_project_access(project_id, user_id):
     ''' return the project access given a project id and user id. returns 0 if the project access is false '''
@@ -44,12 +45,12 @@ def delete_by_name(project_name):
     ''' delete a project from db and grew given its name '''
     project = project_dao.find_by_name(project_name)
     project_dao.delete(project)
-    grew_request('eraseProject', data={'project_id': p.projectname})
+    grew_request('eraseProject', current_app, data={'project_id': p.projectname})
 
 def delete(project):
     ''' delete the given project from db and grew '''
     project_dao.delete(project)
-    grew_request('eraseProject', data={'project_id': project.projectname})
+    grew_request('eraseProject', current_app, data={'project_id': project.projectname})
 
 def get_settings_infos(project_name, current_user):
     ''' get project informations without any samples '''
@@ -185,8 +186,8 @@ def get_infos(project_name, current_user):
     admins = [a.userid for a in project_dao.get_admins(project.id)]
     guests = [g.userid for g in project_dao.get_guests(project.id)]
     print(time.monotonic(), 'admins DONE')
-
-    reply = grew_request ( 'getSamples', data = {'project_id': project.projectname} )
+    
+    reply = grew_request ( 'getSamples', current_app, data = {'project_id': project.projectname} )
     js = json.loads(reply)
     data = js.get("data")
     samples=[]
@@ -239,7 +240,7 @@ def get_infos(project_name, current_user):
 
         print(time.monotonic(), 'average DONE')
 
-        reply = grew_request('getSentIds', data={'project_id': project_name})
+        reply = grew_request('getSentIds', current_app, data={'project_id': project_name})
         js = json.loads(reply)
         data = js.get("data")
         if data: nb_sentences = len(data)
@@ -252,7 +253,7 @@ def get_infos(project_name, current_user):
 def get_project_treesfrom(project_name):
     """ get users from treesFrom values """
     project = project_dao.find_by_name(project_name)
-    reply = grew_request ( 'getSamples', data = {'project_id': project_name} )
+    reply = grew_request ( 'getSamples', current_app, data = {'project_id': project_name} )
     js = json.loads(reply)
     data = js.get("data")
     treesFrom = list()
@@ -295,7 +296,7 @@ def create_add_sample_role(user_id, sample_name, project_id, role):
 
 def create_empty_project(project_name, creator, project_description, project_private, project_open, project_showalltrees):
     ''' create an empty project '''
-    new_project = grew_request('newProject', data={'project_id': project_name})
+    new_project = grew_request('newProject', current_app, data={'project_id': project_name})
     print('new_project', new_project)
     private = False
     if project_private == 'true': private = True
@@ -313,7 +314,7 @@ def create_empty_project(project_name, creator, project_description, project_pri
 
 def delete_sample(project_name, project_id, sample_name):
     ''' delete sample given the infos. delete it from grew and db '''
-    grew_request('eraseSample', data={'project_id': project_name, 'sample_id': sample_name})
+    grew_request('eraseSample', current_app, data={'project_id': project_name, 'sample_id': sample_name})
     related_sample_roles = project_dao.delete_sample_role_by_project(project_id)
 
 def delete_sample_role(sample_role):
@@ -335,7 +336,7 @@ def get_sample(sample_name, project_name, current_user):
 def get_sample_roles(project_name, sample_name):
     """ subfunc as getInfos but only to retrieve roles for a given sample (limit calculation) """
     project = project_dao.find_by_name(project_name)
-    reply = json.loads( grew_request ( 'getSamples', data = {'project_id': project_name} ) )
+    reply = json.loads( grew_request ( 'getSamples', current_app, data = {'project_id': project_name} ) )
     data = reply.get("data")
     sample={'samplename':sample_name, "roles":{}}
     if data:
@@ -353,7 +354,7 @@ def get_sample_roles(project_name, sample_name):
 
 def get_samples(project_name):
     ''' get existing samples for a project. from Grew.'''
-    reply = grew_request ('getSamples',	data = {'project_id': project_name}	)
+    reply = grew_request ('getSamples', current_app, data = {'project_id': project_name}	)
     js = json.loads(reply)
     data = js.get("data")
     if data: return [sa['name'] for sa in data]
@@ -451,7 +452,7 @@ def upload_sample(fileobject, project_name, import_user, reextensions=None, exis
     if sample_name not in existing_samples:
         # create a new sample in the grew project
         print ('========== [newSample]')
-        reply = grew_request ('newSample', data={'project_id': project_name, 'sample_id': sample_name })
+        reply = grew_request ('newSample', current_app, data={'project_id': project_name, 'sample_id': sample_name })
         print ('reply = ', reply)
 
     else:
@@ -464,13 +465,13 @@ def upload_sample(fileobject, project_name, import_user, reextensions=None, exis
         print ('========== [saveConll]')
         if import_user:
             reply = grew_request (
-                'saveConll',
+                'saveConll', current_app,
                 data = {'project_id': project_name, 'sample_id': sample_name, "user_id": import_user},
                 files={'conll_file': inf},
             )
         else: # if no import_user has been provided, it should be in the conll metadata
             reply = grew_request (
-                'saveConll',
+                'saveConll', current_app,
                 data = {'project_id': project_name, 'sample_id': sample_name},
                 files={'conll_file': inf},
             )

@@ -1,13 +1,29 @@
 # Some utility functions for grew process
 from werkzeug import secure_filename
 import requests, sys
-from flask import current_app
 
-def upload_project(fileobject, reextensions=None):
+def grew_request(fct_name, current_app, data={}, files={}):
+    if current_app.config['ENV'] == 'development': server = 'http://arborator-dev.grew.fr'
+    elif current_app.config['ENV'] == 'production': server = 'http://arborator.grew.fr'
+    try:
+        r = requests.post(
+            "%s/%s" % (server,fct_name),
+            files = files,
+            data = data
+        )
+        return r.text
+    except requests.ConnectionError:
+        print ("Connection refused")
+    except Exception as e:
+        print ("Uncaught exception, please report %s" % e)
+
+def upload_project(fileobject, currentApp, reextensions=None):
     """ 
     upload project into grew and filesystem (upload-folder, see Config). need a file object from request
     Will compile reextensions if no one is specified (better specify it before a loop)
     """
+
+    setAppContext(current_app)
 
     if reextensions == None : reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
 
@@ -42,6 +58,7 @@ def upload_project(fileobject, reextensions=None):
             )
         print(reply)
 
+
 # prod
 # if (len(sys.argv) > 1 and sys.argv[1] == "local"):
 #     server = 'http://localhost:8080'
@@ -53,24 +70,16 @@ def upload_project(fileobject, reextensions=None):
 # if fileConfig['mode'] == 'development': server = 'http://arborator-dev.grew.fr'
 # elif fileConfig['mode'] == 'production': server = 'http://arborator.grew.fr'
 
-# if current_app['ENV'] == 'development': server = 'http://arborator-dev.grew.fr'
-# elif current_app['ENV'] == 'production': server = 'http://arborator.grew.fr'
+# with app.app_context():
+#     if current_app['ENV'] == 'development': server = 'http://arborator-dev.grew.fr'
+#     elif current_app['ENV'] == 'production': server = 'http://arborator.grew.fr'
 # dev
-server = 'http://arborator-dev.grew.fr'
+# server = 'http://arborator-dev.grew.fr'
 
 
-def grew_request(fct_name, data={}, files={}):
-    try:
-        r = requests.post(
-            "%s/%s" % (server,fct_name),
-            files = files,
-            data = data
-        )
-        return r.text
-    except requests.ConnectionError:
-        print ("Connection refused")
-    except Exception as e:
-        print ("Uncaught exception, please report %s" % e)
+
+
+
 
 # reply = grew_request ( 'getSamples', data = {'project_id': project.projectname} )
 # print('REPLYYY', reply)

@@ -23,23 +23,10 @@ login_manager = LoginManager()
 from .models.models import *
 
 
-# def setConfigProperty(config_name):
-# 	''' set the property json file to 'production' or 'development' '''
-# 	with open('../application.json', 'r') as f: fileConfig = json.load(f)
-# 	fileConfig['mode'] = config_name
-# 	with open('../application.json', 'w') as f: json.dump(fileConfig, f)
-# 	print('oi', config_name)
-# 	# print('yup', Config.MODE_DEPLOY)
-
-
 def create_app(config_name):
 	app = Flask(__name__, instance_relative_config=False)
 	app.config.from_object(app_config[config_name])
 	app.config.from_pyfile('../config.py')
-	# app.app_context().push()
-	# print('hello')
-	# print('app config', app.config)
-	# setConfigProperty(config_name)
 	bootstrap = Bootstrap(app)
 	db.init_app(app)
 	login_manager.init_app(app)
@@ -63,8 +50,12 @@ def create_app(config_name):
 	from .controllers.project import project as project_blueprint
 	app.register_blueprint(project_blueprint, url_prefix='/api/projects')
 
+	# with app.app_context():
+	# 	from main import main as main_blueprint
+	# 	app.register_blueprint(...)
+
 	# from .utils import grew_utils as grew_blueprint
-	# app.register_blueprint(grew_blueprint, url_prefix='/grew/grew/grew')
+	# app.register_blueprint(grew_blueprint)
 
 	@app.before_first_request
 	def create_tables():

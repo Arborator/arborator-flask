@@ -12,11 +12,8 @@ from ... import db
 from ...models.models import *
 try: from ....config import Config #dev
 except: from config import Config #prod
-from ...utils.grew_utils import grew_request, upload_project
+from ...utils.grew_utils import grew_request
 from ..project.views import requires_access_level
-
-
-
 
 def superadmin_required(func):
 	'''
@@ -75,7 +72,7 @@ def superadmin_dashboard():
 
 
 def projectsongrew():
-	reply = grew_request('getProjects')
+	reply = grew_request('getProjects', current_app)
 	print("projectsongrew",reply)
 	# reply = grew_request('getUsers')
 	reply = json.loads(reply)
@@ -85,7 +82,7 @@ def projectsongrew():
 def addprojectongrew(project_name):
 	# if project_name in projectsongrew():
 	# 	return "ERROR"
-	reply = grew_request ('newProject', data={'project_id': project_name})
+	reply = grew_request ('newProject', current_app, data={'project_id': project_name})
 	print ("addprojectongrew",reply)
 	reply = json.loads(reply)
 	return reply.get('status','grew error')
@@ -336,7 +333,7 @@ def init_database():
 		projects = projectsongrew()
 		print(projects)
 		for projectname in projects:
-			reply = grew_request('eraseProject', data={'project_id': projectname})
+			reply = grew_request('eraseProject', current_app, data={'project_id': projectname})
 			print(reply)
 
 			# print(6451,projectname,Project.query.filter_by(projectname=projectname).first())
