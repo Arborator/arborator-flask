@@ -48,10 +48,15 @@ def upload_project(fileobject, reextensions=None):
 # else:
 #     server = 'http://arborator.grew.fr'
 
-if current_app.config['ENV'] == 'development': server = 'http://arborator-dev.grew.fr'
-elif current_app.config['ENV'] == 'production': server = 'http://arborator.grew.fr'
+# with open('../../../application.json', 'r') as f: fileConfig = json.load(f)
+
+# if fileConfig['mode'] == 'development': server = 'http://arborator-dev.grew.fr'
+# elif fileConfig['mode'] == 'production': server = 'http://arborator.grew.fr'
+
+# if current_app['ENV'] == 'development': server = 'http://arborator-dev.grew.fr'
+# elif current_app['ENV'] == 'production': server = 'http://arborator.grew.fr'
 # dev
-# server = 'http://arborator-dev.grew.fr'
+server = 'http://arborator.grew.fr'
 
 
 def grew_request(fct_name, data={}, files={}):
