@@ -63,8 +63,8 @@ def create_app(config_name):
 	from .controllers.project import project as project_blueprint
 	app.register_blueprint(project_blueprint, url_prefix='/api/projects')
 
-	from .utils import grew_utils as grew_blueprint
-	app.register_blueprint(grew_blueprint, url_prefix='/grew/grew/grew')
+	# from .utils import grew_utils as grew_blueprint
+	# app.register_blueprint(grew_blueprint, url_prefix='/grew/grew/grew')
 
 	@app.before_first_request
 	def create_tables():
