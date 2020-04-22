@@ -105,7 +105,25 @@ killall python3
 killall gunicorn
 ```
 
+### Deploy a New Version
 
+#### Backend flask
+
+1. As arborator (ssh arborator@arborapi.xxx.fr):
+```
+cd arborator-flask
+git pull origin master
+```
+
+2. Then as root:
+```
+supervisorctl restart arborator-flask
+```
+
+3. And, as root, watch the logs in real time to see if any errors occurred: 
+```
+tail -f /var/log/nginx/arborator-flask.log
+```
 
 
 
