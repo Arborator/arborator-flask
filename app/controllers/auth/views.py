@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, make_response, session, redir
 from authomatic.adapters import WerkzeugAdapter
 from authomatic import Authomatic
 from flask_login import login_required, login_user, logout_user
-from ....app import db #prod
+try: from ....app import db #dev
+except: from app import db #dev
 from datetime import datetime
 from . import auth
 from ...models.models import User, load_user, AlchemyEncoder
