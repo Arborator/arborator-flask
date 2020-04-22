@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, make_response, session, redirect, flash, url_for, Response, current_app
+from flask import Flask, render_template, request, make_response, session, redirect, flash, url_for, Response, current_app, abort
 from authomatic.adapters import WerkzeugAdapter
 from authomatic import Authomatic
 from flask_login import login_required, login_user, logout_user
