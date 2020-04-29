@@ -15,7 +15,7 @@ from . import project
 from ...models.models import *
 from ...utils.grew_utils import grew_request
 
-from ...services import project_service, user_service, robot_service
+from ...services import project_service, user_service, robot_service, github_service
 
 
 logging.getLogger('flask_cors').level = logging.DEBUG
@@ -881,3 +881,95 @@ def get_relation_table_current_user(project_name):
 	js = json.dumps(data)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
+
+
+
+@project.route("/<project_name>/sample/<sample_name>/commit", methods=["POST"])
+# @login_required
+# @requires_access_level(1)
+def commit_sample(project_name, sample_name):
+	# push to github
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	access = github_service.user_granted_access(current_user.username)
+	if access:
+		print ("========[getConll]")
+		reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
+		if reply.get("status") == "OK":
+			sample = reply.get("data", {})	
+			content = []
+			for sent_id in sample:
+				conll = sample[sent_id].get(current_user.username)
+				if conll:
+					content.append(conll)
+
+			content = "\n\n".join(content)
+			content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
+
+			user_repo = github_service.get_user_repository(current_user.username)
+			resp = github_service.exists_sample(current_user.username, project_name, sample_name)
+			
+			if resp.status_code == 200:
+				print("updating sample")
+				sha = json.loads(resp.content.decode())["sha"]
+				data = {'sha':sha, 'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
+			else:
+				print("new sample")
+				data = {'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
+
+			path = user_repo+"/contents/"+project_name+"/"+sample_name
+			resp = github_service.make_commit(data, path)
+			print(resp.status_code)
+			print(resp.content.decode())
+
+	else:
+		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
+		abort(404)
+			
+	resp = Response(dict(), status=200,  mimetype='application/json')
+	return resp
+
+
+
+
+@project.route("/<project_name>/sample/<sample_name>/pull", methods=["GET"])
+# @login_required
+# @requires_access_level(1)
+def pull_sample(project_name, sample_name):
+	# push to github
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	samples = {"samples":project_service.get_samples(project_name)}
+	if not sample_name in samples["samples"]:
+		print("problem with sample")
+		abort(404)
+
+	access = github_service.user_granted_access(current_user.username)
+	if access:
+		# user_repo = github_service.get_user_repository(current_user.username)
+		resp = github_service.get_sample(current_user.username, project_name, sample_name)
+		if resp.status_code == 200:
+			content = json.loads(resp.content.decode()).get("content")
+			content = base64.b64decode(content).decode("utf-8")
+
+			# pas hyper efficace str -> tree -> str
+			trees = conll3.conllString2trees(content)
+			
+			for tree in trees:
+				sent_id = tree.sentencefeatures.get("sent_id")
+				if not sent_id: abort(400)
+				conll = tree.conllu()
+				reply = grew_request (
+					'saveGraph', current_app,
+					data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':current_user.username, 'sent_id':sent_id, "conll_graph":conll}
+					)
+				resp = json.loads(reply)
+				if resp["status"] != "OK":
+					abort(404)
+
+	else:
+		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
+		abort(404)
+
+	# trees have been updated -> reload
+	return samplepage(project_name, sample_name)
