@@ -936,14 +936,12 @@ def commit_sample(project_name, sample_name):
 # @login_required
 # @requires_access_level(1)
 def pull_sample(project_name, sample_name):
-	# push to github
 	project = project_service.get_by_name(project_name)
 	if not project: abort(404)
 	samples = {"samples":project_service.get_samples(project_name)}
 	if not sample_name in samples["samples"]:
 		print("problem with sample")
 		abort(404)
-
 	access = github_service.user_granted_access(current_user.username)
 	if access:
 		# user_repo = github_service.get_user_repository(current_user.username)
