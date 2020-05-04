@@ -47,6 +47,15 @@ def requires_access_level(access_level):
 		return decorated_function
 	return decorator
 
+
+@project.route('/github_api/allow', methods=['GET'])
+def allow_github_api():
+	# TODO add flash message saying permissions for the github app have been granted
+	js = json.dumps({})
+	resp = Response(js, status=200,  mimetype='application/json')
+	return redirect('/')
+
+
 @project.route('/<project_name>/', methods=['GET'])
 # @login_required
 # @requires_access_level(2)
