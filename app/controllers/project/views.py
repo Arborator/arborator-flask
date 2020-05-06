@@ -902,8 +902,9 @@ def commit_sample(project_name, sample_name):
 	if not project: abort(404)
 	access = github_service.user_granted_access(current_user.username)
 	if access:
-		print ("========[getConll]")
+		# print ("========[getConll]")
 		reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
+		# print(reply)
 		if reply.get("status") == "OK":
 			sample = reply.get("data", {})	
 			content = []
@@ -912,25 +913,31 @@ def commit_sample(project_name, sample_name):
 				if conll:
 					content.append(conll)
 
-			content = "\n\n".join(content)
-			content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
-
-			user_repo = github_service.get_user_repository(current_user.username)
-			resp = github_service.exists_sample(current_user.username, project_name, sample_name)
-			
-			if resp.status_code == 200:
-				print("updating sample")
-				sha = json.loads(resp.content.decode())["sha"]
-				data = {'sha':sha, 'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
+			if not content:
+				# no content for this user, flash some kind of message
+				abort(403, description="No content found for the current user")
 			else:
-				print("new sample")
-				data = {'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
+				content = "\n\n".join(content)
+				content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
 
-			path = user_repo+"/contents/"+project_name+"/"+sample_name
-			resp = github_service.make_commit(data, path)
-			print(resp.status_code)
-			print(resp.content.decode())
+				user_repo = github_service.get_user_repository(current_user.username)
+				# print(user_repo)
+				resp = github_service.exists_sample(current_user.username, project_name, sample_name)
+				
+				if resp.status_code == 200:
+					print("updating sample")
+					sha = json.loads(resp.content.decode())["sha"]
+					data = {'sha':sha, 'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
+				else:
+					print("new sample")
+					data = {'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
 
+				path = user_repo+"/contents/"+project_name+"/"+sample_name
+				resp = github_service.make_commit(data, path)
+				print(resp.status_code)
+				print(resp.content.decode())
+		else:
+			print("!!", reply)
 	else:
 		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
 		abort(404)
@@ -966,6 +973,8 @@ def pull_sample(project_name, sample_name):
 				sent_id = tree.sentencefeatures.get("sent_id")
 				if not sent_id: abort(400)
 				conll = tree.conllu()
+
+				# TODO idealement faudrait sauver que ce qui a change...
 				reply = grew_request (
 					'saveGraph', current_app,
 					data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':current_user.username, 'sent_id':sent_id, "conll_graph":conll}
@@ -973,10 +982,13 @@ def pull_sample(project_name, sample_name):
 				resp = json.loads(reply)
 				if resp["status"] != "OK":
 					abort(404)
+			# TODO Reloading doesnt work
+			# return samplepage(project_name, sample_name)
+			return redirect(url_for('project.samplepage', project_name=project_name, sample_name=sample_name))
+		else:
+			# failed on getting sample
+			abort(resp.status_code)
 
 	else:
 		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
 		abort(404)
-
-	# trees have been updated -> reload
-	return samplepage(project_name, sample_name)

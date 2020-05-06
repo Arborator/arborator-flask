@@ -29,11 +29,13 @@ class Config(object):
     SESSION_COOKIE_SECURE = True
 
     # Github app
-    fname = 'keys/arborator-grew.pem'
-    cert_bytes = open(fname, 'rb').read()
-    PKEY = default_backend().load_pem_private_key(cert_bytes, None)
-    APP_ID = open('keys/arborator-grew-appid.txt').read()
-    INSTALATION_ID = int(open('keys/arborator-grew-installationid.txt').read())
+    # if ENV == 'development':
+       
+    # elif ENV == 'production':
+        
+    
+    
+    
 
 
 
@@ -51,6 +53,11 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     ENV = 'development'
+    fname = 'keys/arborator-grew-dev.pem'
+    APP_ID = open('keys/arborator-grew-dev-appid.txt').read()
+    INSTALATION_ID = int(open('keys/arborator-grew-dev-installationid.txt').read())
+    cert_bytes = open(fname, 'rb').read()
+    PKEY = default_backend().load_pem_private_key(cert_bytes, None)
    
     
 
@@ -74,6 +81,11 @@ class ProductionConfig(Config):
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 
     ENV = 'production'
+    fname = 'keys/arborator-grew.pem'
+    APP_ID = open('keys/arborator-grew-appid.txt').read()
+    INSTALATION_ID = int(open('keys/arborator-grew-installationid.txt').read())
+    cert_bytes = open(fname, 'rb').read()
+    PKEY = default_backend().load_pem_private_key(cert_bytes, None)
 
 app_config = {
     'development': DevelopmentConfig,
