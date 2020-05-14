@@ -921,9 +921,8 @@ def commit_sample(project_name, sample_name):
 				content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
 
 				user_repo = github_service.get_user_repository(current_user.username)
-				# print(user_repo)
 				resp = github_service.exists_sample(current_user.username, project_name, sample_name)
-				
+
 				if resp.status_code == 200:
 					print("updating sample")
 					sha = json.loads(resp.content.decode())["sha"]
@@ -932,10 +931,10 @@ def commit_sample(project_name, sample_name):
 					print("new sample")
 					data = {'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
 
-				path = user_repo+"/contents/"+project_name+"/"+sample_name
-				resp = github_service.make_commit(data, path)
+				# print(user_repo, project_name, sample_name)
+				resp = github_service.make_commit(user_repo, data, project_name, sample_name)
 				print(resp.status_code)
-				print(resp.content.decode())
+				# print(resp.content.decode())
 		else:
 			print("!!", reply)
 	else:

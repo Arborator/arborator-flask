@@ -3,6 +3,7 @@ import os, json, zipfile, time, io
 from flask import current_app, abort
 try: from ...config import Config # dev
 except: from config import Config # prod
+from flask_login import current_user
 # from ..utils.conll3 import conll3
 # from ..utils.grew_utils import grew_request, upload_project
 # from ..repository import project_dao, user_dao, robot_dao
@@ -39,10 +40,22 @@ def app_headers():
                "Accept": "application/vnd.github.machine-man-preview+json"}
     return headers
 
+def get_installation_id():
+    resp = requests.get('https://api.github.com/app/installations', headers=app_headers())
+    installations = json.loads(resp.content.decode())
+    if resp.status_code == 404:
+        abort(404)
+    elif resp.status_code == 200:
+        installation_id = [account["id"] for account in installations if account["account"]["login"] == current_user.username]
+        if installation_id:
+            return installation_id[0]
+        else:
+            abort(404)
 
 def get_token():
     app_id = current_app.config['APP_ID']
-    installation_id = current_app.config['INSTALATION_ID']
+    installation_id = get_installation_id()
+    # print("== installation_id", installation_id)
     resp = requests.post('https://api.github.com/installations/{}/access_tokens'.format(installation_id),
                      headers=app_headers())
     # print('Code: ', resp.status_code)
@@ -57,6 +70,7 @@ def base_header():
     return headers
 
 def user_granted_access(username):
+    # TODO write current_user.username instead
     """
     Check if the user granted access to the app
     Str -> Bool
@@ -98,8 +112,9 @@ def exists_sample(username, project_name, sample_name):
     resp = requests.get('https://api.github.com/repos/{}/contents/{}/{}'.format(user_repo, project_name, sample_name), headers=base_header())
     return resp
 
-def make_commit(data, path):
-    resp = requests.put('https://api.github.com/repos/{}'.format(path), headers=base_header(), json=data)
+def make_commit(user_repo, data, projectname, samplename):
+    # print('https://api.github.com/repos/{}/contents/{}'.format(user_repo, path))
+    resp = requests.put('https://api.github.com/repos/{}/contents/{}/{}'.format(user_repo, projectname, samplename), headers=base_header(), json=data)
     return resp
 
 def get_sample(username, project_name, sample_name):
