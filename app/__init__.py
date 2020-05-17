@@ -4,6 +4,7 @@ from functools import wraps
 
 # third-party imports
 from flask import Flask, render_template, request, make_response, session, url_for, redirect
+# print('____session',session)
 from flask_sqlalchemy import SQLAlchemy
 # from flask_migrate import Migrate
 from flask_login import LoginManager, current_user
@@ -11,7 +12,7 @@ from flask_bootstrap import Bootstrap
 
 
 # local imports
-try: from ..config import app_config, Config # dev
+try: from ..config import app_config, Config # dev__
 except: from config import app_config, Config # prod
 # from .project import get_access_for_project
 
@@ -22,6 +23,7 @@ login_manager = LoginManager()
 # Throws error if placed above db initialization
 from .models.models import *
 
+print(789789,current_user)
 
 def create_app(config_name):
 	app = Flask(__name__, instance_relative_config=False)

@@ -809,8 +809,11 @@ def save_trees(project_name, sample_name):
 	if not project:
 		print("problem with proj")
 		abort(404)
-	if not request.json: abort(400)
+	if not request.json: 
+		print("problem with request.json")
+		abort(400)
 	if not project.is_open:
+		print("problem with not project.is_open")
 		if not project_service.is_annotator(project.id, sample_name, current_user.id): abort(403)
 	
 
