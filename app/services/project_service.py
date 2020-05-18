@@ -475,6 +475,7 @@ def upload_sample(fileobject, project_name, import_user, reextensions=None, exis
                 data = {'project_id': project_name, 'sample_id': sample_name},
                 files={'conll_file': inf},
             )
+    print('REPLY S+TATIUUUSS', reply)
     reply = json.loads(reply)
     print('REPLY S+TATIUUUSS', reply)
     if reply.get("status") != "OK":
