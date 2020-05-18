@@ -856,8 +856,6 @@ def save_trees(project_name, sample_name):
 	return resp
 
 
-
-
 @project.route("/<project_name>/relation_table/current_user", methods=["GET"])
 # @login_required
 def get_relation_table_current_user(project_name):
@@ -876,20 +874,19 @@ def get_relation_table_current_user(project_name):
 	# current_user.id = "gael.guibon"
 	data = response.get("data")
 	for e, v in data.items():
-		# print("edge", e)
 		for gov, vv in v.items():
 			for dep, vvv in vv.items():
 				trees = dict()
 				for elt in vvv:
-					if elt.get("user_id") != current_user.id: continue
-					conll = json.loads(grew_request("getConll", current_app, data={"sample_id":elt["sample_id"], "project_id":project_name, "sent_id":elt["sent_id"], "user_id":current_user.id}))
-					# conll = json.loads(grew_request("getConll", data={"sample_id":elt["sample_id"], "project_id":project_name, "sent_id":elt["sent_id"], "user_id":"marine"}))
-
-					if conll["status"] != "OK": abort(404)
-					conll = conll["data"]
-					trees=project_service.formatTrees_user(elt, trees, conll)
+					if elt["user_id"] != current_user.username: continue
+					# conll = json.loads(grew_request("getConll", current_app, data={"sample_id":elt["sample_id"], "project_id":project_name, "sent_id":elt["sent_id"], "user_id":current_user.id}))
+					conll = elt.get("conll")
+					if not conll : abort(404)
+					# if conll["status"] != "OK": abort(404)
+					# conll = conll["data"]
+					trees = project_service.formatTrees_user(elt, trees, conll)
 				data[e][gov][dep] = trees
-
+	print(data)
 	js = json.dumps(data)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
