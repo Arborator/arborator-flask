@@ -15,5 +15,6 @@
 		"**/uploads*": true,
 		"fontawesome*": true,
 		"migrations*": true
-	}
+	},
+	"python.pythonPath": "/usr/bin/python3"
 }

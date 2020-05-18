@@ -288,6 +288,13 @@ def conllFile2trees(path, encoding="utf-8"):
 			trees+=[tree]
 		return trees
 
+def conllString2trees(conllstring, encoding="utf-8"):
+	conlls = conllstring.split("\n\n")
+	trees = list()
+	for c in conlls:
+		tree = conll2tree(c)
+		trees.append(tree)
+	return trees
 
 def trees2conllFile(trees, outfile, sentencefeatures=True, columns="u"): # changed default from 10 to u!
 	with open(outfile,"w") as f:

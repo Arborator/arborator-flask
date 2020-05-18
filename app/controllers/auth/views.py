@@ -73,7 +73,7 @@ def login(provider_name):
     Login handler.
     """   
     print('HIIIII')
-    print( current_app.config )
+    # print( current_app.config )
     # We need response object for the WerkzeugAdapter.
     response = make_response()
 
@@ -125,7 +125,8 @@ def login(provider_name):
 
             login_user(user, remember=True)
             session['logged_in']=True ### ?????
-            
+            print('============',user)
+
             if not User.query.filter_by(super_admin=True).first():
                 print("firstsuper")
                 return render_template('admin/firstsuper.html')
@@ -142,6 +143,8 @@ def login(provider_name):
 def getUserInfos():
     # print(session)
     user_id = session.get("user_id")
+    if not user_id: user_id = session.get("_user_id")
+    print('-----------------',session,user_id)
     user = load_user(user_id)
     user.last_seen=datetime.utcnow()
     db.session.commit()
