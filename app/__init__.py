@@ -12,6 +12,7 @@ from flask_bootstrap import Bootstrap
 
 
 # local imports
+
 try: from ..config import app_config, Config # dev__
 except: from config import app_config, Config # prod
 # from .project import get_access_for_project
