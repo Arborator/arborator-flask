@@ -29,7 +29,7 @@ def app_headers():
       # issued at time
       'iat': time_since_epoch_in_seconds,
       # JWT expiration time (10 minute maximum)
-      'exp': time_since_epoch_in_seconds + (10 * 60),
+      'exp': time_since_epoch_in_seconds + (9 * 60),
       # GitHub App's identifier
       'iss': current_app.config['APP_ID'] #arborator-grew-id
     }
@@ -43,6 +43,7 @@ def app_headers():
 def get_installation_id():
     resp = requests.get('https://api.github.com/app/installations', headers=app_headers())
     installations = json.loads(resp.content.decode())
+    # print("installations", installations)
     if resp.status_code == 404:
         abort(404)
     elif resp.status_code == 200:
@@ -55,13 +56,16 @@ def get_installation_id():
 def get_token():
     app_id = current_app.config['APP_ID']
     installation_id = get_installation_id()
-    # print("== installation_id", installation_id)
+    # print("== app id", app_id, "== installation_id", installation_id)
     resp = requests.post('https://api.github.com/installations/{}/access_tokens'.format(installation_id),
                      headers=app_headers())
-    # print('Code: ', resp.status_code)
-    # print('Content: ', resp.content.decode())
-    token = json.loads(resp.content.decode()).get("token")
-    return token
+    if resp.status_code != 201:
+        abort(resp.status_code)
+    else:
+        # print('Code: ', resp.status_code)
+        # print('Content: ', resp.content.decode())
+        token = json.loads(resp.content.decode()).get("token")
+        return token
 
 def base_header():
     token = get_token()

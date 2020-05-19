@@ -893,58 +893,131 @@ def get_relation_table_current_user(project_name):
 
 
 
-@project.route("/<project_name>/sample/<sample_name>/commit", methods=["POST"])
-# @login_required
-# @requires_access_level(1)
-def commit_sample(project_name, sample_name):
-	# push to github
-	project = project_service.get_by_name(project_name)
-	if not project: abort(404)
-	access = github_service.user_granted_access(current_user.username)
-	if access:
-		# print ("========[getConll]")
-		reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
-		# print(reply)
-		if reply.get("status") == "OK":
-			sample = reply.get("data", {})	
-			content = []
+def commit_sample(project_name, sample_name, commit_type):
+	reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
+	if reply.get("status") == "OK":
+		sample = reply.get("data", {})	
+		content = []
+		if commit_type == "all":
+			for sent_id in sample:
+				for user, conll in sample[sent_id].items():
+					# TODO : handle the different user (change # user or check that it's the right one)
+					content.append(conll)
+		elif commit_type == "user":
 			for sent_id in sample:
 				conll = sample[sent_id].get(current_user.username)
 				if conll:
 					content.append(conll)
-
-			if not content:
-				# no content for this user, flash some kind of message
-				abort(403, description="No content found for the current user")
-			else:
-				content = "\n\n".join(content)
-				content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
-
-				user_repo = github_service.get_user_repository(current_user.username)
-				resp = github_service.exists_sample(current_user.username, project_name, sample_name)
-
-				if resp.status_code == 200:
-					print("updating sample")
-					sha = json.loads(resp.content.decode())["sha"]
-					data = {'sha':sha, 'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
+		elif commit_type == "user_recent":
+			for sent_id in sample:
+				conll = sample[sent_id].get(current_user.username)
+				if conll:
+					content.append(conll)
 				else:
-					print("new sample")
-					data = {'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
-
-				# print(user_repo, project_name, sample_name)
-				resp = github_service.make_commit(user_repo, data, project_name, sample_name)
-				print(resp.status_code)
-				# print(resp.content.decode())
+					timestamps = [(user, project_service.get_timestamp(conll)) for (user, conll) in sample[sent_id].items()]
+					last = sorted([u for (u, t) in timestamps], key=lambda x: x[1])[-1]
+					conll = sample[sent_id][last]			
 		else:
-			print("!!", reply)
+			abort(400)
+		content = "\n\n".join(content)
+		content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
+
+		user_repo = github_service.get_user_repository(current_user.username)
+		resp = github_service.exists_sample(current_user.username, project_name, sample_name)
+
+		if resp.status_code == 200:
+			print("updating sample")
+			sha = json.loads(resp.content.decode())["sha"]
+			data = {'sha':sha, 'content':content, 'message':'updating sample', 'author':{"name":current_user.username, "email":"unknown"}}
+		else:
+			print("new sample")
+			data = {'content':content, 'message':'uploading a new sample', 'author':{"name":current_user.username, "email":"unknown"}}
+
+		resp = github_service.make_commit(user_repo, data, project_name, sample_name)
+		print(resp.status_code)
+		# print(resp.content.decode())
+		return resp.status_code
+	else:
+		return 404
+
+
+@project.route("/<project_name>/commit", methods=["POST"])
+# @login_required
+# @requires_access_level(1)
+def commit(project_name):
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	if not request.json: abort(400)
+	sample_names = request.json.get("samplenames")
+	commit_type = request.json.get("commit_type")
+	print(sample_names, commit_type)
+	access = github_service.user_granted_access(current_user.username)
+	print("access granted to github", access)
+	if access:
+		for sample_name in sample_names:
+			exit_code = commit_sample(project_name, sample_name, commit_type)
+			if exit_code != 200:
+				abort(exit_code)
 	else:
 		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
 		abort(404)
-			
+
 	resp = Response(dict(), status=200,  mimetype='application/json')
 	return resp
 
 
+
+
+# @project.route("/<project_name>/sample/<sample_name>/commit", methods=["POST"])
+# # @login_required
+# # @requires_access_level(1)
+# def commit_sample(project_name, sample_name):
+# 	# push to github
+# 	project = project_service.get_by_name(project_name)
+# 	if not project: abort(404)
+# 	access = github_service.user_granted_access(current_user.username)
+# 	if access:
+# 		# print ("========[getConll]")
+# 		reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
+# 		# print(reply)
+# 		if reply.get("status") == "OK":
+# 			sample = reply.get("data", {})	
+# 			content = []
+# 			for sent_id in sample:
+# 				conll = sample[sent_id].get(current_user.username)
+# 				if conll:
+# 					content.append(conll)
+
+# 			if not content:
+# 				# no content for this user, flash some kind of message
+# 				abort(403, description="No content found for the current user")
+# 			else:
+# 				content = "\n\n".join(content)
+# 				content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
+
+# 				user_repo = github_service.get_user_repository(current_user.username)
+# 				resp = github_service.exists_sample(current_user.username, project_name, sample_name)
+
+# 				if resp.status_code == 200:
+# 					print("updating sample")
+# 					sha = json.loads(resp.content.decode())["sha"]
+# 					data = {'sha':sha, 'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
+# 				else:
+# 					print("new sample")
+# 					data = {'content':content, 'message':'dummy commit message', 'author':{"name":current_user.username, "email":"unknown"}}
+
+# 				# print(user_repo, project_name, sample_name)
+# 				resp = github_service.make_commit(user_repo, data, project_name, sample_name)
+# 				print(resp.status_code)
+# 				# print(resp.content.decode())
+# 		else:
+# 			print("!!", reply)
+# 	else:
+# 		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
+# 		abort(404)
+			
+# 	resp = Response(dict(), status=200,  mimetype='application/json')
+# 	return resp
 
 
 @project.route("/<project_name>/sample/<sample_name>/pull", methods=["GET"])
