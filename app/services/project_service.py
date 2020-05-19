@@ -161,12 +161,26 @@ def remove_default_user_tree(dut_id):
 
 def get_hub_summary():
     """ summary version for the hub. lighter. """
-    projects_info = list()
+    projects_info = {'difference': False, 'projects': list()}
     projects = Project.query.all()
+    reply = grew_request ('getProjects', current_app)
+    data = json.loads(reply)['data']
+    grewnames = set([project['name'] for project in data] )
+    dbnames = set([project.projectname for project in projects] )
+    common = grewnames & dbnames
+    if len(grewnames ^ dbnames) > 0: projects_info['difference'] = True
     for project in projects:
+        if project.projectname not in common: continue
         admins = [a.userid for a in project_dao.get_admins(project.id)]
         guests = [g.userid for g in project_dao.get_guests(project.id)]
-        projects_info.append(project.as_json(include={"admins":[],"guests":[]}))
+        projectJson = project.as_json(include={"admins":[],"guests":[]})
+        for p in data: 
+            if p['name'] == project.projectname: 
+                projectJson['number_sentences'] = p['number_sentences']
+                projectJson['number_samples'] = p['number_samples']
+                projectJson['number_tokens'] = p['number_tokens']
+                projectJson['number_trees'] = p['number_trees']
+        projects_info['projects'].append(projectJson)
     return projects_info
 
 
@@ -475,6 +489,7 @@ def upload_sample(fileobject, project_name, import_user, reextensions=None, exis
                 data = {'project_id': project_name, 'sample_id': sample_name},
                 files={'conll_file': inf},
             )
+    print('REPLY S+TATIUUUSS', reply)
     reply = json.loads(reply)
     print('REPLY S+TATIUUUSS', reply)
     if reply.get("status") != "OK":
