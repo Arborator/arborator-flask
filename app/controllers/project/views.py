@@ -856,7 +856,7 @@ def save_trees(project_name, sample_name):
 	return resp
 
 
-@project.route("/<project_name>/relation_table/current_user", methods=["GET"])
+@project.route("/<project_name>/relation_table", methods=["POST"])
 # @login_required
 def get_relation_table_current_user(project_name):
 	project = project_service.get_by_name(project_name)
@@ -864,6 +864,10 @@ def get_relation_table_current_user(project_name):
 	if not project:
 		print("problem with proj")
 		abort(404)
+
+	if not request.json: abort(400)
+	table_type = request.json.get("table_type")
+	print(table_type)
 
 	reply = grew_request (
 				'searchPatternInGraphs', current_app,
@@ -878,15 +882,23 @@ def get_relation_table_current_user(project_name):
 			for dep, vvv in vv.items():
 				trees = dict()
 				for elt in vvv:
-					if elt["user_id"] != current_user.username: continue
-					# conll = json.loads(grew_request("getConll", current_app, data={"sample_id":elt["sample_id"], "project_id":project_name, "sent_id":elt["sent_id"], "user_id":current_user.id}))
-					conll = elt.get("conll")
-					if not conll : abort(404)
-					# if conll["status"] != "OK": abort(404)
-					# conll = conll["data"]
-					trees = project_service.formatTrees_user(elt, trees, conll)
+					if table_type == 'user':
+						if elt["user_id"] != current_user.username: continue
+						else:
+							conll = elt.get("conll")
+							if not conll : abort(404)
+							trees = project_service.formatTrees_user(elt, trees, conll)
+					elif table_type == 'user_recent':
+						print("not implemented")
+						# TODO
+						abort(501)
+					elif table_type == 'all':
+						conll = elt.get("conll")
+						if not conll : abort(404)
+						trees = project_service.formatTrees_user(elt, trees, conll)
+					
 				data[e][gov][dep] = trees
-	print(data)
+	# print(data)
 	js = json.dumps(data)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
