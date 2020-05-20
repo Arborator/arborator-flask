@@ -144,7 +144,7 @@ def getUserInfos():
     # print(session)
     user_id = session.get("user_id")
     if not user_id: user_id = session.get("_user_id")
-    print('-----------------',session,user_id)
+    # print('-----------------',session,user_id)
     user = load_user(user_id)
     user.last_seen=datetime.utcnow()
     db.session.commit()

@@ -67,7 +67,18 @@ def get_settings_infos(project_name, current_user):
     defaultUserTrees = [u.as_json() for u in project_dao.find_default_user_trees(project.id)]
     if project.image != None: image = str(base64.b64encode(project.image))
     else: image = ''
-    return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "admins":admins, "guests":guests, "cats":cats, "labels":labels, "is_open":project.is_open, "show_all_trees":project.show_all_trees, "default_user_trees":defaultUserTrees}
+    return { 
+        "name":project.projectname, 
+        "is_private":project.is_private, 
+        "description":project.description, 
+        "image":image, 
+        "admins":admins, 
+        "guests":guests, 
+        "cats":cats, 
+        "labels":labels, 
+        "is_open":project.is_open, 
+        "show_all_trees":project.show_all_trees, 
+        "default_user_trees":defaultUserTrees}
 
 
 def add_cat_label(project_name, current_user, cat):
@@ -261,7 +272,19 @@ def get_infos(project_name, current_user):
 
     if project.image != None: image = str(base64.b64encode(project.image))
     else: image = ''
-    return { "name":project.projectname, "is_private":project.is_private, "description":project.description, "image":image, "samples":samples, "admins":admins,  "guests":guests, "number_samples":nb_samples, "number_sentences":nb_sentences, "number_tokens":sum_nb_tokens, "averageSentenceLength":average_tokens_per_sample}
+    return { 
+        "name":project.projectname, 
+        "is_private":project.is_private, 
+        "is_open":project.is_open, 
+        "description":project.description, 
+        "image":image, 
+        "samples":samples, 
+        "admins":admins,  
+        "guests":guests, 
+        "number_samples":nb_samples, 
+        "number_sentences":nb_sentences, 
+        "number_tokens":sum_nb_tokens, 
+        "averageSentenceLength":average_tokens_per_sample}
 
 
 def get_project_treesfrom(project_name):
