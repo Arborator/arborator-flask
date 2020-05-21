@@ -515,8 +515,16 @@ def upload_sample(fileobject, project_name, import_user, reextensions=None, exis
     print('REPLY S+TATIUUUSS', reply)
     reply = json.loads(reply)
     print('REPLY S+TATIUUUSS', reply)
-    if reply.get("status") != "OK":
-        abort(400)
+    if reply.get("status") == "OK":
+        return 200, sample_name+" saved successfully on Grew"
+    else:
+        mes = reply.get('data',{}).get('message','')
+        if not mes: mes = 'unknown problem'
+        li = reply.get('data',{}).get('line','')
+        if li: li=' line '+str(li)
+        else: li=''
+        return 400, sample_name+" caused a problem: "+mes+li
+        # abort(400)
 
 
 def get_timestamp(conll):

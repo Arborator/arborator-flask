@@ -374,10 +374,14 @@ def sample_upload(project_name):
 	if fichiers:
 		reextensions = re.compile(r'\.(conll(u|\d+)?|txt|tsv|csv)$')
 		samples  = project_service.get_samples(project_name)
-		for f in fichiers: project_service.upload_sample(f, project_name, import_user, reextensions=reextensions, existing_samples=samples)
+		for f in fichiers: 
+			status, message = project_service.upload_sample(f, project_name, import_user, reextensions=reextensions, existing_samples=samples)
+			if status!=200:				
+				resp =  jsonify({'status': status, 'message': message  })
+				resp.status_code = status
+				return resp
 
 	samples = {"samples":project_service.get_samples(project_name)}
-	# print(samples)
 	js = json.dumps(samples)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
