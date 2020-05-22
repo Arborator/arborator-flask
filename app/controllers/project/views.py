@@ -1063,8 +1063,9 @@ def pull_sample(project_name, sample_name):
 	if not sample_name in samples["samples"]:
 		print("problem with sample")
 		abort(404)
-	access = github_service.user_granted_access(current_user.username)
-	if access:
+	# the user has an installation_id /!\ the user can remove their installation at all times so don't store in the db
+	installation_id = github_service.get_installation_id()
+	if installation_id:
 		# user_repo = github_service.get_user_repository(current_user.username)
 		resp = github_service.get_sample(current_user.username, project_name, sample_name)
 		if resp.status_code == 200:
