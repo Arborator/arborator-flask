@@ -51,7 +51,7 @@ def get_installation_id():
         if installation_id:
             return installation_id[0]
         else:
-            abort(404)
+            return False
 
 def get_token():
     app_id = current_app.config['APP_ID']
@@ -72,20 +72,6 @@ def base_header():
     headers = {"Authorization": "token {}".format(token),
            "Accept": "application/vnd.github.machine-man-preview+json"}
     return headers
-
-def user_granted_access(username):
-    # TODO write current_user.username instead
-    """
-    Check if the user granted access to the app
-    Str -> Bool
-    """
-    resp = requests.get('https://api.github.com/users/{}'.format(username), headers=base_header())
-    if resp.status_code == 404:
-        return False
-    elif resp.status_code == 200:
-        return True
-    else:
-        abort(resp.status_code)
 
 
 def get_user_repository(username):

@@ -967,16 +967,33 @@ def commit(project_name):
 	sample_names = request.json.get("samplenames")
 	commit_type = request.json.get("commit_type")
 	print(sample_names, commit_type)
-	access = github_service.user_granted_access(current_user.username)
-	print("access granted to github", access)
-	if access:
+	# the user has an installation_id /!\ the user can remove their installation at all times so don't store in the db
+	installation_id = github_service.get_installation_id()
+	if installation_id:
 		for sample_name in sample_names:
 			exit_code = commit_sample(project_name, sample_name, commit_type)
 			if exit_code != 200:
 				abort(exit_code)
 	else:
+		status = 418
+		if current_app.config['ENV'] == 'development':
+			message = """It seems like you haven't installed the github arborator-grew-dev application yet.\n
+			Access to this feature is only available to users that have installed the app.\n
+			1. Create a repository on your github account (this will act as your storage base).\n
+			2. Go to https://github.com/apps/arborator-grew-dev/ and click Install\n
+			3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
+			
+		elif current_app.config['ENV'] == 'production':
+			message = """It seems like you haven't installed the github arborator-grew-dev application yet.\n
+			Access to this feature is only available to users that have installed the app.\n
+			1. Create a repository on your github account (this will act as your storage base).\n
+			2. Go to https://github.com/apps/arborator-grew/ and click Install\n
+			3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
+
 		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
-		abort(404)
+		resp =  jsonify({'status': status, 'message': message  })
+		resp.status_code = status
+		return resp
 
 	resp = Response(dict(), status=200,  mimetype='application/json')
 	return resp
@@ -1078,5 +1095,22 @@ def pull_sample(project_name, sample_name):
 			abort(resp.status_code)
 
 	else:
+		status = 418
+		if current_app.config['ENV'] == 'development':
+			message = """It seems like you haven't installed the github arborator-grew-dev application yet.\n
+			Access to this feature is only available to users that have installed the app.\n
+			1. Create a repository on your github account (this will act as your storage base).\n
+			2. Go to https://github.com/apps/arborator-grew-dev/ and click Install\n
+			3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
+			
+		elif current_app.config['ENV'] == 'production':
+			message = """It seems like you haven't installed the github arborator-grew application yet.\n
+			Access to this feature is only available to users that have installed the app.\n
+			1. Create a repository on your github account (this will act as your storage base).\n
+			2. Go to https://github.com/apps/arborator-grew/ and click Install\n
+			3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
+
 		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
-		abort(404)
+		resp =  jsonify({'status': status, 'message': message  })
+		resp.status_code = status
+		return resp
