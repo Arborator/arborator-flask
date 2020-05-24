@@ -30,18 +30,18 @@ pip3 install pyopenssl
 
 # deployment
 
-**Goal**: install arborator-flask so that it servers in httpS on https://arborapi.xxx.fr:5000/api/home/projects/
+**Goal**: install arborator-flask so that it servers in httpS on https://arboratorgrew.xxx.fr:5000/api/home/projects/
 
 [This](https://medium.com/@thucnc/deploy-a-python-flask-restful-api-app-with-gunicorn-supervisor-and-nginx-62b20d62691f) and [this](https://serverfault.com/questions/828130/how-to-run-nginx-ssl-on-non-standard-port) helped a lot.
 
 Internally, flask will run on 5001. Externally it will run on 5000
 
 ## Preparation
-New server arborapi.xxx.fr (small vps)
+New server arboratorgrew.xxx.fr (small vps)
 
 ### As root:
 ```
-ssh root@arborapi.xxx.fr
+ssh root@arboratorgrew.xxx.fr
 adduser arborator
 ```
 
@@ -62,7 +62,7 @@ python3 -m pip install flask_sqlalchemy flask_migrate flask_login sqlalchemy_uti
 
 ### As arborator:
 ```
-ssh arborator@arborapi.xxx.fr
+ssh arborator@arboratorgrew.xxx.fr
 git clone https://github.com/Arborator/arborator-flask.git
 cd /home/arborator/arborator-flask/
 ```
@@ -85,7 +85,7 @@ sudo supervisorctl restart arborator-flask
 
 
 ### Check and debug
-Is it working on https://arborapi.xxx.fr:5000/api/home/projects/ ?
+Is it working on https://arboratorgrew.xxx.fr:5000/api/home/projects/ ?
 Test locally with
 `curl localhost:5001/api/home/projects/`
 
@@ -96,7 +96,7 @@ lsof -i:5001
 ```
 
 From remote (note that strangely, it doesn’t work with https as in the browser)
-`curl http://arborapi.xxx.fr:5000/api/home/projects/`
+`curl http://arboratorgrew.xxx.fr:5000/api/home/projects/`
 
 
 If address already in use for second run: 
@@ -109,7 +109,7 @@ killall gunicorn
 
 #### Backend flask
 
-1. As arborator (ssh arborator@arborapi.xxx.fr):
+1. As arborator (ssh arborator@arboratorgrew.xxx.fr):
 ```
 cd arborator-flask
 git pull origin master
