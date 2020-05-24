@@ -97,6 +97,31 @@ def project_treesfrom(project_name):
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
+# new from kim:
+@project.route('/<project_name>/settings/update', methods=['POST'])
+@requires_access_level(2)
+def project_settings_update(project_name):
+	""" add an admin/guest to the project {'user_id':id}"""
+	print("___project_settings_update")
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	user = user_service.get_by_id(request.json.get("user_id"))
+	# if user: 
+	# 	pa = project_service.get_project_access(project.id, user.id)
+	# 	accesslevel_dict = {v: k for k, v in dict(ProjectAccess.ACCESS).items()}
+	# 	if pa: pa.accesslevel = accesslevel_dict[target_role]
+	# 	else: project_service.create_add_project_access(user.id, project.id, accesslevel_dict[target_role])
+	print(request.json) # todo: handle this correctly, depending on whether it has to go to grew or to local storage
+	for a,v in request.json.items():
+		print("where does that go?",a,v)
+	# , json.loads(request.json.get("user")))
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	if project_infos == 403: abort(403) 
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
+
+
 @project.route('/<project_name>/<target_role>/add', methods=['POST'])
 @requires_access_level(2)
 def project_userrole_add(project_name, target_role):
@@ -329,7 +354,7 @@ def search_project(project_name):
 	if reply["status"] != "OK": abort(400)
 	trees={}
 	# matches={}
-	reendswithnumbers = re.compile(r"_(\d+)$")
+	# reendswithnumbers = re.compile(r"_(\d+)$")
 
 	for m in reply["data"]:
 		if m['user_id'] == '': abort(409)
@@ -643,8 +668,8 @@ def search_sample(project_name, sample_name):
 	if reply["status"] != "OK": abort(400)
 
 	trees={}
-	matches={}
-	reendswithnumbers = re.compile(r"_(\d+)$")
+	# matches={}
+	# reendswithnumbers = re.compile(r"_(\d+)$")
 
 	for m in reply["data"]:
 		if m["sample_id"] != sample_name: continue
