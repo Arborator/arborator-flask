@@ -1046,17 +1046,17 @@ def commit(project_name):
 	else:
 		status = 418
 		if current_app.config['ENV'] == 'development':
-			message = """It seems like you haven't installed the github arborator-grew-dev application yet.\n
-			Access to this feature is only available to users that have installed the app.\n
-			1. Create a repository on your github account (this will act as your storage base).\n
-			2. Go to https://github.com/apps/arborator-grew-dev/ and click Install\n
+			message = """It seems like you haven't installed the github arborator-grew-dev application yet.<br>
+			Access to this feature is only available to users that have installed the app.<br>
+			1. Create a repository on your github account (this will act as your storage base).<br>
+			2. Go to https://github.com/apps/arborator-grew-dev/ and click Install<br>
 			3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
 			
 		elif current_app.config['ENV'] == 'production':
-			message = """It seems like you haven't installed the github arborator-grew-dev application yet.\n
-			Access to this feature is only available to users that have installed the app.\n
-			1. Create a repository on your github account (this will act as your storage base).\n
-			2. Go to https://github.com/apps/arborator-grew/ and click Install\n
+			message = """It seems like you haven't installed the github arborator-grew-dev application yet.<br>
+			Access to this feature is only available to users that have installed the app.<br>
+			1. Create a repository on your github account (this will act as your storage base).<br>
+			2. Go to https://github.com/apps/arborator-grew/ and click Install<br>
 			3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
 
 		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
@@ -1124,17 +1124,17 @@ def pull(project_name):
 	else:
 		status = 418
 		if current_app.config['ENV'] == 'development':
-			message = """It seems like you haven't installed the github arborator-grew-dev application yet.\n
-			Access to this feature is only available to users that have installed the app.\n
-			1. Create a repository on your github account (this will act as your storage base).\n
-			2. Go to https://github.com/apps/arborator-grew-dev/ and click Install\n
+			message = """It seems like you haven't installed the github arborator-grew-dev application yet.<br>
+			Access to this feature is only available to users that have installed the app.<br>
+			1. Create a repository on your github account (this will act as your storage base).<br>
+			2. Go to https://github.com/apps/arborator-grew-dev/ and click Install<br>
 			3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
 			
 		elif current_app.config['ENV'] == 'production':
-			message = """It seems like you haven't installed the github arborator-grew application yet.\n
-			Access to this feature is only available to users that have installed the app.\n
-			1. Create a repository on your github account (this will act as your storage base).\n
-			2. Go to https://github.com/apps/arborator-grew/ and click Install\n
+			message = """It seems like you haven't installed the github arborator-grew application yet.<br>
+			Access to this feature is only available to users that have installed the app.<br>
+			1. Create a repository on your github account (this will act as your storage base).<br>
+			2. Go to https://github.com/apps/arborator-grew/ and click Install<br>
 			3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
 
 		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
