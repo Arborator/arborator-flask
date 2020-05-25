@@ -938,46 +938,77 @@ def commit_sample(project_name, sample_name, commit_type):
 	reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
 	if reply.get("status") == "OK":
 		sample = reply.get("data", {})	
-		content = []
-		if commit_type == "all":
-			for sent_id in sample:
+		content = {}
+
+		for sent_id in sample:
+			
+			if commit_type == 'all':
 				for user, conll in sample[sent_id].items():
-					# TODO : handle the different user (change # user or check that it's the right one)
-					content.append(conll)
-		elif commit_type == "user":
-			for sent_id in sample:
-				conll = sample[sent_id].get(current_user.username)
-				if conll:
-					content.append(conll)
-		elif commit_type == "user_recent":
-			for sent_id in sample:
-				conll = sample[sent_id].get(current_user.username)
-				if conll:
-					content.append(conll)
+					content[user] = content.get(user, []) + [conll]
+			elif commit_type == "user":
+				if current_user.username in sample[sent_id]:
+					conll = sample[sent_id][current_user.username]
+					content[current_user.username] = content.get(current_user.username, []) + [conll]
+			elif commit_type == "user_recent":
+				if current_user.username in sample[sent_id]:
+					conll = sample[sent_id][current_user.username]
 				else:
 					timestamps = [(user, project_service.get_timestamp(conll)) for (user, conll) in sample[sent_id].items()]
 					last = sorted([u for (u, t) in timestamps], key=lambda x: x[1])[-1]
-					conll = sample[sent_id][last]			
-		else:
-			abort(400)
-		content = "\n\n".join(content)
-		content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
+					conll = sample[sent_id][last]
+				content[current_user.username] = content.get(current_user.username, []) + [conll]	
 
-		user_repo = github_service.get_user_repository(current_user.username)
-		resp = github_service.exists_sample(current_user.username, project_name, sample_name)
+		# no trees for the user
+		if commit_type == 'user' and current_user.username not in content :
+			return 204
 
-		if resp.status_code == 200:
-			print("updating sample")
-			sha = json.loads(resp.content.decode())["sha"]
-			data = {'sha':sha, 'content':content, 'message':'updating sample', 'author':{"name":current_user.username, "email":"unknown"}}
-		else:
-			print("new sample")
-			data = {'content':content, 'message':'uploading a new sample', 'author':{"name":current_user.username, "email":"unknown"}}
+		# user-based mode and content exists
+		elif commit_type in ['user', 'user_recent'] and current_user.username in content:
+			content = "\n\n".join(content[current_user.username])
+			content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
 
-		resp = github_service.make_commit(user_repo, data, project_name, sample_name)
-		print(resp.status_code)
-		# print(resp.content.decode())
-		return resp.status_code
+			user_repo = github_service.get_user_repository(current_user.username)
+			resp = github_service.exists_sample(current_user.username, project_name, sample_name+"_"+current_user.username)
+
+			if resp.status_code == 200:
+				print("updating sample - commit type : {}".format(commit_type))
+				sha = json.loads(resp.content.decode())["sha"]
+				data = {'sha':sha, 'content':content, 'message':'updating sample', 'author':{"name":current_user.username, "email":"unknown"}}
+			else:
+				print(resp.status_code)
+				print("new sample - commit type : {}".format(commit_type))
+				data = {'content':content, 'message':'uploading a new sample', 'author':{"name":current_user.username, "email":"unknown"}}
+
+			resp = github_service.make_commit(user_repo, data, project_name, sample_name+"_"+current_user.username)
+			print(resp.status_code)
+			print(resp.content.decode())
+			return resp.status_code
+
+		# admin mode : commit all trees in separate files
+		elif commit_type == 'all':
+			for username in content:
+				content = "\n\n".join(content[username])
+				content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
+
+				user_repo = github_service.get_user_repository(current_user.username)
+				resp = github_service.exists_sample(current_user.username, project_name, sample_name+"_"+username)
+
+				if resp.status_code == 200:
+					print("updating sample - commit type : {}".format(commit_type))
+					sha = json.loads(resp.content.decode())["sha"]
+					data = {'sha':sha, 'content':content, 'message':'updating sample', 'author':{"name":current_user.username, "email":"unknown"}}
+				else:
+					print(resp.status_code)
+					print("new sample - commit type : {}".format(commit_type))
+					data = {'content':content, 'message':'uploading a new sample', 'author':{"name":current_user.username, "email":"unknown"}}
+
+				resp = github_service.make_commit(user_repo, data, project_name, sample_name+"_"+username)
+				print(resp.status_code)
+				print(resp.content.decode())
+				if resp.status_code not in [200, 201]:
+					abort(resp.status_code)
+			return resp.status_code
+
 	else:
 		return 404
 
@@ -997,7 +1028,13 @@ def commit(project_name):
 	if installation_id:
 		for sample_name in sample_names:
 			exit_code = commit_sample(project_name, sample_name, commit_type)
-			if exit_code != 200:
+			if exit_code == 204:
+				print("no trees for user")
+				resp =  jsonify({'status': exit_code, 'message': 'No trees were found for user {}, please make some trees before comitting the samples.'.format(current_user.username)  })
+				resp.status_code = exit_code
+				return resp
+			# 200 : ok, 201 : created (if the sample is new for the user)
+			if exit_code not in [200, 201]:
 				abort(exit_code)
 	else:
 		status = 418
@@ -1078,65 +1115,71 @@ def commit(project_name):
 # 	return resp
 
 
-@project.route("/<project_name>/sample/<sample_name>/pull", methods=["GET"])
+@project.route("/<project_name>/pull", methods=["POST"])
 # @login_required
 # @requires_access_level(1)
-def pull_sample(project_name, sample_name):
+def pull(project_name):
 	project = project_service.get_by_name(project_name)
+	print(project)
 	if not project: abort(404)
-	samples = {"samples":project_service.get_samples(project_name)}
-	if not sample_name in samples["samples"]:
-		print("problem with sample")
-		abort(404)
+	if not request.json: abort(400)
+	sample_names = request.json.get("samplenames")
+	pull_type = request.json.get("pull_type")
+	print(sample_names, pull_type)
 	# the user has an installation_id /!\ the user can remove their installation at all times so don't store in the db
 	installation_id = github_service.get_installation_id()
 	if installation_id:
-		# user_repo = github_service.get_user_repository(current_user.username)
-		resp = github_service.get_sample(current_user.username, project_name, sample_name)
-		if resp.status_code == 200:
-			content = json.loads(resp.content.decode()).get("content")
-			content = base64.b64decode(content).decode("utf-8")
+		if pull_type != 'user': abort(501)
+		for sample_name in sample_names:
+			resp = github_service.get_sample(current_user.username, project_name, sample_name)
 
-			# pas hyper efficace str -> tree -> str
-			trees = conll3.conllString2trees(content)
+	# 		# failed on getting sample
+			# TODO : frontend show the message
+			if resp.status_code == 404:
+				resp = Response({"message":"This sample is absent from your github storage which makes pulling impossible."}, status=404,  mimetype='application/json')
+				return resp
+			elif resp.status_code != 200:
+				abort(resp.status_code)
+	# 		else:
+	# 			content = json.loads(resp.content.decode()).get("content")
+	# 			content = base64.b64decode(content).decode("utf-8")
+
+	# 			# pas hyper efficace str -> tree -> str
+	# 			trees = conll3.conllString2trees(content)
+				
+	# 			for tree in trees:
+	# 				sent_id = tree.sentencefeatures.get("sent_id")
+	# 				if not sent_id: abort(400)
+	# 				conll = tree.conllu()
+
+	# 				# TODO idealement faudrait sauver que ce qui a change...
+	# 				reply = grew_request (
+	# 					'saveGraph', current_app,
+	# 					data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':current_user.username, 'sent_id':sent_id, "conll_graph":conll}
+	# 					)
+	# 				resp = json.loads(reply)
+	# 				if resp["status"] != "OK":
+	# 					abort(404)
+
+	# 	return project_info(project_name)
+
+	# else:
+	# 	status = 418
+	# 	if current_app.config['ENV'] == 'development':
+	# 		message = """It seems like you haven't installed the github arborator-grew-dev application yet.\n
+	# 		Access to this feature is only available to users that have installed the app.\n
+	# 		1. Create a repository on your github account (this will act as your storage base).\n
+	# 		2. Go to https://github.com/apps/arborator-grew-dev/ and click Install\n
+	# 		3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
 			
-			for tree in trees:
-				sent_id = tree.sentencefeatures.get("sent_id")
-				if not sent_id: abort(400)
-				conll = tree.conllu()
+	# 	elif current_app.config['ENV'] == 'production':
+	# 		message = """It seems like you haven't installed the github arborator-grew application yet.\n
+	# 		Access to this feature is only available to users that have installed the app.\n
+	# 		1. Create a repository on your github account (this will act as your storage base).\n
+	# 		2. Go to https://github.com/apps/arborator-grew/ and click Install\n
+	# 		3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
 
-				# TODO idealement faudrait sauver que ce qui a change...
-				reply = grew_request (
-					'saveGraph', current_app,
-					data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':current_user.username, 'sent_id':sent_id, "conll_graph":conll}
-					)
-				resp = json.loads(reply)
-				if resp["status"] != "OK":
-					abort(404)
-			# TODO Reloading doesnt work
-			# return samplepage(project_name, sample_name)
-			return redirect(url_for('project.samplepage', project_name=project_name, sample_name=sample_name))
-		else:
-			# failed on getting sample
-			abort(resp.status_code)
-
-	else:
-		status = 418
-		if current_app.config['ENV'] == 'development':
-			message = """It seems like you haven't installed the github arborator-grew-dev application yet.\n
-			Access to this feature is only available to users that have installed the app.\n
-			1. Create a repository on your github account (this will act as your storage base).\n
-			2. Go to https://github.com/apps/arborator-grew-dev/ and click Install\n
-			3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
-			
-		elif current_app.config['ENV'] == 'production':
-			message = """It seems like you haven't installed the github arborator-grew application yet.\n
-			Access to this feature is only available to users that have installed the app.\n
-			1. Create a repository on your github account (this will act as your storage base).\n
-			2. Go to https://github.com/apps/arborator-grew/ and click Install\n
-			3. Look over the granted permissions and if you accept select 1 repository (created at step 1.) and click Install & Authorize."""
-
-		# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
-		resp =  jsonify({'status': status, 'message': message  })
-		resp.status_code = status
-		return resp
+	# 	# TODO mettre un petit message pour dire qu'il faut se connecter via github + donner permissions
+	# 	resp =  jsonify({'status': status, 'message': message  })
+	# 	resp.status_code = status
+		# return resp
