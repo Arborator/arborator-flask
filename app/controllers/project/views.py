@@ -597,10 +597,7 @@ def sample_export(project_name):
 			sample_content = project_service.sampletree2contentfile(sample_tree)
 
 			# finding the last tree
-			timestamps = [(user, project_service.get_timestamp(conll)) for (user, conll) in sample_content.items()]
-			# print(timestamps)
-			last = sorted([u for (u, t) in timestamps], key=lambda x: x[1])[-1] #pb les timestamps sont pas mis à jour
-			# print(last)
+			last = project_service.get_last_user(sample_content)
 			sample_content["last"] = sample_content[last]
 			samplecontentfiles.append(sample_content)
 
@@ -949,12 +946,15 @@ def commit_sample(project_name, sample_name, commit_type):
 				if current_user.username in sample[sent_id]:
 					conll = sample[sent_id][current_user.username]
 					content[current_user.username] = content.get(current_user.username, []) + [conll]
+			elif commit_type == "recent":
+				last = project_service.get_last_user(sample[sent_id])
+				conll = sample[sent_id][last]
+				content[current_user.username] = content.get(current_user.username, []) + [conll]
 			elif commit_type == "user_recent":
 				if current_user.username in sample[sent_id]:
 					conll = sample[sent_id][current_user.username]
 				else:
-					timestamps = [(user, project_service.get_timestamp(conll)) for (user, conll) in sample[sent_id].items()]
-					last = sorted([u for (u, t) in timestamps], key=lambda x: x[1])[-1]
+					last = project_service.get_last_user(sample[sent_id])
 					conll = sample[sent_id][last]
 				content[current_user.username] = content.get(current_user.username, []) + [conll]	
 
@@ -962,13 +962,19 @@ def commit_sample(project_name, sample_name, commit_type):
 		if commit_type == 'user' and current_user.username not in content :
 			return 204
 
-		# user-based mode and content exists
-		elif commit_type in ['user', 'user_recent'] and current_user.username in content:
+		# user-based mode 
+		elif commit_type in ['user', 'user_recent', 'recent']:
 			content = "\n\n".join(content[current_user.username])
 			content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
 
 			user_repo = github_service.get_user_repository(current_user.username)
-			resp = github_service.exists_sample(current_user.username, project_name, sample_name+"_"+current_user.username)
+
+			if commit_type == "recent":
+				suffix = "_last"
+			else:
+				suffix = "_"+current_user.username
+
+			resp = github_service.exists_sample(current_user.username, project_name, sample_name+suffix)
 
 			if resp.status_code == 200:
 				print("updating sample - commit type : {}".format(commit_type))
@@ -979,7 +985,7 @@ def commit_sample(project_name, sample_name, commit_type):
 				print("new sample - commit type : {}".format(commit_type))
 				data = {'content':content, 'message':'uploading a new sample', 'author':{"name":current_user.username, "email":"unknown"}}
 
-			resp = github_service.make_commit(user_repo, data, project_name, sample_name+"_"+current_user.username)
+			resp = github_service.make_commit(user_repo, data, project_name, sample_name+suffix)
 			print(resp.status_code)
 			print(resp.content.decode())
 			return resp.status_code
@@ -991,7 +997,9 @@ def commit_sample(project_name, sample_name, commit_type):
 				content = base64.b64encode(content.encode("utf-8")).decode("utf-8")
 
 				user_repo = github_service.get_user_repository(current_user.username)
-				resp = github_service.exists_sample(current_user.username, project_name, sample_name+"_"+username)
+				suffix = "_"+username
+				print("sample outfile : ", sample_name+suffix)
+				resp = github_service.exists_sample(current_user.username, project_name, sample_name+suffix)
 
 				if resp.status_code == 200:
 					print("updating sample - commit type : {}".format(commit_type))
@@ -1002,7 +1010,7 @@ def commit_sample(project_name, sample_name, commit_type):
 					print("new sample - commit type : {}".format(commit_type))
 					data = {'content':content, 'message':'uploading a new sample', 'author':{"name":current_user.username, "email":"unknown"}}
 
-				resp = github_service.make_commit(user_repo, data, project_name, sample_name+"_"+username)
+				resp = github_service.make_commit(user_repo, data, project_name, sample_name+suffix)
 				print(resp.status_code)
 				print(resp.content.decode())
 				if resp.status_code not in [200, 201]:

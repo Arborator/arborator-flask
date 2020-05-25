@@ -544,6 +544,13 @@ def servSampleTrees(samples):
             trees[sentId]["conlls"][userId] = conll
     js = json.dumps(trees)
     return js
+def get_last_user(tree):
+    timestamps = [(user, get_timestamp(conll)) for (user, conll) in tree.items()]
+    if len(timestamps) > 1:
+        last = timestamps[0][0]
+    else:
+        last = sorted([u for (u, t) in timestamps], key=lambda x: x[1])[-1]
+    return last
 
 def sampletree2contentfile(tree):
     if isinstance( tree, str ): tree = json.loads(tree)
