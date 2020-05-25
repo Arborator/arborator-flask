@@ -405,7 +405,6 @@ def sample_upload(project_name):
 				resp =  jsonify({'status': status, 'message': message  })
 				resp.status_code = status
 				return resp
-
 	samples = {"samples":project_service.get_samples(project_name)}
 	js = json.dumps(samples)
 	resp = Response(js, status=200,  mimetype='application/json')
