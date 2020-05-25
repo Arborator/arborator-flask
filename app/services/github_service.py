@@ -18,6 +18,7 @@ import time
 import jwt
 import json
 import requests
+import re
 
 
 def app_headers():
@@ -111,3 +112,20 @@ def get_sample(username, project_name, sample_name):
     user_repo = get_user_repository(username)
     resp = requests.get('https://api.github.com/repos/{}/contents/{}/{}'.format(user_repo, project_name, sample_name), headers=base_header())
     return resp
+
+def get_all_users(username, project_name, sample_name):
+    user_repo = get_user_repository(username)
+    resp = requests.get('https://api.github.com/repos/{}/contents/{}'.format(user_repo, project_name), headers=base_header())
+    if resp.status_code == 200:
+        users = []
+        data = json.loads(resp.content.decode())
+        for sample in data:
+            name = sample["name"]
+            match = re.search(sample_name+"_(.+)$", name).groups()
+            if match:
+                user = match[0]
+                if user != "last":
+                    users.append(user)
+        return users
+    else:
+        abort(404)

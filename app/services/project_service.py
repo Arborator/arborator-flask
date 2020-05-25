@@ -528,7 +528,7 @@ def upload_sample(fileobject, project_name, import_user, reextensions=None, exis
 
 
 def get_timestamp(conll):
-    t = re.search("# timestamp = (\d+\.\d+)\n", conll).groups()
+    t = re.search("# timestamp = (\d+(\.\d+)?)\n", conll).groups()
     if t:
         return t[0]
     else:
