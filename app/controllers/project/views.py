@@ -67,10 +67,10 @@ def project_info(project_name):
 	pê admin names, nb samples, nb arbres, description	
 
 	infos: {
-                name: projectname,
-                admins : [],
-                samples: [
-                    { samplename: 'P_ABJ_GWA_10_Steven.lifestory_PRO', sentences: 80, tokens: 20, averageSentenceLength: 12.6, roles :{validators: [], annotators: []}, treesFrom: ['parser', 'tella', 'j.D'], exo: 'percentage'}, 
+				name: projectname,
+				admins : [],
+				samples: [
+					{ samplename: 'P_ABJ_GWA_10_Steven.lifestory_PRO', sentences: 80, tokens: 20, averageSentenceLength: 12.6, roles :{validators: [], annotators: []}, treesFrom: ['parser', 'tella', 'j.D'], exo: 'percentage'}, 
 	"""
 	# id ="rinema56@gmail.com"
 	# current_user = user_service.get_by_id(id)
@@ -401,7 +401,8 @@ def sample_upload(project_name):
 		samples  = project_service.get_samples(project_name)
 		for f in fichiers: 
 			status, message = project_service.upload_sample(f, project_name, import_user, reextensions=reextensions, existing_samples=samples)
-			if status!=200:				
+			if status!=200:
+				print(message)	
 				resp =  jsonify({'status': status, 'message': message  })
 				resp.status_code = status
 				return resp
@@ -621,7 +622,7 @@ def samplepage(project_name, sample_name):
 
 	returns:
 	{
-    "P_ABJ_GWA_10_Steven-lifestory_PRO_1": {
+	"P_ABJ_GWA_10_Steven-lifestory_PRO_1": {
 		"sentence": "fdfdfsf",
 		"conlls":{
 		"yuchen": "# elan_id = ABJ_GWA_10_M_001 ABJ_GWA_10_M_002 ABJ_GWA_10_M_003\n# sent_id = P_ABJ_GWA_10_Steven-lifestory_PRO_1\n# sent_translation = I stay with my mother in the village. #\n# text = I dey stay with my moder //+ # for village //\n1\tI\t_\tINTJ\t_\tCase=Nom|endali=2610|Number=Sing|Person=1|PronType=Prs|
@@ -883,7 +884,7 @@ def save_trees(project_name, sample_name):
 
 @project.route("/<project_name>/relation_table", methods=["POST"])
 # @login_required
-def get_relation_table_current_user(project_name):
+def get_relation_table(project_name):
 	project = project_service.get_by_name(project_name)
 	print('project', project)
 	if not project:
@@ -892,7 +893,7 @@ def get_relation_table_current_user(project_name):
 
 	if not request.json: abort(400)
 	table_type = request.json.get("table_type")
-	print(table_type)
+	if not table_type : abort(400)
 
 	reply = grew_request (
 				'searchPatternInGraphs', current_app,
@@ -908,22 +909,35 @@ def get_relation_table_current_user(project_name):
 				trees = dict()
 				for elt in vvv:
 					if table_type == 'user':
-						if elt["user_id"] != current_user.username: continue
+						if elt["user_id"] != current_user.username:
+							continue
 						else:
 							conll = elt.get("conll")
-							if not conll : abort(404)
-							trees = project_service.formatTrees_user(elt, trees, conll)
-					elif table_type == 'user_recent':
-						print("not implemented")
-						# TODO
-						abort(501)
-					elif table_type == 'all':
+							trees = project_service.formatTrees_new(elt, trees, conll)
+					else:
 						conll = elt.get("conll")
-						if not conll : abort(404)
-						trees = project_service.formatTrees_user(elt, trees, conll)
-					
+						trees = project_service.formatTrees_new(elt, trees, conll)
+
+				# filtering out
+				if table_type == "recent":
+					for samp in trees:
+						for sent in trees[samp]:
+							last = project_service.get_last_user(trees[samp][sent]["conlls"])
+							trees[samp][sent]["conlls"] = {last:trees[samp][sent]["conlls"][last]}
+							trees[samp][sent]["matches"] = {last:trees[samp][sent]["matches"][last]}
+				elif table_type == "user_recent":
+					for samp in trees:
+						for sent in trees[samp]:
+							if current_user.username in trees[samp][sent]["conlls"]:
+								trees[samp][sent]["conlls"] = {current_user.username:trees[samp][sent]["conlls"][current_user.username]}
+								trees[samp][sent]["matches"] = {current_user.username:trees[samp][sent]["matches"][current_user.username]}
+							else:
+								last = project_service.get_last_user(trees[samp][sent]["conlls"])
+								trees[samp][sent]["conlls"] = {last:trees[samp][sent]["conlls"][last]}
+								trees[samp][sent]["matches"] = {last:trees[samp][sent]["matches"][last]}
+				elif table_type == "all":
+					pass
 				data[e][gov][dep] = trees
-	# print(data)
 	js = json.dumps(data)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
