@@ -828,12 +828,12 @@ def update_sample(project_name, sample_name):
 	pass
 
 
-@project.route("/<project_name>/sample/<sample_name>/saveTrees", methods=["POST"])
+@project.route("/<project_name>/saveTrees", methods=["POST"])
 # @login_required
 # @requires_access_level(1)
-def save_trees(project_name, sample_name):
+def save_trees(project_name):
 	project = project_service.get_by_name(project_name)
-	print("save_trees",project_name, sample_name, project)
+	print("save_trees",project_name, project)
 	if not project:
 		print("problem with proj")
 		abort(404)
@@ -845,24 +845,28 @@ def save_trees(project_name, sample_name):
 		if not project_service.is_annotator(project.id, sample_name, current_user.id): abort(403)
 	
 
-	samples = {"samples":project_service.get_samples(project_name)}
-	print(samples, sample_name in samples["samples"])
-	if not sample_name in samples["samples"]:
-		print("problem with sample")
-		abort(404)
+	# samples = {"samples":project_service.get_samples(project_name)}
+	# if not sample_name in samples["samples"]:
+	# 	print("problem with sample")
+	# 	abort(404)
 
 	data = request.json
 	if data:
+		print(data)
 		trees = data.get("trees")
 		# no user_id was sent : save to current_user, else save to provided user
 		# user_id = data.get("user_id", current_user.id)
 		user_id = data.get("user_id", current_user.id)
+		
 		# if not user_id: abort(400)
 		for tree in trees:
-			# print(tree)
+			sample_name = tree.get("sample_name")
 			sent_id = tree.get("sent_id")
 			conll = tree.get("conll")
-			print(464564,conll)
+
+			print("saving", sample_name, sent_id)
+			
+			# print(464564,conll)
 			# if not sent_id: abort(400)
 			if not conll: abort(400)
 
