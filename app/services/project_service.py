@@ -172,28 +172,30 @@ def remove_default_user_tree(dut_id):
 	project_dao.delete_defaultusertree_by_id(dut_id)
 
 def get_hub_summary():
-	""" summary version for the hub. lighter. """
-	projects_info = {'difference': False, 'projects': list()}
-	projects = Project.query.all()
-	reply = grew_request ('getProjects', current_app)
-	data = json.loads(reply)['data']
-	grewnames = set([project['name'] for project in data] )
-	dbnames = set([project.projectname for project in projects] )
-	common = grewnames & dbnames
-	if len(grewnames ^ dbnames) > 0: projects_info['difference'] = True
-	for project in projects:
-		if project.projectname not in common: continue
-		admins = [a.userid for a in project_dao.get_admins(project.id)]
-		guests = [g.userid for g in project_dao.get_guests(project.id)]
-		projectJson = project.as_json(include={"admins":[],"guests":[]})
-		for p in data: 
-			if p['name'] == project.projectname: 
-				projectJson['number_sentences'] = p['number_sentences']
-				projectJson['number_samples'] = p['number_samples']
-				projectJson['number_tokens'] = p['number_tokens']
-				projectJson['number_trees'] = p['number_trees']
-		projects_info['projects'].append(projectJson)
-	return projects_info
+    """ summary version for the hub. lighter. """
+    projects_info = {'difference': False, 'projects': list()}
+    projects = Project.query.all()
+    reply = grew_request('getProjects', current_app)
+    print(123123,reply)
+    if not reply: return projects_info
+    data = json.loads(reply)['data']
+    grewnames = set([project['name'] for project in data] )
+    dbnames = set([project.projectname for project in projects] )
+    common = grewnames & dbnames
+    if len(grewnames ^ dbnames) > 0: projects_info['difference'] = True
+    for project in projects:
+        if project.projectname not in common: continue
+        admins = [a.userid for a in project_dao.get_admins(project.id)]
+        guests = [g.userid for g in project_dao.get_guests(project.id)]
+        projectJson = project.as_json(include={"admins":[],"guests":[]})
+        for p in data: 
+            if p['name'] == project.projectname: 
+                projectJson['number_sentences'] = p['number_sentences']
+                projectJson['number_samples'] = p['number_samples']
+                projectJson['number_tokens'] = p['number_tokens']
+                projectJson['number_trees'] = p['number_trees']
+        projects_info['projects'].append(projectJson)
+    return projects_info
 
 
 def get_infos(project_name, current_user):
