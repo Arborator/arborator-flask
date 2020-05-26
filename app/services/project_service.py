@@ -578,49 +578,49 @@ def contentfiles2zip(samplenames, sampletrees):
 	memory_file.seek(0)
 	return memory_file
 
-def formatTrees(m, trees, conll, user_id):
-	'''
-	m is the query result from grew
-	list of trees
-	'''
-	nodes = []
-	for k in m['nodes'].values():
-		nodes +=[k.split("_")[-1]]
+# def formatTrees(m, trees, conll, user_id):
+# 	'''
+# 	m is the query result from grew
+# 	list of trees
+# 	'''
+# 	nodes = []
+# 	for k in m['nodes'].values():
+# 		nodes +=[k.split("_")[-1]]
 
-	edges = []
-	for k in m['edges'].values():
-		edges +=[k.split("_")[-1]]
+# 	edges = []
+# 	for k in m['edges'].values():
+# 		edges +=[k.split("_")[-1]]
 
-	if m["sent_id"] not in trees:
-		t = conll3.conll2tree(conll)
-		s = t.sentence()
-		trees[m["sent_id"]] = {"samplename":m['sample_id'] ,"sentence":s, "conlls":{user_id:conll},"matches":{user_id:{"edges":edges,"nodes":nodes}}}
-	else:
-		trees[m["sent_id"]]["conlls"][user_id]=conll
-		trees[m["sent_id"]]["matches"][user_id]={"edges":edges,"nodes":nodes}
+# 	if m["sent_id"] not in trees:
+# 		t = conll3.conll2tree(conll)
+# 		s = t.sentence()
+# 		trees[m["sent_id"]] = {"samplename":m['sample_id'] ,"sentence":s, "conlls":{user_id:conll},"matches":{user_id:{"edges":edges,"nodes":nodes}}}
+# 	else:
+# 		trees[m["sent_id"]]["conlls"][user_id]=conll
+# 		trees[m["sent_id"]]["matches"][user_id]={"edges":edges,"nodes":nodes}
 	
-	return trees
+# 	return trees
 		
 
-def formatTrees_user(m, trees, conll):
-	'''
-	m is the query result from grew
-	list of trees
-	'''
-	nodes = m["nodes"]
-	edges = m["edges"]
-	user_id = m["user_id"]
+# def formatTrees_user(m, trees, conll):
+# 	'''
+# 	m is the query result from grew
+# 	list of trees
+# 	'''
+# 	nodes = m["nodes"]
+# 	edges = m["edges"]
+# 	user_id = m["user_id"]
 
 
-	if m["sent_id"] not in trees:
-		t = conll3.conll2tree(conll)
-		s = t.sentence()
-		trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll},"matches":{user_id:{"edges":edges,"nodes":nodes}}}
-	else:
-		trees[m["sent_id"]]["conlls"].update(user_id=conll)
-		trees[m["sent_id"]]["matches"].update(user_id={"edges":edges,"nodes":nodes})
+# 	if m["sent_id"] not in trees:
+# 		t = conll3.conll2tree(conll)
+# 		s = t.sentence()
+# 		trees[m["sent_id"]] = {"sentence":s, "conlls":{user_id:conll},"matches":{user_id:{"edges":edges,"nodes":nodes}}}
+# 	else:
+# 		trees[m["sent_id"]]["conlls"].update(user_id=conll)
+# 		trees[m["sent_id"]]["matches"].update(user_id={"edges":edges,"nodes":nodes})
 	
-	return trees
+# 	return trees
 
 
 def formatTrees_new(m, trees, conll):

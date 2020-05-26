@@ -362,7 +362,8 @@ def search_project(project_name):
 		conll = json.loads(grew_request("getConll", current_app, data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":m['user_id']}))
 		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
-		trees=project_service.formatTrees(m, trees, conll, m['user_id'])
+		# trees=project_service.formatTrees(m, trees, conll, m['user_id'])
+		trees=project_service.formatTrees_new(m, trees, conll)
 
 	js = json.dumps(trees)
 	resp = Response(js, status=200,  mimetype='application/json')
@@ -675,7 +676,8 @@ def search_sample(project_name, sample_name):
 		conll = json.loads(grew_request("getConll", current_app, data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":m['user_id']}))
 		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
-		trees=project_service.formatTrees(m, trees, conll, m['user_id'])
+		# trees=project_service.formatTrees(m, trees, conll, m['user_id'])
+		trees=project_service.formatTrees_new(m, trees, conll)
 		# # adding trees
 		# # {trees:{sent_id:{user:conll, user:conll}}, matches:{(sent_id, user_id):[{nodes: [], edges:[]}]}}
 		# if m["sent_id"] not in trees:
