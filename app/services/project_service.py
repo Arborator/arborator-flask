@@ -175,6 +175,7 @@ def get_hub_summary():
     projects_info = {'difference': False, 'projects': list()}
     projects = Project.query.all()
     reply = grew_request('getProjects', current_app)
+    print(123123,reply)
     if not reply: return projects_info
     data = json.loads(reply)['data']
     grewnames = set([project['name'] for project in data] )
