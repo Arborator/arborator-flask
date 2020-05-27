@@ -571,7 +571,7 @@ def contentfiles2zip(samplenames, sampletrees):
 	with zipfile.ZipFile(memory_file, 'w') as zf:
 		for samplename, sample in zip(samplenames, sampletrees):
 			for fuser, filecontent in sample.items():
-				data = zipfile.ZipInfo('{}.{}.conll'.format(samplename, fuser) )
+				data = zipfile.ZipInfo('{}.{}.conllu'.format(samplename, fuser) )
 				data.date_time = time.localtime(time.time())[:6]
 				data.compress_type = zipfile.ZIP_DEFLATED
 				zf.writestr(data, filecontent)
