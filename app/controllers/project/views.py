@@ -256,47 +256,48 @@ def project_image(project_name):
 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
 	return resp
 
-@project.route('/<project_name>/', methods=['POST'])
+# status : not currently used
+# @project.route('/<project_name>/', methods=['POST'])
 # @login_required
-@requires_access_level(2)
-def project_update(project_name):
-	"""
-	modifie project info
+# @requires_access_level(2)
+# def project_update(project_name):
+# 	"""
+# 	modifie project info
 
-	par exemple
-	ajouter admin / guest users:{nom:access, nom:access, nom:"" (pour enlever)}
-	changer nom du projet project:{projectname:nouveaunom,description:nouvelledescription,isprivate:True, image:blob}
-	"""
-	if not request.json: abort(400)
-	project = project_service.get_by_name(project_name)
-	if not project: abort(400)
-	if request.json.get("users"):
-		for k,v in request.json.get("users").items():
-			user = user_service.get_by_id(k)
-			if user:
-				pa = project_service.get_project_access(project.id, user.id)
-				if pa:
-					if v: # update
-						pa.accesslevel = v
-					else: # delete an existing project access
-						project_service.delete_project_access(pa)
-				else:
-					if v: # create
-						project_service.create_add_project_access(user.id, project.id, v)
-					else:
-						pass
+# 	par exemple
+# 	ajouter admin / guest users:{nom:access, nom:access, nom:"" (pour enlever)}
+# 	changer nom du projet project:{projectname:nouveaunom,description:nouvelledescription,isprivate:True, image:blob}
+# 	"""
+# 	if not request.json: abort(400)
+# 	project = project_service.get_by_name(project_name)
+# 	if not project: abort(400)
+# 	if request.json.get("users"):
+# 		for k,v in request.json.get("users").items():
+# 			user = user_service.get_by_id(k)
+# 			if user:
+# 				pa = project_service.get_project_access(project.id, user.id)
+# 				if pa:
+# 					if v: # update
+# 						pa.accesslevel = v
+# 					else: # delete an existing project access
+# 						project_service.delete_project_access(pa)
+# 				else:
+# 					if v: # create
+# 						project_service.create_add_project_access(user.id, project.id, v)
+# 					else:
+# 						pass
 
-			else: abort(400)
-	if request.json.get("project"):
-		print("**here**")
-		for k,v in request.json.get("project").items():
-			if k == "projectname":
-				reply = json.loads(grew_request("renameProject", current_app, data={"project_id":project_name, "new_project_id":v}))
-				if reply["status"] != "OK": abort(400)
-				# update project_name if it went well
-			setattr(project,k,v)
-	db.session.commit()
-	return project_info(project.projectname)
+# 			else: abort(400)
+# 	if request.json.get("project"):
+# 		print("**here**")
+# 		for k,v in request.json.get("project").items():
+# 			if k == "projectname":
+# 				reply = json.loads(grew_request("renameProject", current_app, data={"project_id":project_name, "new_project_id":v}))
+# 				if reply["status"] != "OK": abort(400)
+# 				# update project_name if it went well
+# 			setattr(project,k,v)
+# 	db.session.commit()
+# 	return project_info(project.projectname)
 
 
 
@@ -610,7 +611,6 @@ def sample_export(project_name):
 
 
 @project.route('/<project_name>/sample/<sample_name>', methods=['GET'])
-# @login_required
 def samplepage(project_name, sample_name):
 	"""
 	GET
@@ -647,7 +647,6 @@ def samplepage(project_name, sample_name):
  
 
 @project.route('/<project_name>/sample/<sample_name>/search', methods=['GET', 'POST'])
-# @login_required
 def search_sample(project_name, sample_name):
 	"""
 	Aplly a grew search inside a project and sample
@@ -804,7 +803,7 @@ def userrole(project_name, sample_name):
 
 
 @project.route('/<project_name>/sample/<sample_name>', methods=['DELETE'])
-# @login_required
+@login_required
 @requires_access_level(2)
 def delete_sample(project_name, sample_name):
 	"""
@@ -827,7 +826,7 @@ def update_sample(project_name, sample_name):
 
 
 @project.route("/<project_name>/saveTrees", methods=["POST"])
-# @login_required
+@login_required
 # @requires_access_level(1)
 def save_trees(project_name):
 	project = project_service.get_by_name(project_name)
@@ -886,6 +885,8 @@ def save_trees(project_name):
 	return resp
 
 
+
+# TODO : if user is not currently authenticated, they should only have access to recent mode
 @project.route("/<project_name>/relation_table", methods=["POST"])
 # @login_required
 def get_relation_table(project_name):
@@ -1039,7 +1040,7 @@ def commit_sample(project_name, sample_name, commit_type):
 
 
 @project.route("/<project_name>/commit", methods=["POST"])
-# @login_required
+@login_required
 # @requires_access_level(1)
 def commit(project_name):
 	project = project_service.get_by_name(project_name)
@@ -1110,7 +1111,7 @@ def pull_sample_and_save_on_grew(github_user, project_name, sample_name, tree_us
 
 
 @project.route("/<project_name>/pull", methods=["POST"])
-# @login_required
+@login_required
 # @requires_access_level(1)
 def pull(project_name):
 	project = project_service.get_by_name(project_name)

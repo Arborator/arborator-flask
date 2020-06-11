@@ -248,11 +248,9 @@ def addproject(project_name, is_private, image=b"", description=""):
 # 	return jsonify({"status":"ok"})
 
 
-# Users view
+# Users view : used to populate the annotators and validators for the project page
 # status : ok
 @admin.route('/users', methods=["GET"])
-# @login_required
-# @superadmin_required
 def list_users():
 	users = User.query.all()
 	#default=str is used to serialize the date
@@ -262,27 +260,27 @@ def list_users():
 	return resp
 
 
-# status : ok
-@admin.route('/users', methods=["DELETE"])
+# status : no longer used
+# @admin.route('/users', methods=["DELETE"])
 # @login_required
 # @superadmin_required
-def delete_user():
-	"""
-	Deletes a user and returns the list of remaining users
-	"""	
-	if not request.json:
-		abort(400)
+# def delete_user():
+# 	"""
+# 	Deletes a user and returns the list of remaining users
+# 	"""	
+# 	if not request.json:
+# 		abort(400)
 
-	user = User.query.get_or_404(request.json["user_id"])
-	if not user:
-		abort(400)
-	else:
-		related_accesses = ProjectAccess.query.filter_by(userid=user.id).delete()
-		related_sample_roles = SampleRole.query.filter_by(userid=user.id).delete()
-		db.session.delete(user)
-		db.session.commit()
-	resp = list_users()
-	return resp
+# 	user = User.query.get_or_404(request.json["user_id"])
+# 	if not user:
+# 		abort(400)
+# 	else:
+# 		related_accesses = ProjectAccess.query.filter_by(userid=user.id).delete()
+# 		related_sample_roles = SampleRole.query.filter_by(userid=user.id).delete()
+# 		db.session.delete(user)
+# 		db.session.commit()
+# 	resp = list_users()
+# 	return resp
 
 
 

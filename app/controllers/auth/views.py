@@ -166,7 +166,7 @@ def firstsuper():
     # return redirect(url_for('auth.choose_provider'))
 
 @auth.route('/checkfirstsuper', methods=['POST'])
-# @login_required
+@login_required
 def checkfirstsuper():
     """
     Handle requests to the /firstsuper route
