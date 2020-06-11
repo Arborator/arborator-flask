@@ -34,7 +34,7 @@ def superadmin_required(func):
 
 ## Dashboard View : list of projects and users
 @admin.route('/', methods=["GET"])
-# @login_required
+# @login_required # ok
 @superadmin_required
 def superadmin_dashboard():
 	"""
@@ -99,32 +99,33 @@ def addproject(project_name, is_private, image=b"", description=""):
 	return {"message":"Project {project_name} created.".format(project_name=project_name)}
 
 
-@admin.route('/addproject', methods=['POST'])
-# @login_required
-# @superadmin_required
-def create_project():
-	"""
-	Create a project
-	"""
-	if not request.json:
-		abort(404)
-	imagefilename = request.json.get("imagefile",None)
-	if imagefilename:
+# marine : I don't think this is used currently
+# @admin.route('/addproject', methods=['POST'])
+# # @login_required
+# # @superadmin_required
+# def create_project():
+# 	"""
+# 	Create a project
+# 	"""
+# 	if not request.json:
+# 		abort(404)
+# 	imagefilename = request.json.get("imagefile",None)
+# 	if imagefilename:
 		
-		with open(Config.UPLOAD_FOLDER + secure_filename(imagefilename), "w") as outf:
-			outf.write(content)
-		with open(os.path.join(Config.UPLOAD_FOLDER,secure_filename(imagefilename)), 'rb') as inf:
-			imgblob = inf.read()
-	else:
-		imgblob=b""
+# 		with open(Config.UPLOAD_FOLDER + secure_filename(imagefilename), "w") as outf:
+# 			outf.write(content)
+# 		with open(os.path.join(Config.UPLOAD_FOLDER,secure_filename(imagefilename)), 'rb') as inf:
+# 			imgblob = inf.read()
+# 	else:
+# 		imgblob=b""
 
-	reply = addproject(request.json["project_name"], request.json["is_private"], description=request.json.get("description", ""), image=imgblob)
-	print(reply)
-	if 'errormessage' in reply:
-		resp = Response(str(reply), status=409,  mimetype='application/json')
-	else:
-		resp = Response(str(reply), status=200,  mimetype='application/json')
-	return resp
+# 	reply = addproject(request.json["project_name"], request.json["is_private"], description=request.json.get("description", ""), image=imgblob)
+# 	print(reply)
+# 	if 'errormessage' in reply:
+# 		resp = Response(str(reply), status=409,  mimetype='application/json')
+# 	else:
+# 		resp = Response(str(reply), status=200,  mimetype='application/json')
+# 	return resp
 
 
 	# project = Project(projectname=request.json["project_name"], description=request.json.get("description", ""), is_private=request.json["is_private"])

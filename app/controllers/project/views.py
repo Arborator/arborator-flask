@@ -304,18 +304,15 @@ def project_update(project_name):
 
 
 @project.route('/<project_name>/delete', methods=['DELETE'])
-# @login_required
+@login_required
 @requires_access_level(2)
 def delete_project(project_name):
 	"""
 	Delete a project
 	no json
 	"""
-	# current_user.super_admin = True
-	# current_user.id = "rinema56@gmail.com"
 	project = project_service.get_by_name(project_name)
 	if not project:	abort(400)
-	# p_access = get_access_for_project(current_user.id, project.id)
 	pa = project_service.get_project_access(project.id, current_user.id)
 	p_access=0
 	if pa == 0: print('unauthorized, pa 0, error on crreation no access set'); project_service.delete(project)
@@ -413,6 +410,7 @@ def sample_upload(project_name):
 	return resp
 
 @project.route('/create', methods=["POST"])
+@login_required
 # @cross_origin()
 def create_project():
 	''' create an emty project'''

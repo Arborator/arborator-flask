@@ -645,8 +645,9 @@ def formatTrees_new(m, trees, conll):
 	else:
 		trees[sample_name][sent_id]["conlls"][user_id] = conll
 		# /!\ there can be more than a single match for a same sample, sentence, user so it has to be a list
+		# example [{'edges': {}, 'nodes': {'GOV': '1', 'DEP': '2'}}, {'edges': {}, 'nodes': {'GOV': '5', 'DEP': '7'}}]
 		trees[sample_name][sent_id]["matches"][user_id] = trees[sample_name][sent_id]["matches"].get(user_id, [])+[{"edges":edges,"nodes":nodes}]
-	
+	# print(trees[sample_name][sent_id]["matches"])
 	return trees
 		
 
