@@ -87,10 +87,11 @@ def addprojectongrew(project_name):
 	reply = json.loads(reply)
 	return reply.get('status','grew error')
 
-def addproject(project_name, is_private, image=b"", description=""):
+def addproject(project_name, visibility, image=b"", description=""):
 	if Project.query.filter_by(projectname=project_name).first():
 		return {"errormessage":"Project under the same name exists."}
-	project = Project(projectname=project_name, description=description, is_private=is_private, image=image)
+	project = Project(projectname=project_name, description=description, visibility=int(visibility), image=image)
+	print("project visibility ", project.visibility, type(project.visibility))
 	db.session.add(project)
 	db.session.commit()
 	grewanswer = addprojectongrew(project_name)
@@ -358,9 +359,9 @@ def init_database():
 
 		# second testproject ============== 
 		nomprojet = "Naija"
-		with open("/home/kim/megasync/Arborator/arborator-flask/initialization/naija.png", 'rb') as inf:
+		with open("initialization/naija.png", 'rb') as inf:
 			imgblob = inf.read()
-		addproject(nomprojet, is_private=False, image=imgblob, description="this is a test project to fill the database")
+		addproject(nomprojet, visibility=2, image=imgblob, description="this is a test project to fill the database")
 		filenames = ['initialization/P_WAZP_07_Imonirhuas.Life.Story_PRO.conll', 'initialization/P_ABJ_GWA_10_Steven.lifestory_PRO.conll']
 		jason = {'files': filenames, "import_user":"Bernard"}
 		res = requests.post("http://localhost:5000/api/projects/{nomprojet}/upload".format(nomprojet=nomprojet), json=jason)
@@ -393,18 +394,12 @@ def addstuff():
 	"""
 	Home Handler
 	"""
-	print (6546545)
+	# print (6546545)
 
 	# print("current_user:",current_user)
-	project = Project(projectname="azer", description="azerazer", is_private=False)
-	db.session.add(project)
-	db.session.commit()	
-	print(6541321)
-	print(654654,Project.query.filter_by(projectname="azer").first())
-	# , "super_admin:",current_user.super_admin)
-	# db.create_all()
-	# db.commit()
-	print("database created")
+	nomprojet = "azer_3"
+	addproject(nomprojet, visibility=0, description="this is a test project to fill the database")
+	addprojectongrew(nomprojet)
 	resp = Response('{"database":"filled with stuff"}', status=200,  mimetype='application/json')	
 	return resp
 

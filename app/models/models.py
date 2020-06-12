@@ -130,6 +130,7 @@ def load_user(user_id):
 
 class Project(db.Model, BaseM):
 	__tablename__ = 'projects'
+	VISIBILITY = [(0, 'private'), (1, 'visible'), (2, 'open')]
 
 	id = db.Column(db.Integer, primary_key=True)
 	projectname = db.Column(db.String(256), nullable=False, unique=True)
@@ -137,7 +138,8 @@ class Project(db.Model, BaseM):
 	image = db.Column(db.BLOB)
 	# users = db.relationship('User', backref='project_user',lazy='dynamic')
 	#texts = db.relationship('Text', backref='project_text',lazy='dynamic')
-	is_private = db.Column(db.Boolean, default=False)
+	# is_private = db.Column(db.Boolean, default=False)
+	visibility = db.Column(db.Integer)
 	relations = db.relationship('LabelStock')
 	cats = db.relationship('CatLabel')
 	show_all_trees = db.Column(db.Boolean, default=True)

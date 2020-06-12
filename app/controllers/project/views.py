@@ -225,7 +225,7 @@ def project_private_project(project_name):
 	project = project_service.get_by_name(project_name)
 	if not project: abort(400)
 	value = request.json.get("value")
-	project_service.change_is_private(project_name, value)
+	project_service.change_visibility(project_name, value)
 	project_infos = project_service.get_settings_infos(project_name, current_user)
 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
 	return resp
@@ -305,8 +305,8 @@ def project_image(project_name):
 
 
 @project.route('/<project_name>/delete', methods=['DELETE'])
-@login_required
-@requires_access_level(2)
+# @login_required
+# @requires_access_level(2)
 def delete_project(project_name):
 	"""
 	Delete a project
@@ -323,7 +323,10 @@ def delete_project(project_name):
 	else:
 		print("p_access to low for project {}".format(project.projectname))
 		abort(403)
-	projects = project_service.get_all()
+	# projects = project_service.get_all()
+
+	print("hub", project_service.get_hub_summary())
+	print("projects", project_service.get_all())
 	js = json.dumps(projects)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
@@ -351,6 +354,8 @@ def search_project(project_name):
 	reply = json.loads(grew_request("searchPatternInGraphs", current_app, data={"project_id":project.projectname, "pattern":pattern}))
 	if reply["status"] != "OK": abort(400)
 	trees={}
+
+	print(reply["data"])
 	# matches={}
 	# reendswithnumbers = re.compile(r"_(\d+)$")
 
@@ -420,10 +425,10 @@ def create_project():
 	creator = current_user.id
 	project_description = request.form.get("description", "")
 	# project_image = ''
-	project_private = request.form.get("private", False)
+	project_visibility = request.form.get("visibility", 2)
 	project_isopen = request.form.get("is_open", False)
 	project_showAllTrees = request.form.get("show_all_trees", True)
-	project_service.create_empty_project(project_name, creator, project_description, project_private, project_isopen, project_showAllTrees)
+	project_service.create_empty_project(project_name, creator, project_description, project_visibility, project_isopen, project_showAllTrees)
 	js = json.dumps({})
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp

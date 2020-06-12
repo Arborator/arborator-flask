@@ -183,19 +183,14 @@ def set_show_all_trees(project_name, value):
     db.session.commit()
     return project
 
-def set_is_open(project_name, value):
-    """ change the value of is_open """
+def set_visibility(project_name, value):
+    """ Only select users can see the project and have their annotation  """
     project = Project.query.filter_by(projectname=project_name).first()
-    project.is_open = value
+    project.visibility = value
     db.session.commit()
     return project
 
-def set_is_private(project_name, value):
-    """ change the value of is_private """
-    project = Project.query.filter_by(projectname=project_name).first()
-    project.is_private = value
-    db.session.commit()
-    return project
+
 
 def set_description(project_name, value):
     """ change the description of the project """

@@ -59,7 +59,7 @@ def home_page():
 	Home page
 
 	Returns list of projects with:
-	- is_private
+	- visibility level
 	- roles (of the current user if logged in)
 	"""
 
