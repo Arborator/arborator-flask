@@ -112,9 +112,14 @@ def project_settings_update(project_name):
 	# 	accesslevel_dict = {v: k for k, v in dict(ProjectAccess.ACCESS).items()}
 	# 	if pa: pa.accesslevel = accesslevel_dict[target_role]
 	# 	else: project_service.create_add_project_access(user.id, project.id, accesslevel_dict[target_role])
-	print(request.json) # todo: handle this correctly, depending on whether it has to go to grew or to local storage
+	# print(request.json) # todo: handle this correctly, depending on whether it has to go to grew or to local storage
 	for a,v in request.json.items():
-		print("where does that go?",a,v)
+		if a == "shownfeatures":
+			project_service.update_features(project, v)
+		elif a == "shownmeta":
+			project_service.update_metafeatures(project, v)
+
+			
 	# , json.loads(request.json.get("user")))
 	project_infos = project_service.get_settings_infos(project_name, current_user)
 	if project_infos == 403: abort(403) 
@@ -206,17 +211,17 @@ def project_show_all_trees(project_name):
 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
 	return resp
 
-@project.route('/<project_name>/openproject', methods=['POST'])
-@requires_access_level(2)
-def project_open_project(project_name):
-	if not request.json: abort(400)
-	project = project_service.get_by_name(project_name)
-	if not project: abort(400)
-	value = request.json.get("value")
-	project_service.change_is_open(project_name, value)
-	project_infos = project_service.get_settings_infos(project_name, current_user)
-	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
-	return resp
+# @project.route('/<project_name>/openproject', methods=['POST'])
+# @requires_access_level(2)
+# def project_open_project(project_name):
+# 	if not request.json: abort(400)
+# 	project = project_service.get_by_name(project_name)
+# 	if not project: abort(400)
+# 	value = request.json.get("value")
+# 	project_service.change_is_open(project_name, value)
+# 	project_infos = project_service.get_settings_infos(project_name, current_user)
+# 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+# 	return resp
 
 @project.route('/<project_name>/private', methods=['POST'])
 @requires_access_level(2)
@@ -323,7 +328,7 @@ def delete_project(project_name):
 	else:
 		print("p_access to low for project {}".format(project.projectname))
 		abort(403)
-	# projects = project_service.get_all()
+	projects = project_service.get_all()
 
 	print("hub", project_service.get_hub_summary())
 	print("projects", project_service.get_all())
@@ -426,9 +431,9 @@ def create_project():
 	project_description = request.form.get("description", "")
 	# project_image = ''
 	project_visibility = request.form.get("visibility", 2)
-	project_isopen = request.form.get("is_open", False)
+	# project_isopen = request.form.get("is_open", False)
 	project_showAllTrees = request.form.get("show_all_trees", True)
-	project_service.create_empty_project(project_name, creator, project_description, project_visibility, project_isopen, project_showAllTrees)
+	project_service.create_empty_project(project_name, creator, project_description, project_visibility, project_showAllTrees)
 	js = json.dumps({})
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
@@ -490,93 +495,93 @@ def project_update_config(project_name):
 	return resp
 
 
-@project.route('/<project_name>/config/cat/<action>', methods=["POST"])
-# @cross_origin()
-@requires_access_level(2)
-def project_cat_add(project_name, action):
-	project = project_service.get_by_name(project_name)
-	if not project: abort(404)
-	if not request.json: abort(400)
-	data = request.get_json(force=True)
+# @project.route('/<project_name>/config/cat/<action>', methods=["POST"])
+# # @cross_origin()
+# @requires_access_level(2)
+# def project_cat_add(project_name, action):
+# 	project = project_service.get_by_name(project_name)
+# 	if not project: abort(404)
+# 	if not request.json: abort(400)
+# 	data = request.get_json(force=True)
 
-	if not data.get("cat"): abort(400)
-	cats = list()
-	if action == 'add':	cats = project_service.add_cat_label(project_name, current_user, data.get("cat") )
-	elif action == 'delete': cats = project_service.remove_cat_label(project_name, current_user, data.get("cat") )
-	else: abort(400)
-	js = json.dumps(cats, default=str)
-	resp = Response(js, status=200, mimetype='application/json')
-	return resp
+# 	if not data.get("cat"): abort(400)
+# 	cats = list()
+# 	if action == 'add':	cats = project_service.add_cat_label(project_name, current_user, data.get("cat") )
+# 	elif action == 'delete': cats = project_service.remove_cat_label(project_name, current_user, data.get("cat") )
+# 	else: abort(400)
+# 	js = json.dumps(cats, default=str)
+# 	resp = Response(js, status=200, mimetype='application/json')
+# 	return resp
 
-@project.route('/<project_name>/config/txtcats', methods=["POST"])
-# @cross_origin()
-@requires_access_level(2)
-def project_txtcats(project_name):
-	project = project_service.get_by_name(project_name)
-	if not project: abort(404)
-	if not request.json: abort(400)
-	data = request.get_json(force=True)
+# @project.route('/<project_name>/config/txtcats', methods=["POST"])
+# # @cross_origin()
+# @requires_access_level(2)
+# def project_txtcats(project_name):
+# 	project = project_service.get_by_name(project_name)
+# 	if not project: abort(404)
+# 	if not request.json: abort(400)
+# 	data = request.get_json(force=True)
 
-	if not data.get("cats"): abort(400)
-	cats = list()
-	cats = project_service.parse_txtcats(project, data.get("cats"))
-	js = json.dumps(cats, default=str)
-	resp = Response(js, status=200, mimetype='application/json')
-	return resp
+# 	if not data.get("cats"): abort(400)
+# 	cats = list()
+# 	cats = project_service.parse_txtcats(project, data.get("cats"))
+# 	js = json.dumps(cats, default=str)
+# 	resp = Response(js, status=200, mimetype='application/json')
+# 	return resp
 
-@project.route('/<project_name>/config/txtlabels', methods=["POST"])
-# @cross_origin()
-@requires_access_level(2)
-def project_txtlabels(project_name):
-	project = project_service.get_by_name(project_name)
-	if not project: abort(404)
-	if not request.json: abort(400)
-	data = request.get_json(force=True)
+# @project.route('/<project_name>/config/txtlabels', methods=["POST"])
+# # @cross_origin()
+# @requires_access_level(2)
+# def project_txtlabels(project_name):
+# 	project = project_service.get_by_name(project_name)
+# 	if not project: abort(404)
+# 	if not request.json: abort(400)
+# 	data = request.get_json(force=True)
 
-	if not data.get("labels"): abort(400)
-	labels = list()
-	labels = project_service.parse_txtlabels(project, data.get("labels"))
-	js = json.dumps(labels, default=str)
-	resp = Response(js, status=200, mimetype='application/json')
-	return resp
+# 	if not data.get("labels"): abort(400)
+# 	labels = list()
+# 	labels = project_service.parse_txtlabels(project, data.get("labels"))
+# 	js = json.dumps(labels, default=str)
+# 	resp = Response(js, status=200, mimetype='application/json')
+# 	return resp
 
-@project.route('/<project_name>/config/stock/<action>', methods=["POST"])
-# @cross_origin()
-@requires_access_level(2)
-def project_stock_add(project_name, action):
-	project = project_service.get_by_name(project_name)
-	if not project: abort(404)
-	if not request.json: abort(400)
-	data = request.get_json(force=True)
+# @project.route('/<project_name>/config/stock/<action>', methods=["POST"])
+# # @cross_origin()
+# @requires_access_level(2)
+# def project_stock_add(project_name, action):
+# 	project = project_service.get_by_name(project_name)
+# 	if not project: abort(404)
+# 	if not request.json: abort(400)
+# 	data = request.get_json(force=True)
 
-	if not data.get("stockid"): abort(400)
-	labels = list()
-	if action == 'add': labels = project_service.add_stock(project_name)
-	elif action == 'delete': labels = project_service.remove_stock(project_name, data.get("stockid"))
-	else: abort(400)
-	js = json.dumps(labels, default=str)
-	resp = Response(js, status=200, mimetype='application/json')
-	return resp
+# 	if not data.get("stockid"): abort(400)
+# 	labels = list()
+# 	if action == 'add': labels = project_service.add_stock(project_name)
+# 	elif action == 'delete': labels = project_service.remove_stock(project_name, data.get("stockid"))
+# 	else: abort(400)
+# 	js = json.dumps(labels, default=str)
+# 	resp = Response(js, status=200, mimetype='application/json')
+# 	return resp
 
-@project.route('/<project_name>/config/label/<action>', methods=["POST"])
-# @cross_origin()
-@requires_access_level(2)
-def project_label_add(project_name, action):
-	project = project_service.get_by_name(project_name)
-	print(1)
-	if not project: abort(404)
-	if not request.json: abort(400)
-	data = request.get_json(force=True)
+# @project.route('/<project_name>/config/label/<action>', methods=["POST"])
+# # @cross_origin()
+# @requires_access_level(2)
+# def project_label_add(project_name, action):
+# 	project = project_service.get_by_name(project_name)
+# 	print(1)
+# 	if not project: abort(404)
+# 	if not request.json: abort(400)
+# 	data = request.get_json(force=True)
 
-	print(2, data)
-	if not data.get("stockid"): abort(400)
-	labels = list()
-	if action == 'add': labels = project_service.add_label(project_name, data.get("stockid"), data.get("label"))
-	elif action == 'delete': labels = project_service.remove_label(project_name, data.get("labelid"), data.get("stockid"), data.get("label"))
-	else: abort(400)
-	js = json.dumps(labels, default=str)
-	resp = Response(js, status=200, mimetype='application/json')
-	return resp
+# 	print(2, data)
+# 	if not data.get("stockid"): abort(400)
+# 	labels = list()
+# 	if action == 'add': labels = project_service.add_label(project_name, data.get("stockid"), data.get("label"))
+# 	elif action == 'delete': labels = project_service.remove_label(project_name, data.get("labelid"), data.get("stockid"), data.get("label"))
+# 	else: abort(400)
+# 	js = json.dumps(labels, default=str)
+# 	resp = Response(js, status=200, mimetype='application/json')
+# 	return resp
 
 
 # @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
@@ -640,7 +645,8 @@ def samplepage(project_name, sample_name):
 		samples = reply.get("data", {})	
 		project = project_service.get_by_name(project_name)
 		if not project: abort(404)
-		if project.show_all_trees or project.is_open: js = json.dumps( project_service.samples2trees(samples, sample_name) )
+		if project.show_all_trees or project.visibility == 2:
+			js = json.dumps( project_service.samples2trees(samples, sample_name) )
 		else:
 			validator = project_service.is_validator(project.id, sample_name, current_user.id)
 			if validator:  js = json.dumps( project_service.samples2trees(samples, sample_name) )
@@ -842,8 +848,8 @@ def save_trees(project_name):
 	if not request.json: 
 		print("problem with request.json")
 		abort(400)
-	if not project.is_open:
-		print("problem with not project.is_open")
+	if project.visibility != 2:
+		print("project is not open, checking role of the user")
 		if not project_service.is_annotator(project.id, sample_name, current_user.id): abort(403)
 	
 

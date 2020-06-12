@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, make_response, session, redirect, flash, url_for, Response, current_app, abort
 from authomatic.adapters import WerkzeugAdapter
 from authomatic import Authomatic
-from flask_login import login_required, login_user, logout_user
+from flask_login import login_required, login_user, logout_user, current_user
 try: from ....app import db #dev
 except: from app import db #dev
 from datetime import datetime
@@ -173,8 +173,7 @@ def checkfirstsuper():
     """
     mdp = request.form.get('password')
     if mdp == Config.FIRSTADMINKEY:
-        user_id = session.get("user_id")
-        user = load_user(user_id)
+        user = load_user(current_user.id)
         user.super_admin = True
         db.session.commit()
         #print("88888888",user,user.super_admin)
@@ -184,7 +183,9 @@ def checkfirstsuper():
     flash(message)
 	
     # redirect to the login page
-    return redirect(url_for('home.home_page'))
+    # TODO : fix this ugly thing, redirecting to url_for('home.home_page') goes to the bad port
+    return redirect("https://127.0.0.1:8080")
+    # return redirect("/")
 
 
 # @auth.route('/logout')

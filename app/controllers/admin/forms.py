@@ -29,8 +29,9 @@ class ProjectForm(FlaskForm):
     description = StringField('Description')
     importUser = QuerySelectField(query_factory=lambda: User.query.all(), get_label="id")
     files = FileField('Select conll files', render_kw={'multiple': True})
-    is_private = BooleanField('Is private')
+    # is_private = BooleanField('Is private')
     submit = SubmitField('Submit')
+    visibility = IntegerField('Visibility Level')
 
 
 ##User Forms

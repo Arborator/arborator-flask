@@ -51,6 +51,7 @@ def delete(project):
     ''' delete the given project from db and grew '''
     project_dao.delete(project)
     grew_request('eraseProject', current_app, data={'project_id': project.projectname})
+    # TODO : grew_request to delete the configuration that goes with the project
 
 def get_settings_infos(project_name, current_user):
     ''' get project informations without any samples '''
@@ -62,76 +63,82 @@ def get_settings_infos(project_name, current_user):
     # if not roles and project.is_private: return 403 # removed for now -> the check is done in view and for each actions
     admins = [a.userid for a in project_dao.get_admins(project.id)]
     guests = [g.userid for g in project_dao.get_guests(project.id)]
-    cats = [c.value for c in project_dao.find_project_cats(project.id)]
-    stocks = project_dao.find_project_stocks(project.id)
-    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+
+    # config
+    shown_features = project_dao.find_project_features(project)
+    shown_metafeatures = project_dao.find_project_metafeatures(project)
+    config = {"shownfeatures":shown_features, "shownmeta":shown_metafeatures}
+
+    # cats = [c.value for c in project_dao.find_project_cats(project.id)]
+    # stocks = project_dao.find_project_stocks(project.id)
+    # labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
     defaultUserTrees = [u.as_json() for u in project_dao.find_default_user_trees(project.id)]
     if project.image != None: image = str(base64.b64encode(project.image))
     else: image = ''
-    return { 
+    settings_info = { 
         "name":project.projectname, 
         "visibility":project.visibility, 
         "description":project.description, 
-        "image":image, 
+        "image":image,
+        "config":config,
         "admins":admins, 
-        "guests":guests, 
-        "cats":cats, 
-        "labels":labels, 
-        "is_open":project.is_open, 
+        "guests":guests,
         "show_all_trees":project.show_all_trees, 
         "default_user_trees":defaultUserTrees}
+    print("settingsinfo ", settings_info)
+    return settings_info
 
 
-def add_cat_label(project_name, current_user, cat):
-    """ add a cat to a project """
-    return [c.value for c in project_dao.add_cat(project_name, cat)]
+# def add_cat_label(project_name, current_user, cat):
+#     """ add a cat to a project """
+#     return [c.value for c in project_dao.add_cat(project_name, cat)]
 
-def remove_cat_label(project_name, current_user, cat):
-    """ delete a cat from a project cats list """
-    return [c.value for c in project_dao.delete_cat(project_name, cat)]
+# def remove_cat_label(project_name, current_user, cat):
+#     """ delete a cat from a project cats list """
+#     return [c.value for c in project_dao.delete_cat(project_name, cat)]
 
-def parse_txtcats(project, cats):
-    """ parse and replace all the cats by these ones """
-    lines = cats.split('\n')
-    lines = [line for line in lines if not line.startswith('#')]
-    categories = lines[0].split(',')
-    return [c.value for c in project_dao.set_cats(project, categories)]
+# def parse_txtcats(project, cats):
+#     """ parse and replace all the cats by these ones """
+#     lines = cats.split('\n')
+#     lines = [line for line in lines if not line.startswith('#')]
+#     categories = lines[0].split(',')
+#     return [c.value for c in project_dao.set_cats(project, categories)]
 
-def add_stock(project_name):
-    """ add a stock """
-    stocks = project_dao.add_stock(project_name)
-    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
-    return labels
+# def add_stock(project_name):
+#     """ add a stock """
+#     stocks = project_dao.add_stock(project_name)
+#     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+#     return labels
 
-def remove_stock(project_name, stockid):
-    """ remove a stock """
-    stocks = project_dao.delete_stock(project_name, stockid)
-    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
-    return labels
+# def remove_stock(project_name, stockid):
+#     """ remove a stock """
+#     stocks = project_dao.delete_stock(project_name, stockid)
+#     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+#     return labels
 
-def add_label(project_name, stock_id, label):
-    """ add a label to a project stock """
-    stocks = project_dao.add_label(project_name, stock_id, label)
-    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
-    return labels
+# def add_label(project_name, stock_id, label):
+#     """ add a label to a project stock """
+#     stocks = project_dao.add_label(project_name, stock_id, label)
+#     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+#     return labels
 
-def remove_label(project_name, label_id, stock_id, label ):
-    """ remove a label from its project stock """
-    # stocks = project_dao.delete_label(project_name, stock_id, label)
-    project_dao.delete_label_by_id(label_id)
-    project = project_dao.find_by_name(project_name)
-    stocks = project_dao.find_project_stocks(project.id)
-    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
-    return labels
+# def remove_label(project_name, label_id, stock_id, label ):
+#     """ remove a label from its project stock """
+#     # stocks = project_dao.delete_label(project_name, stock_id, label)
+#     project_dao.delete_label_by_id(label_id)
+#     project = project_dao.find_by_name(project_name)
+#     stocks = project_dao.find_project_stocks(project.id)
+#     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+#     return labels
 
-def parse_txtlabels(project, labels):
-    """ parse and replace all the labels by these ones. taking multiple columns (rows) """
-    lines = labels.split('\n')
-    lines = [line for line in lines if not line.startswith('#')]
-    labelstocks_with_labels =  [line.split(',') for line in lines]
-    stocks = project_dao.set_stock_and_labels(project, labelstocks_with_labels)
-    labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
-    return labels
+# def parse_txtlabels(project, labels):
+#     """ parse and replace all the labels by these ones. taking multiple columns (rows) """
+#     lines = labels.split('\n')
+#     lines = [line for line in lines if not line.startswith('#')]
+#     labelstocks_with_labels =  [line.split(',') for line in lines]
+#     stocks = project_dao.set_stock_and_labels(project, labelstocks_with_labels)
+#     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
+#     return labels
 
 def change_show_all_trees(project_name, value):
     """ set show all trees and return the new project  """
@@ -183,13 +190,8 @@ def get_hub_summary():
         if project.projectname not in common: continue
         admins = [a.userid for a in project_dao.get_admins(project.id)]
         guests = [g.userid for g in project_dao.get_guests(project.id)]
-        projectJson = project.as_json(include={"admins":[],"guests":[]})
+        projectJson = project.as_json(include={"admins":admins,"guests":guests})
         
-        # # # TODO : why do we need this
-        # if type(projectJson["visibility"]) == int:
-        #     pass
-        # else:
-        #     projectJson["visibility"] = projectJson["visibility"].code
         for p in data: 
             if p['name'] == project.projectname: 
                 projectJson['number_sentences'] = p['number_sentences']
@@ -216,6 +218,11 @@ def get_infos(project_name, current_user):
     admins = [a.userid for a in project_dao.get_admins(project.id)]
     guests = [g.userid for g in project_dao.get_guests(project.id)]
     print(time.monotonic(), 'admins DONE')
+
+    # config
+    shown_features = project_dao.find_project_features(project)
+    shown_metafeatures = project_dao.find_project_metafeatures(project)
+    config = {"shownfeatures":shown_features, "shownmeta":shown_metafeatures}
     
     reply = grew_request ( 'getSamples', current_app, data = {'project_id': project.projectname} )
     js = json.loads(reply)
@@ -278,13 +285,14 @@ def get_infos(project_name, current_user):
 
     if project.image != None: image = str(base64.b64encode(project.image))
     else: image = ''
-    return { 
+    settings_info = { 
         "name":project.projectname, 
         "visibility":project.visibility,
         # "is_private":project.is_private, 
-        "is_open":project.is_open, 
+        # "is_open":project.is_open, 
         "description":project.description, 
         "image":image, 
+        "config":config,
         "samples":samples, 
         "admins":admins,  
         "guests":guests, 
@@ -292,6 +300,8 @@ def get_infos(project_name, current_user):
         "number_sentences":nb_sentences, 
         "number_tokens":sum_nb_tokens, 
         "averageSentenceLength":average_tokens_per_sample}
+    print("settings info 2", settings_info)
+    return settings_info
 
 
 def get_project_treesfrom(project_name):
@@ -338,7 +348,7 @@ def create_add_sample_role(user_id, sample_name, project_id, role):
     new_sr = SampleRole(userid=user_id, samplename=sample_name, projectid=project_id, role=role)
     project_dao.add_sample_role(new_sr)
 
-def create_empty_project(project_name, creator, project_description, project_visibility, project_open, project_showalltrees):
+def create_empty_project(project_name, creator, project_description, project_visibility, project_showalltrees):
     ''' create an empty project '''
     new_project = grew_request('newProject', current_app, data={'project_id': project_name})
     print('new_project', new_project)
@@ -348,13 +358,18 @@ def create_empty_project(project_name, creator, project_description, project_vis
     # if project_open == 'true': isopen = True
     showalltrees = True
     if project_showalltrees == 'false': showalltrees = False
-    project = Project(projectname=project_name, description=project_description, visibility=int(project_visibility), is_open=isopen, show_all_trees=showalltrees)
+    project = Project(projectname=project_name, description=project_description, visibility=int(project_visibility), show_all_trees=showalltrees)
     print('projecttoooo', project)
-    print("project visibility", project.visibility, type(project.visibility))
     project_dao.add_project(project)
     p = project_dao.find_by_name(project_name)
     pa = ProjectAccess(userid=creator, projectid=p.id, accesslevel=2)
     project_dao.add_access(pa)
+    default_features = ["FORM", "UPOS", "LEMMA", "MISC.Gloss"]
+    default_metafeatures = ["text_en"]
+    features = project_dao.add_features(p, default_features)
+    metafeatures = project_dao.add_metafeatures(p, default_metafeatures)
+    print("added the following features", features)
+    print("added the following metafeatures", metafeatures)
 
 
 def delete_sample(project_name, project_id, sample_name):
@@ -659,3 +674,36 @@ def formatTrees_new(m, trees, conll):
 def servTreeToOutputs(tree):
     ''' ? TODO : ???? '''
     return None
+
+def update_features(project, updated_features):
+    shownfeatures = project_dao.find_project_features(project)
+    # deleting old ones
+    for f in shownfeatures:
+        if f not in updated_features:
+            project_dao.remove_feature(project, f)
+    
+    # adding missing ones
+    for f in updated_features:
+        to_add = []
+        if not Feature.query.filter_by(project_id=project.id, value=f).first():
+            to_add.append(f)
+        project_dao.add_features(project, to_add)
+
+    return project_dao.find_project_features(project)
+
+def update_metafeatures(project, updated_features):
+    shownmeta = project_dao.find_project_metafeatures(project)
+    # deleting old ones
+    for f in shownmeta:
+        if f not in updated_features:
+            print(f, "to remove")
+            project_dao.remove_metafeature(project, f)
+    
+    # adding missing ones
+    for f in updated_features:
+        to_add = []
+        if not MetaFeature.query.filter_by(project_id=project.id, value=f).first():
+            to_add.append(f)
+        project_dao.add_metafeatures(project, to_add)
+
+    return project_dao.find_project_metafeatures(project)

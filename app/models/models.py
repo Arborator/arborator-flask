@@ -130,8 +130,6 @@ def load_user(user_id):
 
 class Project(db.Model, BaseM):
 	__tablename__ = 'projects'
-	VISIBILITY = [(0, 'private'), (1, 'visible'), (2, 'open')]
-
 	id = db.Column(db.Integer, primary_key=True)
 	projectname = db.Column(db.String(256), nullable=False, unique=True)
 	description = db.Column(db.String(256))
@@ -140,35 +138,48 @@ class Project(db.Model, BaseM):
 	#texts = db.relationship('Text', backref='project_text',lazy='dynamic')
 	# is_private = db.Column(db.Boolean, default=False)
 	visibility = db.Column(db.Integer)
-	relations = db.relationship('LabelStock')
-	cats = db.relationship('CatLabel')
+	# relations = db.relationship('LabelStock')
+	# cats = db.relationship('CatLabel')
 	show_all_trees = db.Column(db.Boolean, default=True)
-	is_open = db.Column(db.Boolean, default=False)
+	# is_open = db.Column(db.Boolean, default=False)
 	default_user_trees = db.relationship('DefaultUserTrees')
 
 
-class LabelStock(db.Model):
-	__tablename__ = 'labelstocks'
+class Feature(db.Model):
+	__tablename__ = 'feature'
 	id = db.Column(db.Integer, primary_key=True)
-	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
-	project = db.relationship('Project')
-	labels = db.relationship('Label')
-
-
-class Label(db.Model):
-	__tablename__ = 'labels'
-	id = db.Column(db.Integer, primary_key=True)
-	stock_id = db.Column(db.Integer, db.ForeignKey('labelstocks.id'))
-	stock = db.relationship('LabelStock')
 	value = db.Column(db.String(256), nullable=False)
-
-
-class CatLabel(db.Model):
-	__tablename__ = 'catlabels'
-	id = db.Column(db.Integer, primary_key=True)
 	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
-	project = db.relationship('Project')
+
+class MetaFeature(db.Model):
+	__tablename__ = 'metafeature'
+	id = db.Column(db.Integer, primary_key=True)
 	value = db.Column(db.String(256), nullable=False)
+	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+
+
+# class LabelStock(db.Model):
+# 	__tablename__ = 'labelstocks'
+# 	id = db.Column(db.Integer, primary_key=True)
+# 	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+# 	project = db.relationship('Project')
+# 	labels = db.relationship('Label')
+
+
+# class Label(db.Model):
+# 	__tablename__ = 'labels'
+# 	id = db.Column(db.Integer, primary_key=True)
+# 	stock_id = db.Column(db.Integer, db.ForeignKey('labelstocks.id'))
+# 	stock = db.relationship('LabelStock')
+# 	value = db.Column(db.String(256), nullable=False)
+
+
+# class CatLabel(db.Model):
+# 	__tablename__ = 'catlabels'
+# 	id = db.Column(db.Integer, primary_key=True)
+# 	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+# 	project = db.relationship('Project')
+# 	value = db.Column(db.String(256), nullable=False)
 
 
 class ProjectAccess(db.Model):
