@@ -587,7 +587,7 @@ def project_update_config(project_name):
 # @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
 @project.route('/<project_name>/export/zip', methods=["POST"])
 # @cross_origin()
-@requires_access_level(1)
+# @requires_access_level(1) # not for open projects
 def sample_export(project_name):
 	project = project_service.get_by_name(project_name)
 	if not project: abort(404)
