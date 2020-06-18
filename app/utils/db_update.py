@@ -4,12 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
 
 
-mode = 'prod'
-# mode = 'dev'
-engine = create_engine('sqlite:////home/marine/Dropbox/TAL/PhD/Projects/Tmp/arborator-flask/arborator_{}.sqlite'.format(mode))
+# mode = 'prod'
+mode = 'dev'
+engine = create_engine('sqlite://///home/marine/Téléchargements/fixbug/arborator_{}_old.sqlite'.format(mode))
 with engine.connect() as connection:
     # create a new table without is_open and is_private, and with is_visible instead
-    connection.execute('''CREATE TABLE projectss (id INTEGER NOT NULL, projectname VARCHAR(256) NOT NULL UNIQUE, description VARCHAR(256), image BLOB, show_all_trees BOOLEAN, visibility INTEGER)''')
+    connection.execute('''CREATE TABLE projectss (id INTEGER NOT NULL PRIMARY KEY, projectname VARCHAR(256) NOT NULL UNIQUE, description VARCHAR(256), image BLOB, show_all_trees BOOLEAN, visibility INTEGER)''')
     # insert data from the old table
     connection.execute('''INSERT INTO projectss (id, projectname, description, image, show_all_trees) SELECT id, projectname, description, image, show_all_trees FROM projects''')
     
@@ -25,8 +25,8 @@ with engine.connect() as connection:
     connection.execute('''ALTER TABLE projectss RENAME TO projects''')
 
     # create the new tables
-    connection.execute('''CREATE TABLE feature (id INTEGER NOT NULL, project_id INTEGER, value VARCHAR(256) NOT NULL)''')
-    connection.execute('''CREATE TABLE metafeature (id INTEGER NOT NULL, project_id INTEGER, value VARCHAR(256) NOT NULL)''')
+    connection.execute('''CREATE TABLE feature (id INTEGER NOT NULL PRIMARY KEY, project_id INTEGER, value VARCHAR(256) NOT NULL)''')
+    connection.execute('''CREATE TABLE metafeature (id INTEGER NOT NULL PRIMARY KEY, project_id INTEGER, value VARCHAR(256) NOT NULL)''')
     
     results = connection.execute('''SELECT id from projects''')
 

@@ -848,10 +848,7 @@ def save_trees(project_name):
 	if not request.json: 
 		print("problem with request.json")
 		abort(400)
-	if project.visibility != 2:
-		print("project is not open, checking role of the user")
-		if not project_service.is_annotator(project.id, sample_name, current_user.id): abort(403)
-	
+
 
 	# samples = {"samples":project_service.get_samples(project_name)}
 	# if not sample_name in samples["samples"]:
@@ -877,7 +874,10 @@ def save_trees(project_name):
 			# print(464564,conll)
 			# if not sent_id: abort(400)
 			if not conll: abort(400)
-
+			if project.visibility != 2:
+				if not project_service.is_annotator(project.id, sample_name, current_user.id): abort(403)
+	
+			print(">>>>", project_name)
 			reply = grew_request (
 				'saveGraph', current_app,
 				data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':user_id, 'sent_id':sent_id, "conll_graph":conll}
