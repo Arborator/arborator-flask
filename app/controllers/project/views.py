@@ -587,7 +587,7 @@ def project_update_config(project_name):
 # @project.route('/<project_name>/export/zip', methods=["POST", "GET"])
 @project.route('/<project_name>/export/zip', methods=["POST"])
 # @cross_origin()
-@requires_access_level(1)
+# @requires_access_level(1) # not for open projects
 def sample_export(project_name):
 	project = project_service.get_by_name(project_name)
 	if not project: abort(404)
@@ -848,10 +848,7 @@ def save_trees(project_name):
 	if not request.json: 
 		print("problem with request.json")
 		abort(400)
-	if project.visibility != 2:
-		print("project is not open, checking role of the user")
-		if not project_service.is_annotator(project.id, sample_name, current_user.id): abort(403)
-	
+
 
 	# samples = {"samples":project_service.get_samples(project_name)}
 	# if not sample_name in samples["samples"]:
@@ -877,7 +874,10 @@ def save_trees(project_name):
 			# print(464564,conll)
 			# if not sent_id: abort(400)
 			if not conll: abort(400)
-
+			if project.visibility != 2:
+				if not project_service.is_annotator(project.id, sample_name, current_user.id): abort(403)
+	
+			print(">>>>", project_name)
 			reply = grew_request (
 				'saveGraph', current_app,
 				data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':user_id, 'sent_id':sent_id, "conll_graph":conll}
