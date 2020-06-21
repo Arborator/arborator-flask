@@ -355,12 +355,12 @@ def get_lexicon(trees,dic, glose) :
 		for num in bloc :
 			# print(bloc[num],"++++++++++")
 			trait=[]
-			for key in list(bloc[num].keys())[3:]:
+			for key in list(bloc[num].keys()):
 				if key == 'id' :
 					break
-				if key not in sauf :
+				elif key not in sauf :
+					# print(bloc[num][key], key)
 					trait.append(key+"="+bloc[num][key])
-			# print(trait)
 			if trait :
 				token = (bloc[num]['t'], bloc[num]['lemma'], "|".join(trait), bloc[num]['tag'],bloc[num]['Gloss'])
 			else :
