@@ -349,8 +349,7 @@ def conll2tree(conllstring):
 
 def get_lexicon(trees,dic, glose) :
 	compteur=1
-	sauf=["mot", "levenshtein"]
-	for bloc in trees :
+	sauf=["AlignBegin","AlignEnd" ,"Gloss","levenshtein", "MotNouveau", "aSupprimer", "Lang"] 	for bloc in trees :
 		# print("-----")
 		for num in bloc :
 			# print(bloc[num],"++++++++++")
