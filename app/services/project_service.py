@@ -647,6 +647,7 @@ def formatTrees_new(m, trees, conll):
     '''
     m is the query result from grew
     list of trees
+    returns something like {'WAZL_15_MC-Abi_MG': {'WAZL_15_MC-Abi_MG__8': {'sentence': '# kalapotedly < you see < # ehn ...', 'conlls': {'kimgerdes': ...
     '''
     nodes = m["nodes"]
     edges = m["edges"]

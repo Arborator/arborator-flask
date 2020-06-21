@@ -360,24 +360,80 @@ def search_project(project_name):
 	if reply["status"] != "OK": abort(400)
 	trees={}
 
-	print(121212,reply["data"])
+	# print(121212,reply["data"])
 	# matches={}
 	# reendswithnumbers = re.compile(r"_(\d+)$")
 
 	for m in reply["data"]:
 		if m['user_id'] == '': abort(409)
-
 		conll = json.loads(grew_request("getConll", current_app, data={"sample_id":m["sample_id"], "project_id":project.projectname, "sent_id":m["sent_id"], "user_id":m['user_id']}))
 		if conll["status"] != "OK": abort(404)
 		conll = conll["data"]
 		# trees=project_service.formatTrees(m, trees, conll, m['user_id'])
 		trees=project_service.formatTrees_new(m, trees, conll)
-
+	# print(56565,trees)
 	js = json.dumps(trees)
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
 	
 
+@project.route('/<project_name>/tryRule', methods=["GET","POST"])
+def tryRule_project(project_name):
+	"""
+	expects json with grew pattern such as
+	{
+	"pattern":"pattern { N [upos=\"NUM\"] }"
+	"rewriteCommands":"commands { N [upos=\"NUM\"] }"
+	}
+	important: simple and double quotes must be escaped!
+
+
+	returns:
+	{'sample_id': 'P_WAZP_07_Imonirhuas.Life.Story_PRO', 'sent_id': 'P_WAZP_07_Imonirhuas-Life-Story_PRO_97', 'nodes': {'N': 'Bernard_11'}, 'edges': {}}, {'sample_id':...
+	"""
+	
+	project = project_service.get_by_name(project_name)
+	if not project: abort(404)
+	if not request.json: abort(400)
+	
+	pattern = request.json.get("pattern")
+	rewriteCommands = request.json.get("rewriteCommands")
+	# tryRule(<string> project_id, [<string> sample_id], [<string> user_id], <string> pattern, <string> commands)
+	
+	print( pattern, rewriteCommands)
+	reply = json.loads(grew_request("tryRule", current_app, data={"project_id":project.projectname, "pattern":pattern, "commands":rewriteCommands}))
+	print(8989,reply)
+	if reply["status"] != "OK": 
+		if 'message' in reply:
+			resp =  jsonify({'status': reply["status"], 'message': reply["message"]  })
+			resp.status_code = 444
+			return resp
+		abort(400)
+	trees={}
+	print(78787)
+	print(121212,reply["data"])
+	# matches={}
+	# reendswithnumbers = re.compile(r"_(\d+)$")
+	# {'WAZL_15_MC-Abi_MG': {'WAZL_15_MC-Abi_MG__8': {'sentence': '# kalapotedly < you see < # ehn ...', 'conlls': {'kimgerdes': ..
+	for m in reply["data"]:
+		if m['user_id'] == '': abort(409)
+		print('___')
+		# for x in m:
+		# 	print('mmmm',x)
+		trees['sample_id']=trees.get('sample_id',{})
+		trees['sample_id']['sent_id']=trees['sample_id'].get('sent_id',{'conlls':{},'nodes': {}, 'edges': {}})
+		trees['sample_id']['sent_id']['conlls'][m['user_id']]=m['conll']
+		# trees['sample_id']['sent_id']['matches'][m['user_id']]=[{"edges":{},"nodes":{}}] # TODO: get the nodes and edges from the grew server!
+		if 'sentence' not in trees['sample_id']['sent_id']:
+			trees['sample_id']['sent_id']['sentence'] = conll3.conll2tree(m['conll']).sentence()
+		# print('mmmm',trees['sample_id']['sent_id'])
+		
+	
+
+	js = json.dumps(trees)
+	resp = Response(js, status=200,  mimetype='application/json')
+	return resp
+	
 
 
 @project.route('/<project_name>/upload', methods=["POST", "OPTIONS"])
