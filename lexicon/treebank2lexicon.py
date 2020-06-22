@@ -380,6 +380,7 @@ def get_lexicon(trees,dic) :
 def get_json(dic, out_path, glose, trait) :
 	f = open(out_path, "w", encoding="utf-8")
 	comp = 0
+	f.write("[")
 	if glose :
 		trait.remove(["Gloss"])
 		if trait :
@@ -457,7 +458,8 @@ def get_json(dic, out_path, glose, trait) :
 				comp +=1
 				if comp != len(dic) :
 					f.write(",\n")
-
+	f.write("]")
+	
 def conllFile2trees(path):
 	"""
 	file with path -> list of trees
