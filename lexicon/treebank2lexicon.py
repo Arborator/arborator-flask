@@ -347,9 +347,9 @@ def conll2tree(conllstring):
 	
 	return tree
 
-def get_lexicon(trees,dic, glose) :
+def get_lexicon(trees,dic) :
 	compteur=1
-	sauf=["AlignBegin","AlignEnd" ,"Gloss","levenshtein", "MotNouveau", "aSupprimer", "Lang"] 	
+	sauf=["AlignBegin","AlignEnd" ,"Gloss","levenshtein", "MotNouveau", "aSupprimer", "Lang"] 
 	for bloc in trees :
 		# print("-----")
 		for num in bloc :
@@ -361,10 +361,16 @@ def get_lexicon(trees,dic, glose) :
 				elif key not in sauf :
 					# print(bloc[num][key], key)
 					trait.append(key+"="+bloc[num][key])
+			# print(trait)
 			if trait :
-				token = (bloc[num]['t'], bloc[num]['lemma'], "|".join(trait), bloc[num]['tag'],bloc[num]['Gloss'])
+				token = (bloc[num]['t'], bloc[num]['lemma'], "|".join(trait), bloc[num]['tag'],"_")
+				if 'Gloss' in bloc[num].keys():
+					token = (bloc[num]['t'], bloc[num]['lemma'], "|".join(trait), bloc[num]['tag'],bloc[num]['Gloss'])
 			else :
-				token = (bloc[num]['t'], bloc[num]['lemma'], "_", bloc[num]['tag'],bloc[num]['Gloss'])
+				token = (bloc[num]['t'], bloc[num]['lemma'], "_", bloc[num]['tag'],"_")
+				if 'Gloss' in bloc[num].keys():
+					token = (bloc[num]['t'], bloc[num]['lemma'], "_", bloc[num]['tag'],bloc[num]['Gloss'])
+
 			if token in dic :
 				dic[token]=dic[token]+1
 			else :
@@ -498,7 +504,7 @@ def conllFile2lexicon(corpus_path, trait):
 	for fichier in corpus_path :
 		trees+=conllFile2trees(fichier)
 	
-	temp = get_lexicon(trees,dict_lexicon, glose)
+	temp = get_lexicon(trees,dict_lexicon)
 	for key, value in temp.items() :
 		if key not in dict_lexicon :
 			dict_lexicon[key] = value
