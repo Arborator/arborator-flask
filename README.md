@@ -4,11 +4,11 @@ This the back-end of the Arborator-Grew redevelopement of the [arborator-server]
 # installation
 
 ```sh
-sudo apt install python3-flask python3-pip
-pip3 install --user -r requirements.txt
-pip3 install --user  futures flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap
-python3 -m pip install flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap flask-cors pyopenssl uwsgi
-checkout https://github.com/Arborator/arborator-flask.git
+git clone git@github.com:Arborator/arborator-flask.git
+cd arborator-flask
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
 
