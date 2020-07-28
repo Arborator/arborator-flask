@@ -661,10 +661,15 @@ def sample_export(project_name):
 			# {"sent_id_1":{"conlls":{"user_1":"conllstring"}}}
 			sample_tree = json.loads(project_service.servSampleTrees(reply.get("data", {})  ))
 			sample_content = project_service.sampletree2contentfile(sample_tree)
+
 			for sent_id in sample_tree:
+				
 				last = project_service.get_last_user(sample_tree[sent_id]["conlls"])
-				sample_content["last"] = sample_content[last]
-				samplecontentfiles.append(sample_content)
+				sample_content["last"] = sample_content.get("last", []) + [sample_tree[sent_id]["conlls"][last]]
+			
+			# gluing back the trees
+			sample_content["last"] = "\n\n".join(sample_content["last"])
+			samplecontentfiles.append(sample_content)
 
 		else:
 			print("Error: {}".format(reply.get("message")))
