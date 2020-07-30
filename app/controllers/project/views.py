@@ -132,6 +132,36 @@ def project_settings_update(project_name):
 	return resp
 
 
+@project.route('/<project_name>/config/get', methods=['GET'])
+def project_config(project_name):
+	''' get project config (annotation features json) for settings view.
+		these data are stocked in grew server
+	'''
+	project_config_dict = project_service.get_project_config(project_name)
+	# if project_infos == 403: abort(403) # removed for now -> the check is done in view and for each actions
+	js = json.dumps(project_config_dict, default=str)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
+@project.route('/<project_name>/config/update', methods=['POST'])
+def update_project_config(project_name):
+	''' update project config (annotation features json) for settings view.
+		these data are stocked in grew server.
+	'''
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+	# user = user_service.get_by_id(request.json.get("user_id"))
+
+	project_config_dict = request.json['config']
+	print("KK, update_project_config project_config_dict", project_config_dict)
+	project_service.update_project_config(project_name, project_config_dict)
+	# if project_infos == 403: abort(403) # removed for now -> the check is done in view and for each actions
+	js = json.dumps(project_config_dict, default=str)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
+
 @project.route('/<project_name>/<target_role>/add', methods=['POST'])
 @requires_access_level(2)
 def project_userrole_add(project_name, target_role):
