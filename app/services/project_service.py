@@ -64,10 +64,20 @@ def get_settings_infos(project_name, current_user):
     admins = [a.userid for a in project_dao.get_admins(project.id)]
     guests = [g.userid for g in project_dao.get_guests(project.id)]
 
-    # config
+    # config from arborator
     shown_features = project_dao.find_project_features(project)
     shown_metafeatures = project_dao.find_project_metafeatures(project)
-    config = {"shownfeatures":shown_features, "shownmeta":shown_metafeatures}
+
+
+    # config from grew
+    reply = json.loads(grew_request("getProjectConfig", current_app, data={"project_id":project_name}))
+    if reply["status"] != "OK":
+        abort(400)
+    annotationFeatures = reply["data"]
+    if annotationFeatures is None:
+        print("This project does not have a configuration stored on grew")
+
+    config = {"shownfeatures":shown_features, "shownmeta":shown_metafeatures, "annotationFeatures":annotationFeatures}
 
     # cats = [c.value for c in project_dao.find_project_cats(project.id)]
     # stocks = project_dao.find_project_stocks(project.id)
@@ -370,6 +380,8 @@ def create_empty_project(project_name, creator, project_description, project_vis
     metafeatures = project_dao.add_metafeatures(p, default_metafeatures)
     print("added the following features", features)
     print("added the following metafeatures", metafeatures)
+
+    # what config should be sent to grew ?
 
 
 def delete_sample(project_name, project_id, sample_name):

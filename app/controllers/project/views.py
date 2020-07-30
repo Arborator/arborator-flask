@@ -112,15 +112,20 @@ def project_settings_update(project_name):
 	# 	accesslevel_dict = {v: k for k, v in dict(ProjectAccess.ACCESS).items()}
 	# 	if pa: pa.accesslevel = accesslevel_dict[target_role]
 	# 	else: project_service.create_add_project_access(user.id, project.id, accesslevel_dict[target_role])
-	# print(request.json) # todo: handle this correctly, depending on whether it has to go to grew or to local storage
+	# print("000000", request.json) # todo: handle this correctly, depending on whether it has to go to grew or to local storage
 	for a,v in request.json.items():
 		if a == "shownfeatures":
 			project_service.update_features(project, v)
 		elif a == "shownmeta":
 			project_service.update_metafeatures(project, v)
+		elif a == "annotationFeatures":
+			# update the part of the config that is on grew (valid features, relations, upos...)
+			reply = json.loads(grew_request("updateProjectConfig", current_app, data={"project_id":project_name, "config":json.dumps(v)}))
+			if reply["status"] != "OK":
+				abort(400)
+			print("reply", reply)
 
 			
-	# , json.loads(request.json.get("user")))
 	project_infos = project_service.get_settings_infos(project_name, current_user)
 	if project_infos == 403: abort(403) 
 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
