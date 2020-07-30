@@ -1,2 +1,4 @@
 app/auth/auth_config.py
 *.pyc 
+venv/
+keys/
