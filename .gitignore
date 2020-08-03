@@ -1,4 +1,5 @@
-app/auth/auth_config.py
+app/controllers/auth/auth_config.py
 *.pyc 
 venv/
 keys/
+run_dev.sh

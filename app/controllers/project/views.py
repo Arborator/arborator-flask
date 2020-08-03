@@ -133,7 +133,7 @@ def project_settings_update(project_name):
 
 
 @project.route('/<project_name>/config/get', methods=['GET'])
-def project_config(project_name):
+def get_project_config_view(project_name):
 	''' get project config (annotation features json) for settings view.
 		these data are stocked in grew server
 	'''
@@ -144,7 +144,7 @@ def project_config(project_name):
 	return resp
 
 @project.route('/<project_name>/config/update', methods=['POST'])
-def update_project_config(project_name):
+def update_project_config_view(project_name):
 	''' update project config (annotation features json) for settings view.
 		these data are stocked in grew server.
 	'''
