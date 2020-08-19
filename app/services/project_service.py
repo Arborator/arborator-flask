@@ -518,7 +518,6 @@ def add_or_keep_timestamps(conll_file):
             # int  millisecondes
             timestamp = datetime.timestamp(now) * 1000
             timestamp = round(timestamp)
-            print(timestamp, type(timestamp))
             t.sentencefeatures["timestamp"] = str(timestamp)
         # TODO check format of the conll while we're at it ?
 
@@ -606,7 +605,9 @@ def get_last_user(tree):
     if len(timestamps) == 1:
         last = timestamps[0][0]
     else:
-        last = sorted([u for (u, t) in timestamps], key=lambda x: x[1])[-1]
+        # print(timestamps)
+        last = sorted(timestamps, key=lambda x:x[1])[-1][0]
+        # print(last)
     return last
 
 def sampletree2contentfile(tree):
