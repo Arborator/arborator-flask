@@ -103,7 +103,6 @@ def get_settings_infos(project_name, current_user):
 def get_project_config(project_name):
     reply = grew_request ( 'getProjectConfig', current_app, data = {'project_id': project_name} )
     data = json.loads(reply)
-    print("KK get_project_config data", data)
     return data
 
 def update_project_config(project_name, config):
@@ -111,9 +110,7 @@ def update_project_config(project_name, config):
         'project_id': project_name,
         'config': json.dumps(config)
         } )
-    print("KK reply", reply)
     data = json.loads(reply)
-    print("KK update_project_config data", data)
     return data
 
 

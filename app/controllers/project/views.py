@@ -114,7 +114,6 @@ def project_settings_update(project_name):
 	# 	else: project_service.create_add_project_access(user.id, project.id, accesslevel_dict[target_role])
 	# print("000000", request.json) # todo: handle this correctly, depending on whether it has to go to grew or to local storage
 	
-	print("\n\n\n KK PROJECT NAME \n\n\n", project)
 	for a,v in request.json.items():
 		if a == "shownfeatures":
 			project_service.update_features(project, v)
@@ -127,7 +126,6 @@ def project_settings_update(project_name):
 				abort(400)
 			print("reply", reply)
 		elif a == "showAllTrees":
-			print("KK a,v ==", a, v)
 			project_service.change_show_all_trees(project, v)
 			print("KSKQKKQFKK")
 
@@ -167,7 +165,7 @@ def update_project_config_view(project_name):
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
-
+# Kirian : this function is not use at the moment, instead, we use `project_userrole_add_many`
 @project.route('/<project_name>/<target_role>/add', methods=['POST'])
 @requires_access_level(2)
 def project_userrole_add(project_name, target_role):
@@ -186,6 +184,35 @@ def project_userrole_add(project_name, target_role):
 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
 	return resp
 
+# equivalent of project_userrole_add but can handle multiple users in one call
+# TODO : delete one of these two 
+@project.route('/<project_name>/<target_role>/add_many', methods=['POST'])
+@requires_access_level(2)
+def project_userrole_add_many(project_name, target_role):
+	""" add an admin/guest to the project {'user_id':id}"""
+	if not request.json: abort(400)
+	project = project_service.get_by_name(project_name)
+	if not project: abort(400)
+
+	user_ids = request.json.get("user_id")
+	for user_id in user_ids:
+		user = user_service.get_by_id(user_id)
+		if user:
+			pa = project_service.get_project_access(project.id, user.id)
+			accesslevel_dict = {v: k for k, v in dict(ProjectAccess.ACCESS).items()}
+			if pa: 
+				if pa.accesslevel.code < accesslevel_dict[target_role]:
+					print("\naccess level is lower than new, replace !")
+					project_service.delete_project_access(pa)
+					project_service.create_add_project_access(user.id, project.id, accesslevel_dict[target_role])
+				# pa.accesslevel = accesslevel_dict[target_role]
+			else: project_service.create_add_project_access(user.id, project.id, accesslevel_dict[target_role])
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	print("\n KK project infos", json.dumps(project_infos, default=str))
+	if project_infos == 403: abort(403) 
+	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+	return resp
+
 
 @project.route('/<project_name>/<target_role>/remove', methods=['POST'])
 @requires_access_level(2)
@@ -196,6 +223,7 @@ def project_userrole_remove(project_name, target_role):
 	if not project: abort(400)
 	user = user_service.get_by_id(request.json.get("user_id"))
 	if user: 
+		accesslevel_dict = {v: k for k, v in dict(ProjectAccess.ACCESS).items()}
 		pa = project_service.get_project_access(project.id, user.id)
 		if pa: project_service.delete_project_access(pa)
 	project_infos = project_service.get_settings_infos(project_name, current_user)
