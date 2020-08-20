@@ -113,6 +113,8 @@ def project_settings_update(project_name):
 	# 	if pa: pa.accesslevel = accesslevel_dict[target_role]
 	# 	else: project_service.create_add_project_access(user.id, project.id, accesslevel_dict[target_role])
 	# print("000000", request.json) # todo: handle this correctly, depending on whether it has to go to grew or to local storage
+	
+	print("\n\n\n KK PROJECT NAME \n\n\n", project)
 	for a,v in request.json.items():
 		if a == "shownfeatures":
 			project_service.update_features(project, v)
@@ -124,6 +126,10 @@ def project_settings_update(project_name):
 			if reply["status"] != "OK":
 				abort(400)
 			print("reply", reply)
+		elif a == "showAllTrees":
+			print("KK a,v ==", a, v)
+			project_service.change_show_all_trees(project, v)
+			print("KSKQKKQFKK")
 
 			
 	project_infos = project_service.get_settings_infos(project_name, current_user)

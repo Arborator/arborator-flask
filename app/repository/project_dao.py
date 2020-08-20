@@ -182,7 +182,7 @@ def delete_defaultusertree_by_id( dut_id ):
 
 def set_show_all_trees(project_name, value):
     """ change the value of showAllTrees """
-    project = Project.query.filter_by(projectname=project_name).first()
+    project = Project.query.filter_by(projectname=project_name.projectname).first()
     project.show_all_trees = value
     db.session.commit()
     return project
