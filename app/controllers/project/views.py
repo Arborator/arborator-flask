@@ -1004,7 +1004,8 @@ def save_trees(project_name):
 			# if not sent_id: abort(400)
 			if not conll: abort(400)
 			if project.visibility != 2:
-				if not project_service.is_annotator(project.id, sample_name, current_user.id): abort(403)
+				if not project_service.is_annotator(project.id, sample_name, current_user.id) or not project_service.is_validator(project.id, sample_name, current_user.id):
+					abort(403)
 	
 			print(">>>>", project_name)
 			reply = grew_request (
