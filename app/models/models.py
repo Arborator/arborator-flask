@@ -141,6 +141,7 @@ class Project(db.Model, BaseM):
 	# relations = db.relationship('LabelStock')
 	# cats = db.relationship('CatLabel')
 	show_all_trees = db.Column(db.Boolean, default=True)
+	exercise_mode = db.Column(db.Boolean, default=False, server_default="false", nullable=False)
 	# is_open = db.Column(db.Boolean, default=False)
 	default_user_trees = db.relationship('DefaultUserTrees')
 

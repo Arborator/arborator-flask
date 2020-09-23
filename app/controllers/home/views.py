@@ -14,45 +14,6 @@ from ...services import project_service, user_service
 
 
 # @cross_origin()
-# @home.route('/home/projects/', methods=['GET'])
-# def home_page():
-# 	"""
-# 	Home page
-
-# 	Returns list of projects with:
-# 	- is_private
-# 	- roles (of the current user if logged in)
-# 	"""
-# 	# current_user.id = "rinema56@gmail.com"
-# 	projects = Project.query.all()
-	
-# 	projects_info = list()
-# 	if current_user.is_authenticated:
-# 		for project in projects:
-# 			# roles = sorted(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
-# 			# TODO : choose to only obtain project roles (admin, guest, none) and not sample roles (annotator, etc)
-# 			# roles = list(set(SampleRole.query.filter_by(projectid=project.id, userid=current_user.id).all()))
-# 			# roles = [{'project':role.projectid, 'role':role.role.value}  for role in roles]
-# 			infos = project_service.get_infos(project.projectname, current_user)
-# 			# roles = [] # temp ignore
-# 			# if not roles: roles = []
-# 			if not infos: infos = {"admins":[], "guests":[]}
-# 			projects_info.append(project.as_json(include={"admins":infos['admins'],"guests":infos['guests']}))
-# 	else:
-# 		for project in projects:
-# 			projects_info.append(project.as_json(include={"admins":[],"guests":[]}))
-# 	# print(666,projects_info)
-# 	# print('projects', projects)
-
-# 	js = json.dumps(projects_info)
-# 	resp = Response(js, status=200,  mimetype='application/json')
-	
-# 	resp.headers['Access-Control-Allow-Origin'] = '*'
-# 	resp.headers['Access-Control-Allow-Headers'] = '*'
-# 	resp.headers['Access-Control-Allow-Methods'] = '*'
-# 	return resp
-
-# @cross_origin()
 @home.route('/home/projects/', methods=['GET'])
 def home_page():
 	"""
@@ -62,7 +23,6 @@ def home_page():
 	- visibility level
 	- roles (of the current user if logged in)
 	"""
-
 	projects_info = project_service.get_hub_summary()
 	js = json.dumps(projects_info)
 	resp = Response(js, status=200,  mimetype='application/json')
