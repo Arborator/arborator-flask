@@ -98,13 +98,6 @@ def project_info(project_name):
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
 
-@project.route('/<project_name>/samples/fetch_all')
-def project_samples(project_name):
-	''' get project samples information'''
-	project_samples = project_service.get_project_samples(project_name)
-	js = json.dumps(project_samples, default=str)
-	resp = Response(js, status=200,  mimetype='application/json')
-	return resp
 
 
 @project.route('/<project_name>/treesfrom')

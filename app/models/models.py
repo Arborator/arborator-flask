@@ -141,7 +141,7 @@ class Project(db.Model, BaseM):
 	# relations = db.relationship('LabelStock')
 	# cats = db.relationship('CatLabel')
 	show_all_trees = db.Column(db.Boolean, default=True)
-	exercise_mode = db.Column(db.Boolean, default=False, server_default="false", nullable=False)
+	exercise_mode = db.Column(db.Boolean, default=False)
 	# is_open = db.Column(db.Boolean, default=False)
 	default_user_trees = db.relationship('DefaultUserTrees')
 
@@ -232,6 +232,15 @@ class SampleRole(db.Model):
 	userid = db.Column(db.String(256), db.ForeignKey('users.id'))
 	role = db.Column(ChoiceType(ROLES, impl=db.Integer()))
 	# __table_args__ = (UniqueConstraint('samplename', 'projectid', name='_samplename_projectid_uc'),)
+
+
+class SampleExerciseLevel(db.Model):
+	__tablename__ = 'exerciselevel'
+	EXERCISE_LEVEL =  [(1, 'teacher_visible'), (2, 'graphical_feedback'), (3, 'numerical_feedback'), (4 , 'no_feedback')]
+	id = db.Column(db.Integer, primary_key=True)
+	sample_name = db.Column(db.String(256), nullable=False)
+	project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+	exercise_level = db.Column(ChoiceType(EXERCISE_LEVEL, impl=db.Integer()))
 
 
 

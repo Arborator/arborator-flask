@@ -1,5 +1,5 @@
 # text = 同样，施力的大小不同，引起的加速度不同，最终的结果也不一样，亦可以从向量的加成性来看。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	同样	同样	ADV	RB	_	12	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	12	punct	_	SpaceAfter=No
 3	施力	施力	VERB	VV	_	4	comp:obj@relcl	_	SpaceAfter=No
@@ -32,7 +32,7 @@
 30	。	。	PUNCT	.	_	12	punct	_	SpaceAfter=No
 
 # text = 大多数的加长型礼车则是租车公司的财产。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	大	大	ADV	RB	_	3	mod	_	SpaceAfter=No
 2	多数	多数	ADJ	JJ	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	6	mod	_	SpaceAfter=No
@@ -47,7 +47,7 @@
 12	。	。	PUNCT	.	_	7	punct	_	SpaceAfter=No
 
 # text = 这种车辆如果归私人拥有，多半会设置昂贵的音频设备、电视机、影碟机，以及吧台和冰箱。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这种	这种	DET	DT	_	2	det	_	SpaceAfter=No
 2	车辆	车辆	NOUN	NN	_	9	subj	_	SpaceAfter=No
 3	如果	如果	ADP	IN	_	10	comp:obl@x	_	SpaceAfter=No
@@ -76,7 +76,7 @@
 26	。	。	PUNCT	.	_	9	punct	_	SpaceAfter=No
 
 # text = 动作冒险游戏（A-AVG）：是冒险游戏的分支，它融合了动作游戏的一些特征。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	动作	动作	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	冒险	冒险	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	游戏	游戏	NOUN	NN	_	8	subj	_	SpaceAfter=No
@@ -101,7 +101,7 @@
 22	。	。	PUNCT	.	_	8	punct	_	SpaceAfter=No
 
 # text = 其测试包含了美术治疗法，认知行为治疗和洞察疗法，同时给行为分析提供了一个理论性的交流平台。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	其	其	PRON	PRP	Person=3	2	mod	_	SpaceAfter=No
 2	测试	测试	NOUN	NN	_	21	subj	_	SpaceAfter=No
 3	包含	包含	VERB	VV	_	4	comp:obj@aspect	_	SpaceAfter=No
@@ -134,7 +134,7 @@
 
 # sent_id = dev-s6
 # text = 数百万的巧克力棒被撤下柜台，而玛氏则中断了生产，公司损失达四百五十万美元。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	数百万	数百万	NUM	CD	NumType=Card	2	comp:obj@dec	_	SpaceAfter=No
 2	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
 3	巧克力	巧克力	NOUN	NN	_	4	compound	_	SpaceAfter=No
@@ -160,7 +160,7 @@
 
 # sent_id = dev-s7
 # text = 努克的经济以渔业为主，1960年代，鳕鱼业相当发达，现已没落，目前主要出产螃蟹和大比目鱼。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	努克	努克	PROPN	NNP	_	2	comp:obj@dec	_	SpaceAfter=No
 2	的	的	PART	DEC	Case=Gen	3	mod	_	SpaceAfter=No
 3	经济	经济	NOUN	NN	_	4	subj	_	SpaceAfter=No
@@ -191,7 +191,7 @@
 
 # sent_id = dev-s8
 # text = 随后爱斯基摩人和维京人相继定居于此。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	随后	随后	ADV	RB	_	8	mod	_	SpaceAfter=No
 2	爱斯基摩	爱斯基摩	PROPN	NNP	_	3	compound	_	SpaceAfter=No
 3	人	人	PART	SFN	_	8	subj	_	SpaceAfter=No
@@ -206,7 +206,7 @@
 
 # sent_id = dev-s9
 # text = 五月二十一日，努尔哈赤出城迎接前来沈阳的科尔沁部奥巴贝勒。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	五	五	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	月	月	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	二十一	二十一	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -226,7 +226,7 @@
 
 # sent_id = dev-s10
 # text = 他花费了许多时间来比较加拿大地质调查局博物馆中的恐龙化石。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	6	subj	_	SpaceAfter=No
 2	花费	花费	VERB	VV	_	3	comp:obj@aspect	_	SpaceAfter=No
 3	了	了	PART	AS	Aspect=Perf	6	mod	_	SpaceAfter=No
@@ -248,7 +248,7 @@
 
 # sent_id = dev-s11
 # text = 1355年，勃兰登堡被神圣罗马帝国皇帝查理四世升为选侯国。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1355	1355	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	5	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	13	punct	_	SpaceAfter=No
@@ -268,7 +268,7 @@
 
 # sent_id = dev-s12
 # text = 但是迪士尼的公主们不会都太局限于一个范围之内了吗？
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	但是	但是	ADV	RB	_	0	root	_	SpaceAfter=No
 2	迪士尼	迪士尼	PROPN	NNP	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	5	mod	_	SpaceAfter=No
@@ -289,7 +289,7 @@
 
 # sent_id = dev-s13
 # text = 华特迪士尼首次邀请数名香港人气博客，参与动画《勇敢传说之幻险森林》配音工作，让他们与其他明星及专业配音员齐齐声演动画。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	华特	华特	PROPN	NNP	_	23	subj	_	SpaceAfter=No
 2	迪士尼	迪士尼	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	首次	首次	NUM	CD	NumType=Ord	4	mod	_	SpaceAfter=No
@@ -328,7 +328,7 @@
 
 # sent_id = dev-s14
 # text = 1594年秋，在与特兰西瓦尼亚和摩尔达维亚签订盟约之后，米哈伊起兵反抗奥斯曼帝国，参加神圣罗马帝国发起的十三年战争。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1594	1594	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	秋	秋	NOUN	NN	_	20	mod@tmod	_	SpaceAfter=No
@@ -361,7 +361,7 @@
 
 # sent_id = dev-s15
 # text = 在平原、塔、洞窟、海或迷宫中移动时，玩家将会和随机遇到的敌人作战。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	VERB	VV	_	12	mod	_	SpaceAfter=No
 2	平原	平原	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
 3	、	、	PUNCT	EC	_	4	punct	_	SpaceAfter=No
@@ -389,7 +389,7 @@
 
 # sent_id = dev-s16
 # text = 当《Game Informer》提到游戏在日本的知名度时甚至说“四百万日本人可能错了”。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	当	当	ADP	IN	_	13	comp:obj	_	SpaceAfter=No
 2	《	《	PUNCT	(	_	3	punct	_	SpaceAfter=No
 3	Game	Game	X	FW	_	1	subj	_	_
@@ -417,7 +417,7 @@
 
 # sent_id = dev-s17
 # text = 史莱姆是由鸟山明为《勇者斗恶龙》设计的，并成为了系列官方的吉祥物。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	史莱姆	史莱姆	PROPN	NNP	_	15	subj	_	SpaceAfter=No
 2	是	是	VERB	VC	_	15	mod	_	SpaceAfter=No
 3	由	由	VERB	VV	_	2	xcomp	_	SpaceAfter=No
@@ -445,7 +445,7 @@
 
 # sent_id = dev-s18
 # text = 日本FC平台的前两作通过密码记忆系统记录进度。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	日本	日本	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	FC	FC	X	FW	_	3	mod	_	SpaceAfter=No
 3	平台	平台	NOUN	NN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -463,7 +463,7 @@
 
 # sent_id = dev-s19
 # text = 由于这次失事原因涉及很多敏感的争议性，因此最后仍未有一个具体及统一的事故调查报告。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	由于	由于	ADP	IN	_	17	comp:obl	_	SpaceAfter=No
 2	这次	这次	DET	DT	_	4	det	_	SpaceAfter=No
 3	失事	失事	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -494,7 +494,7 @@
 
 # sent_id = dev-s20
 # text = 年复一年，无论刮风下雨，不顾警察和暴徒骚扰，白衣女士们坚持着她们无声的周日步行，抗议关押古巴的所有良心犯。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	年	年	NOUN	NNB	_	4	mod	_	SpaceAfter=No
 2	复	复	ADV	RB	_	4	mod	_	SpaceAfter=No
 3	一	一	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -532,7 +532,7 @@
 
 # sent_id = dev-s21
 # text = 一个家庭收入的中间数为$16,250，家庭收入的中间数为$16,250，国民平均收入为$5,467。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	一	一	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	个	个	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	家庭	家庭	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -563,7 +563,7 @@
 
 # sent_id = dev-s22
 # text = 劳特塔瓦尔湖是印度尼西亚的湖泊，位于苏门答腊岛北部，由亚齐特别行政区负责管辖，长17公里、宽3公里，面积70平方公里，海拔高度1,100米，最大水深80米，蓄水量25亿立方米。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	劳特塔瓦尔	劳特塔瓦尔	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	湖	湖	PART	SFN	_	26	subj	_	SpaceAfter=No
 3	是	是	AUX	VC	_	26	mod	_	SpaceAfter=No
@@ -615,7 +615,7 @@
 
 # sent_id = dev-s23
 # text = 总面积24.44平方公里，人口3108人，人口密度127.2人/平方公里（2009年）。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	总	总	PART	PFA	_	4	subj	_	SpaceAfter=No
 2	面积	面积	NOUN	NN	_	1	comp:obj@pref	_	SpaceAfter=No
 3	24.44	24.44	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -639,7 +639,7 @@
 
 # sent_id = dev-s24
 # text = 包白铁路全线共设有车站19座。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	包	包	PROPN	NNP	_	4	mod	_	SpaceAfter=No
 2	白	白	PROPN	NNP	_	4	mod	_	SpaceAfter=No
 3	铁路	铁路	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -653,7 +653,7 @@
 
 # sent_id = dev-s25
 # text = 包盈盈所在的第三区，有卫冕冠军、6号种子玛丽埃尔·扎格尼斯。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	包	包	PROPN	NNP	_	4	subj	_	SpaceAfter=No
 2	盈盈	盈盈	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	所	所	ADV	RB	_	7	mod@relcl	_	SpaceAfter=No
@@ -676,7 +676,7 @@
 
 # sent_id = dev-s26
 # text = 由于包浩斯学校对于现代建筑学的深远影响，今日的包浩斯早已不单是指学校，而是其倡导的建筑流派或风格的统称，注重建筑造型与实用机能合而为一。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	由于	由于	ADP	IN	_	33	udep	_	SpaceAfter=No
 2	包浩斯	包浩斯	PROPN	NNP	_	10	mod	_	SpaceAfter=No
 3	学校	学校	NOUN	NN	_	10	mod	_	SpaceAfter=No
@@ -720,7 +720,7 @@
 
 # sent_id = dev-s27
 # text = 1956年，首次推行的许多改革措施在卡达尔当政期间虽依然保留，但在外交上却没有任何大的改变。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1956	1956	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	18	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	18	punct	_	SpaceAfter=No
@@ -752,7 +752,7 @@
 
 # sent_id = dev-s28
 # text = 化外之地，文明地区以外的地方，即没有开化的地方。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	化外	化外	NOUN	NN	_	2	comp:obj@dec	_	SpaceAfter=No
 2	之	之	PART	DEC	Case=Gen	3	mod	_	SpaceAfter=No
 3	地	地	NOUN	NN	_	11	subj	_	SpaceAfter=No
@@ -772,7 +772,7 @@
 
 # sent_id = dev-s29
 # text = 地下一层南北两侧设有公交站，地下二层为地铁4号线，地下三层为正在建设的地铁14号线。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	地下	地下	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	一	一	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	层	层	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -808,7 +808,7 @@
 
 # sent_id = dev-s30
 # text = 它的前身是1901年的永定门站，到1957年至1958年扩建为辅助客运站，2006年至2008年拆除重建。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	它	它	PRON	PRP	Person=3	2	comp:obj@dec	_	SpaceAfter=No
 2	的	的	PART	DEC	Case=Gen	3	det	_	SpaceAfter=No
 3	前身	前身	NOUN	NN	_	29	subj	_	SpaceAfter=No
@@ -843,7 +843,7 @@
 
 # sent_id = dev-s31
 # text = 当时国安二队的年轻球员普遍达不到一队的水平，以至于联赛开始时国安一线队的注册队员只有十八名。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	当时	当时	NOUN	NN	_	9	mod@tmod	_	SpaceAfter=No
 2	国安	国安	PROPN	NNP	_	4	mod	_	SpaceAfter=No
 3	二	二	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -879,7 +879,7 @@
 
 # sent_id = dev-s32
 # text = 更新日期：2013年8月26日本赛季，北京国安再次提前一轮锁定联赛季军，由于亚足联确认中超联赛获得3.5个亚冠联赛小组赛的直接参赛席位，故国安队获得了下赛季亚冠联赛的席位，但需等到中国足协杯赛事结束后方可确定是否能够直接晋级小组赛。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	更新	更新	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	日期	日期	NOUN	NN	_	0	root	_	SpaceAfter=No
 3	：	：	PUNCT	:	_	2	punct	_	SpaceAfter=No
@@ -953,7 +953,7 @@
 
 # sent_id = dev-s33
 # text = 2008年，该工程并未完工。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2008	2008	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	8	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	8	punct	_	SpaceAfter=No
@@ -966,7 +966,7 @@
 
 # sent_id = dev-s34
 # text = 北京外城共有七门，南面三门，东西各一门，此外还有两座便门。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	北京	北京	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	外城	外城	NOUN	NN	_	4	subj	_	SpaceAfter=No
 3	共	共	ADV	RB	_	4	mod	_	SpaceAfter=No
@@ -993,7 +993,7 @@
 
 # sent_id = dev-s35
 # text = 瓮城为元朝末年所修，因为当时崇仁门为东垣正中城门，因此瓮城几乎为正方形，南北宽68米，东西深62米，南面辟闸楼、券门。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	瓮城	瓮城	PROPN	NNP	_	2	subj@pass	_	SpaceAfter=No
 2	为	为	AUX	VC	Voice=Pass	5	comp:obj	_	SpaceAfter=No
 3	元朝	元朝	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -1037,7 +1037,7 @@
 
 # sent_id = dev-s36
 # text = 该部位于北京大学医学部逸夫楼7楼。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	该部	该部	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	位	位	VERB	VV	_	3	comp:obj	_	SpaceAfter=No
 3	于	于	VERB	VV	_	0	root	_	SpaceAfter=No
@@ -1053,7 +1053,7 @@
 
 # sent_id = dev-s37
 # text = 2010年1月7日，北京市教育委员会正式作出批复，要求该校停止体制改革试点，加入公立校行列。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2010	2010	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	1	1	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -1086,7 +1086,7 @@
 
 # sent_id = dev-s38
 # text = 而且学校的伙食和住宿条件也多年遭到在校生的诟病。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	而且	而且	ADV	RB	_	0	root	_	SpaceAfter=No
 2	学校	学校	NOUN	NN	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -1106,7 +1106,7 @@
 
 # sent_id = dev-s39
 # text = 支线从朝阳门到杨闸环岛后继续向东行驶，上京哈高速后到达通州武夷花园小区。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	支线	支线	NOUN	NN	_	19	subj	_	SpaceAfter=No
 2	从	从	ADP	IN	_	8	udep	_	SpaceAfter=No
 3	朝阳	朝阳	PROPN	NNP	_	4	compound	_	SpaceAfter=No
@@ -1134,7 +1134,7 @@
 
 # sent_id = dev-s40
 # text = 车站装有屏蔽门，采用与轨道交通类似的管理方法，但2号线并没有全线的专用路权。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	车站	车站	NOUN	NN	_	6	subj	_	SpaceAfter=No
 2	装有	装有	VERB	VV	_	6	mod	_	SpaceAfter=No
 3	屏蔽	屏蔽	VERB	VV	_	4	compound	_	SpaceAfter=No
@@ -1163,7 +1163,7 @@
 
 # sent_id = dev-s41
 # text = 1978年，学院恢复了本科生招生，该届学生在1982年成为北京电影学院首批被授予学士学位的毕业生，在这以后的三十多年所培养的各个专业的众多学生，成为了中国乃至世界著名的电影人，为中国电影在全世界的影响做出了重要的贡献。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1978	1978	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	5	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	6	punct	_	SpaceAfter=No
@@ -1236,7 +1236,7 @@
 
 # sent_id = dev-s42
 # text = 2009年报考人数达1.3万余人次，计划招生只有440人，淘汰率超过96%。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2009	2009	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	5	mod@tmod	_	SpaceAfter=No
 3	报考	报考	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -1259,7 +1259,7 @@
 
 # sent_id = dev-s43
 # text = 北京站是当时中国大陆规模最大、设备最先进的铁路车站，也是第一个现代化大型铁路客运站。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	北京	北京	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	站	站	PART	SFN	_	17	subj	_	SpaceAfter=No
 3	是	是	AUX	VC	_	25	mod	_	SpaceAfter=No
@@ -1289,7 +1289,7 @@
 
 # sent_id = dev-s44
 # text = 为了改善中央空档的视觉效果，故借鉴中国传统城门楼的设计，设计成一个宽45米、高50米的“门洞”。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	为了	为了	ADP	IN	_	18	comp:obl@x	_	SpaceAfter=No
 2	改善	改善	VERB	VV	_	1	comp:obj	_	SpaceAfter=No
 3	中央	中央	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -1326,7 +1326,7 @@
 
 # sent_id = dev-s45
 # text = 他每天赶着马车到灾区逐村收养灾童，总人数近800名。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	9	subj	_	SpaceAfter=No
 2	每天	每天	DET	DT	_	9	mod@tmod	_	SpaceAfter=No
 3	赶	赶	VERB	VV	_	4	comp:obj@aspect	_	SpaceAfter=No
@@ -1347,7 +1347,7 @@
 
 # sent_id = dev-s46
 # text = 在北印度洋产生的气旋风暴是由印度气象部新德里台风中心命名，而在该地区的热带低气压的编号都以A/B字母作结。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	VERB	VV	_	5	mod	_	SpaceAfter=No
 2	北	北	NOUN	NN	_	4	mod	_	SpaceAfter=No
 3	印度	印度	PROPN	NNP	_	4	compound	_	SpaceAfter=No
@@ -1388,7 +1388,7 @@
 
 # sent_id = dev-s47
 # text = 此气旋季之风暴通常都会于4月至12月期间形成。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	此	此	DET	DT	_	3	det	_	SpaceAfter=No
 2	气旋	气旋	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	季	季	PART	SFN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -1409,7 +1409,7 @@
 
 # sent_id = dev-s48
 # text = 天帝军得知真相后，也为法鲁克与拳四郎的对决划下休止符。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	天帝	天帝	PROPN	NNP	_	2	subj	_	SpaceAfter=No
 2	军	军	PART	SFN	_	7	subj	_	SpaceAfter=No
 3	得知	得知	VERB	VV	_	5	comp:obj	_	SpaceAfter=No
@@ -1430,7 +1430,7 @@
 
 # sent_id = dev-s49
 # text = 而解药的出现也使得他们在公众中得到了威望，并将北方之火推上权力宝座。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	而	而	ADV	RB	_	0	root	_	SpaceAfter=No
 2	解药	解药	NOUN	NN	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -1457,7 +1457,7 @@
 
 # sent_id = dev-s50
 # text = 那股充满狂气的演技力，并非只有身为演员的狂气，而是表现于“演技”上的狂气。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	那	那	DET	DT	_	2	det	_	SpaceAfter=No
 2	股	股	NOUN	NNB	_	7	mod	_	SpaceAfter=No
 3	充满	充满	VERB	VV	_	5	comp:obj@relcl	_	SpaceAfter=No
@@ -1486,7 +1486,7 @@
 
 # sent_id = dev-s51
 # text = 北极土著民族一直与外界接触甚少，直到现代，与其他地区的交流才开始变得频繁。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	北极	北极	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	土著	土著	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	民族	民族	NOUN	NN	_	7	subj	_	SpaceAfter=No
@@ -1513,7 +1513,7 @@
 
 # sent_id = dev-s52
 # text = 为了避免此等事故发生，飞机的所有装置，包括发动机、辅助动力装置、电力、液压系统等，都需要更为严格的防护性维修。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	为了	为了	ADP	IN	_	27	comp:obl@x	_	SpaceAfter=No
 2	避免	避免	VERB	VV	_	1	comp:obj	_	SpaceAfter=No
 3	此等	此等	DET	DT	_	4	det	_	SpaceAfter=No
@@ -1551,7 +1551,7 @@
 
 # sent_id = dev-s53
 # text = 由于北极地区的盛行西风一般强度较弱，再加上北极航线更接近大圆航线、航程较短，因此，越来越多往西飞（例如从纽约到香港）的航班，都会取道北极航线，节省时间之余，还可以节省燃料，并增加有效负载。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	由于	由于	ADP	IN	_	57	comp:obl@x	_	SpaceAfter=No
 2	北极	北极	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 3	地区	地区	NOUN	NN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -1615,7 +1615,7 @@
 
 # sent_id = dev-s54
 # text = 五岁后，雌性约2.5米长，300公斤，成长速度减慢很多，但雄性可能到五到八岁性发育完全之后才停止成长，到那时长到3.33 m左右，而且胸，颈和上身宽大，重量达到600-1100公斤。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	五	五	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	岁	岁	NOUN	NNB	_	3	mod	_	SpaceAfter=No
 3	后	后	ADP	IN	_	9	mod	_	SpaceAfter=No
@@ -1676,7 +1676,7 @@
 
 # sent_id = dev-s55
 # text = 位于校园北区的重要文化遗产札幌农学校第二农场，是根据克拉克博士的构想而建立的模范家畜饲育场，多为明治时期的建筑物。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	位	位	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
 2	于	于	VERB	VV	_	5	comp:obj@relcl	_	SpaceAfter=No
 3	校园	校园	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -1716,7 +1716,7 @@
 
 # sent_id = dev-s56
 # text = 市内后来也铺设了有轨电车系统，地段亦被投机者所觊觎。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	市内	市内	NOUN	NN	_	3	subj	_	SpaceAfter=No
 2	后来	后来	NOUN	NN	_	4	mod@tmod	_	SpaceAfter=No
 3	也	也	ADV	RB	_	0	root	_	SpaceAfter=No
@@ -1737,7 +1737,7 @@
 
 # sent_id = dev-s57
 # text = 天津河北体育场建成后占地面积为20万平方米、建筑面积为4.5万平方米，体育场的看台设有18级台阶，为马蹄形的水泥钢筋建筑。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	天津	天津	PROPN	NNP	_	4	mod	_	SpaceAfter=No
 2	河北	河北	PROPN	NNP	_	4	mod	_	SpaceAfter=No
 3	体育	体育	NOUN	NN	_	4	compound	_	SpaceAfter=No
@@ -1776,7 +1776,7 @@
 
 # sent_id = dev-s58
 # text = 此后，第18届华北运动会筹备委员会利用天津市政府的26万元拨款和河北省政府的20万元拨款兴建北站体育场，其余款项用于招待运动员和华北运动会工作人员。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	此后	此后	NOUN	NN	_	28	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	28	punct	_	SpaceAfter=No
 3	第18	第18	NUM	CD	NumType=Ord	4	mod	_	SpaceAfter=No
@@ -1827,7 +1827,7 @@
 
 # sent_id = dev-s59
 # text = 直至2002年8月，将军澳线全线通车，本站变为港岛线及将军澳线的转车站。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	直至	直至	ADP	IN	_	11	udep	_	SpaceAfter=No
 2	2002	2002	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	5	clf	_	SpaceAfter=No
@@ -1856,7 +1856,7 @@
 
 # sent_id = dev-s60
 # text = 于是李朝政府采取措施：一方面加强朝鲜半岛东北面的防务；一方面对图们江南北女真施加压力，给以绝市的制裁。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	于是	于是	ADV	RB	_	0	root	_	SpaceAfter=No
 2	李朝	李朝	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 3	政府	政府	NOUN	NN	_	28	subj	_	SpaceAfter=No
@@ -1893,7 +1893,7 @@
 
 # sent_id = dev-s61
 # text = 北黄土沟站是一个大准线上的铁路车站，位于内蒙古自治区丰镇市新城湾乡北黄土沟，建于1996年，目前为四等站，邮政编码为012105。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	北	北	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	黄土	黄土	PROPN	NNP	_	3	compound	_	SpaceAfter=No
 3	沟	沟	PART	SFN	_	4	compound	_	SpaceAfter=No
@@ -1942,7 +1942,7 @@
 
 # sent_id = dev-s62
 # text = 鉴于此业务模式取得空前成功，双方扩充娱乐场业务至占据新建业商业中心五层空间，集团与澳博的合作亦因而更趋紧密。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	鉴	鉴	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
 2	于	于	VERB	VV	_	12	mod	_	SpaceAfter=No
 3	此	此	DET	DT	_	5	det	_	SpaceAfter=No
@@ -1980,7 +1980,7 @@
 
 # sent_id = dev-s63
 # text = 只是在纽约州，就有500多所学校将匹克球设为课程。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	只	只	ADV	RB	_	2	mod	_	SpaceAfter=No
 2	是	是	VERB	VC	_	7	mod	_	SpaceAfter=No
 3	在	在	VERB	VV	_	2	xcomp	_	SpaceAfter=No
@@ -2002,7 +2002,7 @@
 
 # sent_id = dev-s64
 # text = 区位论要解决的是经济活动的地理方位及其形成原因的问题。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	区位	区位	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	论	论	PART	SFN	_	3	subj	_	SpaceAfter=No
 3	要	要	AUX	MD	_	5	comp:obj@relcl	_	SpaceAfter=No
@@ -2024,7 +2024,7 @@
 
 # sent_id = dev-s65
 # text = 所谓医学生物化学大多是将生物化学中与医学、人体功能较为相关部分整理后所得。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	所	所	ADV	RB	_	5	mod	_	SpaceAfter=No
 2	谓	谓	VERB	VV	_	1	comp:obj	_	SpaceAfter=No
 3	医学	医学	NOUN	NN	_	5	mod	_	SpaceAfter=No
@@ -2052,7 +2052,7 @@
 
 # sent_id = dev-s66
 # text = 消费者通过线下十二篮体重秤称重，将数据传输到十二篮体重资料库云端，通过app、官网等终端为消费者推送个性解决方案，实现全程数字化监测管理，确保方案科学和持续性。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	消费	消费	VERB	VV	_	2	compound	_	SpaceAfter=No
 2	者	者	PART	SFN	_	43	subj	_	SpaceAfter=No
 3	通过	通过	ADP	IN	_	9	udep	_	SpaceAfter=No
@@ -2105,7 +2105,7 @@
 
 # sent_id = dev-s67
 # text = 旧街坊改造后，十全街两侧为新建的古典风格建筑，是餐饮业、茶楼酒吧和各式工艺品商店（苏绣、字画古董、紫砂陶器、红木小件）集中的特色街道。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	旧	旧	PART	PFA	_	3	subj	_	SpaceAfter=No
 2	街坊	街坊	NOUN	NN	_	1	comp:obj@pref	_	SpaceAfter=No
 3	改造	改造	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -2153,7 +2153,7 @@
 
 # sent_id = dev-s68
 # text = 关于十八铜人的具体描述非常分歧。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	关于	关于	ADP	IN	_	4	comp:obj@dec	_	SpaceAfter=No
 2	十八	十八	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	铜人	铜人	NOUN	NN	_	1	mod	_	SpaceAfter=No
@@ -2166,7 +2166,7 @@
 
 # sent_id = dev-s69
 # text = 当年为培养“天下最恶的人”，说服十大恶人饶过小鱼儿。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	当年	当年	NOUN	NN	_	11	mod@tmod	_	SpaceAfter=No
 2	为	为	ADP	IN	_	11	comp:obl@x	_	SpaceAfter=No
 3	培养	培养	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
@@ -2187,7 +2187,7 @@
 
 # sent_id = dev-s70
 # text = 黑骏马》、《绿化树》、《晚霞消失的时候》、《高山下的花环》、《雪城》、《北京人在纽约》等作品都是获得该奖项的文学作品。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	黑	黑	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	骏马	骏马	NOUN	NN	_	36	subj	_	SpaceAfter=No
 3	》	》	PUNCT	)	_	7	punct	_	SpaceAfter=No
@@ -2234,7 +2234,7 @@
 
 # sent_id = dev-s71
 # text = 本片制作成本超越上一部，达8000万港币，故事背景也与上集截然不同。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	本片	本片	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	制作	制作	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	成本	成本	NOUN	NN	_	9	subj	_	SpaceAfter=No
@@ -2258,7 +2258,7 @@
 
 # sent_id = dev-s72
 # text = 截至2009年，千禧公园是全芝加哥人气第二高的旅游景点，仅次于海军码头（Navy's Pier）。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	截	截	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
 2	至	至	VERB	VV	_	19	mod	_	SpaceAfter=No
 3	2009	2009	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -2289,7 +2289,7 @@
 
 # sent_id = dev-s73
 # text = 老子在本章中主要是向帝王阐述治国之术，要王者注重时政中细微的变化，遵循事物发展规律，顺应自然，以达“无为”而治之目的。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	老子	老子	PROPN	NNP	_	31	subj	_	SpaceAfter=No
 2	在	在	ADP	IN	_	31	udep	_	SpaceAfter=No
 3	本章	本章	NOUN	NN	_	2	comp:obj	_	SpaceAfter=No
@@ -2333,7 +2333,7 @@
 
 # sent_id = dev-s74
 # text = 升A小调是一个于升A音开始的音乐的小调，组成的音有#A、#B（C）、#C、#D、#E（F）、#F、#G及#A（和声小调）。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	升	升	VERB	VV	_	3	mod	_	SpaceAfter=No
 2	A	A	X	FW	_	1	comp:obj	_	SpaceAfter=No
 3	小调	小调	NOUN	NN	_	4	subj	_	SpaceAfter=No
@@ -2383,7 +2383,7 @@
 
 # sent_id = dev-s75
 # text = 半月山大佛又称资阳大佛，位于四川省资阳市雁江区碑记镇，是一座在山崖石壁上雕刻的佛像。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	半月	半月	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	山	山	PART	SFN	_	3	mod	_	SpaceAfter=No
 3	大佛	大佛	NOUN	NN	_	20	subj	_	SpaceAfter=No
@@ -2417,7 +2417,7 @@
 
 # sent_id = dev-s76
 # text = 但其秘密账户最后被半泽查获，资产全遭冻结，身败名裂。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	但	但	ADV	RB	_	0	root	_	SpaceAfter=No
 2	其	其	PRON	PRP	Person=3	4	mod	_	SpaceAfter=No
 3	秘密	秘密	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -2437,7 +2437,7 @@
 
 # sent_id = dev-s77
 # text = 半腰座椅，亦称半腰位、半截座椅，铁路车辆座位的一种。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	半	半	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	腰	腰	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	座椅	座椅	NOUN	NN	_	20	subj	_	SpaceAfter=No
@@ -2462,7 +2462,7 @@
 
 # sent_id = dev-s78
 # text = 在美国人的心目中，华尔街是一个依靠贸易、资本主义和创新，而非殖民主义和掠夺成长的国家和经济系统的象征。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	10	udep	_	SpaceAfter=No
 2	美国	美国	PROPN	NNP	_	3	compound	_	SpaceAfter=No
 3	人	人	PART	SFN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -2500,7 +2500,7 @@
 
 # sent_id = dev-s79
 # text = 华尔街的公司反对政府的监督与管制。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	华尔	华尔	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	街	街	PART	SFN	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -2515,7 +2515,7 @@
 
 # sent_id = dev-s80
 # text = 华山松（学名：Pinus armandii），是一种松科植物。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	华山松	华山松	NOUN	NN	_	9	subj	_	SpaceAfter=No
 2	（	（	PUNCT	(	_	3	punct	_	SpaceAfter=No
 3	学名	学名	NOUN	NN	_	1	appos	_	SpaceAfter=No
@@ -2533,7 +2533,7 @@
 
 # sent_id = dev-s81
 # text = 8月14日，Radzymin失守，波兰第五军团的战线被突破。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	8	8	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	月	月	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	14	14	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -2553,7 +2553,7 @@
 
 # sent_id = dev-s82
 # text = 他手上有24师的兵力，意图仿效俄军将领Ivan Paskievich在1831年的“十一月起义”中采用的方法去占领华沙。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	9	subj	_	SpaceAfter=No
 2	手上	手上	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	有	有	VERB	VV	_	9	mod	_	SpaceAfter=No
@@ -2589,7 +2589,7 @@
 
 # sent_id = dev-s83
 # text = 这是红军开战以来最接近华沙的时刻，可是形势即将逆转。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这	这	PRON	PRD	_	2	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	红军	红军	NOUN	NN	_	7	subj	_	SpaceAfter=No
@@ -2610,7 +2610,7 @@
 
 # sent_id = dev-s84
 # text = 但哈利·华纳表示反对意见：“谁会想要听到演员开口说话呢？”。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	但	但	ADV	RB	_	0	root	_	SpaceAfter=No
 2	哈利	哈利	PROPN	NNP	_	5	subj	_	SpaceAfter=No
 3	·	·	PUNCT	/	_	2	punct	_	SpaceAfter=No
@@ -2635,7 +2635,7 @@
 
 # sent_id = dev-s85
 # text = 在山姆·华纳逝世后，杰克·华纳成为制作部门的领导者，但杰克·华纳也因兄长逝世而遭受打击。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	6	comp:obj	_	SpaceAfter=No
 2	山姆	山姆	PROPN	NNP	_	1	subj	_	SpaceAfter=No
 3	·	·	PUNCT	/	_	2	punct	_	SpaceAfter=No
@@ -2669,7 +2669,7 @@
 
 # sent_id = dev-s86
 # text = 1923年，威廉·莱昂·麦肯齐·金的联邦自由党政府，通过1923年华人移民法案，完全禁止了华人移民。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1923	1923	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	26	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	27	punct	_	SpaceAfter=No
@@ -2704,7 +2704,7 @@
 
 # sent_id = dev-s87
 # text = 由于加拿大在二战后签署了联合国世界人权宣言，加拿大政府必须废除与宣言抵触的排华法案。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	由于	由于	ADP	IN	_	17	comp:obl	_	SpaceAfter=No
 2	加拿大	加拿大	PROPN	NNP	_	1	subj	_	SpaceAfter=No
 3	在	在	ADP	IN	_	7	udep	_	SpaceAfter=No
@@ -2733,7 +2733,7 @@
 
 # sent_id = dev-s88
 # text = 这些人主要居住在维多利亚、温哥华、蒙特利尔和多伦多。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这些	这些	DET	DT	_	2	det	_	SpaceAfter=No
 2	人	人	NOUN	NN	_	4	subj	_	SpaceAfter=No
 3	主要	主要	ADV	RB	_	4	mod	_	SpaceAfter=No
@@ -2750,7 +2750,7 @@
 
 # sent_id = dev-s89
 # text = 2003年11月15日，法航协和飞机的一批剩余零部件和纪念品在巴黎佳士得拍卖行公开拍卖，有约13,000人到场竞投，共拍卖得320万欧元，部分拍卖品的成交价远超预期。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2003	2003	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	11	11	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -2803,7 +2803,7 @@
 
 # sent_id = dev-s90
 # text = 拍卖的物品包括原来存放在图卢兹市欧洲航天航空防务集团工厂仓库内的超过1000件客机零部件和机舱内装饰物品，其中包括起价为600欧元的乘客座椅、300欧元的应急氧气罩、许多银质和陶瓷餐具以及其他飞机零件，甚至包括一个起落架，并且这些拍卖物品都是从来没有被旅客使用过的。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	拍卖	拍卖	VERB	VV	_	2	comp:obj@relcl	_	SpaceAfter=No
 2	的	的	PART	DEC	_	3	mod@relcl	_	SpaceAfter=No
 3	物品	物品	NOUN	NN	_	4	subj	_	SpaceAfter=No
@@ -2885,7 +2885,7 @@
 
 # sent_id = dev-s91
 # text = 自此卓义峰便拥有“丐帮帮主”的外号。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	自	自	ADP	IN	_	5	udep	_	SpaceAfter=No
 2	此	此	PRON	PRD	_	1	comp:obj	_	SpaceAfter=No
 3	卓	卓	PROPN	NNP	_	5	subj	_	SpaceAfter=No
@@ -2902,7 +2902,7 @@
 
 # sent_id = dev-s92
 # text = 虽则日语存在“二段音阶”的变化，但只凭这二音变化，也没有协音的可能。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	虽则	虽则	ADP	IN	_	22	comp:obl	_	SpaceAfter=No
 2	日	日	PROPN	NNP	_	3	compound	_	SpaceAfter=No
 3	语	语	PART	SFN	_	1	subj	_	SpaceAfter=No
@@ -2932,7 +2932,7 @@
 
 # sent_id = dev-s93
 # text = 从中华人民共和国建政到文化大革命结束，单县历任县长或革委会主任：
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	从	从	ADP	IN	_	7	comp:obl	_	SpaceAfter=No
 2	中华	中华	PROPN	NNP	_	5	mod	_	SpaceAfter=No
 3	人民	人民	NOUN	NN	_	5	mod	_	SpaceAfter=No
@@ -2956,7 +2956,7 @@
 
 # sent_id = dev-s94
 # text = 1960年代后，随着殖民地独立，作为“单独关税区”的非主权政治实体渐渐减少。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1960	1960	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年代	年代	NOUN	NNB	_	24	mod@tmod	_	SpaceAfter=No
 3	后	后	ADP	IN	_	2	udep	_	SpaceAfter=No
@@ -2985,7 +2985,7 @@
 
 # sent_id = dev-s95
 # text = 尽管概念一般是一致的，两个学科已经发展出稍微不同的术语。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	尽管	尽管	ADP	IN	_	4	comp:pred	_	SpaceAfter=No
 2	概念	概念	NOUN	NN	_	4	subj	_	SpaceAfter=No
 3	一般	一般	ADV	RB	_	5	mod	_	SpaceAfter=No
@@ -3007,7 +3007,7 @@
 
 # sent_id = dev-s96
 # text = 在微积分中，它们是带有平常次序的实数集的子集之间的函数，但是定义仍保持同更一般的序理论定义一样。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	6	udep	_	SpaceAfter=No
 2	微积分	微积分	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
 3	中	中	ADP	IN	_	2	udep	_	SpaceAfter=No
@@ -3042,7 +3042,7 @@
 
 # sent_id = dev-s97
 # text = 国民革命军面临前后夹攻，因此下令全线撤退。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	国民	国民	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	革命	革命	NOUN	NN	_	3	compound	_	SpaceAfter=No
 3	军	军	PART	SFN	_	10	subj	_	SpaceAfter=No
@@ -3059,7 +3059,7 @@
 
 # sent_id = dev-s98
 # text = 2009年7月1日，南京大学2007、2008级学生由浦口校区搬迁至新建成的仙林校区。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2009	2009	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	7	7	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -3088,7 +3088,7 @@
 
 # sent_id = dev-s99
 # text = 南京官话曾经长期是中国的官方语言。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	南京	南京	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	官话	官话	NOUN	NN	_	5	subj	_	SpaceAfter=No
 3	曾经	曾经	ADV	RB	_	5	mod	_	SpaceAfter=No
@@ -3102,7 +3102,7 @@
 
 # sent_id = dev-s100
 # text = 雅语和吴语融合，逐渐形成南方的江淮官话。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	雅	雅	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	语	语	PART	SFN	_	6	subj	_	SpaceAfter=No
 3	和	和	CCONJ	CC	_	5	cc	_	SpaceAfter=No
@@ -3120,7 +3120,7 @@
 
 # sent_id = dev-s101
 # text = 南京其他重要的水体还包括从六合区流过的滁河、高淳的固城湖、溧水的石臼湖等。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	南京	南京	PROPN	NNP	_	5	mod	_	SpaceAfter=No
 2	其他	其他	DET	DT	_	5	det	_	SpaceAfter=No
 3	重要	重要	ADJ	JJ	_	4	comp:obj@relcl	_	SpaceAfter=No
@@ -3149,7 +3149,7 @@
 
 # sent_id = dev-s102
 # text = 市区除玄武湖外、还有莫愁湖、南湖、琵琶湖、前湖、紫霞湖、月牙湖等天然或人工湖泊。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	市区	市区	NOUN	NN	_	7	subj	_	SpaceAfter=No
 2	除	除	VERB	VV	_	7	mod	_	SpaceAfter=No
 3	玄武	玄武	PROPN	NNP	_	4	compound	_	SpaceAfter=No
@@ -3182,7 +3182,7 @@
 
 # sent_id = dev-s103
 # text = 温泉是南京市主要的地热资源，著名的有汤山温泉、汤泉温泉、珍珠泉温泉等。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	温泉	温泉	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	南京	南京	PROPN	NNP	_	4	compound	_	SpaceAfter=No
@@ -3209,7 +3209,7 @@
 
 # sent_id = dev-s104
 # text = 1991年南加州铁路地区管理局成立。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1991	1991	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	9	mod@tmod	_	SpaceAfter=No
 3	南	南	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -3223,7 +3223,7 @@
 
 # sent_id = dev-s105
 # text = 该方案最终于2006年11月投票通过。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	该	该	DET	DT	_	2	det	_	SpaceAfter=No
 2	方案	方案	NOUN	NN	_	10	subj	_	SpaceAfter=No
 3	最终	最终	NOUN	NN	_	10	mod@tmod	_	SpaceAfter=No
@@ -3238,7 +3238,7 @@
 
 # sent_id = dev-s106
 # text = 朝鲜虽然认为渤海国是本国历史，但不使用“南北国时代”这个词汇。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	朝鲜	朝鲜	PROPN	NNP	_	10	subj	_	SpaceAfter=No
 2	虽然	虽然	ADP	IN	_	12	comp:obl@x	_	SpaceAfter=No
 3	认为	认为	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
@@ -3262,7 +3262,7 @@
 
 # sent_id = dev-s107
 # text = 有人上告说刘三吾暗嘱张信等人故意以陋卷进呈。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	有	有	VERB	VV	_	0	root	_	SpaceAfter=No
 2	人	人	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	上告	上告	VERB	VV	_	1	mod	_	SpaceAfter=No
@@ -3282,7 +3282,7 @@
 
 # sent_id = dev-s108
 # text = 中校威廉‧陆斯佛得（William Drayton Rutherford）是此步兵团的英勇将领之一，死于斯特拉斯堡。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	中校	中校	NOUN	NN	_	20	subj	_	SpaceAfter=No
 2	威廉	威廉	PROPN	NNP	_	1	appos	_	SpaceAfter=No
 3	‧	‧	PUNCT	/	_	2	punct	_	SpaceAfter=No
@@ -3309,7 +3309,7 @@
 
 # sent_id = dev-s109
 # text = 南坑，位于台湾北部，为三姓公溪的支流，位于新竹市香山区中部。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	南坑	南坑	PROPN	NNP	_	14	subj	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	15	punct	_	SpaceAfter=No
 3	位	位	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -3334,7 +3334,7 @@
 
 # sent_id = dev-s110
 # text = 2007年5月3日，中石油高调宣称冀东南堡油田油气总储量为10.2亿吨，探明储量4.05亿吨，约为30亿桶，媒体称之为“40多年来中国石油勘探最激动人心的发现”。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2007	2007	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	5	5	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -3387,7 +3387,7 @@
 
 # sent_id = dev-s111
 # text = “文化大革命”中各级教育行政机构陷入瘫痪，1978年后恢复发展。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	“	“	PUNCT	``	_	3	punct	_	SpaceAfter=No
 2	文化	文化	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	大	大	PART	PFA	_	10	mod	_	SpaceAfter=No
@@ -3410,7 +3410,7 @@
 
 # sent_id = dev-s112
 # text = “南曲戏文”跟宋金“北曲杂剧”有很大不同，它在表演的体制与结构上都要比杂剧来得自由，可以根据剧情需要作不同选择，具备了戏剧的特征。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	“	“	PUNCT	``	_	3	punct	_	SpaceAfter=No
 2	南曲	南曲	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	戏文	戏文	NOUN	NN	_	12	subj	_	SpaceAfter=No
@@ -3459,7 +3459,7 @@
 
 # sent_id = dev-s113
 # text = 元朝末年发展到巅峰，明中叶后逐渐被新兴的昆山腔所替代，并演化为明清的主要戏剧----传奇。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	元朝	元朝	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	末年	末年	NOUN	NN	_	3	mod@tmod	_	SpaceAfter=No
 3	发展	发展	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -3492,7 +3492,7 @@
 
 # sent_id = dev-s114
 # text = 理学家朱熹任漳州知府时，也曾禁止当地戏曲演出。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	理学	理学	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	家	家	PART	SFN	_	10	subj	_	SpaceAfter=No
 3	朱	朱	PROPN	NNP	_	2	appos	_	SpaceAfter=No
@@ -3512,7 +3512,7 @@
 
 # sent_id = dev-s115
 # text = 特殊的地理位置，使本区成为南投市区与中兴新村来往通道，也是中寮乡北部对外主要孔道。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	特殊	特殊	ADJ	JJ	_	2	comp:obj@relcl	_	SpaceAfter=No
 2	的	的	PART	DEC	_	4	mod	_	SpaceAfter=No
 3	地理	地理	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -3541,7 +3541,7 @@
 
 # sent_id = dev-s116
 # text = 1946年制的宪法规定无论共和国彼此人口与经济地位，代表人数皆相同，因此可视为南联邦以齐头式平等的权力保障与联邦制政体来解决民族问题的选择。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1946	1946	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	3	mod@tmod	_	SpaceAfter=No
 3	制	制	VERB	VV	_	4	comp:obj@relcl	_	SpaceAfter=No
@@ -3590,7 +3590,7 @@
 
 # sent_id = dev-s117
 # text = 地方政府官员也不再由中央指派，而改由地方选出，连联邦中央人员也是由地方派代表所组成，使得其只对选区负责，不会去考量整体联邦之利益，使得各区的地方主义逐渐增长。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	地方	地方	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	政府	政府	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	官员	官员	NOUN	NN	_	11	subj	_	SpaceAfter=No
@@ -3645,7 +3645,7 @@
 
 # sent_id = dev-s118
 # text = 战争结束时，狄托下令所有超过27岁的士兵复员，将军队规模缩编为一半，并按照苏联模式组成新军，在南斯拉夫的观点中，苏联红军不仅是最优秀的，更重要的是，它是一支“社会主义的军队”。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	战争	战争	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	结束	结束	VERB	VV	_	3	comp:obj	_	SpaceAfter=No
 3	时	时	ADP	IN	_	22	mod	_	SpaceAfter=No
@@ -3707,7 +3707,7 @@
 
 # sent_id = dev-s119
 # text = 《南极条约》于1959年12月1日，由12个国家签订，并在1961年6月23日正式执行，迄今已有50国签署。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	《	《	PUNCT	(	_	3	punct	_	SpaceAfter=No
 2	南极	南极	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 3	条约	条约	NOUN	NN	_	19	subj	_	SpaceAfter=No
@@ -3747,7 +3747,7 @@
 
 # sent_id = dev-s120
 # text = 从坠落的时间，或是居住在地球的时间，陨石还可以提供更多研究南极冰层环境的有用资讯。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	从	从	ADP	IN	_	14	udep	_	SpaceAfter=No
 2	坠落	坠落	VERB	VV	_	3	comp:obj@relcl	_	SpaceAfter=No
 3	的	的	PART	DEC	_	4	mod@relcl	_	SpaceAfter=No
@@ -3776,7 +3776,7 @@
 
 # sent_id = dev-s121
 # text = 2009年5月，国务院批复同意，撤销南汇区，将其行政区域整体并入浦东新区。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2009	2009	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	5	5	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -3803,7 +3803,7 @@
 
 # sent_id = dev-s122
 # text = 2007年，南洋商业银行转换新形象，以往是红色底，写上中英文全名的招牌，之后更换为和该公司网页相同的标志，标志后先写英文缩写，再写中文全名。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2007	2007	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	7	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	7	punct	_	SpaceAfter=No
@@ -3855,7 +3855,7 @@
 
 # sent_id = dev-s123
 # text = 2009年8月1日接收原中银香港于中国内地业务，使分行及支行达11家及7家。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2009	2009	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	8	8	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -3885,7 +3885,7 @@
 
 # sent_id = dev-s124
 # text = 南洋大学，是位于上海的一所大学。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	南洋	南洋	NOUN	NNB	_	2	mod	_	SpaceAfter=No
 2	大学	大学	NOUN	NN	_	4	subj	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	4	punct	_	SpaceAfter=No
@@ -3901,7 +3901,7 @@
 
 # sent_id = dev-s125
 # text = 早在40至50年代，许多中国大陆的华人远涉重洋，南下谋生。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	早	早	ADV	RB	_	2	mod	_	SpaceAfter=No
 2	在	在	ADP	IN	_	17	udep	_	SpaceAfter=No
 3	40	40	NUM	CD	NumType=Card	6	mod	_	SpaceAfter=No
@@ -3923,7 +3923,7 @@
 
 # sent_id = dev-s126
 # text = 研讨会和讲座可以享用多媒体演示、视频会议和同时由数个不同地点的通讯的设备的支持。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	研讨	研讨	VERB	VV	_	2	compound	_	SpaceAfter=No
 2	会	会	PART	SFN	_	5	subj	_	SpaceAfter=No
 3	和	和	CCONJ	CC	_	4	cc	_	SpaceAfter=No
@@ -3953,7 +3953,7 @@
 
 # sent_id = dev-s127
 # text = 2005年，南洋酒店进行了大规模的装修工程。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2005	2005	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	7	punct	_	SpaceAfter=No
@@ -3970,7 +3970,7 @@
 
 # sent_id = dev-s128
 # text = 大殿原为明代建筑，在文化大革命期间被毁，1989年重建。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	大殿	大殿	NOUN	NN	_	17	subj	_	SpaceAfter=No
 2	原	原	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	为	为	AUX	VC	_	17	mod	_	SpaceAfter=No
@@ -3992,7 +3992,7 @@
 
 # sent_id = dev-s129
 # text = 山上有一座小亭，名为浴日亭，是观望海上日出之地。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	山上	山上	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	有	有	VERB	VV	_	0	root	_	SpaceAfter=No
 3	一	一	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -4015,7 +4015,7 @@
 
 # sent_id = dev-s130
 # text = 南调是台铁纵贯线因应铁路电气化所兴建的客车调车场，1974年10月动工、1977年12月17日启用。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	南调	南调	PROPN	NNP	_	21	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	21	mod	_	SpaceAfter=No
 3	台铁	台铁	PROPN	NNP	_	5	mod	_	SpaceAfter=No
@@ -4049,7 +4049,7 @@
 
 # sent_id = dev-s131
 # text = 场内设有电力机车检修厂设备、洗车台，以及包含台北机务段、台北检车段、餐旅服务总所等单位的综合办公大楼。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	场内	场内	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	设有	设有	VERB	VV	_	0	root	_	SpaceAfter=No
 3	电力	电力	NOUN	NN	_	7	mod	_	SpaceAfter=No
@@ -4084,7 +4084,7 @@
 
 # sent_id = dev-s132
 # text = 中国境内流域面积3354.7平方公里。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	中国	中国	PROPN	NNP	_	4	mod	_	SpaceAfter=No
 2	境内	境内	NOUN	NN	_	4	mod	_	SpaceAfter=No
 3	流域	流域	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -4095,7 +4095,7 @@
 
 # sent_id = dev-s133
 # text = 部分特色单位更另有平台、天台，甚至设有私人游泳池。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	部分	部分	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	特色	特色	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	单位	单位	NOUN	NN	_	10	subj	_	SpaceAfter=No
@@ -4114,7 +4114,7 @@
 
 # sent_id = dev-s134
 # text = 1923年，学校又更名为国立北京航空学校，隶属于由航空事务处扩组而成的航空署。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1923	1923	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	14	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	15	punct	_	SpaceAfter=No
@@ -4144,7 +4144,7 @@
 
 # sent_id = dev-s135
 # text = 同年9月，南苑航空学校正式开学，秦国镛任首任校长，王鄂任教育长，厉汝燕任飞行主任教官。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	同年	同年	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	9	9	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	月	月	NOUN	NNB	_	9	mod@tmod	_	SpaceAfter=No
@@ -4177,7 +4177,7 @@
 
 # sent_id = dev-s136
 # text = 梵语jambu，为树名，即阎浮树，是一种生长在印度南方的大型乔木。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	梵	梵	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	语	语	PART	SFN	_	3	mod	_	SpaceAfter=No
 3	jambu	jambu	X	FW	_	11	subj	_	SpaceAfter=No
@@ -4202,7 +4202,7 @@
 
 # sent_id = dev-s137
 # text = 2008年11月，南车四方机车车辆股份获国家发改委批准，设立“高速列车系统集成国家工程实验室”，主力建设包含高速列车系统集成、转向架综合、电磁兼容综合、车体综合和环境综合等研发试验设施的高速列车研发实验基地。。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2008	2008	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	11	11	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -4265,7 +4265,7 @@
 
 # sent_id = dev-s138
 # text = 另外，罗马教廷于1844年在靳岗设立的天主教南阳教区，曾长期掌管河南全省的教务，法国人安巴都为首任主教，现存有靳岗天主教堂。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	另外	另外	ADV	RB	_	19	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	19	punct	_	SpaceAfter=No
 3	罗马	罗马	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -4307,7 +4307,7 @@
 
 # sent_id = dev-s139
 # text = 希比拉任命托尔托萨主教巴塞洛缪为市政官。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	希比拉	希比拉	PROPN	NNP	_	2	subj	_	SpaceAfter=No
 2	任命	任命	VERB	VV	Voice=Cau	0	root	_	SpaceAfter=No
 3	托尔托萨	托尔托萨	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -4320,7 +4320,7 @@
 
 # sent_id = dev-s140
 # text = 2011年10月，公司决定退出出口市场，为减少50%的产能，工厂关闭了位于肯布兰两个高炉之一的第6号高炉。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2011	2011	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	10	10	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -4357,7 +4357,7 @@
 
 # sent_id = dev-s141
 # text = 总面积55平方公里，人口2388人，人口密度43.4人/平方公里（2009年）。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	总	总	PART	PFA	_	4	subj	_	SpaceAfter=No
 2	面积	面积	NOUN	NN	_	1	comp:obj@pref	_	SpaceAfter=No
 3	55	55	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -4381,7 +4381,7 @@
 
 # sent_id = dev-s142
 # text = 交战后，一切如诸葛亮所安排般发生。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	交战	交战	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
 2	后	后	ADP	IN	_	0	root	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	2	punct	_	SpaceAfter=No
@@ -4397,7 +4397,7 @@
 
 # sent_id = dev-s143
 # text = 博杰普尔语也在盖亚那、苏利南、斐济、特立尼达和多巴哥、模里西斯使用，可以说成在世界多个州份均有人使用。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	博杰普尔	博杰普尔	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	语	语	PART	SFN	_	3	subj	_	SpaceAfter=No
 3	也	也	ADV	RB	_	18	subj	_	SpaceAfter=No
@@ -4430,7 +4430,7 @@
 
 # sent_id = dev-s144
 # text = 1400年的庆典吸引了许多法国人。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1400	1400	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -4444,7 +4444,7 @@
 
 # sent_id = dev-s145
 # text = 近年来，肯亚女子长距离田径项目也开始崭露头角，而这些女运动员们也多为卡伦金人。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	近年	近年	NOUN	NN	_	10	mod@tmod	_	SpaceAfter=No
 2	来	来	ADP	IN	_	1	udep	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	10	punct	_	SpaceAfter=No
@@ -4473,7 +4473,7 @@
 
 # sent_id = dev-s146
 # text = 建设该中心的目的是给本州制药企业，GMP工厂提供合格的人员资源。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	建设	建设	VERB	VV	_	4	comp:obj@relcl	_	SpaceAfter=No
 2	该	该	DET	DT	_	3	det	_	SpaceAfter=No
 3	中心	中心	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
@@ -4496,7 +4496,7 @@
 
 # sent_id = dev-s147
 # text = 施米特于1888年生于威斯特伐里亚普勒腾贝格的一个天主教家庭。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	施米特	施米特	PROPN	NNP	_	5	subj	_	SpaceAfter=No
 2	于	于	ADP	IN	_	6	udep	_	SpaceAfter=No
 3	1888	1888	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -4515,7 +4515,7 @@
 
 # sent_id = dev-s148
 # text = 理察在小时候就对音乐很有兴趣，并且被培养为钢琴奇才。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	理察	理察	PROPN	NNP	_	13	subj@pass	_	SpaceAfter=No
 2	在	在	ADP	IN	_	5	udep	_	SpaceAfter=No
 3	小	小	PART	PFA	_	2	comp:obj	_	SpaceAfter=No
@@ -4537,7 +4537,7 @@
 
 # sent_id = dev-s149
 # text = 他的统治时间是从约1388年至1420年，其中从1400年至1405年他的统治被帖木儿帝国中断。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	2	comp:obj@dec	_	SpaceAfter=No
 2	的	的	PART	DEC	Case=Gen	4	det	_	SpaceAfter=No
 3	统治	统治	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -4569,7 +4569,7 @@
 
 # sent_id = dev-s150
 # text = 苏联本来曾想再分设一种1134A和一种1134B反潜舰，也曾想将反潜的任务都交给1124型小型反潜舰，但是发现小型舰适应不了远海任务于是还是发展了大型反潜舰。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	苏联	苏联	PROPN	NNP	_	32	subj	_	SpaceAfter=No
 2	本来	本来	ADV	RB	_	4	mod	_	SpaceAfter=No
 3	曾	曾	ADV	RB	_	4	mod	_	SpaceAfter=No
@@ -4621,7 +4621,7 @@
 
 # sent_id = dev-s151
 # text = 卡拉胶是食品添加剂的一种。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	卡拉	卡拉	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	胶	胶	PART	SFN	_	3	subj	_	SpaceAfter=No
 3	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
@@ -4635,7 +4635,7 @@
 
 # sent_id = dev-s152
 # text = 他生于第三纪元1259年，战死于1447年，享年188岁。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	14	subj	_	SpaceAfter=No
 2	生	生	VERB	VV	_	3	comp:obj	_	SpaceAfter=No
 3	于	于	VERB	VV	_	14	mod	_	SpaceAfter=No
@@ -4656,7 +4656,7 @@
 
 # sent_id = dev-s153
 # text = 卡斯科奎姆河（Kuskokwim River）是美国阿拉斯加州南部的一条河流。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	卡斯科奎姆	卡斯科奎姆	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	河	河	PART	SFN	_	7	subj	_	SpaceAfter=No
 3	（	（	PUNCT	(	_	4	punct	_	SpaceAfter=No
@@ -4676,7 +4676,7 @@
 
 # sent_id = dev-s154
 # text = 他的哥哥洛马纳·卢阿卢阿亦曾效力纽卡素。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	2	comp:obj@dec	_	SpaceAfter=No
 2	的	的	PART	DEC	Case=Gen	3	det	_	SpaceAfter=No
 3	哥哥	哥哥	NOUN	NN	_	7	subj	_	SpaceAfter=No
@@ -4691,7 +4691,7 @@
 
 # sent_id = dev-s155
 # text = 1914年她的父母离婚，母亲带着三个孩子来到了洛杉矶。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1914	1914	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	mod@tmod	_	SpaceAfter=No
 3	她	她	PRON	PRP	Person=3	4	comp:obj@dec	_	SpaceAfter=No
@@ -4712,7 +4712,7 @@
 
 # sent_id = dev-s156
 # text = 她是三个孩子中最小的，还有两个哥哥。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	她	她	PRON	PRP	Person=3	10	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	10	mod	_	SpaceAfter=No
 3	三	三	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -4731,7 +4731,7 @@
 
 # sent_id = dev-s157
 # text = 他也是西西里国王（称卡洛二世）和那不勒斯国王（称卡洛五世），勃艮第伯爵（1665年-1678年）、夏洛莱伯爵（1665年-1684年）。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	2	subj	_	SpaceAfter=No
 2	也是	也是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	西西里	西西里	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -4773,7 +4773,7 @@
 
 # sent_id = dev-s158
 # text = 利奥波德一世与玛格丽塔只有一个女儿：玛利亚·安东妮娅，她就是巴伐利亚的约瑟夫·斐迪南亲王之母。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	利奥波德	利奥波德	PROPN	NNP	_	6	subj	_	SpaceAfter=No
 2	一世	一世	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	与	与	CCONJ	CC	_	4	cc	_	SpaceAfter=No
@@ -4802,7 +4802,7 @@
 
 # sent_id = dev-s159
 # text = 1970年因为他对维也纳音乐贡献卓著而荣获金牌大奖章，并享受奥地利音乐总监督的殊荣。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1970	1970	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	16	mod@tmod	_	SpaceAfter=No
 3	因为	因为	ADP	IN	_	11	comp:obl@x	_	SpaceAfter=No
@@ -4830,7 +4830,7 @@
 
 # sent_id = dev-s160
 # text = 但人们经常将这两个族群有紧密的联系，但实际上两者讲的是不同的语言。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	但	但	ADV	RB	_	0	root	_	SpaceAfter=No
 2	人们	人	NOUN	NN	Number=Plur	9	subj	_	SpaceAfter=No
 3	经常	经常	ADV	RB	_	9	mod	_	SpaceAfter=No
@@ -4859,7 +4859,7 @@
 
 # sent_id = dev-s161
 # text = 2005年球场曾遭受洪水淹浸。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2005	2005	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	5	mod@tmod	_	SpaceAfter=No
 3	球场	球场	NOUN	NN	_	5	subj	_	SpaceAfter=No
@@ -4871,7 +4871,7 @@
 
 # sent_id = dev-s162
 # text = 卡莱尔是拥有简洁而历史意义重大的城市，该地有一座城堡、博物馆、大教堂以及不完整的城墙。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	卡莱尔	卡莱尔	PROPN	NNP	_	2	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	拥有	拥有	VERB	VV	_	9	comp:obj@relcl	_	SpaceAfter=No
@@ -4903,7 +4903,7 @@
 
 # sent_id = dev-s163
 # text = 而丘吉尔则同意扩大在缅甸的军事行动以稳固蒋介石在中国的地位。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	而	而	ADV	RB	_	0	root	_	SpaceAfter=No
 2	丘吉尔	丘吉尔	PROPN	NNP	_	3	subj	_	SpaceAfter=No
 3	则	则	ADV	RB	_	1	comp:obj	_	SpaceAfter=No
@@ -4926,7 +4926,7 @@
 
 # sent_id = dev-s164
 # text = 这类动画较多以手绘的平面图片进行拍摄，通常具有连续或单元剧情，且大部份是以孩童为主要受众的动画作品。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这	这	DET	DT	_	2	det	_	SpaceAfter=No
 2	类	类	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	动画	动画	NOUN	NN	_	21	subj	_	SpaceAfter=No
@@ -4963,7 +4963,7 @@
 
 # sent_id = dev-s165
 # text = 从历史记载上看，回到罗马的卡里努斯，出手阔绰，举办了盛大的赛会等活动。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	从	从	ADP	IN	_	5	udep	_	SpaceAfter=No
 2	历史	历史	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	记载	记载	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
@@ -4989,7 +4989,7 @@
 
 # sent_id = dev-s166
 # text = 除了他的眼罩，贾霸最出名的就是他的大勾手投篮，其他球员几乎很难防守其勾手，他也因此被称为“天勾贾霸”。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	除	除	VERB	VV	_	2	comp:obj@aspect	_	SpaceAfter=No
 2	了	了	PART	AS	Aspect=Perf	11	mod	_	SpaceAfter=No
 3	他	他	PRON	PRP	Person=3	4	comp:obj@dec	_	SpaceAfter=No
@@ -5030,7 +5030,7 @@
 
 # sent_id = dev-s167
 # text = 10月18日，孙中山改任黄复生、卢师谛为四川靖国联军总司令、副司令，石青阳为川北招讨使，并电嘱他们同唐继尧合作。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	10	10	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	月	月	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	18	18	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -5072,7 +5072,7 @@
 
 # sent_id = dev-s168
 # text = 1917年8月，孙中山成立护法军政府，任大元帅。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1917	1917	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	8	8	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -5092,7 +5092,7 @@
 
 # sent_id = dev-s169
 # text = 桥东头则立有乾隆帝题写的“卢沟晓月”碑。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	桥	桥	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	东头	东头	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	则	则	ADV	RB	_	0	root	_	SpaceAfter=No
@@ -5110,7 +5110,7 @@
 
 # sent_id = dev-s170
 # text = 总面积8平方公里，总人口128人（2001年），人口密度16人/平方公里。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	总	总	PART	PFA	_	4	subj	_	SpaceAfter=No
 2	面积	面积	NOUN	NN	_	1	comp:obj@pref	_	SpaceAfter=No
 3	8	8	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -5135,7 +5135,7 @@
 
 # sent_id = dev-s171
 # text = 后来印刷的范围扩大到其他经典。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	后来	后来	NOUN	NN	_	5	mod@tmod	_	SpaceAfter=No
 2	印刷	印刷	VERB	VV	_	3	comp:obj@relcl	_	SpaceAfter=No
 3	的	的	PART	DEC	_	4	mod@relcl	_	SpaceAfter=No
@@ -5148,7 +5148,7 @@
 
 # sent_id = dev-s172
 # text = 印度是世界上产妇死亡率最高的国家，这和印度代孕产业的发展不无关系。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	印度	印度	PROPN	NNP	_	2	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	世界	世界	NOUN	NN	_	9	mod	_	SpaceAfter=No
@@ -5174,7 +5174,7 @@
 
 # sent_id = dev-s173
 # text = 东欧，包括乌克兰、立陶宛和白俄罗斯等东欧国家一些生活艰难的女性通过出售卵子维生。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	东	东	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	欧	欧	PROPN	NNP	_	4	subj	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	4	punct	_	SpaceAfter=No
@@ -5201,7 +5201,7 @@
 
 # sent_id = dev-s174
 # text = 选择婴儿性别在印度属于违法。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	选择	选择	VERB	VV	_	6	subj	_	SpaceAfter=No
 2	婴儿	婴儿	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	性别	性别	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
@@ -5214,7 +5214,7 @@
 
 # sent_id = dev-s175
 # text = 印戒细胞癌可以通过免疫组织化学进行分类。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	印戒	印戒	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	细胞	细胞	NOUN	NN	_	3	compound	_	SpaceAfter=No
 3	癌	癌	PART	SFN	_	4	subj	_	SpaceAfter=No
@@ -5229,7 +5229,7 @@
 
 # sent_id = dev-s176
 # text = 法国地质学家Gromaget（1934）在研究越南的地层时，首次提出印支运动的概念。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	法国	法国	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	地质	地质	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	学家	学家	NOUN	NN	_	16	subj	_	SpaceAfter=No
@@ -5255,7 +5255,7 @@
 
 # sent_id = dev-s177
 # text = 随后，数个铁路公司将其网路扩展到印第安纳波利斯，并修筑了多个车站。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	随后	随后	ADV	RB	_	15	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	15	punct	_	SpaceAfter=No
 3	数	数	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -5280,7 +5280,7 @@
 
 # sent_id = dev-s178
 # text = 教学管理中，以深化课堂教学改革、转变教学方式、打造高效课堂为核心，不断提高教学效率和教学效益。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	教学	教学	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	管理	管理	NOUN	NN	_	22	mod	_	SpaceAfter=No
 3	中	中	ADP	IN	_	2	udep	_	SpaceAfter=No
@@ -5312,7 +5312,7 @@
 
 # sent_id = dev-s179
 # text = 上述款项可维持本优惠4个月，另加2012年优惠余额可维持优惠再多5个月，共可维持优惠9个月，至2014年3月31日。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	上述	上述	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	款项	款项	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	可	可	AUX	MD	_	11	subj	_	SpaceAfter=No
@@ -5356,7 +5356,7 @@
 
 # sent_id = dev-s180
 # text = 优惠期内，乘客乘坐港铁（重铁路线，机场快线及东铁线头等除外）、轻铁或者港铁巴士，每第二程即获九折优惠。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	优惠	优惠	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	期	期	PART	SFN	_	29	mod@tmod	_	SpaceAfter=No
 3	内	内	ADP	IN	_	2	udep	_	SpaceAfter=No
@@ -5393,7 +5393,7 @@
 
 # sent_id = dev-s181
 # text = 港铁公司营运的服务当中，如果有31分钟或以上的延误，而延误是因为港铁营运过程所导致，港铁公司需拨出款项，透过本优惠回馈乘客。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	港铁	港铁	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	公司	公司	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	营运	营运	VERB	VV	_	4	comp:obj@relcl	_	SpaceAfter=No
@@ -5435,7 +5435,7 @@
 
 # sent_id = dev-s182
 # text = 卷花丹属（学名：Scorpiothyrsus）是野牡丹科下的一个属，为直立亚灌木植物。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	卷花丹	卷花丹	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	属	属	PART	SFN	_	17	subj	_	SpaceAfter=No
 3	（	（	PUNCT	(	_	4	punct	_	SpaceAfter=No
@@ -5461,7 +5461,7 @@
 
 # sent_id = dev-s183
 # text = 铁路网和公路隧道位于抬高的拉德芳斯广场下方。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	铁路	铁路	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	网	网	PART	SFN	_	6	subj	_	SpaceAfter=No
 3	和	和	CCONJ	CC	_	5	cc	_	SpaceAfter=No
@@ -5478,7 +5478,7 @@
 
 # sent_id = dev-s184
 # text = 原驼是南美洲最大的野生哺乳动物之一。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	原驼	原驼	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	南	南	NOUN	NN	_	5	mod	_	SpaceAfter=No
@@ -5495,7 +5495,7 @@
 
 # sent_id = dev-s185
 # text = 它们只会从仙人掌中吸取养份。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	它们	它	PRON	PRP	Number=Plur|Person=3	3	subj	_	SpaceAfter=No
 2	只	只	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	会	会	AUX	MD	_	0	root	_	SpaceAfter=No
@@ -5508,7 +5508,7 @@
 
 # sent_id = dev-s186
 # text = 这五篇散文与在北京创作的另五篇散文就构成了《朝花夕拾》的全部。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这	这	DET	DT	_	3	det	_	SpaceAfter=No
 2	五	五	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	篇	篇	NOUN	NNB	_	4	mod	_	SpaceAfter=No
@@ -5535,7 +5535,7 @@
 
 # sent_id = dev-s187
 # text = 2011年厦门高崎国际机场年旅客吞吐量突破1575万人次，列世界百强机场第93位；旅客吞吐量列国内民航机场第11位，货邮吞吐量列国内民航机场第9位。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2011	2011	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	10	mod	_	SpaceAfter=No
 3	厦门	厦门	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -5581,7 +5581,7 @@
 
 # sent_id = dev-s188
 # text = 世界三大观赏树厦门园林植物园种植有世界三大观赏树：中国金钱松，日本金松，日本南洋杉
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	世界	世界	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	三	三	NUM	CD	NumType=Card	5	mod	_	SpaceAfter=No
 3	大	大	PART	PFA	_	9	mod	_	SpaceAfter=No
@@ -5607,7 +5607,7 @@
 
 # sent_id = dev-s189
 # text = 厦门港是中国沿海主要港口之一，是中国综合运输体系的重要枢纽、集装箱运输干线港、东南沿海的区域性枢纽港口、对台航运主要口岸。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	厦门	厦门	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	港	港	PART	SFN	_	11	subj	_	SpaceAfter=No
 3	是	是	AUX	VC	_	18	mod	_	SpaceAfter=No
@@ -5650,7 +5650,7 @@
 
 # sent_id = dev-s190
 # text = 此外，本人十分善长游戏，因此作品中常见到这样的题材。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	此外	此外	NOUN	NN	_	5	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	5	punct	_	SpaceAfter=No
 3	本人	本人	NOUN	NN	_	5	subj	_	SpaceAfter=No
@@ -5671,7 +5671,7 @@
 
 # sent_id = dev-s191
 # text = 1994年3月13日，612与722线合并成720线（友爱至天瑞），自此720及506线同时以本站为终点站。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1994	1994	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	3	3	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -5709,7 +5709,7 @@
 
 # sent_id = dev-s192
 # text = 目前，友邦保险在中国大陆的业务范围已经扩展到北京市、广东省、江苏省、深圳市。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	目前	目前	NOUN	NN	_	12	mod@tmod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	13	punct	_	SpaceAfter=No
 3	友邦	友邦	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -5738,7 +5738,7 @@
 
 # sent_id = dev-s193
 # text = 双井站位于北京市朝阳区，是北京地铁10号线和在建的7号线的一个换乘车站。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	双井	双井	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	站	站	PART	SFN	_	10	subj	_	SpaceAfter=No
 3	位	位	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -5769,7 +5769,7 @@
 
 # sent_id = dev-s194
 # text = 现存的双吉寺建筑为明朝建筑，整体坐北朝南。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	现存	现存	VERB	VV	_	2	comp:obj@relcl	_	SpaceAfter=No
 2	的	的	PART	DEC	_	5	mod@relcl	_	SpaceAfter=No
 3	双吉	双吉	PROPN	NNP	_	4	compound	_	SpaceAfter=No
@@ -5786,7 +5786,7 @@
 
 # sent_id = dev-s195
 # text = 由新加坡著名电视演员郑惠玉（饰演洛其芳）和李南星（饰演言飞）担纲主演。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	由	由	VERB	VV	_	0	root	_	SpaceAfter=No
 2	新加坡	新加坡	PROPN	NNP	_	5	mod	_	SpaceAfter=No
 3	著名	著名	ADJ	JJ	_	5	mod	_	SpaceAfter=No
@@ -5813,7 +5813,7 @@
 
 # sent_id = dev-s196
 # text = 身体细长而扁平，白色或黄色，没有眼睛，尾部具有一对尾须或尾铗，触角长，如念珠状。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	身体	身体	NOUN	NN	_	6	subj	_	SpaceAfter=No
 2	细长	细长	ADJ	JJ	_	6	mod	_	SpaceAfter=No
 3	而	而	CCONJ	CC	_	4	cc	_	SpaceAfter=No
@@ -5844,7 +5844,7 @@
 
 # sent_id = dev-s197
 # text = 东邻湘潭、衡山，南接衡阳，西毗邵东、涟源，北界娄底、湘乡。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	东邻	东邻	VERB	VV	_	14	mod	_	SpaceAfter=No
 2	湘潭	湘潭	PROPN	NNP	_	1	comp:obj	_	SpaceAfter=No
 3	、	、	PUNCT	EC	_	4	punct	_	SpaceAfter=No
@@ -5866,7 +5866,7 @@
 
 # sent_id = dev-s198
 # text = 而驯养的双峰驼是无法喝咸水的。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	而	而	ADV	RB	_	0	root	_	SpaceAfter=No
 2	驯养	驯养	VERB	VV	_	3	comp:obj@relcl	_	SpaceAfter=No
 3	的	的	PART	DEC	_	4	mod@relcl	_	SpaceAfter=No
@@ -5880,7 +5880,7 @@
 
 # sent_id = dev-s199
 # text = 双峰驼因其耐寒，耐旱和对高海拔地区的适应力而于中亚长期驯养作驮畜，例如丝绸之路的骆驼商队。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	双峰驼	双峰驼	NOUN	NN	_	15	subj	_	SpaceAfter=No
 2	因	因	ADP	IN	_	15	udep	_	SpaceAfter=No
 3	其	其	PRON	PRP	Person=3	4	mod	_	SpaceAfter=No
@@ -5915,7 +5915,7 @@
 
 # sent_id = dev-s200
 # text = 所以罗式几何中的一些几何事实没有像欧式几何那样容易被接受。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	所以	所以	ADV	RB	_	0	root	_	SpaceAfter=No
 2	罗	罗	PROPN	NNP	_	3	compound	_	SpaceAfter=No
 3	式	式	PART	SFN	_	4	mod	_	SpaceAfter=No
@@ -5938,7 +5938,7 @@
 
 # sent_id = dev-s201
 # text = 实际上的双筒望远镜当然多少有些误差。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	实际	实际	NOUN	NN	_	3	comp:obj@dec	_	SpaceAfter=No
 2	上	上	ADP	IN	_	1	udep	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	7	mod	_	SpaceAfter=No
@@ -5954,7 +5954,7 @@
 
 # sent_id = dev-s202
 # text = 然而，更多的“盖梯尔式”的反例被制造出来，使得附加了各种额外要求的JTB理论仍然无法准确地描述“知道”这个概念。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	然而	然而	ADV	RB	_	0	root	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	15	punct	_	SpaceAfter=No
 3	更多	更多	ADJ	JJ	_	4	comp:obj@relcl	_	SpaceAfter=No
@@ -5993,7 +5993,7 @@
 
 # sent_id = dev-s203
 # text = 当证明这样的数学猜想遇到困难时，数学家会趋向于寻找一个反例，以说明这个猜想是错误的。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	当	当	ADP	IN	_	22	comp:obl@x	_	SpaceAfter=No
 2	证明	证明	VERB	VV	_	1	comp:obj	_	SpaceAfter=No
 3	这样	这样	PRON	PRD	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -6026,7 +6026,7 @@
 
 # sent_id = dev-s204
 # text = 于是罗马的异端裁判所成立，由罗马教廷控制。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	于是	于是	ADV	RB	_	0	root	_	SpaceAfter=No
 2	罗马	罗马	PROPN	NNP	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	6	mod	_	SpaceAfter=No
@@ -6043,7 +6043,7 @@
 
 # sent_id = dev-s205
 # text = 异端裁判所的正式名称为“最高宗教法庭”，其目的在于抑制异端的兴起，防止教会的分裂。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	异端	异端	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	裁判	裁判	VERB	VV	_	3	compound	_	SpaceAfter=No
 3	所	所	PART	SFN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -6074,7 +6074,7 @@
 
 # sent_id = dev-s206
 # text = 但这个联盟在1797年因联军被拿破仑所率领的法国意大利方面军打败，最后两方议和，联盟瓦解。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	但	但	ADV	RB	_	0	root	_	SpaceAfter=No
 2	这	这	DET	DT	_	3	det	_	SpaceAfter=No
 3	个	个	NOUN	NNB	_	4	clf	_	SpaceAfter=No
@@ -6106,7 +6106,7 @@
 
 # sent_id = dev-s207
 # text = 所以，有关成年人及老年人心理发展的研究开始如雨后春笋的发表。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	所以	所以	ADV	RB	_	0	root	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	13	punct	_	SpaceAfter=No
 3	有关	有关	ADP	IN	_	11	comp:obj@dec	_	SpaceAfter=No
@@ -6128,7 +6128,7 @@
 
 # sent_id = dev-s208
 # text = 渔业和工业也有重要的地位。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	渔业	渔业	NOUN	NN	_	4	subj	_	SpaceAfter=No
 2	和	和	CCONJ	CC	_	3	cc	_	SpaceAfter=No
 3	工业	工业	NOUN	NN	_	1	conj	_	SpaceAfter=No
@@ -6141,7 +6141,7 @@
 
 # sent_id = dev-s209
 # text = 世界上，只有日本宣布实行免费的中等教育及高等教育。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	世界	世界	NOUN	NN	_	4	mod	_	SpaceAfter=No
 2	上	上	ADP	IN	_	1	udep	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	4	punct	_	SpaceAfter=No
@@ -6160,7 +6160,7 @@
 
 # sent_id = dev-s210
 # text = 十九世纪的自由思想家们指出，在教育范畴内的过多的国家干预是有危险的，这些危险体现在依靠国家干预来削弱教会的控制以及从家长手中夺回对其子女的教育权。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	十九	十九	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	世纪	世纪	NOUN	NNB	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	7	mod	_	SpaceAfter=No
@@ -6211,7 +6211,7 @@
 
 # sent_id = dev-s211
 # text = 按照传统，家长承担着对其子女进行教育的责任，然而考虑到教育系统的风险，家长在这其中的角色被削弱了。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	按照	按照	ADP	IN	_	6	udep	_	SpaceAfter=No
 2	传统	传统	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	6	punct	_	SpaceAfter=No
@@ -6247,7 +6247,7 @@
 
 # sent_id = dev-s212
 # text = 在指令式编程语言中，同样的行为用常量来表达，它和通常的变数存在反差。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	13	udep	_	SpaceAfter=No
 2	指令	指令	VERB	VV	_	3	compound	_	SpaceAfter=No
 3	式	式	PART	SFN	_	5	mod	_	SpaceAfter=No
@@ -6274,7 +6274,7 @@
 
 # sent_id = dev-s213
 # text = 5月26日，叙利亚自由军在107处作战。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	5	5	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	月	月	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	26	26	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -6291,7 +6291,7 @@
 
 # sent_id = dev-s214
 # text = 婴儿和儿童的发育遵循一定的规律。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	婴儿	婴儿	NOUN	NN	_	4	comp:obj@dec	_	SpaceAfter=No
 2	和	和	CCONJ	CC	_	3	cc	_	SpaceAfter=No
 3	儿童	儿童	NOUN	NN	_	1	conj	_	SpaceAfter=No
@@ -6305,7 +6305,7 @@
 
 # sent_id = dev-s215
 # text = 顾名思义，发育性口吃是一种发育性的疾病。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	顾名思义	顾名思义	VERB	VV	_	0	root	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	1	punct	_	SpaceAfter=No
 3	发育	发育	VERB	VV	_	4	compound	_	SpaceAfter=No
@@ -6322,7 +6322,7 @@
 
 # sent_id = dev-s216
 # text = 10月15日，解放军渡海发动厦门战役，先佯攻鼓浪屿，成功吸引国军注意力，造成国军判断失误。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	10	10	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	月	月	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	15	15	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -6354,7 +6354,7 @@
 
 # sent_id = dev-s217
 # text = 1949年6月以前，国军根本未在金门岛上设防。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1949	1949	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	6	6	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -6373,7 +6373,7 @@
 
 # sent_id = dev-s218
 # text = 到6月中旬，国军厦门要塞司令部才成立金门要塞总台，这才开始构筑岛上工事，铺设通信线路。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	到	到	ADP	IN	_	11	udep	_	SpaceAfter=No
 2	6	6	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	月	月	NOUN	NNB	_	4	clf	_	SpaceAfter=No
@@ -6404,7 +6404,7 @@
 
 # sent_id = dev-s219
 # text = 解放军迅速夺取了闽北、闽南，但缺乏海战经验，且无海、空军掩护作战。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	解放	解放	VERB	VV	_	2	compound	_	SpaceAfter=No
 2	军	军	PART	SFN	_	15	subj	_	SpaceAfter=No
 3	迅速	迅速	ADV	RB	_	5	mod	_	SpaceAfter=No
@@ -6430,7 +6430,7 @@
 
 # sent_id = dev-s220
 # text = 古巨基于2006年度得到四台联颁音乐大奖歌曲大奖成为继陈慧琳之后连续夺得最多次歌曲奖的歌手。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	古	古	PROPN	NNP	_	14	subj	_	SpaceAfter=No
 2	巨基	巨基	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	于	于	ADP	IN	_	6	udep	_	SpaceAfter=No
@@ -6462,7 +6462,7 @@
 
 # sent_id = dev-s221
 # text = 亚历山大先后在格拉尼库斯河和伊苏斯击败波斯军队，从波斯人手中夺取了叙利亚和埃及。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	亚历山大	亚历山大	PROPN	NNP	_	17	subj	_	SpaceAfter=No
 2	先后	先后	ADV	RB	_	8	mod	_	SpaceAfter=No
 3	在	在	VERB	VV	_	8	mod	_	SpaceAfter=No
@@ -6487,7 +6487,7 @@
 
 # sent_id = dev-s222
 # text = 值得一提的是，当时的夫妻年龄结构也大约是这样的组成模式，即30岁左右的丈夫与10几岁妻子的组合。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	值得	值得	VERB	VV	_	3	comp:obj@relcl	_	SpaceAfter=No
 2	一提	一提	VERB	VV	_	1	xcomp	_	SpaceAfter=No
 3	的	的	PART	DEC	_	4	subj	_	SpaceAfter=No
@@ -6522,7 +6522,7 @@
 
 # sent_id = dev-s223
 # text = 因为对平民阶级的男子而言，贵族的那套追求方法太不切实际，而男妓的存在则可以满足他们对少年的爱慕。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	因为	因为	ADP	IN	_	25	comp:obl	_	SpaceAfter=No
 2	对	对	ADP	IN	_	7	udep	_	SpaceAfter=No
 3	平民	平民	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -6557,7 +6557,7 @@
 
 # sent_id = dev-s224
 # text = 公元前7世纪，古希腊社会进一步发展，古希腊艺术也随之进步。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	公元	公元	NOUN	NN	_	4	mod	_	SpaceAfter=No
 2	前	前	ADP	IN	_	1	udep	_	SpaceAfter=No
 3	7	7	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -6582,7 +6582,7 @@
 
 # sent_id = dev-s225
 # text = 他补充道，当时斯巴达人还满足了他的好奇心，向他展示了位于狄俄尼索斯神庙附近、她接客时使用的房屋。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	2	subj	_	SpaceAfter=No
 2	补充	补充	VERB	VV	_	0	root	_	SpaceAfter=No
 3	道	道	VERB	VV	_	2	xcomp	_	SpaceAfter=No
@@ -6618,7 +6618,7 @@
 
 # sent_id = dev-s226
 # text = 他会用极细的线条编织出物象的表面和体块，以线条的疏密来表现物体的明暗。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	15	subj	_	SpaceAfter=No
 2	会	会	AUX	MD	_	7	mod	_	SpaceAfter=No
 3	用	用	VERB	VV	_	2	comp:aux	_	SpaceAfter=No
@@ -6646,7 +6646,7 @@
 
 # sent_id = dev-s227
 # text = 其作品也成为音乐会上常见的曲目，在欧洲甚至产生了过热的现象。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	其	其	PRON	PRP	Person=3	2	mod	_	SpaceAfter=No
 2	作品	作品	NOUN	NN	_	15	subj	_	SpaceAfter=No
 3	也	也	ADV	RB	_	15	mod	_	SpaceAfter=No
@@ -6671,7 +6671,7 @@
 
 # sent_id = dev-s228
 # text = 自1960年起，马勒成为了最常被录音的作曲家之一，多位指挥家录制其交响曲全集。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	自	自	ADP	IN	_	8	udep	_	SpaceAfter=No
 2	1960	1960	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	1	comp:obj	_	SpaceAfter=No
@@ -6703,7 +6703,7 @@
 
 # sent_id = dev-s229
 # text = 全镇辖域总面积154.2平方公里，总人口35,190人（2000年人口普查），下辖10个行政村、3个社区。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	全镇	全镇	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	辖域	辖域	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	总	总	PART	PFA	_	6	subj	_	SpaceAfter=No
@@ -6735,7 +6735,7 @@
 
 # sent_id = dev-s230
 # text = 他幼年受过良好的教育，通晓拉丁语和希腊语，能诵荷马史诗原文，并到雅典学过哲学。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	22	subj	_	SpaceAfter=No
 2	幼年	幼年	NOUN	NN	_	3	mod@tmod	_	SpaceAfter=No
 3	受	受	VERB	VV	_	4	comp:obj@aspect	_	SpaceAfter=No
@@ -6767,7 +6767,7 @@
 
 # sent_id = dev-s231
 # text = 全诗计12卷，长达近万行，是遵照奥古斯都的旨意创作出来的。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	全诗	全诗	NOUN	NN	_	11	subj	_	SpaceAfter=No
 2	计	计	VERB	VV	_	11	mod	_	SpaceAfter=No
 3	12	12	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -6790,7 +6790,7 @@
 
 # sent_id = dev-s232
 # text = 其散文语言简洁凝练，朴实无华，体现了和西塞罗迥异的风格。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	其	其	PRON	PRP	Person=3	3	mod	_	SpaceAfter=No
 2	散文	散文	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	语言	语言	NOUN	NN	_	10	subj	_	SpaceAfter=No
@@ -6810,7 +6810,7 @@
 
 # sent_id = dev-s233
 # text = 卢克莱修（前99年-前55年）生于共和国末期，唯一的传世之作《物性论》（一译《论自然》）共六卷，每卷千余行，是一部哲理诗。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	卢克莱修	卢克莱修	PROPN	NNP	_	11	subj	_	SpaceAfter=No
 2	（	（	PUNCT	(	_	9	punct	_	SpaceAfter=No
 3	前	前	NOUN	NN	_	5	mod	_	SpaceAfter=No
@@ -6861,7 +6861,7 @@
 
 # sent_id = dev-s234
 # text = 维吉尔在创作《埃涅阿斯纪》的时候虽有意摹仿荷马史诗，但全诗强调使命感、责任感，洋溢着严肃、哀婉和悲天悯人的情调，是典型的罗马风格。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	维吉尔	维吉尔	PROPN	NNP	_	10	subj	_	SpaceAfter=No
 2	在	在	ADP	IN	_	10	udep	_	SpaceAfter=No
 3	创作	创作	VERB	VV	_	8	comp:obj@relcl	_	SpaceAfter=No
@@ -6905,7 +6905,7 @@
 
 # sent_id = dev-s235
 # text = 水库正常库容为1202万立方米，集雨面积为46平方千米，海拔为26.5米。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	水库	水库	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	正常	正常	ADJ	JJ	_	3	mod	_	SpaceAfter=No
 3	库容	库容	NOUN	NN	_	4	subj	_	SpaceAfter=No
@@ -6927,7 +6927,7 @@
 
 # sent_id = dev-s236
 # text = 这样，就可根据词语的词性和词语的组合规律（如语法关系）等来断句。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这样	这样	ADV	RB	_	3	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	3	punct	_	SpaceAfter=No
 3	就	就	ADV	RB	_	0	root	_	SpaceAfter=No
@@ -6953,7 +6953,7 @@
 
 # sent_id = dev-s237
 # text = 此外，其他废弃物、废水、废气等都不会排放。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	此外	此外	NOUN	NN	_	11	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	11	punct	_	SpaceAfter=No
 3	其他	其他	DET	DT	_	5	det	_	SpaceAfter=No
@@ -6971,7 +6971,7 @@
 
 # sent_id = dev-s238
 # text = 但是，大型水力发电系统有几个显著的社会的和环境的缺点：在规划水库区中生活的人民颠沛流离，在施工期间和水库洪水期释放大量的二氧化碳和甲烷，破坏水生的生态系统和鸟类。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	但是	但是	ADV	RB	_	0	root	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	7	punct	_	SpaceAfter=No
 3	大型	大型	NOUN	NN	_	6	mod	_	SpaceAfter=No
@@ -7025,7 +7025,7 @@
 
 # sent_id = dev-s239
 # text = 其次，尽管化石燃料技术是比较成熟的，可再生能源技术正在迅速被改进。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	其次	其次	NOUN	NN	_	19	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	19	punct	_	SpaceAfter=No
 3	尽管	尽管	ADP	IN	_	7	comp:pred	_	SpaceAfter=No
@@ -7050,7 +7050,7 @@
 
 # sent_id = dev-s240
 # text = 根据国际能源署（IEA）的一个在2011年的预测，在50年之内，太阳能发电站可能会产生世界上大部分电力，显著减少对环境有害的温室气体的排放。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	根据	根据	ADP	IN	_	36	udep	_	SpaceAfter=No
 2	国际	国际	NOUN	NN	_	4	mod	_	SpaceAfter=No
 3	能源	能源	NOUN	NN	_	4	compound	_	SpaceAfter=No
@@ -7099,7 +7099,7 @@
 
 # sent_id = dev-s241
 # text = 问世之初可口可乐的主要成分主要有两种，分别是古柯碱及咖啡因。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	问世	问世	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
 2	之初	之初	ADP	IN	_	8	mod	_	SpaceAfter=No
 3	可口可乐	可口可乐	PROPN	NNP	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -7120,7 +7120,7 @@
 
 # sent_id = dev-s242
 # text = 此译名被普遍认为是最经典的译名之一。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	此	此	DET	DT	_	2	det	_	SpaceAfter=No
 2	译名	译名	NOUN	NN	_	3	subj@pass	_	SpaceAfter=No
 3	被	被	VERB	BB	Voice=Pass	0	root	_	SpaceAfter=No
@@ -7137,7 +7137,7 @@
 
 # sent_id = dev-s243
 # text = 快乐之道提倡真实是相对的，这些相对哲学现今被称为诡辩，早在二千多年前已被苏格拉底和他的弟子否定。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	快乐	快乐	ADJ	JJ	_	2	comp:obj@relcl	_	SpaceAfter=No
 2	之	之	PART	DEC	_	3	mod	_	SpaceAfter=No
 3	道	道	NOUN	NN	_	4	subj	_	SpaceAfter=No
@@ -7173,7 +7173,7 @@
 
 # sent_id = dev-s244
 # text = 目前接驳车的营运业务则是由大南汽车负责。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	目前	目前	NOUN	NN	_	7	mod@tmod	_	SpaceAfter=No
 2	接驳	接驳	VERB	VV	_	3	compound	_	SpaceAfter=No
 3	车	车	PART	SFN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -7189,7 +7189,7 @@
 
 # sent_id = dev-s245
 # text = 1973年7月10日，为了要推展体育用品的外销市场，以贸易商、体育用品批发商、体育用品制造商为基础的台北市体育用品商业同业公会应运而生，胡益兰成为第一任理事长，李荣淮成为常务理事长，并且开始针对各国体育用品发展之情况进行调查。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1973	1973	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	7	7	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -7263,7 +7263,7 @@
 
 # sent_id = dev-s246
 # text = 1976年，张建邦博士出任董事长。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1976	1976	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	7	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	7	punct	_	SpaceAfter=No
@@ -7277,7 +7277,7 @@
 
 # sent_id = dev-s247
 # text = 黄岩路桥机场建于1987年，是全国第一个县级民航站，2001年1月起，台州市替代黄岩区接管该机场，同时加挂台州市民航局牌子。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	黄岩	黄岩	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	路桥	路桥	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	机场	机场	NOUN	NN	_	9	subj	_	SpaceAfter=No
@@ -7320,7 +7320,7 @@
 
 # sent_id = dev-s248
 # text = 前台湾国防部长李杰在军购案回答李敖质询时，表示在大陆全力攻台下，台湾只有防守两个星期的能力。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	前	前	DET	DT	_	4	det	_	SpaceAfter=No
 2	台湾	台湾	PROPN	NNP	_	4	mod	_	SpaceAfter=No
 3	国防	国防	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -7356,7 +7356,7 @@
 
 # sent_id = dev-s249
 # text = 新闻自由在台湾常被利用于爆料与不负责任的言论上，而非理性的讨论。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	新闻	新闻	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	自由	自由	NOUN	NN	_	18	subj	_	SpaceAfter=No
 3	在	在	VERB	VV	_	21	mod	_	SpaceAfter=No
@@ -7382,7 +7382,7 @@
 
 # sent_id = dev-s250
 # text = 这些显然都是台湾媒体所需大力加强的。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这些	这些	PRON	PRD	_	3	subj	_	SpaceAfter=No
 2	显然	显然	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	都是	都是	VERB	VC	_	0	root	_	SpaceAfter=No
@@ -7397,7 +7397,7 @@
 
 # sent_id = dev-s251
 # text = 另一方面，民营报纸亦于艰难中求生，1946年创刊于台中的《民声日报》当时办的有声有色，但最后由《联合报》及《征信新闻》脱颖而出。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	另	另	DET	DT	_	3	det	_	SpaceAfter=No
 2	一	一	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	方面	方面	NOUN	NN	_	7	mod	_	SpaceAfter=No
@@ -7442,7 +7442,7 @@
 
 # sent_id = dev-s252
 # text = 北方全真教偏重自行主义，重视修养苦行，南方偏重他力主义，重视符咒科仪，一般来说，台湾的道教来自南方福建泉州与漳州一代所盛行的天师教（天师道）。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	北方	北方	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	全真	全真	PROPN	NNP	_	3	compound	_	SpaceAfter=No
 3	教	教	PART	SFN	_	8	subj	_	SpaceAfter=No
@@ -7492,7 +7492,7 @@
 
 # sent_id = dev-s253
 # text = 福利制度的完善已初见端倪。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	福利	福利	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	制度	制度	NOUN	NN	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -7504,7 +7504,7 @@
 
 # sent_id = dev-s254
 # text = 在这些事件中，有11件发生在1911年的辛亥革命之后，并且有4件是受到辛亥革命的刺激而发动的。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	18	udep	_	SpaceAfter=No
 2	这些	这些	DET	DT	_	3	det	_	SpaceAfter=No
 3	事件	事件	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
@@ -7539,7 +7539,7 @@
 
 # sent_id = dev-s255
 # text = 这个转变，可能和义勇军开赴内地推翻清朝，以及原本领导游击战的前台湾民主国军务大臣李秉瑞殉职有关。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这	这	DET	DT	_	2	det	_	SpaceAfter=No
 2	个	个	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	转变	转变	NOUN	NN	_	5	subj	_	SpaceAfter=No
@@ -7573,7 +7573,7 @@
 
 # sent_id = dev-s256
 # text = 电影主要呈现写实风格，其题材贴近现实社会，回顾民众的真实生活，由于形式新颖、风格独特，促成了台湾电影的新风貌。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	电影	电影	NOUN	NN	_	3	subj	_	SpaceAfter=No
 2	主要	主要	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	呈现	呈现	VERB	VV	_	0	root	_	SpaceAfter=No
@@ -7610,7 +7610,7 @@
 
 # sent_id = dev-s257
 # text = 10月25日陈仪代表同盟国的中华民国政府接管台湾，接受日本帝国台湾总督兼台湾军司令官安藤利吉的投降。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	10	10	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	月	月	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	25	25	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -7645,7 +7645,7 @@
 
 # sent_id = dev-s258
 # text = 1945年8月14日，日本天皇发表终战诏书，二战结束。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1945	1945	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	8	8	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -7665,7 +7665,7 @@
 
 # sent_id = dev-s259
 # text = 树的稀有与其缓慢的生长速度意味着合法的供应非常稀少。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	树	树	NOUN	NN	_	2	comp:obj@dec	_	SpaceAfter=No
 2	的	的	PART	DEC	Case=Gen	3	mod	_	SpaceAfter=No
 3	稀有	稀有	NOUN	NN	_	11	subj	_	SpaceAfter=No
@@ -7686,7 +7686,7 @@
 
 # sent_id = dev-s260
 # text = 第二条，台湾独立不是因为台湾人四百年来受到外来政权的压迫。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	第二	第二	NUM	CD	NumType=Ord	2	mod	_	SpaceAfter=No
 2	条	条	NOUN	NNB	_	0	root	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	2	punct	_	SpaceAfter=No
@@ -7708,7 +7708,7 @@
 
 # sent_id = dev-s261
 # text = 二次大战刚结束时，台湾糖业铁路年久失修，且有钢轨轻重不一、蒸汽机车大多逾龄等问题。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	二	二	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	次	次	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	大战	大战	NOUN	NN	_	5	subj	_	SpaceAfter=No
@@ -7737,7 +7737,7 @@
 
 # sent_id = dev-s262
 # text = 主持人也会视情形开放现场观众参赛，获胜者同样也有丰盛的奖品或丰厚的奖金。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	主持	主持	VERB	VV	_	2	compound	_	SpaceAfter=No
 2	人	人	PART	SFN	_	3	subj	_	SpaceAfter=No
 3	也	也	ADV	RB	_	0	root	_	SpaceAfter=No
@@ -7765,7 +7765,7 @@
 
 # sent_id = dev-s263
 # text = 该单元曾经也出现特别版，夹到者的最高奖品为洋房一栋。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	该	该	DET	DT	_	2	det	_	SpaceAfter=No
 2	单元	单元	NOUN	NN	_	4	subj	_	SpaceAfter=No
 3	曾经	曾经	ADV	RB	_	4	mod	_	SpaceAfter=No
@@ -7787,7 +7787,7 @@
 
 # sent_id = dev-s264
 # text = 1956年2月28日在日本东京成立的海外台独组织“台湾共和国临时政府”，其领导人称为“大统领”，但未获承认。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1956	1956	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	2	2	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -7828,7 +7828,7 @@
 
 # sent_id = dev-s265
 # text = 每集几乎有案件关系人访谈，结尾开始有高哲翰讲解。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	每集	每集	DET	DT	_	3	subj	_	SpaceAfter=No
 2	几乎	几乎	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	有	有	VERB	VV	_	0	root	_	SpaceAfter=No
@@ -7847,7 +7847,7 @@
 
 # sent_id = dev-s266
 # text = 信义乡与水里乡相同，是从1980年代左右，才开始辟垦茶园，所以也属于新兴的高山茶区。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	信义	信义	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	乡	乡	PART	SFN	_	21	subj	_	SpaceAfter=No
 3	与	与	ADP	IN	_	6	udep	_	SpaceAfter=No
@@ -7878,7 +7878,7 @@
 
 # sent_id = dev-s267
 # text = 嘉义县是当前台湾生产高山茶的重要产区，种植的区域，以梅山乡、竹崎乡、番路乡及阿里山乡等四个山区乡镇为主。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	嘉义	嘉义	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	县	县	PART	SFN	_	3	subj	_	SpaceAfter=No
 3	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
@@ -7919,7 +7919,7 @@
 
 # sent_id = dev-s268
 # text = 斯坦·李还是李小龙的影迷，在自己的事业上也极大地受到李小龙电影的影响。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	斯坦	斯坦	PROPN	NNP	_	4	subj	_	SpaceAfter=No
 2	·	·	PUNCT	/	_	1	punct	_	SpaceAfter=No
 3	李	李	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
@@ -7947,7 +7947,7 @@
 
 # sent_id = dev-s269
 # text = 电影《蜘蛛侠：惊奇再起》中，曾于蜘蛛人和蜥蜴人打斗的场景（学校某处图书室）中出现。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	电影	电影	NOUN	NN	_	28	mod	_	SpaceAfter=No
 2	《	《	PUNCT	(	_	7	punct	_	SpaceAfter=No
 3	蜘蛛	蜘蛛	NOUN	NN	_	4	compound	_	SpaceAfter=No
@@ -7980,7 +7980,7 @@
 
 # sent_id = dev-s270
 # text = 科学家们最早的重建揭示出一个没有头的人形雕像。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	科学	科学	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	家	家	PART	SFN	_	3	compound	_	SpaceAfter=No
 3	们	们	PART	SFN	Number=Plur	6	mod	_	SpaceAfter=No
@@ -8000,7 +8000,7 @@
 
 # sent_id = dev-s271
 # text = 谢拉特协助利物浦在这个赛季取得英超第2名并取得球会历史上最高的联赛分数。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	谢拉特	谢拉特	PROPN	NNP	_	2	subj	_	SpaceAfter=No
 2	协助	协助	VERB	VV	_	0	root	_	SpaceAfter=No
 3	利物浦	利物浦	PROPN	NNP	_	12	subj	_	SpaceAfter=No
@@ -8025,7 +8025,7 @@
 
 # sent_id = dev-s272
 # text = 谢拉特是当今球坛最全能球员之一。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	谢拉特	谢拉特	PROPN	NNP	_	2	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	当今	当今	NOUN	NN	_	7	mod	_	SpaceAfter=No
@@ -8039,7 +8039,7 @@
 
 # sent_id = dev-s273
 # text = 招数并不复杂，却指住国人要害，颇见奇效。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	招数	招数	NOUN	NN	_	6	subj	_	SpaceAfter=No
 2	并	并	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	不	不	ADV	RB	Polarity=Neg	4	mod	_	SpaceAfter=No
@@ -8057,7 +8057,7 @@
 
 # sent_id = dev-s274
 # text = 史旺森山脉是南极洲的山脉，位于玛丽伯德地，属于福特山脉的一部分，全长约15公里，处于桑德斯山东南面11公里，该山脉在1934年由美国探险队发现。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	史旺森	史旺森	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	山脉	山脉	NOUN	NN	_	14	subj	_	SpaceAfter=No
 3	是	是	AUX	VC	_	14	mod	_	SpaceAfter=No
@@ -8107,7 +8107,7 @@
 
 # sent_id = dev-s275
 # text = 谢根荣请史树青等人鉴定一件伪造的金缕玉衣，史树青等专家认定为真品，估价24亿人民币。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	谢	谢	PROPN	NNP	_	3	subj	_	SpaceAfter=No
 2	根荣	根荣	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	请	请	VERB	VV	Voice=Cau	0	root	_	SpaceAfter=No
@@ -8139,7 +8139,7 @@
 
 # sent_id = dev-s276
 # text = 从1953年英国军方开始采用史特林冲锋枪以来，之后经过了数次的改良，并且也追加成为制式装备。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	从	从	ADP	IN	_	11	udep	_	SpaceAfter=No
 2	1953	1953	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	1	comp:obj	_	SpaceAfter=No
@@ -8171,7 +8171,7 @@
 
 # sent_id = dev-s277
 # text = 回到树林后，将神水喝下的史瑞克与驴子并没有任何改变，史瑞克嗅了嗅神水后突然向着毒蘑菇打喷嚏。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	回到	回到	VERB	VV	_	3	comp:obj	_	SpaceAfter=No
 2	树林	树林	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
 3	后	后	ADP	IN	_	12	mod	_	SpaceAfter=No
@@ -8205,7 +8205,7 @@
 
 # sent_id = dev-s278
 # text = 国王给予两人祝福后就准备要离开这个伤心地，但王后却告诉国王自己仍然深爱着他，即使国王是一只青蛙。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	国王	国王	NOUN	NN	_	7	subj	_	SpaceAfter=No
 2	给予	给予	VERB	VV	_	6	comp:obj	_	SpaceAfter=No
 3	两	两	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -8242,7 +8242,7 @@
 
 # sent_id = dev-s279
 # text = 镜头回到“很远很远的王国”，费欧娜也受到神水的影响晕了过去。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	镜头	镜头	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	回到	回到	VERB	VV	_	0	root	_	SpaceAfter=No
 3	“	“	PUNCT	``	_	7	punct	_	SpaceAfter=No
@@ -8265,7 +8265,7 @@
 
 # sent_id = dev-s280
 # text = 长靴猫以无辜的眼神请求原谅，而史瑞克和猫咪很快变成了朋友。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	长靴	长靴	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	猫	猫	PART	SFN	_	7	subj	_	SpaceAfter=No
 3	以	以	ADP	IN	_	7	udep	_	SpaceAfter=No
@@ -8287,7 +8287,7 @@
 
 # sent_id = dev-s281
 # text = 《西城故事》（West Side Story）是桑坦事业的突破。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	《	《	PUNCT	(	_	3	punct	_	SpaceAfter=No
 2	西城	西城	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	故事	故事	NOUN	NN	_	10	subj	_	SpaceAfter=No
@@ -8306,7 +8306,7 @@
 
 # sent_id = dev-s282
 # text = 这出音乐剧被当年时代杂志评为桑坦最优秀的成就。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这	这	DET	DT	_	2	det	_	SpaceAfter=No
 2	出	出	NOUN	NNB	_	4	mod	_	SpaceAfter=No
 3	音乐	音乐	NOUN	NN	_	4	compound	_	SpaceAfter=No
@@ -8326,7 +8326,7 @@
 
 # sent_id = dev-s283
 # text = 他将四人强留在工厂，并从他们身上各拿走一部分来制作巧克力棒。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	9	subj	_	SpaceAfter=No
 2	将	将	ADP	BB	_	6	udep@patient	_	SpaceAfter=No
 3	四	四	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -8351,7 +8351,7 @@
 
 # sent_id = dev-s284
 # text = 拉森与祖父母住在乡村小木屋里，他相当喜爱这个地方，在北瑞典冰雪纷飞的漫长冬季，他就靠越野滑雪板上下学。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	拉森	拉森	PROPN	NNP	_	4	subj	_	SpaceAfter=No
 2	与	与	ADP	IN	_	4	udep	_	SpaceAfter=No
 3	祖父母	祖父母	NOUN	NN	_	2	comp:obj	_	SpaceAfter=No
@@ -8389,7 +8389,7 @@
 
 # sent_id = dev-s285
 # text = 由于《史通》总结唐以前史学的全部问题，因而拥有极高史学地位，对后世影响深远。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	由于	由于	ADP	IN	_	22	comp:obl	_	SpaceAfter=No
 2	《	《	PUNCT	(	_	3	punct	_	SpaceAfter=No
 3	史通	史通	NOUN	NN	_	1	subj	_	SpaceAfter=No
@@ -8416,7 +8416,7 @@
 
 # sent_id = dev-s286
 # text = 右龙是日本将棋的棋子之一。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	右龙	右龙	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	日本	日本	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -8429,7 +8429,7 @@
 
 # sent_id = dev-s287
 # text = 1977年1月10日，叶企孙侄子叶铭汉交工资给叔父，发觉他病情恶化。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1977	1977	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	1	1	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -8455,7 +8455,7 @@
 
 # sent_id = dev-s288
 # text = 后来，他躲入一条运兵船，终于到达重庆。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	后来	后来	NOUN	NN	_	11	mod@tmod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	11	punct	_	SpaceAfter=No
 3	他	他	PRON	PRP	Person=3	11	subj	_	SpaceAfter=No
@@ -8472,7 +8472,7 @@
 
 # sent_id = dev-s289
 # text = 当时，他的父亲去世，母亲对他十分溺爱。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	当时	当时	NOUN	NN	_	6	mod@tmod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	6	punct	_	SpaceAfter=No
 3	他	他	PRON	PRP	Person=3	4	comp:obj@dec	_	SpaceAfter=No
@@ -8489,7 +8489,7 @@
 
 # sent_id = dev-s290
 # text = 1995年5月，叶小文出掌国务院宗教事务局；同年12月，作为国务院特派专员，赴西藏参与主持第十一世班禅的金瓶掣签和坐床大典。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1995	1995	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	5	5	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -8532,7 +8532,7 @@
 
 # sent_id = dev-s291
 # text = 一个月后，在漳州执行侦察任务时，因遭遇暴雨，飞机失事，叶少毅不幸牺牲。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	一	一	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	个	个	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	月	月	NOUN	NN	_	8	mod@tmod	_	SpaceAfter=No
@@ -8560,7 +8560,7 @@
 
 # sent_id = dev-s292
 # text = 11岁的叶甫根尼·普鲁申科借居在圣彼得堡的公寓，小房间内仅有一张桌与椅子、折叠床，叶甫根尼·普鲁申科不仅要生活上学处理家务，更要面对团队中的由来已久的陋习：欺负新人。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	11	11	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	岁	岁	NOUN	NNB	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -8615,7 +8615,7 @@
 
 # sent_id = dev-s293
 # text = 叶甫根尼·普鲁申科在2010年加拿大温哥华举行的冬季奥运会，于短曲项目获得90.85分，打破奥运会纪录，领先所有竞争对手。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	叶甫根尼	叶甫根尼	PROPN	NNP	_	27	subj	_	SpaceAfter=No
 2	·	·	PUNCT	/	_	1	punct	_	SpaceAfter=No
 3	普鲁申科	普鲁申科	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
@@ -8650,7 +8650,7 @@
 
 # sent_id = dev-s294
 # text = 1812年7月23日，他随军前往俄国，9月14日到达莫斯科，之后，他取道柯尼斯堡撤回巴黎。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1812	1812	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	7	7	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -8681,7 +8681,7 @@
 
 # sent_id = dev-s295
 # text = 关于精灵之眼的介绍，将在下方『魔法』条目中会详以叙述。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	关于	关于	ADP	IN	_	5	comp:obj@dec	_	SpaceAfter=No
 2	精灵	精灵	NOUN	NN	_	3	comp:obj@dec	_	SpaceAfter=No
 3	之	之	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -8705,7 +8705,7 @@
 
 # sent_id = dev-s296
 # text = 次年司马炎创立西晋，司马攸受封为齐王。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	次年	次年	NOUN	NN	_	4	mod@tmod	_	SpaceAfter=No
 2	司马	司马	PROPN	NNP	_	4	subj	_	SpaceAfter=No
 3	炎	炎	PROPN	NNP	_	2	flat@name	_	SpaceAfter=No
@@ -8721,7 +8721,7 @@
 
 # sent_id = dev-s297
 # text = 其后汲桑杀害东赢公司马腾，号称为颖报仇，于是起出司马颖的棺木，带着它行军，每有事都启奏司马颖，以行军令。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	其后	其后	NOUN	NN	_	33	mod@tmod	_	SpaceAfter=No
 2	汲桑	汲桑	PROPN	NNP	_	33	subj	_	SpaceAfter=No
 3	杀害	杀害	VERB	VV	_	33	mod	_	SpaceAfter=No
@@ -8761,7 +8761,7 @@
 
 # sent_id = dev-s298
 # text = 合武铁路为沪汉蓉快速通道的一部分。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	合	合	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	武	武	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 3	铁路	铁路	NOUN	NN	_	4	subj	_	SpaceAfter=No
@@ -8778,7 +8778,7 @@
 
 # sent_id = dev-s299
 # text = 变调夹最初的用途是调整吉他的音调，使其与演唱者的嗓音相协调。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	变调	变调	VERB	VV	_	2	compound	_	SpaceAfter=No
 2	夹	夹	PART	SFN	_	5	mod	_	SpaceAfter=No
 3	最初	最初	NOUN	NN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -8803,7 +8803,7 @@
 
 # sent_id = dev-s300
 # text = 约11世纪，苯教大师贤钦鲁噶的弟子许耶罗布兴建了一座名叫“吉卡日香”的苯教寺院。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	约	约	ADV	RB	_	3	mod	_	SpaceAfter=No
 2	11	11	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	世纪	世纪	NOUN	NNB	_	11	mod@tmod	_	SpaceAfter=No
@@ -8830,7 +8830,7 @@
 
 # sent_id = dev-s301
 # text = 对于语言学家来说一般这是区分两种语言的标志。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	对于	对于	ADP	IN	_	5	udep	_	SpaceAfter=No
 2	语言	语言	NOUN	NN	_	3	compound	_	SpaceAfter=No
 3	学	学	PART	SFN	_	4	compound	_	SpaceAfter=No
@@ -8850,7 +8850,7 @@
 
 # sent_id = dev-s302
 # text = 相反的只会说吉大港语的人听不懂孟加拉语。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	相反	相反	ADJ	JJ	_	2	comp:obj@advb	_	SpaceAfter=No
 2	的	的	PART	DEV	_	13	mod	_	SpaceAfter=No
 3	只	只	ADV	RB	_	9	mod	_	SpaceAfter=No
@@ -8870,7 +8870,7 @@
 
 # sent_id = dev-s303
 # text = 多斯桑托斯早于2007年便入选墨西哥国家足球队成为大国脚，在2009年也入选2009年美洲金杯的国家队名单，在赛事中合共射入两球及交出多次助攻，表现出色，协助墨西哥羸得第五次美洲金杯冠军。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	多斯桑托斯	多斯桑托斯	PROPN	NNP	_	47	subj	_	SpaceAfter=No
 2	早	早	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	于	于	ADP	IN	_	6	udep	_	SpaceAfter=No
@@ -8929,7 +8929,7 @@
 
 # sent_id = dev-s304
 # text = 2004年5月6日，吉田美和选在生日这天，透过网站向世人宣布与末田健闪电结婚的消息。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2004	2004	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	5	5	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -8961,7 +8961,7 @@
 
 # sent_id = dev-s305
 # text = 斯诺克以外，怀特亦曾参与周星驰所主演的电影龙的传人，饰演其真实身份--职业斯诺克球手。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	斯诺克	斯诺克	NOUN	NN	_	5	mod	_	SpaceAfter=No
 2	以外	以外	ADP	IN	_	1	udep	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	5	punct	_	SpaceAfter=No
@@ -8991,7 +8991,7 @@
 
 # sent_id = dev-s306
 # text = 同义镇是中国黑龙江省齐齐哈尔市讷河市下辖的一个镇。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	同义	同义	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	镇	镇	PART	SFN	_	3	subj	_	SpaceAfter=No
 3	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
@@ -9012,7 +9012,7 @@
 
 # sent_id = dev-s307
 # text = 名人会议成员包括亲王、贵族、大主教、大法官，某些情况下，也包括主要城镇的官员。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	名人	名人	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	会议	会议	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	成员	成员	NOUN	NN	_	19	subj	_	SpaceAfter=No
@@ -9041,7 +9041,7 @@
 
 # sent_id = dev-s308
 # text = 总括来说，名人会议旨在维持国家繁荣安定。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	总括	总括	VERB	VV	_	2	mod	_	SpaceAfter=No
 2	来	来	ADV	RB	_	0	root	_	SpaceAfter=No
 3	说	说	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
@@ -9058,7 +9058,7 @@
 
 # sent_id = dev-s309
 # text = 上映第四周为日本黄金周过后的第一周，柯南历届剧场版票房通常从这时期开始增幅放缓，但M 17却依然成为周票房榜冠军，蝉联四周冠军。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	上映	上映	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	第四	第四	NUM	CD	NumType=Ord	3	mod	_	SpaceAfter=No
 3	周	周	NOUN	NNB	_	4	subj	_	SpaceAfter=No
@@ -9104,7 +9104,7 @@
 
 # sent_id = dev-s310
 # text = 曾经花了30年的时间冒险的冒险家，打算和好友分享他的宝物和经历演说，然而为了如此还邀请福尔摩斯与华生来参加展览。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	曾经	曾经	ADV	RB	_	3	mod	_	SpaceAfter=No
 2	花	花	VERB	VV	_	3	comp:obj@aspect	_	SpaceAfter=No
 3	了	了	PART	AS	Aspect=Perf	8	mod	_	SpaceAfter=No
@@ -9143,7 +9143,7 @@
 
 # sent_id = dev-s311
 # text = 1934年，他共为日本国家足球队出场1次，打进1球。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1934	1934	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	15	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	15	punct	_	SpaceAfter=No
@@ -9165,7 +9165,7 @@
 
 # sent_id = dev-s312
 # text = 校园中有一条南北向的大道将校园分成东西两部。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	校园	校园	NOUN	NN	_	3	subj	_	SpaceAfter=No
 2	中	中	NOUN	NN	_	1	mod	_	SpaceAfter=No
 3	有	有	VERB	VV	_	0	root	_	SpaceAfter=No
@@ -9184,7 +9184,7 @@
 
 # sent_id = dev-s313
 # text = 后港体育场是新加坡的一所综合性体育场，球场位于新加坡后港地区，最多可以同时容纳3,400名观众，球场每天早晨对大众开放晨练和慢跑活动，球场目前是新加坡职业足球联赛球队盛港榜鹅队的主场。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	后港	后港	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	体育	体育	NOUN	NN	_	3	compound	_	SpaceAfter=No
 3	场	场	PART	SFN	_	4	subj	_	SpaceAfter=No
@@ -9240,7 +9240,7 @@
 
 # sent_id = dev-s314
 # text = 当然由于我们已经没有办法脱离现代生活方式的制约，而各种现代主义所带来的恶果，并不足以完全否定现代文明的生活。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	当然	当然	ADV	RB	_	14	mod	_	SpaceAfter=No
 2	由于	由于	ADP	IN	_	25	comp:obl	_	SpaceAfter=No
 3	我们	我	PRON	PRP	Number=Plur|Person=1	2	subj	_	SpaceAfter=No
@@ -9277,7 +9277,7 @@
 
 # sent_id = dev-s315
 # text = 这种行为本身造成了一种对后现代理解的偏激和错位。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这	这	DET	DT	_	2	det	_	SpaceAfter=No
 2	种	种	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	行为	行为	NOUN	NN	_	6	subj	_	SpaceAfter=No
@@ -9298,7 +9298,7 @@
 
 # sent_id = dev-s316
 # text = 除了怀疑之外，他们的思想在理性思维者看来几乎是凝滞的，他们只能寄生在现代启蒙理性之上作个永远的捣蛋鬼。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	除	除	VERB	VV	_	2	comp:obj@aspect	_	SpaceAfter=No
 2	了	了	PART	AS	Aspect=Perf	15	mod	_	SpaceAfter=No
 3	怀疑	怀疑	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -9336,7 +9336,7 @@
 
 # sent_id = dev-s317
 # text = 她是日本第一位女性宇航员，也是首位两度登上太空的日本宇航员。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	她	她	PRON	PRP	Person=3	10	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	19	mod	_	SpaceAfter=No
 3	日本	日本	PROPN	NNP	_	8	mod	_	SpaceAfter=No
@@ -9360,7 +9360,7 @@
 
 # sent_id = dev-s318
 # text = 自1992年以来，向井千秋是德克萨斯州休斯敦贝勒医学院外科研究讲师。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	自	自	ADP	IN	_	8	udep	_	SpaceAfter=No
 2	1992	1992	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	1	comp:obj	_	SpaceAfter=No
@@ -9382,7 +9382,7 @@
 
 # sent_id = dev-s319
 # text = 向则错是一个位于中国西藏自治区日喀则地区的湖泊，面积约为1.69平方千米，属于青藏高原。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	向则错	向则错	PROPN	NNP	_	2	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	一	一	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -9412,7 +9412,7 @@
 
 # sent_id = dev-s320
 # text = 向岛TB（向岛本线料金所）是位于广岛县尾道市的西濑户自动车道（濑户内岛波海道）之收费站。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	向岛	向岛	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	TB	TB	X	FW	_	9	subj	_	SpaceAfter=No
 3	（	（	PUNCT	(	_	7	punct	_	SpaceAfter=No
@@ -9446,7 +9446,7 @@
 
 # sent_id = dev-s321
 # text = 独特的地理条件和气候特点造就了春夏间云山雾海的奇景，使向阳成为夏日休闲避暑的圣地，同时为我乡名优特水果、速生丰产林、食用菌、有机茶叶等绿色农业成规模开发提供了得天独厚的自然条件。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	独特	独特	ADJ	JJ	_	2	comp:obj@relcl	_	SpaceAfter=No
 2	的	的	PART	DEC	_	4	mod	_	SpaceAfter=No
 3	地理	地理	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -9504,7 +9504,7 @@
 
 # sent_id = dev-s322
 # text = 伊吕西60年代师从格罗滕迪克，参与了代数几何讨论班。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	伊吕西	伊吕西	PROPN	NNP	_	8	subj	_	SpaceAfter=No
 2	60	60	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年代	年代	NOUN	NNB	_	4	mod@tmod	_	SpaceAfter=No
@@ -9521,7 +9521,7 @@
 
 # sent_id = dev-s323
 # text = 宋太宗去世后，内侍王继恩密谋废掉太子，另立君王。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	宋	宋	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	太宗	太宗	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	去世	去世	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -9540,7 +9540,7 @@
 
 # sent_id = dev-s324
 # text = 此外，君主要做到珍惜人才，任人为贤，激励人们在各行各业做好本职工作。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	此外	此外	NOUN	NN	_	4	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	4	punct	_	SpaceAfter=No
 3	君主	君主	NOUN	NN	_	4	subj	_	SpaceAfter=No
@@ -9563,7 +9563,7 @@
 
 # sent_id = dev-s325
 # text = 1048年帝国与塞尔柱人在亚美尼亚发生冲突，但不久即缔结和约。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1048	1048	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	9	mod@tmod	_	SpaceAfter=No
 3	帝国	帝国	NOUN	NN	_	9	subj	_	SpaceAfter=No
@@ -9584,7 +9584,7 @@
 
 # sent_id = dev-s326
 # text = 这次叛乱大大削弱了帝国在巴尔干地区的防御力量，导致1048年佩切涅格人入侵该地区，并在此后5年多次进行劫掠，造成很大破坏。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这	这	DET	DT	_	2	det	_	SpaceAfter=No
 2	次	次	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	叛乱	叛乱	NOUN	NN	_	15	subj	_	SpaceAfter=No
@@ -9625,7 +9625,7 @@
 
 # sent_id = dev-s327
 # text = 像富人住宅一样，教堂和修道院通常也带有花园。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	像	像	ADP	IN	_	5	udep	_	SpaceAfter=No
 2	富	富	PART	PFA	_	4	mod	_	SpaceAfter=No
 3	人	人	NOUN	NN	_	2	comp:obj@pref	_	SpaceAfter=No
@@ -9644,7 +9644,7 @@
 
 # sent_id = dev-s328
 # text = 普通平民为逃避兵役竟采取自残的办法。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	普通	普通	ADJ	JJ	_	2	mod	_	SpaceAfter=No
 2	平民	平民	NOUN	NN	_	7	subj	_	SpaceAfter=No
 3	为	为	ADP	IN	_	7	comp:obl@x	_	SpaceAfter=No
@@ -9659,7 +9659,7 @@
 
 # sent_id = dev-s329
 # text = 吲哚乙酸也可以用化学方法合成。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	吲哚乙酸	吲哚乙酸	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	也	也	ADV	RB	_	0	root	_	SpaceAfter=No
 3	可以	可以	AUX	MD	_	2	comp:obj	_	SpaceAfter=No
@@ -9671,7 +9671,7 @@
 
 # sent_id = dev-s330
 # text = 吴廷琰的活动使他实质上获得了公开身份，这时法国人决定让步，以安抚民族主义鼓动者，还要求他劝说保大皇帝加入他们。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	吴	吴	PROPN	NNP	_	3	comp:obj@dec	_	SpaceAfter=No
 2	廷琰	廷琰	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -9711,7 +9711,7 @@
 
 # sent_id = dev-s331
 # text = 吴之父亲将其送往英国寄宿学校读高中，但他又因偷窃而被学校开除。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	吴	吴	PROPN	NNP	_	2	comp:obj@dec	_	SpaceAfter=No
 2	之	之	PART	DEC	Case=Gen	3	mod	_	SpaceAfter=No
 3	父亲	父亲	NOUN	NN	_	6	subj	_	SpaceAfter=No
@@ -9737,7 +9737,7 @@
 
 # sent_id = dev-s332
 # text = 吴念真的父亲来自嘉义县民雄，到达瑞芳，在李建兴兄弟创办的瑞三煤矿工作。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	吴	吴	PROPN	NNP	_	3	comp:obj@dec	_	SpaceAfter=No
 2	念真	念真	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -9764,7 +9764,7 @@
 
 # sent_id = dev-s333
 # text = 消息传得很快，日本报章也报道中国发现了天才神童。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	消息	消息	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	传	传	AUX	VV	_	3	comp:obj@comp	_	SpaceAfter=No
 3	得	得	PART	DEV	_	0	root	_	SpaceAfter=No
@@ -9783,7 +9783,7 @@
 
 # sent_id = dev-s334
 # text = 吴曾任跨国机构信昌工程有限公司之常务董事。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	吴	吴	PROPN	NNP	_	3	subj	_	SpaceAfter=No
 2	曾	曾	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	任	任	VERB	VV	_	0	root	_	SpaceAfter=No
@@ -9800,7 +9800,7 @@
 
 # sent_id = dev-s335
 # text = 三桂治军严谨，精锐骑兵一千人，分二十队，五十人一队，每队设一领骑官，吴三桂在自己的靴筒上放这二十名领骑官姓名，一旦抽中谁，便呼叫某领骑官，该领骑官即统五十人骑队，跟随他冲锋陷阵，可谓“无往不利”，是明末最后一支有战力的铁骑部队。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	三桂	三桂	PROPN	NNP	_	2	subj	_	SpaceAfter=No
 2	治军	治军	AUX	VV	_	0	root	_	SpaceAfter=No
 3	严谨	严谨	ADJ	JJ	_	2	comp:pred	_	SpaceAfter=No
@@ -9885,7 +9885,7 @@
 
 # sent_id = dev-s336
 # text = 之后吴三桂转成为清军先驱，率军攻打陕西、四川等地的李自成、张献忠余部。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	之后	之后	NOUN	NN	_	11	mod@tmod	_	SpaceAfter=No
 2	吴	吴	PROPN	NNP	_	11	subj	_	SpaceAfter=No
 3	三桂	三桂	PROPN	NNP	_	2	flat@name	_	SpaceAfter=No
@@ -9913,7 +9913,7 @@
 
 # sent_id = dev-s337
 # text = 顺治十七年，朝廷以赋税不足，令吴三桂裁减兵员。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	顺治	顺治	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	十七	十七	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	10	mod@tmod	_	SpaceAfter=No
@@ -9932,7 +9932,7 @@
 
 # sent_id = dev-s338
 # text = 故事的高潮在于周润发在手里抱着婴儿嘴里哼着摇篮曲哄小孩睡觉的情况下，一一解决歹徒并跳出窗外，婴儿仍是安然无恙。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	故事	故事	NOUN	NN	_	2	comp:obj@dec	_	SpaceAfter=No
 2	的	的	PART	DEC	Case=Gen	3	mod	_	SpaceAfter=No
 3	高潮	高潮	NOUN	NN	_	4	subj	_	SpaceAfter=No
@@ -9971,7 +9971,7 @@
 
 # sent_id = dev-s339
 # text = 2008年6月28日，成立中国首个以同性恋者及其亲友为主体的民间组织----同性恋亲友会并任会长3年半。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2008	2008	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	6	6	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -10009,7 +10009,7 @@
 
 # sent_id = dev-s340
 # text = 而为了补充吴桂贤的文化知识，她曾被安排到西北大学学习；于1968年毕业。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	而	而	ADV	RB	_	0	root	_	SpaceAfter=No
 2	为了	为了	ADP	IN	_	22	comp:obl@x	_	SpaceAfter=No
 3	补充	补充	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
@@ -10036,7 +10036,7 @@
 
 # sent_id = dev-s341
 # text = 该建筑现为一般保护等级历史风貌建筑。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	该	该	DET	DT	_	2	det	_	SpaceAfter=No
 2	建筑	建筑	NOUN	NN	_	4	subj	_	SpaceAfter=No
 3	现	现	NOUN	NN	_	4	mod@tmod	_	SpaceAfter=No
@@ -10051,7 +10051,7 @@
 
 # sent_id = dev-s342
 # text = 2004年初，吴金贵被调入中国国家足球队，出任荷兰主教练阿里·哈恩的助理，但是很快因为对于“业务的不同意见”而离开。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2004	2004	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	14	mod@tmod	_	SpaceAfter=No
 3	初	初	ADP	IN	_	2	udep	_	SpaceAfter=No
@@ -10091,7 +10091,7 @@
 
 # sent_id = dev-s343
 # text = Elijah之后由Elena取回匕首，重新立规则对付Klaus。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	Elijah	Elijah	X	FW	_	11	subj	_	SpaceAfter=No
 2	之后	之后	NOUN	NN	_	11	mod@tmod	_	SpaceAfter=No
 3	由	由	ADP	IN	_	5	udep	_	SpaceAfter=No
@@ -10108,7 +10108,7 @@
 
 # sent_id = dev-s344
 # text = Katherine自杀，因此成了吸血鬼。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	Katherine	Katherine	X	FW	_	7	subj	_	SpaceAfter=No
 2	自杀	自杀	VERB	VV	_	7	mod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	7	punct	_	SpaceAfter=No
@@ -10122,7 +10122,7 @@
 
 # sent_id = dev-s345
 # text = Lucy在月光石上施咒，交给Katherine。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	Lucy	Lucy	X	FW	_	8	subj	_	SpaceAfter=No
 2	在	在	ADP	IN	_	6	udep	_	SpaceAfter=No
 3	月光	月光	NOUN	NN	_	4	compound	_	SpaceAfter=No
@@ -10136,7 +10136,7 @@
 
 # sent_id = dev-s346
 # text = 最初在1996年未上映的试播节目中罗森博格这个角色是让Riff Regan饰演，但在确定会上映并重新征选角色后，Hannigan参加了罗森博格这个角色的征选。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	最初	最初	NOUN	NN	_	15	mod@tmod	_	SpaceAfter=No
 2	在	在	ADP	IN	_	7	udep	_	SpaceAfter=No
 3	1996	1996	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -10181,7 +10181,7 @@
 
 # sent_id = dev-s347
 # text = 因为天生身体虚弱，从没在“夜之社交界”里出现过。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	因为	因为	ADP	IN	_	16	comp:obl	_	SpaceAfter=No
 2	天生	天生	ADV	RB	_	4	mod	_	SpaceAfter=No
 3	身体	身体	NOUN	NN	_	1	subj	_	SpaceAfter=No
@@ -10203,7 +10203,7 @@
 
 # sent_id = dev-s348
 # text = 古斯塔夫·克林姆创作这幅画时为45岁，当时他仍然跟母亲及两个尚未结婚的姐妹居住在一起。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	古斯塔夫	古斯塔夫	PROPN	NNP	_	9	subj	_	SpaceAfter=No
 2	·	·	PUNCT	/	_	1	punct	_	SpaceAfter=No
 3	克林姆	克林姆	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
@@ -10236,7 +10236,7 @@
 
 # sent_id = dev-s349
 # text = 1988年11月15日，他于伦敦病逝，终年73岁。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1988	1988	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	11	11	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -10256,7 +10256,7 @@
 
 # sent_id = dev-s350
 # text = 可是，吕卫伦接任会长的时候，正值英国文化协会的低潮，在1960年代，由于政府削减资助等原因，协会被迫先后结束在缅甸、斐济、加勒比海和非洲及中东部份地区的工作，并将协会的服务对象逐步缩窄至西欧地区，工作性质也限制到只有艺术、科学和科技领域的交流层面，使协会的规模不断萎缩。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	可是	可是	ADV	RB	_	0	root	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	10	punct	_	SpaceAfter=No
 3	吕卫伦	吕卫伦	PROPN	NNP	_	4	subj	_	SpaceAfter=No
@@ -10344,7 +10344,7 @@
 
 # sent_id = dev-s351
 # text = 吕卫伦在纽西兰工作期间，也曾担任过与教育无关的公职。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	吕卫伦	吕卫伦	PROPN	NNP	_	7	subj	_	SpaceAfter=No
 2	在	在	VERB	VV	_	4	mod	_	SpaceAfter=No
 3	纽西兰	纽西兰	PROPN	NNP	_	2	comp:obj	_	SpaceAfter=No
@@ -10364,7 +10364,7 @@
 
 # sent_id = dev-s352
 # text = 在出任协会会长以前，他早在1968年至1972年任英国文化协会英联邦大学交流委员会委员，因此对协会有一定认识。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	5	comp:obj	_	SpaceAfter=No
 2	出任	出任	VERB	VV	_	1	comp:obj	_	SpaceAfter=No
 3	协会	协会	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -10402,7 +10402,7 @@
 
 # sent_id = dev-s353
 # text = 尽管他的钱币象征意味雄厚，但在政策上可能趋向防御性质。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	尽管	尽管	ADP	IN	_	14	comp:obl	_	SpaceAfter=No
 2	他	他	PRON	PRP	Person=3	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	det	_	SpaceAfter=No
@@ -10423,7 +10423,7 @@
 
 # sent_id = dev-s354
 # text = 香港马会亦暂时吊销其骑师牌照，停赛四个月。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	香港	香港	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	马会	马会	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	亦	亦	ADV	RB	_	0	root	_	SpaceAfter=No
@@ -10441,7 +10441,7 @@
 
 # sent_id = dev-s355
 # text = 辛亥革命爆发后，他被蜀军政府派到上海购买军械，并与各省都督府代表联合会代表在湖北会议。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	辛亥	辛亥	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	革命	革命	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	爆发	爆发	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -10473,7 +10473,7 @@
 
 # sent_id = dev-s356
 # text = 他是北京大学第一个讲欧洲文学史的教授。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	2	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	北京	北京	PROPN	NNP	_	12	mod	_	SpaceAfter=No
@@ -10490,7 +10490,7 @@
 
 # sent_id = dev-s357
 # text = 但可以举一事为例，他说他喜欢涉览笔记，中国的，他几乎都看过。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	但	但	ADV	RB	_	0	root	_	SpaceAfter=No
 2	可以	可以	AUX	MD	_	1	comp:obj	_	SpaceAfter=No
 3	举	举	VERB	VV	_	2	comp:aux	_	SpaceAfter=No
@@ -10518,7 +10518,7 @@
 
 # sent_id = dev-s358
 # text = 这情况，轻一些说是他们有了自己的独有的风格，重一些说是别人办不了。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这	这	DET	DT	_	2	det	_	SpaceAfter=No
 2	情况	情况	NOUN	NN	_	7	mod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	7	punct	_	SpaceAfter=No
@@ -10547,7 +10547,7 @@
 
 # sent_id = dev-s359
 # text = 从第二年开始，周俊三渐转球队辅助角色，上场时间愈来愈少。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	从	从	ADP	IN	_	8	udep	_	SpaceAfter=No
 2	第二	第二	NUM	CD	NumType=Ord	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	1	comp:obj	_	SpaceAfter=No
@@ -10568,7 +10568,7 @@
 
 # sent_id = dev-s360
 # text = 民国6年（1917年），段祺瑞执政，国会再度解散。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	民国	民国	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	6	6	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	11	mod@tmod	_	SpaceAfter=No
@@ -10588,7 +10588,7 @@
 
 # sent_id = dev-s361
 # text = 汪精卫从重庆脱出并受到日本保护之际，周化人归国辅佐汪。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	汪	汪	PROPN	NNP	_	7	subj	_	SpaceAfter=No
 2	精卫	精卫	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	从	从	ADP	IN	_	5	udep	_	SpaceAfter=No
@@ -10610,7 +10610,7 @@
 
 # sent_id = dev-s362
 # text = 1946年10月19日他被首都高等法院判处死刑，1947年（民国36年）5月上诉仍被维持原判，但迟迟未执行枪决。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1946	1946	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	10	10	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -10649,7 +10649,7 @@
 
 # sent_id = dev-s363
 # text = 光绪三十二年（1906年）任山东大学堂总监督，任职一年。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	光绪	光绪	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	三十二	三十二	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	15	mod@tmod	_	SpaceAfter=No
@@ -10671,7 +10671,7 @@
 
 # sent_id = dev-s364
 # text = 西戎是对中国古代西部部族的统称，长期威胁西周王朝的西部边境。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	西戎	西戎	PROPN	NNP	_	12	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	12	mod	_	SpaceAfter=No
 3	对	对	ADP	IN	_	8	comp:obj@dec	_	SpaceAfter=No
@@ -10693,7 +10693,7 @@
 
 # sent_id = dev-s365
 # text = 后来，周志仁随护国军赴四川，转战泸州、叙府，后在四川战死。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	后来	后来	NOUN	NN	_	11	mod@tmod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	11	punct	_	SpaceAfter=No
 3	周	周	PROPN	NNP	_	11	subj	_	SpaceAfter=No
@@ -10717,7 +10717,7 @@
 
 # sent_id = dev-s366
 # text = 周成建是中国的著名浙商及企业家，2009年以个人资产达136亿元人民币上榜福布斯中国富豪榜。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	周	周	PROPN	NNP	_	23	subj	_	SpaceAfter=No
 2	成建	成建	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	是	是	AUX	VC	_	23	mod	_	SpaceAfter=No
@@ -10749,7 +10749,7 @@
 
 # sent_id = dev-s367
 # text = 晚年留居北京，常与恩施樊增祥、应山左绍佐以诗文唱和，号“楚中三老”。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	晚年	晚年	NOUN	NN	_	2	mod@tmod	_	SpaceAfter=No
 2	留居	留居	VERB	VV	_	18	mod	_	SpaceAfter=No
 3	北京	北京	PROPN	NNP	_	2	comp:obj	_	SpaceAfter=No
@@ -10777,7 +10777,7 @@
 
 # sent_id = dev-s368
 # text = 最小的弟弟周渝继承爸爸的思想，将紫藤庐经营成台北市独具一格的文化茶馆，成为台北市市定古迹。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	最小	最小	ADJ	JJ	_	2	comp:obj@relcl	_	SpaceAfter=No
 2	的	的	PART	DEC	_	3	mod	_	SpaceAfter=No
 3	弟弟	弟弟	NOUN	NN	_	14	subj	_	SpaceAfter=No
@@ -10811,7 +10811,7 @@
 
 # sent_id = dev-s369
 # text = 有人说这是裴世清见到的秦王国。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	有	有	VERB	VV	_	0	root	_	SpaceAfter=No
 2	人	人	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	说	说	VERB	VV	_	1	comp:obj	_	SpaceAfter=No
@@ -10827,7 +10827,7 @@
 
 # sent_id = dev-s370
 # text = 1912年，调任回浙江，出任浙江省高等审判厅书记官长。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1912	1912	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	8	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	8	punct	_	SpaceAfter=No
@@ -10847,7 +10847,7 @@
 
 # sent_id = dev-s371
 # text = 1932年，周骏彦出任南京国民政府军政部军需署署长，后擢升至陆军军需总监，陆军中将军衔，是为周骏彦职业生涯顶点。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1932	1932	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	6	punct	_	SpaceAfter=No
@@ -10885,7 +10885,7 @@
 
 # sent_id = dev-s372
 # text = 周骏彦早年曾在家乡奉化县的龙津学堂担任学监。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	周	周	PROPN	NNP	_	12	subj	_	SpaceAfter=No
 2	骏彦	骏彦	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	早年	早年	NOUN	NN	_	12	mod@tmod	_	SpaceAfter=No
@@ -10903,7 +10903,7 @@
 
 # sent_id = dev-s373
 # text = 幸得卫将军呼延瑜击杀了陈安之弟陈集，让刘曜顺利撤军。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	幸得	幸得	VERB	VV	_	15	subj	_	SpaceAfter=No
 2	卫	卫	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	将军	将军	NOUN	NN	_	7	subj	_	SpaceAfter=No
@@ -10927,7 +10927,7 @@
 
 # sent_id = dev-s374
 # text = 玩家以地下军新成员与达夏取得联络，从达夏那玩家得知为针对盟军的抵抗活动已经就绪，但为我们研发新武器的苏联首席科学家却神秘失踪。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	玩家	玩家	NOUN	NN	_	16	subj	_	SpaceAfter=No
 2	以	以	ADP	IN	_	9	udep	_	SpaceAfter=No
 3	地下	地下	NOUN	NN	_	4	compound	_	SpaceAfter=No
@@ -10971,7 +10971,7 @@
 
 # sent_id = dev-s375
 # text = 所以，在现在的图形使用者介面的操作系统中，通常都保留着可选的命令列介面。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	所以	所以	ADV	RB	_	0	root	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	16	punct	_	SpaceAfter=No
 3	在	在	ADP	IN	_	16	udep	_	SpaceAfter=No
@@ -11000,7 +11000,7 @@
 
 # sent_id = dev-s376
 # text = 但在西元2000年以后，传媒尺度大开，许多命理节目风行，如：开运鉴定团、命运好好玩，造成命理的风行与正当化。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	但	但	ADV	RB	_	27	subj	_	SpaceAfter=No
 2	在	在	ADP	IN	_	15	udep	_	SpaceAfter=No
 3	西元	西元	NOUN	NN	_	5	mod	_	SpaceAfter=No
@@ -11038,7 +11038,7 @@
 
 # sent_id = dev-s377
 # text = 命理师是台湾对于算命先生、半仙用现代自创词汇来称呼，是利用中国术数来算命的古老职业。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	命理	命理	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	师	师	PART	SFN	_	18	subj	_	SpaceAfter=No
 3	是	是	VERB	VC	_	26	mod	_	SpaceAfter=No
@@ -11069,7 +11069,7 @@
 
 # sent_id = dev-s378
 # text = 乡村柏油路纵横交织，程式控制电话遍布全乡。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	乡村	乡村	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	柏油	柏油	NOUN	NN	_	3	compound	_	SpaceAfter=No
 3	路	路	PART	SFN	_	5	subj	_	SpaceAfter=No
@@ -11085,7 +11085,7 @@
 
 # sent_id = dev-s379
 # text = 他们不分战争的社会根源，认为通过和平谈判和协商就能解决双方的暴力。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他们	他	PRON	PRP	Number=Plur|Person=3	8	subj	_	SpaceAfter=No
 2	不分	不分	VERB	VV	_	8	mod	_	SpaceAfter=No
 3	战争	战争	NOUN	NN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -11110,7 +11110,7 @@
 
 # sent_id = dev-s380
 # text = 香港主权移交后，官方每日的升降旗仪式改于金紫荆广场举行，由香港警察仪仗队执行。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	香港	香港	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	主权	主权	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	移交	移交	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -11137,7 +11137,7 @@
 
 # sent_id = dev-s381
 # text = 而她温柔善良的个性也与和缓翁主恰好相反，比起这个同母的妹妹，她与弟弟庄献世子感情也可以说非常融洽。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	而	而	ADV	RB	_	0	root	_	SpaceAfter=No
 2	她	她	PRON	PRP	Person=3	6	mod	_	SpaceAfter=No
 3	温柔	温柔	ADJ	JJ	_	4	mod	_	SpaceAfter=No
@@ -11173,7 +11173,7 @@
 
 # sent_id = dev-s382
 # text = 和黄是业务遍布全球的大型跨国企业，经营多元化业务，包括全球多个市场最大的货柜码头经营商、零售连锁集团、地产发展与基建业务，以至电讯及电台广播服务。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	和黄	和黄	PROPN	NNP	_	11	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	11	mod	_	SpaceAfter=No
 3	业务	业务	NOUN	NN	_	6	udep	_	SpaceAfter=No
@@ -11222,7 +11222,7 @@
 
 # sent_id = dev-s383
 # text = 狐狸因过度疼痛，昏死过去。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	狐狸	狐狸	NOUN	NN	_	6	subj	_	SpaceAfter=No
 2	因	因	ADP	IN	_	6	comp:obl@x	_	SpaceAfter=No
 3	过度	过度	ADV	RB	_	4	mod	_	SpaceAfter=No
@@ -11234,7 +11234,7 @@
 
 # sent_id = dev-s384
 # text = 以下是一些常见的咖啡种类：咖啡粉的好坏对接下来的烹制过程有非常重要的影响。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	以下	以下	DET	DT	_	2	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	一些	一些	ADJ	JJ	_	7	mod	_	SpaceAfter=No
@@ -11262,7 +11262,7 @@
 
 # sent_id = dev-s385
 # text = 咖啡因是一种黄嘌呤生物碱化合物，对人类来说是一种兴奋剂。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	咖啡	咖啡	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	因	因	PART	SFN	_	16	subj	_	SpaceAfter=No
 3	是	是	AUX	VC	_	20	mod	_	SpaceAfter=No
@@ -11287,7 +11287,7 @@
 
 # sent_id = dev-s386
 # text = 深焙咖啡一般比浅焙咖啡的咖啡因含量少，因为烘焙能减少咖啡豆里的咖啡因含量。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	深焙	深焙	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	咖啡	咖啡	NOUN	NN	_	0	root	_	SpaceAfter=No
 3	一般	一般	ADV	RB	_	11	mod	_	SpaceAfter=No
@@ -11315,7 +11315,7 @@
 
 # sent_id = dev-s387
 # text = 咸昌里，是台湾南部自清治时期至日治初期的一个行政区划，其范围即今屏东县的车城乡北部。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	咸昌	咸昌	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	里	里	PART	SFN	_	4	subj	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	4	punct	_	SpaceAfter=No
@@ -11350,7 +11350,7 @@
 
 # sent_id = dev-s388
 # text = 中华民国时期，咸福宫曾作为故宫博物院乾隆御赏物陈列室。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	中华	中华	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	民国	民国	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	时期	时期	NOUN	NN	_	8	mod@tmod	_	SpaceAfter=No
@@ -11372,7 +11372,7 @@
 
 # sent_id = dev-s389
 # text = 品客除了口味多样之外，还有限定贩卖地区或时间的特色口味，相当受到消费者的欢迎，而该广告亦于无线、亚视及商台播出。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	品客	品客	PROPN	NNP	_	20	subj	_	SpaceAfter=No
 2	除	除	VERB	VV	_	3	comp:obj@aspect	_	SpaceAfter=No
 3	了	了	PART	AS	Aspect=Perf	8	mod	_	SpaceAfter=No
@@ -11413,7 +11413,7 @@
 
 # sent_id = dev-s390
 # text = 哈公，香港作家、电影编导、传媒工作者，原名许国、许子宾，潮汕人，一说是闽南泉州人（潮州话和泉州话都属于闽南语系，和泉州话有很多完全相同，比如“你”、“鱼”、“举”、“话”、“同”等字音）。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	哈公	哈公	PROPN	NNP	_	13	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	1	punct	_	SpaceAfter=No
 3	香港	香港	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -11489,7 +11489,7 @@
 
 # sent_id = dev-s391
 # text = 后来卡通造型的桑德斯上校（由演员Randy Quaid配音），出现在越来越多的肯德基广告中。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	后来	后来	NOUN	NN	_	15	mod@tmod	_	SpaceAfter=No
 2	卡通	卡通	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	造型	造型	NOUN	NN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -11516,7 +11516,7 @@
 
 # sent_id = dev-s392
 # text = 因相当着迷小丑，而开始分析和研究有关他的事，还疯狂地爱上他。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	因	因	ADP	IN	_	7	comp:obl@x	_	SpaceAfter=No
 2	相当	相当	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	着迷	着迷	VERB	VV	_	1	comp:obj	_	SpaceAfter=No
@@ -11541,7 +11541,7 @@
 
 # sent_id = dev-s393
 # text = 圣诞晚会上，哈利、罗恩、赫敏分别提出或接受了异性的邀请，与舞伴一起参与了晚会。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	圣	圣	PROPN	NNP	_	2	subj	_	SpaceAfter=No
 2	诞	诞	VERB	VV	_	3	mod	_	SpaceAfter=No
 3	晚会	晚会	NOUN	NN	_	24	mod	_	SpaceAfter=No
@@ -11571,7 +11571,7 @@
 
 # sent_id = dev-s394
 # text = 最近的公交车站为九三五厂站。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	最近	最近	ADJ	JJ	_	2	comp:obj@relcl	_	SpaceAfter=No
 2	的	的	PART	DEC	_	4	mod	_	SpaceAfter=No
 3	公交	公交	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -11584,7 +11584,7 @@
 
 # sent_id = dev-s395
 # text = 2011年，哈尔滨实现地区生产总值4243.4亿元，比上年增长12.3%，连续9年保持12%以上的增长速度。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2011	2011	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	20	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	20	punct	_	SpaceAfter=No
@@ -11614,7 +11614,7 @@
 
 # sent_id = dev-s396
 # text = 其中哈尔滨电机厂产品占全国水电工程设备数量的二分之一，火电工程设备数量的三分之一，总量的二分之一，也是三峡工程设备供应国内唯一中标单位，成为同行业龙头。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	其中	其中	NOUN	NN	_	5	mod	_	SpaceAfter=No
 2	哈尔滨	哈尔滨	PROPN	NNP	_	5	mod	_	SpaceAfter=No
 3	电机	电机	NOUN	NN	_	4	compound	_	SpaceAfter=No
@@ -11660,7 +11660,7 @@
 
 # sent_id = dev-s397
 # text = 哈尔滨正处于金融业加速期，其金融业的“利基市场”成为国内外银行纷纷锁定的一块肥硕蛋糕。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	哈尔滨	哈尔滨	PROPN	NNP	_	3	subj	_	SpaceAfter=No
 2	正	正	ADV	RB	_	4	mod	_	SpaceAfter=No
 3	处	处	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -11693,7 +11693,7 @@
 
 # sent_id = dev-s398
 # text = 哈德逊（Hudson，Ohio）是美国俄亥俄州萨米特县的一个城市。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	哈德逊	哈德逊	PROPN	NNP	_	7	subj	_	SpaceAfter=No
 2	（	（	PUNCT	(	_	3	punct	_	SpaceAfter=No
 3	Hudson	Hudson	X	FW	_	1	appos	_	SpaceAfter=No
@@ -11714,7 +11714,7 @@
 
 # sent_id = dev-s399
 # text = 日本品牌的商品，无论是否在日本制造，在台湾通常价格较高但被视为品质较佳，依然有不少人购买。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	日本	日本	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	品牌	品牌	NOUN	NN	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -11747,7 +11747,7 @@
 
 # sent_id = dev-s400
 # text = 2001年5月，经组织批准，哈旺罗布享受正厅级职务工资和医疗待遇，提前退休。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2001	2001	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	5	5	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -11773,7 +11773,7 @@
 
 # sent_id = dev-s401
 # text = 他是瑞士著名穆斯林学者塔里克·拉马丹的外祖父，也是著名埃及美术类兄弟会成员贾麦勒·班纳（Gamal al-Banna）的哥哥。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	13	subj	_	SpaceAfter=No
 2	是	是	AUX	VC	_	29	mod	_	SpaceAfter=No
 3	瑞士	瑞士	PROPN	NNP	_	6	mod	_	SpaceAfter=No
@@ -11807,7 +11807,7 @@
 
 # sent_id = dev-s402
 # text = 保亚沙合共为黑池上阵20场及射入1球，虽然球队透过附加赛取得升班英超资格，但他仍于季后约满被放弃。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	保亚沙	保亚沙	PROPN	NNP	_	5	subj	_	SpaceAfter=No
 2	合共	合共	ADV	RB	_	5	mod	_	SpaceAfter=No
 3	为	为	ADP	IN	_	5	udep	_	SpaceAfter=No
@@ -11842,7 +11842,7 @@
 
 # sent_id = dev-s403
 # text = 而在公众场合故意焚烧、毁损、涂划、沾污、践踏市旗、市徽的，由公安部门处以100至500元人民币罚款。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	而	而	ADV	RB	_	0	root	_	SpaceAfter=No
 2	在	在	ADP	IN	_	18	udep	_	SpaceAfter=No
 3	公众	公众	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -11878,7 +11878,7 @@
 
 # sent_id = dev-s404
 # text = 俱乐部在2006年将球队名字更名为现在的哈特兰德。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	俱乐部	俱乐部	NOUN	NN	_	8	subj	_	SpaceAfter=No
 2	在	在	ADP	IN	_	9	udep	_	SpaceAfter=No
 3	2006	2006	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -11895,7 +11895,7 @@
 
 # sent_id = dev-s405
 # text = 目前至少有1000名哈瑞迪自愿入伍。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	目前	目前	NOUN	NN	_	3	mod@tmod	_	SpaceAfter=No
 2	至少	至少	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	有	有	VERB	VV	_	0	root	_	SpaceAfter=No
@@ -11908,7 +11908,7 @@
 
 # sent_id = dev-s406
 # text = 自14岁起，许多哈瑞迪男孩便不再学习任何世俗的科目（科学、数学、外语），转而专注在犹太律法的研读。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	自	自	ADP	IN	_	26	udep	_	SpaceAfter=No
 2	14	14	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	岁	岁	NOUN	NNB	_	1	comp:obj	_	SpaceAfter=No
@@ -11945,7 +11945,7 @@
 
 # sent_id = dev-s407
 # text = 该处为一个小型遗址，大约150米宽，200米长，高度约7米。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	该处	该处	NOUN	NN	_	15	subj	_	SpaceAfter=No
 2	为	为	AUX	VC	_	15	mod	_	SpaceAfter=No
 3	一	一	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -11970,7 +11970,7 @@
 
 # sent_id = dev-s408
 # text = 在1946年，美国本土发生了数宗残暴的私刑，其中有两名黑人男子和两名黑人妇女在乔治亚州的华尔顿县附近被杀害；另外亦有一名刚从二战战场退役的非洲裔军人遭到虐待，称为艾萨克·伍德沃德事件。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	8	udep	_	SpaceAfter=No
 2	1946	1946	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	1	comp:obj	_	SpaceAfter=No
@@ -12033,7 +12033,7 @@
 
 # sent_id = dev-s409
 # text = 杜鲁门是在罗斯福的身体健康每况愈下时被任命为副总统的，而任职副总统的时间只有82日，因此他们两人没有开展重要的合作。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	杜鲁门	杜鲁门	PROPN	NNP	_	2	subj	_	SpaceAfter=No
 2	是	是	VERB	VC	_	0	root	_	SpaceAfter=No
 3	在	在	ADP	IN	_	9	comp:obj	_	SpaceAfter=No
@@ -12074,7 +12074,7 @@
 
 # sent_id = dev-s410
 # text = 然而出乎意料的是，杜鲁门宣誓就任副总统之后数日，即接替罗斯福任总统前的数个月，他公然出席了彭德格斯特的丧礼。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	然而	然而	ADV	RB	_	0	root	_	SpaceAfter=No
 2	出乎意料	出乎意料	ADJ	JJ	_	3	comp:obj@relcl	_	SpaceAfter=No
 3	的	的	PART	DEC	_	4	subj	_	SpaceAfter=No
@@ -12111,7 +12111,7 @@
 
 # sent_id = dev-s411
 # text = 其枪机是以AK-47的双大形闭锁锁耳枪机为蓝本，并且经过相当的修改使其适用于大威力的反器材步枪上。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	其	其	PRON	PRP	Person=3	2	mod	_	SpaceAfter=No
 2	枪机	枪机	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	是	是	VERB	VC	_	0	root	_	SpaceAfter=No
@@ -12146,7 +12146,7 @@
 
 # sent_id = dev-s412
 # text = 哥伦比亚比索是哥伦比亚正在流通使用的货币。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	哥伦比亚	哥伦比亚	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	比索	比索	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	是	是	AUX	VC	_	0	root	_	SpaceAfter=No
@@ -12161,7 +12161,7 @@
 
 # sent_id = dev-s413
 # text = 参加哥德堡号建造工作的人大约有100至150人，其中约有80人是不领取任何报酬的自愿者。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	参加	参加	VERB	VV	_	6	comp:obj@relcl	_	SpaceAfter=No
 2	哥德堡	哥德堡	PROPN	NNP	_	3	compound	_	SpaceAfter=No
 3	号	号	PART	SFN	_	5	mod	_	SpaceAfter=No
@@ -12193,7 +12193,7 @@
 
 # sent_id = dev-s414
 # text = 这个结果来自于次文化成员多样化的喜好。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这	这	DET	DT	_	2	det	_	SpaceAfter=No
 2	个	个	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	结果	结果	NOUN	NN	_	4	subj	_	SpaceAfter=No
@@ -12211,7 +12211,7 @@
 
 # sent_id = dev-s415
 # text = 随着冬季及冰雪的来临渡过塞尼奥河的任何企图是不可能的，第8军团在1944年的行动因而结束。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	随	随	VERB	VV	_	2	comp:obj@aspect	_	SpaceAfter=No
 2	着	着	PART	AS	Aspect=Prog	14	mod	_	SpaceAfter=No
 3	冬季	冬季	NOUN	NN	_	6	comp:obj@dec	_	SpaceAfter=No
@@ -12243,7 +12243,7 @@
 
 # sent_id = dev-s416
 # text = 他表示一定是有相当数量的猎人聚在一起，才能盖起这样的建筑物。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	2	subj	_	SpaceAfter=No
 2	表示	表示	VERB	VV	_	0	root	_	SpaceAfter=No
 3	一定	一定	ADV	RB	_	4	mod	_	SpaceAfter=No
@@ -12268,7 +12268,7 @@
 
 # sent_id = dev-s417
 # text = 科学家亦发现，人在悲痛时流的眼泪和伤风感冒及风沙入眼时流的眼泪，其化学成分是不同的。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	科学	科学	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	家	家	PART	SFN	_	3	subj	_	SpaceAfter=No
 3	亦	亦	ADV	RB	_	0	root	_	SpaceAfter=No
@@ -12302,7 +12302,7 @@
 
 # sent_id = dev-s418
 # text = 大型的食草哺乳动物，如牛是人类早期农业的重要组成部分，几乎所有的文明的早期农业都依赖于牛等牲畜的使用。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	大型	大型	NOUN	NN	_	2	comp:obj@dec	_	SpaceAfter=No
 2	的	的	PART	DEC	Case=Gen	5	mod	_	SpaceAfter=No
 3	食草	食草	NOUN	NN	_	5	mod	_	SpaceAfter=No
@@ -12338,7 +12338,7 @@
 
 # sent_id = dev-s419
 # text = 宋军在王韶的率领下于该年占领唃厮啰国熙河地区，这迫使唃厮啰国与西夏联合，出兵攻打北宋的河州，杀其守将。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	宋	宋	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	军	军	PART	SFN	_	11	subj	_	SpaceAfter=No
 3	在	在	ADP	IN	_	11	udep	_	SpaceAfter=No
@@ -12376,7 +12376,7 @@
 
 # sent_id = dev-s420
 # text = 从此法国成为欧洲第二个拥有住房抗告权的国家。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	从此	从此	ADV	RB	_	4	mod	_	SpaceAfter=No
 2	法国	法国	PROPN	NNP	_	3	subj	_	SpaceAfter=No
 3	成	成	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -12394,7 +12394,7 @@
 
 # sent_id = dev-s421
 # text = 随后，唐开始集结陆海部队准备在649年再一次大规模攻高句丽。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	随后	随后	ADV	RB	_	4	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	4	punct	_	SpaceAfter=No
 3	唐	唐	PROPN	NNP	_	4	subj	_	SpaceAfter=No
@@ -12417,7 +12417,7 @@
 
 # sent_id = dev-s422
 # text = 宦官李辅国奉承肃宗，离间玄宗与肃宗的关系，迫使玄宗软禁于太极宫（西内）甘露殿。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	宦官	宦官	NOUN	NN	_	14	subj	_	SpaceAfter=No
 2	李	李	PROPN	NNP	_	1	appos	_	SpaceAfter=No
 3	辅国	辅国	PROPN	NNP	_	2	flat@name	_	SpaceAfter=No
@@ -12446,7 +12446,7 @@
 
 # sent_id = dev-s423
 # text = 玄宗虽然没有发动过像唐太宗、唐高宗朝时那样的大规模的开边军事行动。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	玄宗	玄宗	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	虽然	虽然	ADP	IN	_	0	root	_	SpaceAfter=No
 3	没有	没有	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
@@ -12472,7 +12472,7 @@
 
 # sent_id = dev-s424
 # text = 自此以后，没有人敢再有谏争之言了。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	自	自	ADP	IN	_	5	udep	_	SpaceAfter=No
 2	此	此	PRON	PRD	_	1	comp:obj	_	SpaceAfter=No
 3	以后	以后	ADP	IN	_	2	udep	_	SpaceAfter=No
@@ -12490,7 +12490,7 @@
 
 # sent_id = dev-s425
 # text = 90年代后期他的财务状况和名声出现了通货膨胀。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	90	90	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年代	年代	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	后期	后期	NOUN	NN	_	10	mod@tmod	_	SpaceAfter=No
@@ -12508,7 +12508,7 @@
 
 # sent_id = dev-s426
 # text = 唐诗咏中学时开始兼职模特儿，直至2000年参演“香港电台”的电视剧《青春@Y2K》同期演员有余文乐、蔡卓妍、黎国辉等。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	唐	唐	PROPN	NNP	_	12	subj	_	SpaceAfter=No
 2	诗咏	诗咏	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	中学	中学	NOUN	NN	_	5	mod	_	SpaceAfter=No
@@ -12549,7 +12549,7 @@
 
 # sent_id = dev-s427
 # text = 据《淡水厅志》记载：“淡水开垦，自奇里岸（今唭哩岸）始。”
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	据	据	ADP	IN	_	7	udep	_	SpaceAfter=No
 2	《	《	PUNCT	(	_	5	punct	_	SpaceAfter=No
 3	淡水	淡水	PROPN	NNP	_	4	compound	_	SpaceAfter=No
@@ -12576,7 +12576,7 @@
 
 # sent_id = dev-s428
 # text = 唯心论直接相对于唯物论，后者认为世界的基本成分为物质，我们对世界之认识主要是通过物质，并将之视作为一种物质形式与过程。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	唯心	唯心	ADJ	JJ	_	2	compound	_	SpaceAfter=No
 2	论	论	PART	SFN	_	4	subj	_	SpaceAfter=No
 3	直接	直接	ADV	RB	_	5	mod	_	SpaceAfter=No
@@ -12619,7 +12619,7 @@
 
 # sent_id = dev-s429
 # text = 投资贷款由贷款人发出，并一直在其资产负债表上体现，直至贷款到期。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	投资	投资	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	贷款	贷款	NOUN	NN	_	8	subj	_	SpaceAfter=No
 3	由	由	VERB	VV	_	8	mod	_	SpaceAfter=No
@@ -12644,7 +12644,7 @@
 
 # sent_id = dev-s430
 # text = 魏惠王怨恨商鞅用欺骗的手段俘虏公子卬、击败魏军，将其驱逐回秦国。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	魏	魏	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	惠王	惠王	PROPN	NNP	_	20	subj	_	SpaceAfter=No
 3	怨恨	怨恨	VERB	VV	_	20	mod	_	SpaceAfter=No
@@ -12671,7 +12671,7 @@
 
 # sent_id = dev-s431
 # text = 一般来说，同一款间格的单边单位比非单边的呎价约贵20%。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	一般	一般	ADJ	JJ	_	2	mod	_	SpaceAfter=No
 2	来	来	ADV	RB	_	20	mod	_	SpaceAfter=No
 3	说	说	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
@@ -12697,7 +12697,7 @@
 
 # sent_id = dev-s432
 # text = 她最擅长运用魔咒施加于药草，并召唤来神明的力量于自身，将人永远变成猪等动物。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	她	她	PRON	PRP	Person=3	22	subj	_	SpaceAfter=No
 2	最	最	ADV	RB	_	3	mod	_	SpaceAfter=No
 3	擅长	擅长	VERB	VV	_	22	mod	_	SpaceAfter=No
@@ -12727,7 +12727,7 @@
 
 # sent_id = dev-s433
 # text = 虽然西克索人只统治埃及的北部，但整个埃及都向他们进贡。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	虽然	虽然	ADP	IN	_	16	comp:obl	_	SpaceAfter=No
 2	西克索	西克索	PROPN	NNP	_	3	compound	_	SpaceAfter=No
 3	人	人	PART	SFN	_	1	subj	_	SpaceAfter=No
@@ -12748,7 +12748,7 @@
 
 # sent_id = dev-s434
 # text = 喜市于2003年提供居民范围庞大的无线网路服务，受到全国性的瞩目。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	喜	喜	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	市	市	PART	SFN	_	6	subj	_	SpaceAfter=No
 3	于	于	ADP	IN	_	6	udep	_	SpaceAfter=No
@@ -12772,7 +12772,7 @@
 
 # sent_id = dev-s435
 # text = 在《恶灵古堡》中，植物也可以感染病毒而成为丧尸。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	9	udep	_	SpaceAfter=No
 2	《	《	PUNCT	(	_	4	punct	_	SpaceAfter=No
 3	恶灵	恶灵	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -12793,7 +12793,7 @@
 
 # sent_id = dev-s436
 # text = 1825年1月28日皮克特生于维吉尼亚州的里奇蒙，1846年于西点军校毕业。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1825	1825	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	1	1	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -12818,7 +12818,7 @@
 
 # sent_id = dev-s437
 # text = 皮克特在内战末年一直留在维吉尼亚州。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	皮克特	皮克特	PROPN	NNP	_	6	subj	_	SpaceAfter=No
 2	在	在	ADP	IN	_	7	udep	_	SpaceAfter=No
 3	内战	内战	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -12832,7 +12832,7 @@
 
 # sent_id = dev-s438
 # text = 他也是首位担任公务员的英国王室成员。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	他	他	PRON	PRP	Person=3	2	subj	_	SpaceAfter=No
 2	也是	也是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	首位	首位	NUM	CD	NumType=Ord	10	mod	_	SpaceAfter=No
@@ -12847,7 +12847,7 @@
 
 # sent_id = dev-s439
 # text = 乔治王子和玛丽娜公主的婚姻是英国王室最后一桩门当户对的婚姻。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	乔治	乔治	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	王子	王子	NOUN	NN	_	6	comp:obj@dec	_	SpaceAfter=No
 3	和	和	CCONJ	CC	_	5	cc	_	SpaceAfter=No
@@ -12868,7 +12868,7 @@
 
 # sent_id = dev-s440
 # text = 玛丽娜公主生于1906年，比乔治王子年幼四岁。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	玛丽娜	玛丽娜	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	公主	公主	NOUN	NN	_	11	subj	_	SpaceAfter=No
 3	生	生	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -12886,7 +12886,7 @@
 
 # sent_id = dev-s441
 # text = 直到1934年8月，应玛丽娜公主的姐姐奥尔加公主和姐夫保罗王子的邀请，乔治王子来到南斯拉夫才和玛丽娜公主订婚。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	直到	直到	ADP	IN	_	25	udep	_	SpaceAfter=No
 2	1934	1934	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	5	clf	_	SpaceAfter=No
@@ -12920,7 +12920,7 @@
 
 # sent_id = dev-s442
 # text = 在这之后，他接拍了一部名为《我们是马歇尔》的电影，这部电影讲述的是大学橄榄球队中发生的故事，不过并没有获得霹雳娇娃那样的成功。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	7	udep	_	SpaceAfter=No
 2	这	这	PRON	PRD	_	1	comp:obj	_	SpaceAfter=No
 3	之后	之后	ADP	IN	_	2	udep	_	SpaceAfter=No
@@ -12968,7 +12968,7 @@
 
 # sent_id = dev-s443
 # text = 汉密尔顿在当时被视为棒球界的一颗新星。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	汉密尔顿	汉密尔顿	PROPN	NNP	_	4	subj@pass	_	SpaceAfter=No
 2	在	在	ADP	IN	_	6	udep	_	SpaceAfter=No
 3	当时	当时	NOUN	NN	_	2	comp:obj	_	SpaceAfter=No
@@ -12985,7 +12985,7 @@
 
 # sent_id = dev-s444
 # text = 在光纤通讯中，单模光纤是一种设计用来传送单一光束（模）的光纤。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	9	udep	_	SpaceAfter=No
 2	光纤	光纤	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	通讯	通讯	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
@@ -13012,7 +13012,7 @@
 
 # sent_id = dev-s445
 # text = 通常此光束内有多种波长的光。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	通常	通常	ADV	RB	_	5	mod	_	SpaceAfter=No
 2	此	此	DET	DT	_	3	det	_	SpaceAfter=No
 3	光束	光束	NOUN	NN	_	5	subj	_	SpaceAfter=No
@@ -13027,7 +13027,7 @@
 
 # sent_id = dev-s446
 # text = 大众被邀请参观实验室的设施，目睹实验室有关科学技术的演示。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	大众	大众	NOUN	NN	_	10	subj	_	SpaceAfter=No
 2	被	被	VERB	BB	Voice=Pass	10	mod	_	SpaceAfter=No
 3	邀请	邀请	VERB	VV	_	2	comp:aux@pass	_	SpaceAfter=No
@@ -13049,7 +13049,7 @@
 
 # sent_id = dev-s447
 # text = 火箭发动机直到1940年代中期经常被称为喷射发动机。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	火箭	火箭	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	发动	发动	VERB	VV	_	3	compound	_	SpaceAfter=No
 3	机	机	PART	SFN	_	9	subj@pass	_	SpaceAfter=No
@@ -13068,7 +13068,7 @@
 
 # sent_id = dev-s448
 # text = 1917年，北白川宫成久王与王妃也亲自前往视查。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1917	1917	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	10	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	10	punct	_	SpaceAfter=No
@@ -13086,7 +13086,7 @@
 
 # sent_id = dev-s449
 # text = 1980年由陈宗仁接任，1982年配合嘉义市升格为省辖市，校名为嘉义市立民生国民中学。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1980	1980	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	3	mod@tmod	_	SpaceAfter=No
 3	由	由	VERB	VV	_	0	root	_	SpaceAfter=No
@@ -13117,7 +13117,7 @@
 
 # sent_id = dev-s450
 # text = 嘉莉迪在参加《超级名模生死斗》前是一位摄影师，也曾担任过演员。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	嘉莉迪	嘉莉迪	PROPN	NNP	_	17	subj	_	SpaceAfter=No
 2	在	在	ADP	IN	_	10	comp:obj	_	SpaceAfter=No
 3	参加	参加	VERB	VV	_	2	comp:obj	_	SpaceAfter=No
@@ -13143,7 +13143,7 @@
 
 # sent_id = dev-s451
 # text = 40楼为Penthouse，设4个复式单位。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	40	40	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	楼	楼	NOUN	NN	_	6	subj	_	SpaceAfter=No
 3	为	为	AUX	VC	_	6	mod	_	SpaceAfter=No
@@ -13158,7 +13158,7 @@
 
 # sent_id = dev-s452
 # text = 另外，嘉薛地喜爱研究历史，二战前曾发表一些有关香港通商史和商业史的文章。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	另外	另外	ADV	RB	_	11	mod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	11	punct	_	SpaceAfter=No
 3	嘉薛地	嘉薛地	PROPN	NNP	_	11	subj	_	SpaceAfter=No
@@ -13184,7 +13184,7 @@
 
 # sent_id = dev-s453
 # text = 正传《嘉薰医生》最初是作者陈嘉薰运用自身形象进行创作。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	正传	正传	NOUN	NN	_	7	subj	_	SpaceAfter=No
 2	《	《	PUNCT	(	_	4	punct	_	SpaceAfter=No
 3	嘉薰	嘉薰	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -13204,7 +13204,7 @@
 
 # sent_id = dev-s454
 # text = 学校亦于1956年成立了香港的第一队香港红十字会青年团（Youth Unit One），其后逐渐普及于其他中学，成为香港其中一个最具规模的制服团体。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	学校	学校	NOUN	NN	_	2	subj	_	SpaceAfter=No
 2	亦	亦	ADV	RB	_	0	root	_	SpaceAfter=No
 3	于	于	ADP	IN	_	7	udep	_	SpaceAfter=No
@@ -13251,7 +13251,7 @@
 
 # sent_id = dev-s455
 # text = 深蓝色的背心绒布连身百折裙，配白色恤衫、蓝色的领带和腰带，深蓝色的短袜和黑色皮鞋。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	深蓝	深蓝	NOUN	NN	_	2	compound	_	SpaceAfter=No
 2	色	色	PART	SFN	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	9	mod	_	SpaceAfter=No
@@ -13283,7 +13283,7 @@
 
 # sent_id = dev-s456
 # text = 2011年1月8日，她在亚利桑那州图森市的Safeway超级市场外举办“国会就在你的街角”（Congress on Your Corner）活动时遭枪手击中头部受重伤，当时被枪手击中的另外还有18人。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2011	2011	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	1	1	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -13341,7 +13341,7 @@
 
 # sent_id = dev-s457
 # text = 她也是该州历史上最年轻的女性参议员。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	她	她	PRON	PRP	Person=3	2	subj	_	SpaceAfter=No
 2	也是	也是	AUX	VC	_	0	root	_	SpaceAfter=No
 3	该州	该州	NOUN	NN	_	11	mod	_	SpaceAfter=No
@@ -13357,7 +13357,7 @@
 
 # sent_id = dev-s458
 # text = 噶哈巫语对数词的称呼与台湾各原住民族的数词称呼法，或多或少有相似之处。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	噶哈巫	噶哈巫	PROPN	NNP	_	2	compound	_	SpaceAfter=No
 2	语	语	PART	SFN	_	6	mod	_	SpaceAfter=No
 3	对	对	ADP	IN	_	5	comp:obj@dec	_	SpaceAfter=No
@@ -13386,7 +13386,7 @@
 
 # sent_id = dev-s459
 # text = 1745年，准噶尔汗国爆发大瘟疫，五十岁的噶尔丹策零9月在伊犁染病去世。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1745	1745	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	6	punct	_	SpaceAfter=No
@@ -13410,7 +13410,7 @@
 
 # sent_id = dev-s460
 # text = 而动态性质的名物化以谓语等词加上后缀/-an/等表示，其特性为词语在句中有动态语义（active）连系。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	而	而	ADV	RB	_	0	root	_	SpaceAfter=No
 2	动态	动态	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	性质	性质	NOUN	NN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -13446,7 +13446,7 @@
 
 # sent_id = dev-s461
 # text = 萧瑜认为严光拜访光武帝，表明其爱慕虚荣。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	萧	萧	PROPN	NNP	_	3	subj	_	SpaceAfter=No
 2	瑜	瑜	PROPN	NNP	_	1	flat@name	_	SpaceAfter=No
 3	认为	认为	VERB	VV	_	0	root	_	SpaceAfter=No
@@ -13464,7 +13464,7 @@
 
 # sent_id = dev-s462
 # text = 因实际持有单位台湾银行对古迹维护方式及见解不同，该古迹连同周边附属建物于1993年后严重荒废。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	因	因	ADP	IN	_	26	comp:obl	_	SpaceAfter=No
 2	实际	实际	NOUN	NN	_	4	mod	_	SpaceAfter=No
 3	持有	持有	NOUN	NN	_	4	mod	_	SpaceAfter=No
@@ -13495,7 +13495,7 @@
 
 # sent_id = dev-s463
 # text = 四川北路站周边，目前仍以20世纪建造的石库门住宅和公园绿地为主。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	四川	四川	PROPN	NNP	_	4	mod	_	SpaceAfter=No
 2	北路	北路	PROPN	NNP	_	3	compound	_	SpaceAfter=No
 3	站	站	PART	SFN	_	4	mod	_	SpaceAfter=No
@@ -13520,7 +13520,7 @@
 
 # sent_id = dev-s464
 # text = 明太祖洪武四年（1371年），四川地区并入明朝版图。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	明	明	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	太祖	太祖	NOUN	NN	_	5	mod	_	SpaceAfter=No
 3	洪武	洪武	PROPN	NNP	_	5	mod	_	SpaceAfter=No
@@ -13540,7 +13540,7 @@
 
 # sent_id = dev-s465
 # text = 8世纪的鄂尔浑碑铭中有一部分是回纥人刻成的，但其语言和后东突厥汗国时期的碑刻基本一致，称为古突厥语。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	8	8	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	世纪	世纪	NOUN	NNB	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	5	mod	_	SpaceAfter=No
@@ -13579,7 +13579,7 @@
 
 # sent_id = dev-s466
 # text = 国际天文联会（IAU）将为该组卫星保留因纽特神话名。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	国际	国际	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	天文	天文	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	联会	联会	NOUN	NN	_	11	subj	_	SpaceAfter=No
@@ -13598,7 +13598,7 @@
 
 # sent_id = dev-s467
 # text = 十公主有别于一般皇室宗女，她从儿时起，便经常跟着皇父与大臣公卿会面，亦常与亲哥哥及堂兄弟们混在一起，因此熟知政务。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	十	十	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	公主	公主	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	有别	有别	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -13642,7 +13642,7 @@
 
 # sent_id = dev-s468
 # text = 车站距固始县城约30公里，距西安站822公里，距南京站333公里。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	车站	车站	NOUN	NN	_	7	subj	_	SpaceAfter=No
 2	距	距	ADP	IN	_	7	udep	_	SpaceAfter=No
 3	固始	固始	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -13666,7 +13666,7 @@
 
 # sent_id = dev-s469
 # text = 国联季后赛在NFC冠军赛两队竞争乔治哈拉斯杯达到高潮。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	国联	国联	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	季后	季后	NOUN	NN	_	3	compound	_	SpaceAfter=No
 3	赛	赛	PART	SFN	_	13	subj	_	SpaceAfter=No
@@ -13685,7 +13685,7 @@
 
 # sent_id = dev-s470
 # text = 1993年，该馆文物库房迁到柏林寺藏经楼。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1993	1993	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	7	mod@tmod	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	7	punct	_	SpaceAfter=No
@@ -13701,7 +13701,7 @@
 
 # sent_id = dev-s471
 # text = 国际友谊博物馆是中华人民共和国国家文物局直属的国家级博物馆，“专门收藏、保护、研究和展示新中国对外交往中党和国家领导人受赠的外交礼品”。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	国际	国际	NOUN	NN	_	4	mod	_	SpaceAfter=No
 2	友谊	友谊	NOUN	NN	_	4	mod	_	SpaceAfter=No
 3	博物	博物	NOUN	NN	_	4	compound	_	SpaceAfter=No
@@ -13749,7 +13749,7 @@
 
 # sent_id = dev-s472
 # text = 此外还作为国际奥委会的代表进行技术监督，组织四年一度的世界射击锦标赛；促进和发展教学计划与方法、出版联合会通讯和奖励对国际射联有突出贡献的个人。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	此外	此外	NOUN	NN	_	2	mod	_	SpaceAfter=No
 2	还	还	ADV	RB	_	0	root	_	SpaceAfter=No
 3	作	作	VERB	VV	_	4	comp:obj	_	SpaceAfter=No
@@ -13800,7 +13800,7 @@
 
 # sent_id = dev-s473
 # text = 国际气象节的发起人是一个法国人。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	国际	国际	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	气象	气象	NOUN	NN	_	3	compound	_	SpaceAfter=No
 3	节	节	PART	SFN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -13816,7 +13816,7 @@
 
 # sent_id = dev-s474
 # text = 各国不论政治、经济、社会制度上有何差异，都有义务互相协助。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	各国	各国	NOUN	NN	_	14	subj	_	SpaceAfter=No
 2	不论	不论	ADP	IN	_	18	comp:obl	_	SpaceAfter=No
 3	政治	政治	NOUN	NN	_	2	subj	_	SpaceAfter=No
@@ -13839,7 +13839,7 @@
 
 # sent_id = dev-s475
 # text = 国家有权对其在国外的本国国民的合法权益进行保护，这是国家属人优越权的重要内容之一。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	国家	国家	NOUN	NN	_	13	subj	_	SpaceAfter=No
 2	有权	有权	VERB	VV	_	13	mod	_	SpaceAfter=No
 3	对	对	ADP	IN	_	13	udep	_	SpaceAfter=No
@@ -13870,7 +13870,7 @@
 
 # sent_id = dev-s476
 # text = 追求利润的动机不断推动着一般国际法的向前发展和海商法的形成。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	追求	追求	VERB	VV	_	3	comp:obj@relcl	_	SpaceAfter=No
 2	利润	利润	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
 3	的	的	PART	DEC	_	4	mod@relcl	_	SpaceAfter=No
@@ -13894,7 +13894,7 @@
 
 # sent_id = dev-s477
 # text = 该机构的宗旨为“致力于推动电磁理论及其相关的先进应用，以及在全球范围促进电磁学的教育和学术交流。”
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	该	该	DET	DT	_	2	det	_	SpaceAfter=No
 2	机构	机构	NOUN	NN	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -13930,7 +13930,7 @@
 
 # sent_id = dev-s478
 # text = 这场战役于1553年12月25日发生在智利图卡佩尔。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	这	这	DET	DT	_	2	det	_	SpaceAfter=No
 2	场	场	NOUN	NNB	_	3	clf	_	SpaceAfter=No
 3	战役	战役	NOUN	NN	_	11	subj	_	SpaceAfter=No
@@ -13949,7 +13949,7 @@
 
 # sent_id = dev-s479
 # text = 在南部环礁的一个灯塔小岛上居住着大量海鸟。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	VERB	VV	_	11	mod	_	SpaceAfter=No
 2	南部	南部	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	环礁	环礁	NOUN	NN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -13967,7 +13967,7 @@
 
 # sent_id = dev-s480
 # text = 紧随其后，他们研发了喷气动力的Tu-16轰炸机（北大西洋公约组织命名：獾Badger）。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	紧随	紧随	VERB	VV	_	6	mod	_	SpaceAfter=No
 2	其后	其后	NOUN	NN	_	1	comp:obj	_	SpaceAfter=No
 3	，	，	PUNCT	,	_	6	punct	_	SpaceAfter=No
@@ -13995,7 +13995,7 @@
 
 # sent_id = dev-s481
 # text = 最初总统只是象征式的国家元首，政务由国会主持。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	最初	最初	NOUN	NN	_	4	mod@tmod	_	SpaceAfter=No
 2	总统	总统	NOUN	NN	_	4	subj	_	SpaceAfter=No
 3	只	只	ADV	RB	_	4	mod	_	SpaceAfter=No
@@ -14014,7 +14014,7 @@
 
 # sent_id = dev-s482
 # text = 虽然大部分的总统由民主方法选出，也有部分国家元首是发动政变或起义夺权而产生（如古巴前国务委员会主席菲德尔·卡斯特罗）。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	虽然	虽然	ADP	IN	_	12	comp:obl	_	SpaceAfter=No
 2	大	大	ADJ	JJ	_	5	mod	_	SpaceAfter=No
 3	部分	部分	NOUN	NN	_	4	comp:obj@dec	_	SpaceAfter=No
@@ -14054,7 +14054,7 @@
 
 # sent_id = dev-s483
 # text = 2010年1月12日海地地震中三层中较高的两层倒塌。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	2010	2010	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	6	clf	_	SpaceAfter=No
 3	1	1	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -14076,7 +14076,7 @@
 
 # sent_id = dev-s484
 # text = 于2004年12月，国家应变计划正式生效。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	于	于	ADP	IN	_	11	udep	_	SpaceAfter=No
 2	2004	2004	NUM	CD	NumType=Card	3	mod	_	SpaceAfter=No
 3	年	年	NOUN	NNB	_	5	clf	_	SpaceAfter=No
@@ -14092,7 +14092,7 @@
 
 # sent_id = dev-s485
 # text = 国家足球博物馆（The National Football Museum）是英国的一座博物馆。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	国家	国家	NOUN	NN	_	4	mod	_	SpaceAfter=No
 2	足球	足球	NOUN	NN	_	4	mod	_	SpaceAfter=No
 3	博物	博物	NOUN	NN	_	4	compound	_	SpaceAfter=No
@@ -14114,7 +14114,7 @@
 
 # sent_id = dev-s486
 # text = 74军成军不久随即参与1937年8月13日爆发之淞沪会战，51师在罗店、58师在蕴藻滨战场，随后因损失过重于11月9日撤出淞沪战场休整。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	74	74	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	军	军	NOUN	NN	_	6	subj	_	SpaceAfter=No
 3	成军	成军	VERB	VV	_	4	mod	_	SpaceAfter=No
@@ -14162,7 +14162,7 @@
 
 # sent_id = dev-s487
 # text = 1941年12月日军偷袭珍珠港，随后进攻缅甸，企图切断中国唯一对外之陆上补给线。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1941	1941	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	12	12	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -14190,7 +14190,7 @@
 
 # sent_id = dev-s488
 # text = 第五军军长杜聿明后在史迪威压力下兼任远征军代理司令长官。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	第五	第五	NUM	CD	NumType=Ord	2	mod	_	SpaceAfter=No
 2	军	军	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	军长	军长	NOUN	NN	_	11	subj	_	SpaceAfter=No
@@ -14211,7 +14211,7 @@
 
 # sent_id = dev-s489
 # text = 此时，该军下辖第33师、第117师及独立第6旅，在苏鲁战区担任敌后战场对日作战和被共产党彭雪枫军偷袭，政府军伤亡惨重。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	此时	此时	NOUN	NN	_	23	mod@tmod	_	SpaceAfter=No
 2	，	，	PUNCT	,	_	23	punct	_	SpaceAfter=No
 3	该军	该军	NOUN	NN	_	23	subj	_	SpaceAfter=No
@@ -14252,7 +14252,7 @@
 
 # sent_id = dev-s490
 # text = 当时的香港政府后来把香港以南的航线分予国泰经营，以北的则交予国泰唯一本地对手，怡和洋行属下的香港航空经营。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	当时	当时	NOUN	NN	_	2	comp:obj@dec	_	SpaceAfter=No
 2	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
 3	香港	香港	PROPN	NNP	_	4	mod	_	SpaceAfter=No
@@ -14287,7 +14287,7 @@
 
 # sent_id = dev-s491
 # text = 1946年11月，国立中央大学迁回南京。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1946	1946	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	11	11	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -14303,7 +14303,7 @@
 
 # sent_id = dev-s492
 # text = 1949年1月，南京政府的失败已经成为定局，政府机关开始南迁，中大校长周鸿经也奉命迁校。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1949	1949	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	4	clf	_	SpaceAfter=No
 3	1	1	NUM	CD	NumType=Card	4	mod	_	SpaceAfter=No
@@ -14334,7 +14334,7 @@
 
 # sent_id = dev-s493
 # text = 中央人民政府任命潘菽（原南京大学校长）为校长，孙叔平（原南京市文教局长）为第一副校长，李方训（原金陵大学校长）为第二副校长，保留原南大、金大必要职员组织行政机关。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	中央	中央	NOUN	NN	_	3	mod	_	SpaceAfter=No
 2	人民	人民	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	政府	政府	NOUN	NN	_	43	subj	_	SpaceAfter=No
@@ -14391,7 +14391,7 @@
 
 # sent_id = dev-s494
 # text = 博爱校区的校门目前有两座-北大门、南大门，其中北大门也为博爱校区的主要校门。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	博爱	博爱	PROPN	NNP	_	2	mod	_	SpaceAfter=No
 2	校区	校区	NOUN	NN	_	3	comp:obj@dec	_	SpaceAfter=No
 3	的	的	PART	DEC	Case=Gen	4	mod	_	SpaceAfter=No
@@ -14421,7 +14421,7 @@
 
 # sent_id = dev-s495
 # text = 目前博爱校区并无餐厅进驻，仅有理发部、外工房，不过周遭有许多小吃店，提供学生饮食的服务。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	目前	目前	NOUN	NN	_	10	mod@tmod	_	SpaceAfter=No
 2	博爱	博爱	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 3	校区	校区	NOUN	NN	_	10	subj	_	SpaceAfter=No
@@ -14454,7 +14454,7 @@
 
 # sent_id = dev-s496
 # text = 在这段期间内，有许多球员获选加入国家青年代表队，毕业后也陆续加入各甲组足球队，成为国家代表队的重要来源。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	在	在	ADP	IN	_	7	udep	_	SpaceAfter=No
 2	这	这	DET	DT	_	3	det	_	SpaceAfter=No
 3	段	段	NOUN	NNB	_	4	clf	_	SpaceAfter=No
@@ -14493,7 +14493,7 @@
 
 # sent_id = dev-s497
 # text = 屏东农业学校与台北帝国大学（台湾大学前身）、师范学院（台湾师大前身）、台中农学院（中兴大学前身）、台南工学院（成功大学前身），时为台湾五大学府
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	屏东	屏东	PROPN	NNP	_	3	mod	_	SpaceAfter=No
 2	农业	农业	NOUN	NN	_	3	mod	_	SpaceAfter=No
 3	学校	学校	NOUN	NN	_	41	subj	_	SpaceAfter=No
@@ -14542,7 +14542,7 @@
 
 # sent_id = dev-s498
 # text = 一楼为供学生自习的K书中心，二楼为期刊阅览室，有数部可上网的电脑供师生查阅、列印资料，并设有咖啡机，三楼为普通阅览室，四楼为邻近音乐教室的“红土艺术空间”与美术教室，五楼为演艺厅。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	一	一	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	楼	楼	NOUN	NN	_	3	subj	_	SpaceAfter=No
 3	为	为	AUX	VC	_	0	root	_	SpaceAfter=No
@@ -14612,7 +14612,7 @@
 
 # sent_id = dev-s499
 # text = 1955年国立清华大学于新竹复校，1965年恢复物理系大学部。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	1955	1955	NUM	CD	NumType=Card	2	mod	_	SpaceAfter=No
 2	年	年	NOUN	NNB	_	9	mod@tmod	_	SpaceAfter=No
 3	国	国	NOUN	NN	_	4	subj	_	SpaceAfter=No
@@ -14634,7 +14634,7 @@
 
 # sent_id = dev-s500
 # text = 但在规划过程中，是否能有足够的讨论时间与效率，一直饱受争议。
-# timestamp = 1600851859836
+# timestamp = 1600935582012
 1	但	但	ADV	RB	_	0	root	_	SpaceAfter=No
 2	在	在	ADP	IN	_	18	udep	_	SpaceAfter=No
 3	规划	规划	NOUN	NN	_	4	mod	_	SpaceAfter=No

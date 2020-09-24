@@ -219,18 +219,7 @@ def get_infos(project_name, current_user):
         }
     return settings_info
 
-def get_project_samples(project_name):
-    project = project_dao.find_by_name(project_name)
-    reply = grew_request('getSamples', current_app, data = {'project_id': project_name} )
-    js = json.loads(reply)
-    data = js.get("data")
-    samples=[]
-    if data:
-        for sa in data:
-            sample={'samplename':sa['name'], 'sentences':sa['number_sentences'], 'number_trees':sa['number_trees'], 'tokens':sa['number_tokens'], 'treesFrom':sa['users'], "roles":{}}
-            sample["roles"] = project_dao.get_sample_roles(project.id, sa['name'])
-            samples.append(sample)
-    return samples
+
 
 def get_project_treesfrom(project_name):
     """ get users from treesFrom values """
@@ -633,3 +622,5 @@ def update_metafeatures(project, updated_features):
         project_dao.add_metafeatures(project, to_add)
 
     return project_dao.find_project_metafeatures(project)
+
+    

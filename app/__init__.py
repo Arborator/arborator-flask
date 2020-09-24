@@ -53,6 +53,9 @@ def create_app(config_name):
 	from .controllers.project import project as project_blueprint
 	app.register_blueprint(project_blueprint, url_prefix='/api/projects')
 
+	from .controllers.samples import samples as samples_blueprint
+	app.register_blueprint(samples_blueprint, url_prefix='/api/projects')
+
 	# with app.app_context():
 	# 	from main import main as main_blueprint
 	# 	app.register_blueprint(...)
