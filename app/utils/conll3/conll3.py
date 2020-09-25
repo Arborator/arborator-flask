@@ -348,12 +348,45 @@ def sentences2emptyConllFile(infile, outfile):
 		for line in inf:
 			line=line.strip()
 			if line:
-				for i,word in enumerate(line.split()):
-					outf.write("\t".join([str(i+1),word,word,"_","_","_","-1","_","_","_"])+"\n")
+				conllu_string = sentenceToEmptyConlluString(line)
+				outf.write(conllu_string)
 				outf.write("\n")
 				counter+=1
 		inf.close()
 	# print(counter, "sentences")
+
+def sentenceToEmptyConlluString(sentence):
+	conllu_string = ""
+	for i,word in enumerate(sentence.split()):
+			conllu_string += "\t".join([str(i+1),word,word,"_","_","_","-1","_","_","_"])+"\n"
+	return conllu_string
+
+def emptyConllu(conllu):
+	processed_lines = []
+	for line in conllu.split("\n"):
+		if not line.startswith("#"):
+			rows = line.split("\t")
+			for i in range(2, len(rows)):
+				rows[i] = "_"
+			line = "\t".join(rows)
+		processed_lines.append(line)
+
+	emptied_conllu = "\n".join(processed_lines)
+	return emptied_conllu
+
+def changeMetaField(conllu, target_field, new_value):
+	processed_lines = []
+	for line in conllu.split("\n"):
+		if line.startswith("#"):
+			field = line.split(" = ")[0].strip("# ")
+			if field == target_field:
+				line = "# " + target_field + " = " + str(new_value)
+	
+		processed_lines.append(line)
+	
+	processed_conllu = "\n".join(processed_lines)
+	return processed_conllu
+
 
 def conllFolder2trees(folder):
 	fichiers = glob.glob(folder+"*.conllu")

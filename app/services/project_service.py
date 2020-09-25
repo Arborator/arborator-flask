@@ -357,33 +357,6 @@ def is_validator(project_id, sample_name, user_id):
 def get_possible_roles():
     return project_dao.get_possible_roles()
 
-def samples2trees(samples, sample_name):
-    ''' transforms a list of samples into a trees object '''
-    trees={}
-    for sentId, users in samples.items():	
-        for userId, conll in users.items():
-            tree = conll3.conll2tree(conll)
-            if sentId not in trees: trees[sentId] = {"samplename":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
-            trees[sentId]["conlls"][userId] = conll
-    return trees
-
-def samples2trees_with_restrictions(samples, sample_name, current_user, project_name):
-    ''' transforms a list of samples into a trees object and restrict it to user trees and default tree(s) '''
-    trees={}
-    p = project_dao.find_by_name(project_name)
-    default_user_trees_ids = [dut.username for dut in project_dao.find_default_user_trees(p.id)]
-
-    default_usernames = list()
-    default_usernames = default_user_trees_ids
-    # if len(default_user_trees_ids) > 0: default_usernames = user_dao.find_username_by_ids(default_user_trees_ids)
-    if current_user.username not in default_usernames: default_usernames.append(current_user.username)
-    for sentId, users in samples.items():	
-        filtered_users = { username: users[username] for username in default_usernames  if username in users}
-        for userId, conll in filtered_users.items():
-            tree = conll3.conll2tree(conll)
-            if sentId not in trees: trees[sentId] = {"samplename":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
-            trees[sentId]["conlls"][userId] = conll
-    return trees
 
 def add_or_keep_timestamps(conll_file):
     ''' adds a timestamp on the tree if there is not one '''

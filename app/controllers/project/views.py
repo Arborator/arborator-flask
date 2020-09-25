@@ -765,41 +765,41 @@ def sample_export(project_name):
 	return resp
 
 
-@project.route('/<project_name>/sample/<sample_name>', methods=['GET'])
-def samplepage(project_name, sample_name):
-	"""
-	GET
-	nb_sentences, nb_trees, list of annotators, list of validators
+# @project.route('/<project_name>/sample/<sample_name>', methods=['GET'])
+# def samplepage(project_name, sample_name):
+# 	"""
+# 	GET
+# 	nb_sentences, nb_trees, list of annotators, list of validators
 
-	TODO: tester si le projet est privé
-	pour l'arbre : annotateur ne peut pas voir d'autres arbres sauf la base
+# 	TODO: tester si le projet est privé
+# 	pour l'arbre : annotateur ne peut pas voir d'autres arbres sauf la base
 
-	returns:
-	{
-	"P_ABJ_GWA_10_Steven-lifestory_PRO_1": {
-		"sentence": "fdfdfsf",
-		"conlls":{
-		"yuchen": "# elan_id = ABJ_GWA_10_M_001 ABJ_GWA_10_M_002 ABJ_GWA_10_M_003\n# sent_id = P_ABJ_GWA_10_Steven-lifestory_PRO_1\n# sent_translation = I stay with my mother in the village. #\n# text = I dey stay with my moder //+ # for village //\n1\tI\t_\tINTJ\t_\tCase=Nom|endali=2610|Number=Sing|Person=1|PronType=Prs|
-		....
-	"""
-	print ("========[getConll]")
-	reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
-	reendswithnumbers = re.compile(r"_(\d+)$")
+# 	returns:
+# 	{
+# 	"P_ABJ_GWA_10_Steven-lifestory_PRO_1": {
+# 		"sentence": "fdfdfsf",
+# 		"conlls":{
+# 		"yuchen": "# elan_id = ABJ_GWA_10_M_001 ABJ_GWA_10_M_002 ABJ_GWA_10_M_003\n# sent_id = P_ABJ_GWA_10_Steven-lifestory_PRO_1\n# sent_translation = I stay with my mother in the village. #\n# text = I dey stay with my moder //+ # for village //\n1\tI\t_\tINTJ\t_\tCase=Nom|endali=2610|Number=Sing|Person=1|PronType=Prs|
+# 		....
+# 	"""
+# 	print ("========[getConll]")
+# 	reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
+# 	reendswithnumbers = re.compile(r"_(\d+)$")
 	
-	if reply.get("status") == "OK":
-		samples = reply.get("data", {})	
-		project = project_service.get_by_name(project_name)
-		if not project: abort(404)
-		if project.show_all_trees or project.visibility == 2:
-			js = json.dumps( project_service.samples2trees(samples, sample_name) )
-		else:
-			validator = project_service.is_validator(project.id, sample_name, current_user.id)
-			if validator:  js = json.dumps( project_service.samples2trees(samples, sample_name) )
-			else:  js = json.dumps( project_service.samples2trees_with_restrictions(samples, sample_name, current_user, project_name) )
-		# print(js)
-		resp = Response(js, status=200,  mimetype='application/json')
-		return resp
-	else: abort(409)
+# 	if reply.get("status") == "OK":
+# 		samples = reply.get("data", {})	
+# 		project = project_service.get_by_name(project_name)
+# 		if not project: abort(404)
+# 		if project.show_all_trees or project.visibility == 2:
+# 			js = json.dumps( project_service.samples2trees(samples, sample_name) )
+# 		else:
+# 			validator = project_service.is_validator(project.id, sample_name, current_user.id)
+# 			if validator:  js = json.dumps( project_service.samples2trees(samples, sample_name) )
+# 			else:  js = json.dumps( project_service.samples2trees_with_restrictions(samples, sample_name, current_user, project_name) )
+# 		# print(js)
+# 		resp = Response(js, status=200,  mimetype='application/json')
+# 		return resp
+# 	else: abort(409)
  
 
 @project.route('/<project_name>/sample/<sample_name>/search', methods=['GET', 'POST'])
@@ -1021,16 +1021,21 @@ def save_trees(project_name):
 			if not conll: abort(400)
 			if project.visibility != 2:
 				if not project_service.is_annotator(project.id, sample_name, current_user.id) or not project_service.is_validator(project.id, sample_name, current_user.id):
-					abort(403)
-	
+					if project.exercise_mode == 0:
+						abort(403)
+			
+			TEACHER = "teacher"
+			if (project.exercise_mode == 1 and user_id == TEACHER):
+				conll = conll3.changeMetaField(conll, "user_id", TEACHER)
 			print(">>>>", project_name)
+			
 			reply = grew_request (
 				'saveGraph', current_app,
 				data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':user_id, 'sent_id':sent_id, "conll_graph":conll}
 				)
 			resp = json.loads(reply)
+			print("KK resp", resp)
 			if resp["status"] != "OK":
-				print(resp)
 				if "data" in resp:
 					response = jsonify({'status': 400, 'message': str(resp["data"])  })
 				else: 
@@ -1038,7 +1043,7 @@ def save_trees(project_name):
 				response.status_code = 400
 				abort(response)
 			
-	resp = Response(dict(), status=200,  mimetype='application/json')
+	resp = Response({}, status=200,  mimetype='application/json')
 	return resp
 
 
