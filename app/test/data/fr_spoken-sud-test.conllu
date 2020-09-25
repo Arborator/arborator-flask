@@ -1,6 +1,5 @@
 # sent_id = 2061
 # text = euh il y a une petite bifurcation euh juste avant la place du Tribunal
-# timestamp = 1601037997263
 1	euh	euh	INTJ	_	_	4	discourse	_	_
 2	il	il	PRON	_	_	4	comp:obj@expl	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -18,7 +17,6 @@
 
 # sent_id = 2062
 # text = tu passes à côté d' une petite fontaine
-# timestamp = 1601037997263
 1	tu	tu	PRON	_	_	2	subj	_	_
 2	passes	passer	VERB	ETRE	_	0	root	_	_
 3	à	à	ADP	_	_	2	obl@comp	_	_
@@ -30,7 +28,6 @@
 
 # sent_id = 2063
 # text = tu arrives place aux Herbes avec une une sorte de halle quoi de de de structure métallique
-# timestamp = 1601037997263
 1	tu	tu	PRON	_	_	2	subj	_	_
 2	arrives	arriver	VERB	ETRE	_	0	root	_	_
 3	place	place	NOUN	_	_	2	comp:obj	_	_
@@ -51,7 +48,6 @@
 
 # sent_id = 2064
 # text = tu continues la rue la petite rue
-# timestamp = 1601037997263
 1	tu	tu	PRON	_	_	2	subj	_	_
 2	continues	continuer	VERB	_	_	0	root	_	_
 3	la	le	DET	_	_	4	det	_	_
@@ -62,7 +58,6 @@
 
 # sent_id = 2065
 # text = et tu arrives à la fontaine euh place Notre - Dame
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	tu	tu	PRON	_	_	3	subj	_	_
 3	arrives	arriver	VERB	ETRE	_	0	root	_	_
@@ -77,14 +72,12 @@
 
 # sent_id = 2066
 # text = et ben voilà
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	ben	ben	INTJ	_	_	3	discourse	_	_
 3	voilà	voilà	VERB	_	_	0	root	_	_
 
 # sent_id = 2067
 # text = il y a des produits qui vous changent tellement la vie qu' on se dit mais pourquoi on ne les a pas inventés plus tôt
-# timestamp = 1601037997263
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -113,7 +106,6 @@
 
 # sent_id = 2068
 # text = eh bien c' est le cas aujourd' hui de ce produit vraiment révolutionnaire
-# timestamp = 1601037997263
 1	eh	eh	INTJ	_	_	6	discourse	_	_
 2	bien	bien	INTJ	_	_	6	discourse	_	_
 3	c'	ce	PRON	_	_	4	subj	_	_
@@ -130,7 +122,6 @@
 
 # sent_id = 2069
 # text = alors au début on n' y croyait pas trop avec toute l' équipe de la boutique Valérie
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	7	mod@periph	_	_
 2	au	à+le	ADP	_	_	7	obl@periph	_	_
 3	début	début	NOUN	_	_	2	comp:obj	_	_
@@ -151,7 +142,6 @@
 
 # sent_id = 2070
 # text = et pourtant aujourd' hui on y croit dur comme fer
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	7	cc	_	_
 2	pourtant	pourtant	ADV	_	_	7	mod@periph	_	_
 3	aujourd'	aujourd'	NOUN	_	_	7	mod	_	_
@@ -165,7 +155,6 @@
 
 # sent_id = 2071
 # text = il s' agit tout simplement de ceci une boule de lavage que vous allez placer au coeur de votre linge sans rien d' autre avant de mettre votre machine en route
-# timestamp = 1601037997263
 1	il	il	PRON	_	_	3	subj	_	_
 2	s'	se	PRON	_	_	3	unk@iobj	_	_
 3	agit	agir	VERB	_	_	0	root	_	_
@@ -200,7 +189,6 @@
 
 # sent_id = 2072
 # text = ensuite admirez le résultat
-# timestamp = 1601037997263
 1	ensuite	ensuite	ADV	_	_	2	mod@periph	_	_
 2	admirez	admirer	VERB	_	_	0	root	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -208,7 +196,6 @@
 
 # sent_id = 2073
 # text = voilà c' est ça qui est incroyable effectivement
-# timestamp = 1601037997263
 1	voilà	voilà	VERB	DISCOURSE	_	3	parataxis@discourse	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -220,7 +207,6 @@
 
 # sent_id = 2074
 # text = vous oubliez vos produits habituels
-# timestamp = 1601037997263
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	oubliez	oublier	VERB	_	_	0	root	_	_
 3	vos	son	DET	_	_	4	det	_	_
@@ -229,7 +215,6 @@
 
 # sent_id = 2075
 # text = et vous mettez à l' intérieur la boule magique la boule de lavage avec vos vêtements
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	mettez	mettre	VERB	_	_	0	root	_	_
@@ -249,7 +234,6 @@
 
 # sent_id = 2076
 # text = et vous allez voir le résultat
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	allez	aller	VERB	ETRE	_	0	root	_	_
@@ -259,7 +243,6 @@
 
 # sent_id = 2077
 # text = on peut véritablement parler de miracle Valérie hein
-# timestamp = 1601037997263
 1	on	on	PRON	_	_	2	subj	_	_
 2	peut	pouvoir	AUX	_	_	0	root	_	_
 3	véritablement	véritablement	ADV	_	_	2	mod	_	_
@@ -271,13 +254,11 @@
 
 # sent_id = 2078
 # text = et regardez
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	2	cc	_	_
 2	regardez	regarder	VERB	_	_	0	root	_	_
 
 # sent_id = 2079
 # text = on l' a mise à l' épreuve en présence d' un huissier pour vous prouver effectivement ce que l' on vous raconte
-# timestamp = 1601037997263
 1	on	on	PRON	_	_	3	subj	_	_
 2	l'	le	PRON	_	_	4	comp:obj	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -303,7 +284,6 @@
 
 # sent_id = 2080
 # text = nous allons vous prouver l' efficacité de notre boule magique notre boule de lavage en compagnie de maître Vendiste huissier de justice
-# timestamp = 1601037997263
 1	nous	nous	PRON	_	_	2	subj	_	_
 2	allons	aller	VERB	ETRE	_	0	root	_	_
 3	vous	vous	PRON	_	_	2	comp:obl	_	_
@@ -329,19 +309,16 @@
 
 # sent_id = 2081
 # text = bonjour maître
-# timestamp = 1601037997263
 1	bonjour	bonjour	INTJ	_	_	0	root	_	_
 2	maître	maître	NOUN	_	_	1	unk	_	_
 
 # sent_id = 2082
 # text = bonjour Pierre
-# timestamp = 1601037997263
 1	bonjour	bonjour	INTJ	_	_	0	root	_	_
 2	Pierre	Pierre	PROPN	_	_	1	unk	_	_
 
 # sent_id = 2083
 # text = alors voulez -vous bien vérifier qu' il n' y ait pas de lessive à l' intérieur de notre machine à laver dans le tambour et également dans le tiroir
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	2	mod@periph	_	_
 2	voulez	vouloir	AUX	_	_	0	root	_	_
 3	-vous	vous	PRON	_	_	2	subj	_	_
@@ -374,7 +351,6 @@
 
 # sent_id = 2084
 # text = la machine est vide
-# timestamp = 1601037997263
 1	la	le	DET	_	_	2	det	_	_
 2	machine	machine	NOUN	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -382,13 +358,11 @@
 
 # sent_id = 2085
 # text = alors regardez
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	2	discourse	_	_
 2	regardez	regarder	VERB	_	_	0	root	_	_
 
 # sent_id = 2086
 # text = on va mettre ici cette chemise avec du fond de teint sur le col difficile à partir également une grosse tache de café
-# timestamp = 1601037997263
 1	on	on	PRON	_	_	2	subj	_	_
 2	va	aller	VERB	ETRE	_	0	root	_	_
 3	mettre	mettre	VERB	_	_	2	comp:pred	_	_
@@ -415,14 +389,12 @@
 
 # sent_id = 2087
 # text = vous constatez maître
-# timestamp = 1601037997263
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	constatez	constater	VERB	_	_	0	root	_	_
 3	maître	maître	NOUN	_	_	2	dislocated	_	_
 
 # sent_id = 2088
 # text = très sale très très sale
-# timestamp = 1601037997263
 1	très	très	ADV	_	_	2	mod	_	_
 2	sale	sale	ADJ	_	_	0	root	_	_
 3	très	très	ADV	_	_	5	mod	_	_
@@ -431,7 +403,6 @@
 
 # sent_id = 2089
 # text = on a ici un pantalon avec une grosse tache de grenadine
-# timestamp = 1601037997263
 1	on	on	PRON	_	_	2	subj	_	_
 2	a	avoir	VERB	_	_	0	root	_	_
 3	ici	ici	ADV	_	_	2	mod	_	_
@@ -446,7 +417,6 @@
 
 # sent_id = 2090
 # text = je le mets également à l' intérieur
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	3	subj	_	_
 2	le	le	PRON	_	_	3	comp:obj	_	_
 3	mets	mettre	VERB	_	_	0	root	_	_
@@ -457,7 +427,6 @@
 
 # sent_id = 2091
 # text = et puis on a notre paire de baskets également très salie
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	puis	puis	ADV	_	_	1	unk@fixed	_	_
 3	on	on	PRON	_	_	4	subj	_	_
@@ -472,7 +441,6 @@
 
 # sent_id = 2092
 # text = allez dans notre machine
-# timestamp = 1601037997263
 1	allez	aller	VERB	ETRE	_	0	root	_	_
 2	dans	dans	ADP	_	_	1	mod	_	_
 3	notre	son	DET	_	_	4	det	_	_
@@ -480,7 +448,6 @@
 
 # sent_id = 2093
 # text = on va rajouter tout simplement notre boule magique qui va remplacer votre lessive à l' intérieur du tambour
-# timestamp = 1601037997263
 1	on	on	PRON	_	_	2	subj	_	_
 2	va	aller	VERB	ETRE	_	0	root	_	_
 3	rajouter	rajouter	VERB	_	_	2	comp:pred	_	_
@@ -502,7 +469,6 @@
 
 # sent_id = 2094
 # text = je ferme le tiroir
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	2	subj	_	_
 2	ferme	fermer	VERB	_	_	0	root	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -510,7 +476,6 @@
 
 # sent_id = 2095
 # text = je ferme également le hublot
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	2	subj	_	_
 2	ferme	fermer	VERB	_	_	0	root	_	_
 3	également	également	ADV	_	_	2	mod	_	_
@@ -519,7 +484,6 @@
 
 # sent_id = 2096
 # text = vous mettez les scellés les scellés sur le hublot et également sur le tiroir
-# timestamp = 1601037997263
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	mettez	mettre	VERB	_	_	0	root	_	_
 3	les	le	DET	_	_	4	det	_	_
@@ -537,7 +501,6 @@
 
 # sent_id = 2097
 # text = maître c' est parti effectivement
-# timestamp = 1601037997263
 1	maître	maître	NOUN	_	_	3	dislocated	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -546,7 +509,6 @@
 
 # sent_id = 2098
 # text = je mets en marche
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	2	subj	_	_
 2	mets	mettre	VERB	_	_	0	root	_	_
 3	en	en	ADP	_	_	2	mod	_	_
@@ -554,7 +516,6 @@
 
 # sent_id = 2099
 # text = et c' est parti donc pour une heure quarante-cinq de lavage
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -569,7 +530,6 @@
 
 # sent_id = 2100
 # text = et on se retrouve juste après
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	on	on	PRON	_	_	4	subj	_	_
 3	se	se	PRON	_	_	4	unk@obj	_	_
@@ -579,7 +539,6 @@
 
 # sent_id = 2101
 # text = le cycle de lavage est terminé
-# timestamp = 1601037997263
 1	le	le	DET	_	_	2	det	_	_
 2	cycle	cycle	NOUN	_	_	5	subj	_	_
 3	de	de	ADP	_	_	2	udep	_	_
@@ -589,7 +548,6 @@
 
 # sent_id = 2102
 # text = je vais vous demander maître de briser le scellé sur notre hublot
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	2	subj	_	_
 2	vais	aller	VERB	ETRE	_	0	root	_	_
 3	vous	vous	PRON	_	_	2	comp:obl	_	_
@@ -605,7 +563,6 @@
 
 # sent_id = 2103
 # text = voilà qui est fait
-# timestamp = 1601037997263
 1	voilà	voilà	VERB	_	_	0	root	_	_
 2	qui	qui	PRON	_	_	3	subj@pass	_	_
 3	est	être	AUX	_	_	1	unk	_	_
@@ -613,13 +570,11 @@
 
 # sent_id = 2104
 # text = j' ouvre
-# timestamp = 1601037997263
 1	j'	je	PRON	_	_	2	subj	_	_
 2	ouvre	ouvrir	VERB	_	_	0	root	_	_
 
 # sent_id = 2105
 # text = et nous allons voir le résultat
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	nous	nous	PRON	_	_	3	subj	_	_
 3	allons	aller	VERB	ETRE	_	0	root	_	_
@@ -629,7 +584,6 @@
 
 # sent_id = 2106
 # text = alors ici nous avions notre pantalon avec des taches de grenadine
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	4	mod@periph	_	_
 2	ici	ici	ADV	_	_	4	mod@periph	_	_
 3	nous	nous	PRON	_	_	4	subj	_	_
@@ -644,7 +598,6 @@
 
 # sent_id = 2107
 # text = il y a plus rien là hein
-# timestamp = 1601037997263
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -655,7 +608,6 @@
 
 # sent_id = 2108
 # text = vous constatez maître comme moi
-# timestamp = 1601037997263
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	constatez	constater	VERB	_	_	0	root	_	_
 3	maître	maître	NOUN	_	_	2	dislocated	_	_
@@ -664,7 +616,6 @@
 
 # sent_id = 2109
 # text = je ne vois plus de taches
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	3	subj	_	_
 2	ne	ne	PART	_	_	3	mod	_	_
 3	vois	voir	VERB	_	_	0	root	_	_
@@ -674,14 +625,12 @@
 
 # sent_id = 2110
 # text = c' est propre
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	propre	propre	ADJ	_	_	2	comp:pred	_	_
 
 # sent_id = 2111
 # text = nous avions également ici notre chemisier alors avec sur le col du fond de teint
-# timestamp = 1601037997263
 1	nous	nous	PRON	_	_	2	subj	_	_
 2	avions	avoir	VERB	_	_	0	root	_	_
 3	également	également	ADV	_	_	2	mod	_	_
@@ -700,7 +649,6 @@
 
 # sent_id = 2112
 # text = là il y a plus rien et également sur le côté plus de traces de café
-# timestamp = 1601037997263
 1	là	là	ADV	_	_	4	mod@periph	_	_
 2	il	il	PRON	_	_	4	comp:obj@expl	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -720,14 +668,12 @@
 
 # sent_id = 2113
 # text = c' est impeccable
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	impeccable	impeccable	ADJ	_	_	2	comp:pred	_	_
 
 # sent_id = 2114
 # text = ensuite nos chaussures qui sont ici waouh
-# timestamp = 1601037997263
 1	ensuite	ensuite	ADV	_	_	7	mod@periph	_	_
 2	nos	son	DET	_	_	3	det	_	_
 3	chaussures	chaussure	NOUN	_	_	7	dislocated	_	_
@@ -738,7 +684,6 @@
 
 # sent_id = 2115
 # text = ça c' est beau hein
-# timestamp = 1601037997263
 1	ça	ça	PRON	_	_	3	dislocated	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -747,14 +692,12 @@
 
 # sent_id = 2116
 # text = elles sont blanches
-# timestamp = 1601037997263
 1	elles	il	PRON	_	_	2	subj	_	_
 2	sont	être	AUX	_	_	0	root	_	_
 3	blanches	blanc	ADJ	_	_	2	comp:pred	_	_
 
 # sent_id = 2117
 # text = blanc immaculé pour les chaussures
-# timestamp = 1601037997263
 1	blanc	blanc	ADJ	_	_	0	root	_	_
 2	immaculé	immaculé	ADJ	_	_	1	unk	_	_
 3	pour	pour	ADP	_	_	1	mod	_	_
@@ -763,7 +706,6 @@
 
 # sent_id = 2118
 # text = et tout cela grâce à notre boule de lavage maître
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	tout	tout	ADJ	_	_	3	mod	_	_
 3	cela	cela	PRON	_	_	0	root	_	_
@@ -777,7 +719,6 @@
 
 # sent_id = 2119
 # text = alors qu' est - ce qu' on peut dire en conclusion eh bien que sans savon rien qu' avec la boule tous ces linges sont propres
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	2	discourse	_	_
 2	qu'	qu'	PRON	_	_	3	comp:pred	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -807,14 +748,12 @@
 
 # sent_id = 2120
 # text = merci beaucoup maître
-# timestamp = 1601037997263
 1	merci	merci	NOUN	_	_	0	root	_	_
 2	beaucoup	beaucoup	ADV	_	_	1	mod	_	_
 3	maître	maître	NOUN	_	_	1	unk	_	_
 
 # sent_id = 2121
 # text = donc la boule de lavage notre boule magique elle va véritablement remplacer votre lessive
-# timestamp = 1601037997263
 1	donc	donc	ADV	_	_	10	mod@periph	_	_
 2	la	le	DET	_	_	3	det	_	_
 3	boule	boule	NOUN	_	_	10	dislocated	_	_
@@ -832,7 +771,6 @@
 
 # sent_id = 2122
 # text = alors comment ça marche
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	4	mod@periph	_	_
 2	comment	comment	PRON	_	_	4	mod	_	_
 3	ça	ça	PRON	_	_	4	subj	_	_
@@ -840,7 +778,6 @@
 
 # sent_id = 2123
 # text = eh bien le secret il est là dans ce eh oui petit bruit que l' on entend
-# timestamp = 1601037997263
 1	eh	eh	INTJ	_	_	7	discourse	_	_
 2	bien	bien	INTJ	_	_	7	discourse	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -861,7 +798,6 @@
 
 # sent_id = 2124
 # text = qu' est - ce qu' c' est
-# timestamp = 1601037997263
 1	qu'	qu'	PRON	_	_	2	comp:pred	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	-	-	PUNCT	_	_	4	punct	_	_
@@ -872,7 +808,6 @@
 
 # sent_id = 2125
 # text = alors eh bah tout simplement
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	5	mod@periph	_	_
 2	eh	eh	INTJ	_	_	1	discourse	_	_
 3	bah	bah	INTJ	_	_	1	discourse	_	_
@@ -881,7 +816,6 @@
 
 # sent_id = 2126
 # text = Pierre à l' intérieur de la boule magique il y a des billes en céramique qui ont chacune une efficacité de lavage tout à fait différents
-# timestamp = 1601037997263
 1	Pierre	Pierre	PROPN	_	_	11	dislocated	_	_
 2	à	à	ADP	_	_	11	obl@periph	_	_
 3	l'	le	DET	_	_	4	det	_	_
@@ -911,7 +845,6 @@
 
 # sent_id = 2127
 # text = et là ce que je vous propose c' est d' écouter bien sûr le spécialiste nous expliquer comment ça marche notre boule magique
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	9	cc	_	_
 2	là	là	ADV	_	_	9	mod@periph	_	_
 3	ce	ce	PRON	_	_	9	dislocated	_	_
@@ -938,7 +871,6 @@
 
 # sent_id = 2128
 # text = grâce au rayonnement à infra rouge la boule magique accroît le mouvement moléculaire de l' eau et renforce donc son pouvoir nettoyant
-# timestamp = 1601037997263
 1	grâce	grâce	NOUN	_	_	10	dislocated	_	_
 2	au	à+le	ADP	_	_	1	udep	_	_
 3	rayonnement	rayonnement	NOUN	_	_	2	comp:obj	_	_
@@ -964,7 +896,6 @@
 
 # sent_id = 2129
 # text = elle abaisse la tension superficielle de l' eau
-# timestamp = 1601037997263
 1	elle	il	PRON	_	_	2	subj	_	_
 2	abaisse	abaisser	VERB	_	_	0	root	_	_
 3	la	le	DET	_	_	4	det	_	_
@@ -976,7 +907,6 @@
 
 # sent_id = 2130
 # text = ce qui permet une meilleure pénétration au niveau de la fibre textile
-# timestamp = 1601037997263
 1	ce	ce	PRON	_	_	0	root	_	_
 2	qui	qui	PRON	_	_	3	subj	_	_
 3	permet	permettre	VERB	_	_	1	mod@relcl	_	_
@@ -992,7 +922,6 @@
 
 # sent_id = 2131
 # text = de plus en émettant des ions négatifs elle réduit l' adhésion entre les fibres
-# timestamp = 1601037997263
 1	de	de	ADP	_	_	9	mod@periph	_	_
 2	plus	plus	ADV	_	_	1	comp:obj	_	_
 3	en	en	ADP	_	_	9	mod@periph	_	_
@@ -1010,7 +939,6 @@
 
 # sent_id = 2132
 # text = ce qui va faciliter l' élimination des impuretés
-# timestamp = 1601037997263
 1	ce	ce	PRON	_	_	0	root	_	_
 2	qui	qui	PRON	_	_	3	subj	_	_
 3	va	aller	VERB	ETRE	_	1	mod@relcl	_	_
@@ -1022,7 +950,6 @@
 
 # sent_id = 2133
 # text = la boule magique capte le chlore présent dans l' eau de ville et protège l' élasticité et les couleurs du tissu
-# timestamp = 1601037997263
 1	la	le	DET	_	_	2	det	_	_
 2	boule	boule	NOUN	_	_	4	subj	_	_
 3	magique	magique	ADJ	_	_	2	mod	_	_
@@ -1047,7 +974,6 @@
 
 # sent_id = 2134
 # text = ne contenant aucun détergent elle ne laisse aucun résidu de substance allergène sur les vêtements
-# timestamp = 1601037997263
 1	ne	ne	PART	_	_	2	mod	_	_
 2	contenant	contenir	VERB	_	_	7	mod@periph	_	_
 3	aucun	aucun	PRON	_	_	4	det	_	_
@@ -1066,7 +992,6 @@
 
 # sent_id = 2135
 # text = ce qui écarte tout risque d' irritation ou d' allergie
-# timestamp = 1601037997263
 1	ce	ce	PRON	_	_	0	root	_	_
 2	qui	qui	PRON	_	_	3	subj	_	_
 3	écarte	écarter	VERB	_	_	1	mod@relcl	_	_
@@ -1080,7 +1005,6 @@
 
 # sent_id = 2136
 # text = et vous allez faire en plus d' énormes économies
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	allez	aller	VERB	ETRE	_	0	root	_	_
@@ -1093,7 +1017,6 @@
 
 # sent_id = 2137
 # text = car si vous utilisez votre boule magique à d' une machine par jour et pendant trois ans plus de mille euros hein
-# timestamp = 1601037997263
 1	car	car	CCONJ	_	_	18	cc	_	_
 2	si	si	SCONJ	_	_	18	mod	_	_
 3	vous	vous	PRON	_	_	4	subj	_	_
@@ -1119,7 +1042,6 @@
 
 # sent_id = 2138
 # text = c' est vraiment exceptionnel
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	vraiment	vraiment	ADV	_	_	2	mod@periph	_	_
@@ -1127,7 +1049,6 @@
 
 # sent_id = 2139
 # text = alors Magalie est avec nous
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	4	mod@periph	_	_
 2	Magalie	Magalie	PROPN	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -1136,7 +1057,6 @@
 
 # sent_id = 2140
 # text = Magalie utilise depuis combien de temps notre boule magique depuis deux mois
-# timestamp = 1601037997263
 1	Magalie	Magalie	PROPN	_	_	2	subj	_	_
 2	utilise	utiliser	VERB	_	_	0	root	_	_
 3	depuis	depuis	ADP	_	_	2	mod	_	_
@@ -1152,7 +1072,6 @@
 
 # sent_id = 2141
 # text = alors dites -nous comment est votre linge
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	2	mod@periph	_	_
 2	dites	dire	VERB	_	_	0	root	_	_
 3	-nous	nous	PRON	_	_	2	comp:obl	_	_
@@ -1163,7 +1082,6 @@
 
 # sent_id = 2142
 # text = qu' est - ce qu' vous en pensez de la boule magique
-# timestamp = 1601037997263
 1	qu'	qu'	PRON	_	_	2	comp:pred	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	-	-	PUNCT	_	_	4	punct	_	_
@@ -1179,14 +1097,12 @@
 
 # sent_id = 2143
 # text = c' est génial
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	génial	génial	ADJ	_	_	2	comp:pred	_	_
 
 # sent_id = 2144
 # text = mon linge est super propre
-# timestamp = 1601037997263
 1	mon	son	DET	_	_	2	det	_	_
 2	linge	linge	NOUN	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -1195,7 +1111,6 @@
 
 # sent_id = 2145
 # text = il est d' une incroyable douceur
-# timestamp = 1601037997263
 1	il	il	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	d'	de	ADP	_	_	2	comp:pred	_	_
@@ -1205,7 +1120,6 @@
 
 # sent_id = 2146
 # text = les couleurs sont conservées
-# timestamp = 1601037997263
 1	les	le	DET	_	_	2	det	_	_
 2	couleurs	couleur	NOUN	_	_	3	subj@pass	_	_
 3	sont	être	AUX	_	_	0	root	_	_
@@ -1213,7 +1127,6 @@
 
 # sent_id = 2147
 # text = le blanc est très blanc
-# timestamp = 1601037997263
 1	le	le	DET	_	_	2	det	_	_
 2	blanc	blanc	ADJ	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -1222,7 +1135,6 @@
 
 # sent_id = 2148
 # text = c' est vraiment formidable
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	vraiment	vraiment	ADV	_	_	2	mod@periph	_	_
@@ -1230,7 +1142,6 @@
 
 # sent_id = 2149
 # text = et et au niveau
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	et	et	CCONJ	conj:reform	_	1	conj@dicto	_	_
 3	au	à+le	ADP	_	_	0	root	_	_
@@ -1238,7 +1149,6 @@
 
 # sent_id = 2150
 # text = et puis je crois que vous avez un garçon qui salit en plus hein tout à fait un garçon qui se salit et qui faisait des allergies auparavant et qui n' en fait plus grace à la boule magique
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	puis	puis	ADV	_	_	1	unk@fixed	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -1281,7 +1191,6 @@
 
 # sent_id = 2151
 # text = et au niveau de des des odeurs est -ce que c' est efficace également
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	10	cc	_	_
 2	au	à+le	ADP	_	_	13	obl@periph	_	_
 3	niveau	niveau	NOUN	_	_	2	comp:obj	_	_
@@ -1299,13 +1208,11 @@
 
 # sent_id = 2152
 # text = ah oui
-# timestamp = 1601037997263
 1	ah	ah	INTJ	_	_	2	discourse	_	_
 2	oui	oui	INTJ	_	_	0	root	_	_
 
 # sent_id = 2153
 # text = alors ça enlève bien les odeurs euh toutes les odeurs qu' il peut y avoir sur du linge
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	3	mod@periph	_	_
 2	ça	ça	PRON	_	_	3	subj	_	_
 3	enlève	enlever	VERB	_	_	0	root	_	_
@@ -1327,7 +1234,6 @@
 
 # sent_id = 2154
 # text = et en plus ça apporte une odeur de fraîcheur
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	en	en	ADP	_	_	5	mod@periph	_	_
 3	plus	plus	PART	_	_	2	unk	_	_
@@ -1340,7 +1246,6 @@
 
 # sent_id = 2155
 # text = ça c' est quand même très agréable
-# timestamp = 1601037997263
 1	ça	ça	PRON	_	_	3	dislocated	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -1351,7 +1256,6 @@
 
 # sent_id = 2156
 # text = est -ce qu' elle est silencieuse la boule magique dans le tambour quand il tout à fait tourne
-# timestamp = 1601037997263
 1	est	être	AUX	_	_	5	comp:pred	_	_
 2	-ce	ce	PRON	_	_	5	subj	_	_
 3	qu'	que	SCONJ	_	_	0	root	_	_
@@ -1373,19 +1277,16 @@
 
 # sent_id = 2157
 # text = très silencieuse
-# timestamp = 1601037997263
 1	très	très	ADV	_	_	2	mod	_	_
 2	silencieuse	silencieux	ADJ	_	_	0	root	_	_
 
 # sent_id = 2158
 # text = aucun problème
-# timestamp = 1601037997263
 1	aucun	aucun	DET	_	_	2	det	_	_
 2	problème	problème	NOUN	_	_	0	root	_	_
 
 # sent_id = 2159
 # text = comme si elle y était pas
-# timestamp = 1601037997263
 1	comme	comme	ADP	_	_	0	root	_	_
 2	si	si	SCONJ	_	_	1	unk	_	_
 3	elle	elle	PRON	_	_	5	subj	_	_
@@ -1395,7 +1296,6 @@
 
 # sent_id = 2160
 # text = et elle n' abîme absolument pas le linge pas du tout
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	elle	il	PRON	_	_	4	subj	_	_
 3	n'	ne	PART	_	_	4	mod	_	_
@@ -1410,7 +1310,6 @@
 
 # sent_id = 2161
 # text = donc la boule magique c' est vraiment l' idéal
-# timestamp = 1601037997263
 1	donc	donc	ADV	_	_	9	discourse	_	_
 2	la	le	DET	_	_	3	det	_	_
 3	boule	boule	NOUN	_	_	6	dislocated	_	_
@@ -1423,7 +1322,6 @@
 
 # sent_id = 2162
 # text = et en plus eh bien vous allez préserver la planète avec la boule magique
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	7	cc	_	_
 2	en	en	ADP	_	_	7	mod@periph	_	_
 3	plus	plus	PART	_	_	2	unk	_	_
@@ -1441,7 +1339,6 @@
 
 # sent_id = 2163
 # text = puisque quand on sait euh la quantité euh le nombre de kilos de litres effectivement de produits de nettoyage qui sont déversés partout euh dans le monde par an eh bien là vous allez vraiment faire un joli geste
-# timestamp = 1601037997263
 1	puisque	puisque	SCONJ	_	_	34	mod@periph	_	_
 2	quand	quand	SCONJ	_	_	1	unk	_	_
 3	on	on	PRON	_	_	4	subj	_	_
@@ -1484,7 +1381,6 @@
 
 # sent_id = 2164
 # text = je suis sûr que vous allez être convaincus par notre boule magique tout comme Magalie
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	2	subj	_	_
 2	suis	être	AUX	_	_	0	root	_	_
 3	sûr	sûr	ADJ	_	_	2	comp:pred	_	_
@@ -1503,7 +1399,6 @@
 
 # sent_id = 2165
 # text = merci beaucoup d' être venue merci Magalie sur notre plateau
-# timestamp = 1601037997263
 1	merci	merci	NOUN	_	_	0	root	_	_
 2	beaucoup	beaucoup	PRON	_	_	1	unk	_	_
 3	d'	de	ADP	_	_	2	udep	_	_
@@ -1517,14 +1412,12 @@
 
 # sent_id = 2166
 # text = merci à vous
-# timestamp = 1601037997263
 1	merci	merci	NOUN	_	_	0	root	_	_
 2	à	à	ADP	_	_	1	udep	_	_
 3	vous	lui	PRON	_	_	2	comp:obj	_	_
 
 # sent_id = 2167
 # text = et maintenant effectivement la boule magique vous n' utiliserez plus que cela
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	9	cc	_	_
 2	maintenant	maintenant	ADV	_	_	9	mod@periph	_	_
 3	effectivement	effectivement	ADV	_	_	9	mod@periph	_	_
@@ -1540,7 +1433,6 @@
 
 # sent_id = 2168
 # text = alors je sais bien Marguerite Duras que v~ c' est vrai vous avez obtenu d' autres succès
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	3	mod@periph	_	_
 2	je	je	PRON	_	_	3	subj	_	_
 3	sais	savoir	VERB	_	_	0	root	_	_
@@ -1561,7 +1453,6 @@
 
 # sent_id = 2169
 # text = j' en ai énuméré d' ailleurs avant ce générique
-# timestamp = 1601037997263
 1	j'	je	PRON	_	_	3	subj	_	_
 2	en	en	PRON	_	_	4	comp:obj	_	_
 3	ai	avoir	AUX	_	_	0	root	_	_
@@ -1574,7 +1465,6 @@
 
 # sent_id = 2170
 # text = mais quand même celui -là cent mille exemplaires en quatre semaines c' est absolument fabuleux
-# timestamp = 1601037997263
 1	mais	mais	CCONJ	_	_	13	cc	_	_
 2	quand	quand	PRON	_	_	13	mod@periph	_	_
 3	même	même	ADV	_	_	2	unk@fixed	_	_
@@ -1593,7 +1483,6 @@
 
 # sent_id = 2171
 # text = est -ce que votre sensibilité qui est très aiguë très pointue avait un peu pressenti ce succès
-# timestamp = 1601037997263
 1	est	être	AUX	_	_	15	comp:obj	_	_
 2	-ce	ce	PRON	_	_	12	subj	_	_
 3	que	que	SCONJ	_	_	0	root	_	_
@@ -1614,20 +1503,17 @@
 
 # sent_id = 2172
 # text = non non
-# timestamp = 1601037997263
 1	non	non	INTJ	_	_	0	root	_	_
 2	non	non	INTJ	_	_	1	conj@coord	_	_
 
 # sent_id = 2173
 # text = tout au contraire
-# timestamp = 1601037997263
 1	tout	tout	ADV	_	_	2	mod	_	_
 2	au	à+le	ADP	_	_	0	root	_	_
 3	contraire	contraire	NOUN	_	_	2	comp:obj	_	_
 
 # sent_id = 2174
 # text = après le le succès de La Maladie de la mort j' j' avais peur pour ce livre enfin une peur relative remarquez
-# timestamp = 1601037997263
 1	après	après	ADP	_	_	13	obl@periph	_	_
 2	le	le	DET	_	_	4	det	_	_
 3	le	le	DET	conj:reform	_	2	conj@dicto	_	_
@@ -1653,7 +1539,6 @@
 
 # sent_id = 2175
 # text = mais j' avais peur qu' il ne soit pas celui que les gens attendaient de moi
-# timestamp = 1601037997263
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	avais	avoir	VERB	_	_	0	root	_	_
@@ -1673,13 +1558,11 @@
 
 # sent_id = 2176
 # text = puis voilà
-# timestamp = 1601037997263
 1	puis	puis	CCONJ	_	_	2	cc	_	_
 2	voilà	voilà	VERB	_	_	0	root	_	_
 
 # sent_id = 2177
 # text = et alors la critique déferlante c' est une vague incroyable
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	7	cc	_	_
 2	alors	alors	ADV	_	_	7	mod	_	_
 3	la	le	DET	_	_	4	det	_	_
@@ -1693,7 +1576,6 @@
 
 # sent_id = 2178
 # text = ah quelqu' un a dit du mal quand même de c~
-# timestamp = 1601037997263
 1	ah	ah	INTJ	_	_	2	dislocated	_	_
 2	quelqu'	quelque	DET	_	_	3	det	_	_
 3	un	un	PRON	_	_	4	subj	_	_
@@ -1708,13 +1590,11 @@
 
 # sent_id = 2179
 # text = ah alors
-# timestamp = 1601037997263
 1	ah	ah	INTJ	_	_	2	discourse	_	_
 2	alors	alors	ADV	_	_	0	root	_	_
 
 # sent_id = 2180
 # text = vraiment il doit être
-# timestamp = 1601037997263
 1	vraiment	vraiment	ADV	_	_	3	mod@periph	_	_
 2	il	il	PRON	_	_	3	subj	_	_
 3	doit	devoir	AUX	_	_	0	root	_	_
@@ -1722,7 +1602,6 @@
 
 # sent_id = 2181
 # text = il en faut bien un
-# timestamp = 1601037997263
 1	il	il	PRON	_	_	3	subj	_	_
 2	en	en	PRON	_	_	5	unk	_	_
 3	faut	falloir	VERB	_	_	0	root	_	_
@@ -1731,7 +1610,6 @@
 
 # sent_id = 2182
 # text = c' est mon éditeur mais qui me l' a dit
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	mon	son	DET	_	_	4	det	_	_
@@ -1745,14 +1623,12 @@
 
 # sent_id = 2183
 # text = ah oui bon
-# timestamp = 1601037997263
 1	ah	ah	INTJ	_	_	2	discourse	_	_
 2	oui	oui	INTJ	_	_	0	root	_	_
 3	bon	bon	INTJ	_	_	2	discourse	_	_
 
 # sent_id = 2184
 # text = quelqu' un a dit euh on n~ on ne comprend pas qu' un éditeur laisse passer des fautes de grammaire pareilles
-# timestamp = 1601037997263
 1	quelqu'	quelque	DET	_	_	2	det	_	_
 2	un	un	PRON	_	_	3	subj	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -1777,7 +1653,6 @@
 
 # sent_id = 2185
 # text = bon euh on y reviendra d' ailleurs sur oui sur le style
-# timestamp = 1601037997263
 1	bon	bon	INTJ	_	_	5	discourse	_	_
 2	euh	euh	INTJ	_	_	5	discourse	_	_
 3	on	on	PRON	_	_	5	subj	_	_
@@ -1793,7 +1668,6 @@
 
 # sent_id = 2186
 # text = alors c' est vrai que
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	3	mod@periph	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -1802,7 +1676,6 @@
 
 # sent_id = 2187
 # text = alors les critiques qui vous avaient boudée d' ailleurs un peu depuis quelques années
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	3	discourse	_	_
 2	les	le	DET	_	_	3	det	_	_
 3	critiques	critique	NOUN	_	_	0	root	_	_
@@ -1820,7 +1693,6 @@
 
 # sent_id = 2188
 # text = et puis tout d' un coup alors ils vous retrouvent
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	10	cc	_	_
 2	puis	puis	ADV	_	_	1	unk@fixed	_	_
 3	tout	tout	ADJ	_	_	6	mod	_	_
@@ -1834,21 +1706,18 @@
 
 # sent_id = 2189
 # text = et ils vous
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	0	root	_	_
 2	ils	il	PRON	_	_	1	conj@dicto	_	_
 3	vous	vous	PRON	_	_	1	conj@dicto	_	_
 
 # sent_id = 2190
 # text = et c' est
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
 
 # sent_id = 2191
 # text = ils vous couvrent de fleurs
-# timestamp = 1601037997263
 1	ils	il	PRON	_	_	3	subj	_	_
 2	vous	vous	PRON	_	_	3	comp:obl	_	_
 3	couvrent	couvrir	VERB	_	_	0	root	_	_
@@ -1857,7 +1726,6 @@
 
 # sent_id = 2192
 # text = hein ça vous a fait plaisir
-# timestamp = 1601037997263
 1	hein	hein	INTJ	_	_	2	discourse	_	_
 2	ça	ça	PRON	_	_	4	subj	_	_
 3	vous	vous	PRON	_	_	5	comp:obj	_	_
@@ -1867,7 +1735,6 @@
 
 # sent_id = 2193
 # text = c' est un peu gênant aussi
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	un	un	DET	_	_	5	det	_	_
@@ -1877,7 +1744,6 @@
 
 # sent_id = 2194
 # text = c' est un peu gênant
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	un	un	DET	_	_	5	det	_	_
@@ -1886,21 +1752,18 @@
 
 # sent_id = 2195
 # text = vous savez je
-# timestamp = 1601037997263
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	savez	savoir	VERB	_	_	0	root	_	_
 3	je	je	PRON	_	_	2	conj@dicto	_	_
 
 # sent_id = 2196
 # text = pendant dix ans
-# timestamp = 1601037997263
 1	pendant	pendant	ADP	_	_	0	root	_	_
 2	dix	dix	NUM	_	_	3	mod	_	_
 3	ans	an	NOUN	_	_	1	comp:obj	_	_
 
 # sent_id = 2197
 # text = ça a duré dix ans le silence autour de moi
-# timestamp = 1601037997263
 1	ça	ça	PRON	_	_	2	subj	_	_
 2	a	avoir	AUX	_	_	0	root	_	_
 3	duré	durer	VERB	_	_	2	comp:aux	_	_
@@ -1914,7 +1777,6 @@
 
 # sent_id = 2198
 # text = et là évidemment euh c' est un peu dur
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	6	cc	_	_
 2	là	là	ADV	_	_	6	mod@periph	_	_
 3	évidemment	évidemment	ADV	_	_	6	mod@periph	_	_
@@ -1927,7 +1789,6 @@
 
 # sent_id = 2199
 # text = je peux pas ouvrir le journal
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	2	subj	_	_
 2	peux	pouvoir	AUX	_	_	0	root	_	_
 3	pas	pas	PART	_	_	2	mod	_	_
@@ -1937,7 +1798,6 @@
 
 # sent_id = 2200
 # text = c' est un peu
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	un	un	DET	_	_	2	conj@dicto	_	_
@@ -1945,7 +1805,6 @@
 
 # sent_id = 2201
 # text = il y a un réflexe de pudeur quoi de fuite qui se produit
-# timestamp = 1601037997263
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -1962,7 +1821,6 @@
 
 # sent_id = 2202
 # text = c' est toujours un un temps très difficile que que le temps de la parution d' un livre
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	toujours	toujours	ADV	_	_	2	mod	_	_
@@ -1984,7 +1842,6 @@
 
 # sent_id = 2203
 # text = c' est un peu
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	un	un	DET	_	_	2	conj@dicto	_	_
@@ -1992,7 +1849,6 @@
 
 # sent_id = 2204
 # text = trop c' est trop peut-être là non
-# timestamp = 1601037997263
 1	trop	trop	ADJ	_	_	3	dislocated	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -2003,7 +1859,6 @@
 
 # sent_id = 2205
 # text = ben c' est l' habitude de la critique qui fait que un livre est toujours pris un peu comme une certaine culpabilité
-# timestamp = 1601037997263
 1	ben	ben	INTJ	_	_	5	discourse	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -2029,7 +1884,6 @@
 
 # sent_id = 2206
 # text = vous êtes d' accord
-# timestamp = 1601037997263
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	êtes	être	AUX	_	_	0	root	_	_
 3	d'	d'	ADP	_	_	2	comp:pred	_	_
@@ -2037,7 +1891,6 @@
 
 # sent_id = 2207
 # text = mh c' est certainement vrai pour pour les auteurs
-# timestamp = 1601037997263
 1	mh	mh	INTJ	_	_	5	discourse	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -2050,7 +1903,6 @@
 
 # sent_id = 2208
 # text = mais ouais ouais euh di~ euh
-# timestamp = 1601037997263
 1	mais	mais	CCONJ	_	_	5	cc	_	_
 2	ouais	ouais	INTJ	_	_	5	discourse	_	_
 3	ouais	ouais	INTJ	_	_	2	conj@coord	_	_
@@ -2060,7 +1912,6 @@
 
 # sent_id = 2209
 # text = et puis alors je
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	0	root	_	_
 2	puis	puis	ADV	_	_	1	unk@fixed	_	_
 3	alors	alors	ADV	_	_	1	discourse	_	_
@@ -2068,7 +1919,6 @@
 
 # sent_id = 2210
 # text = il y a une rumeur qui court Paris euh
-# timestamp = 1601037997263
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -2081,7 +1931,6 @@
 
 # sent_id = 2211
 # text = certains membres de l' Académie Goncourt auraient dit mais pourquoi lui donnerait -on pas le prix Goncourt
-# timestamp = 1601037997263
 1	certains	certain	ADJ	_	_	2	mod	_	_
 2	membres	membre	NOUN	_	_	7	subj	_	_
 3	de	de	ADP	_	_	2	udep	_	_
@@ -2102,7 +1951,6 @@
 
 # sent_id = 2212
 # text = alors j' ai regardé un petit peu dans les statistiques
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	3	mod@periph	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	ai	avoir	AUX	_	_	0	root	_	_
@@ -2116,7 +1964,6 @@
 
 # sent_id = 2213
 # text = en mille neuf cent cinquante quand vous avez fait paraître ce ce chef -d' oeuvre pour moi c' est un chef -d' oeuvre qui s' appelle Un Barrage contre le Pacifique vous l' avez raté de peu
-# timestamp = 1601037997263
 1	en	en	ADP	_	_	35	obl@periph	_	_
 2	mille	mille	NUM	_	_	1	comp:obj	_	_
 3	neuf	neuf	NUM	_	_	2	mod	_	_
@@ -2157,7 +2004,6 @@
 
 # sent_id = 2214
 # text = alors l' Académie Goncourt s' est complètement euh s' est ben misé à côté
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	6	mod@periph	_	_
 2	l'	le	DET	_	_	3	det	_	_
 3	Académie	Académie	PROPN	_	_	6	subj	_	_
@@ -2175,7 +2021,6 @@
 
 # sent_id = 2215
 # text = enfin ce sont pas les mêmes hein
-# timestamp = 1601037997263
 1	enfin	enfin	ADV	_	_	6	discourse	_	_
 2	ce	ce	PRON	_	_	3	subj	_	_
 3	sont	être	AUX	_	_	0	root	_	_
@@ -2186,7 +2031,6 @@
 
 # sent_id = 2216
 # text = c' était d' autres
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	d'	de	ADP	_	_	2	comp:pred	_	_
@@ -2194,7 +2038,6 @@
 
 # sent_id = 2217
 # text = c' était en cinquante
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	en	en	ADP	_	_	2	obl@comp	_	_
@@ -2202,7 +2045,6 @@
 
 # sent_id = 2218
 # text = donc il y en avait aucun de ceux d' aujourd' hui
-# timestamp = 1601037997263
 1	donc	donc	ADV	_	_	5	discourse	_	_
 2	il	il	PRON	_	_	5	comp:obj@expl	_	_
 3	y	y	PRON	_	_	5	comp:obl	_	_
@@ -2217,7 +2059,6 @@
 
 # sent_id = 2219
 # text = parce qu' ils ont non
-# timestamp = 1601037997263
 1	parce	parce	SCONJ	_	_	0	root	_	_
 2	qu'	que	SCONJ	_	_	1	unk@fixed	_	_
 3	ils	il	PRON	_	_	4	subj	_	_
@@ -2226,7 +2067,6 @@
 
 # sent_id = 2220
 # text = c' est c' est couronné Les jeux sauvages de Paul Colin
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	c'	ce	PRON	_	_	4	subj@pass	_	_
@@ -2241,7 +2081,6 @@
 
 # sent_id = 2221
 # text = et et le Barrage contre le Pacifique ils l' ont laissé tomber
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	10	cc	_	_
 2	et	et	CCONJ	conj:reform	_	1	conj@dicto	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -2257,7 +2096,6 @@
 
 # sent_id = 2222
 # text = alors ils doivent avoir du oui regret
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	3	mod@periph	_	_
 2	ils	il	PRON	_	_	3	subj	_	_
 3	doivent	devoir	AUX	_	_	0	root	_	_
@@ -2268,27 +2106,23 @@
 
 # sent_id = 2223
 # text = ils voulaient pas
-# timestamp = 1601037997263
 1	ils	il	PRON	_	_	2	subj	_	_
 2	voulaient	vouloir	VERB	_	_	0	root	_	_
 3	pas	pas	PART	_	_	2	mod	_	_
 
 # sent_id = 2224
 # text = ils voulaient pas
-# timestamp = 1601037997263
 1	ils	il	PRON	_	_	2	subj	_	_
 2	voulaient	vouloir	VERB	_	_	0	root	_	_
 3	pas	pas	PART	_	_	2	mod	_	_
 
 # sent_id = 2225
 # text = c' est
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 
 # sent_id = 2226
 # text = ils voulaient pas le donner à au Barrage parce que j' étais de gauche
-# timestamp = 1601037997263
 1	ils	il	PRON	_	_	2	subj	_	_
 2	voulaient	vouloir	AUX	_	_	0	root	_	_
 3	pas	pas	PART	_	_	2	mod	_	_
@@ -2306,7 +2140,6 @@
 
 # sent_id = 2227
 # text = j' étais communiste à ce moment -là
-# timestamp = 1601037997263
 1	j'	je	PRON	_	_	2	subj	_	_
 2	étais	être	AUX	_	_	0	root	_	_
 3	communiste	communiste	ADJ	_	_	2	comp:pred	_	_
@@ -2317,7 +2150,6 @@
 
 # sent_id = 2228
 # text = enfin j' étais membre du PC
-# timestamp = 1601037997263
 1	enfin	enfin	ADV	_	_	4	discourse	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	étais	être	AUX	_	_	0	root	_	_
@@ -2327,7 +2159,6 @@
 
 # sent_id = 2229
 # text = ce qui fait que le Barrage ça a été une expérience épouvantable pour la famille pour ma mère et que j' en ai été punie par ailleurs quand j' en ai parlé quand mh j' en ai écrit enfin
-# timestamp = 1601037997263
 1	ce	ce	PRON	_	_	0	root	_	_
 2	qui	qui	PRON	_	_	3	subj	_	_
 3	fait	faire	VERB	_	_	1	mod@relcl	_	_
@@ -2370,7 +2201,6 @@
 
 # sent_id = 2230
 # text = alors venons à L' Amant
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	2	discourse	_	_
 2	venons	venir	VERB	_	_	0	root	_	_
 3	à	à	ADP	_	_	2	obl@comp	_	_
@@ -2379,7 +2209,6 @@
 
 # sent_id = 2231
 # text = L' Amant nous sommes à nous sommes à Saigon entre les deux guerres dans les années vingt euh
-# timestamp = 1601037997263
 1	L'	le	DET	_	_	2	det	_	_
 2	Amant	Amant	PROPN	_	_	4	dislocated	_	_
 3	nous	nous	PRON	_	_	4	subj	_	_
@@ -2401,7 +2230,6 @@
 
 # sent_id = 2232
 # text = vous avez quinze ans et demi
-# timestamp = 1601037997263
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	avez	avoir	VERB	_	_	0	root	_	_
 3	quinze	quinze	NUM	_	_	4	mod	_	_
@@ -2411,7 +2239,6 @@
 
 # sent_id = 2233
 # text = et vous êtes sur un bac qui traverse le fleuve c' est - à - dire le Mekong
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	êtes	être	AUX	_	_	0	root	_	_
@@ -2433,7 +2260,6 @@
 
 # sent_id = 2234
 # text = et vous êtes drôlement attifée quand même
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	vous	vous	PRON	_	_	3	subj@pass	_	_
 3	êtes	être	AUX	_	_	0	root	_	_
@@ -2444,14 +2270,12 @@
 
 # sent_id = 2235
 # text = vous voulez pas
-# timestamp = 1601037997263
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	voulez	vouloir	VERB	_	_	0	root	_	_
 3	pas	pas	PART	_	_	2	mod	_	_
 
 # sent_id = 2236
 # text = vous êtes attifée comment
-# timestamp = 1601037997263
 1	vous	vous	PRON	_	_	2	subj@pass	_	_
 2	êtes	être	AUX	_	_	0	root	_	_
 3	attifée	attifer	VERB	_	_	2	comp:aux@pass	_	_
@@ -2459,13 +2283,11 @@
 
 # sent_id = 2237
 # text = racontez -nous
-# timestamp = 1601037997263
 1	racontez	raconter	VERB	_	_	0	root	_	_
 2	-nous	nous	PRON	_	_	1	comp:obl	_	_
 
 # sent_id = 2238
 # text = j' ai un chapeau d' homme oui un feutre oui un feutre rose couleur bois de rose au large ruban noir
-# timestamp = 1601037997263
 1	j'	je	PRON	_	_	2	subj	_	_
 2	ai	avoir	VERB	_	_	0	root	_	_
 3	un	un	DET	_	_	4	det	_	_
@@ -2490,7 +2312,6 @@
 
 # sent_id = 2239
 # text = et aux pieds j' ai eu ce chapeau -là
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	aux	à+le	ADP	_	_	6	obl@periph	_	_
 3	pieds	pied	NOUN	_	_	2	comp:obj	_	_
@@ -2503,7 +2324,6 @@
 
 # sent_id = 2240
 # text = vraiment je l' ai eu aux pieds
-# timestamp = 1601037997263
 1	vraiment	vraiment	ADV	_	_	4	mod@periph	_	_
 2	je	je	PRON	_	_	4	subj	_	_
 3	l'	le	PRON	_	_	5	comp:obj	_	_
@@ -2514,7 +2334,6 @@
 
 # sent_id = 2241
 # text = j' ai des des lamés or des des des souliers de pour danser oui alors danser
-# timestamp = 1601037997263
 1	j'	je	PRON	_	_	2	subj	_	_
 2	ai	avoir	VERB	_	_	0	root	_	_
 3	des	de+le	ADP	de	_	2	obl@comp	_	_
@@ -2534,7 +2353,6 @@
 
 # sent_id = 2242
 # text = vraiment sur le bac évidemment vous devez faire euh
-# timestamp = 1601037997263
 1	vraiment	vraiment	ADV	_	_	7	mod@periph	_	_
 2	sur	sur	ADP	_	_	8	obl@periph	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -2547,7 +2365,6 @@
 
 # sent_id = 2243
 # text = on doit vous remarquer
-# timestamp = 1601037997263
 1	on	on	PRON	_	_	2	subj	_	_
 2	doit	devoir	AUX	_	_	0	root	_	_
 3	vous	vous	PRON	_	_	4	comp:obj	_	_
@@ -2555,7 +2372,6 @@
 
 # sent_id = 2244
 # text = aujourd' hui on vous remarquerait à peine parce que c' est une mode qui se porte couramment chez les jeunes filles hein
-# timestamp = 1601037997263
 1	aujourd'	aujourd'	NOUN	_	_	5	mod@periph	_	_
 2	hui	hui	NOUN	_	_	1	unk@fixed	_	_
 3	on	on	PRON	_	_	5	subj	_	_
@@ -2581,20 +2397,17 @@
 
 # sent_id = 2245
 # text = oui oui
-# timestamp = 1601037997263
 1	oui	oui	INTJ	_	_	0	root	_	_
 2	oui	oui	INTJ	_	_	1	conj@coord	_	_
 
 # sent_id = 2246
 # text = c' est vrai
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	vrai	vrai	ADJ	_	_	2	comp:pred	_	_
 
 # sent_id = 2247
 # text = aujourd' hui on ne vous remarquerait pas
-# timestamp = 1601037997263
 1	aujourd'	aujourd'	ADV	_	_	6	mod@periph	_	_
 2	hui	hui	NOUN	_	_	1	unk@fixed	_	_
 3	on	on	PRON	_	_	6	subj	_	_
@@ -2605,7 +2418,6 @@
 
 # sent_id = 2248
 # text = mais à cette époque on vous remarquerait
-# timestamp = 1601037997263
 1	mais	mais	CCONJ	_	_	7	cc	_	_
 2	à	à	ADP	_	_	7	obl@periph	_	_
 3	cette	ce	DET	_	_	4	det	_	_
@@ -2616,7 +2428,6 @@
 
 # sent_id = 2249
 # text = et d' ailleurs quelqu' un vous a remarquée qui est dans une grande limousine noire
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	7	cc	_	_
 2	d'	d'	ADP	_	_	7	mod@periph	_	_
 3	ailleurs	ailleurs	ADV	_	_	2	comp:obj	_	_
@@ -2635,7 +2446,6 @@
 
 # sent_id = 2250
 # text = et et vos regards se croisent
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	6	cc	_	_
 2	et	et	CCONJ	_	_	1	conj@dicto	_	_
 3	vos	son	DET	_	_	4	det	_	_
@@ -2645,7 +2455,6 @@
 
 # sent_id = 2251
 # text = et on peut dire
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	on	on	PRON	_	_	3	subj	_	_
 3	peut	pouvoir	AUX	_	_	0	root	_	_
@@ -2653,7 +2462,6 @@
 
 # sent_id = 2252
 # text = est -ce qu' on peut dire que cet échange de regards va changer votre vie
-# timestamp = 1601037997263
 1	est	être	AUX	_	_	6	comp:obj	_	_
 2	-ce	ce	PRON	_	_	5	subj	_	_
 3	qu'	que	SCONJ	_	_	0	root	_	_
@@ -2672,7 +2480,6 @@
 
 # sent_id = 2253
 # text = le livre s' appelait avant La photographie absolue
-# timestamp = 1601037997263
 1	le	le	DET	_	_	2	det	_	_
 2	livre	livre	NOUN	_	_	4	subj	_	_
 3	s'	se	PRON	_	_	4	unk@iobj	_	_
@@ -2684,7 +2491,6 @@
 
 # sent_id = 2254
 # text = il m' a été commandé ce livre attention hein
-# timestamp = 1601037997263
 1	il	il	PRON	_	_	3	subj@pass	_	_
 2	m'	me	PRON	_	_	5	comp:obj	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -2697,7 +2503,6 @@
 
 # sent_id = 2255
 # text = et cette photographie absolue n' avait pas été prise si vous voulez
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	6	cc	_	_
 2	cette	ce	DET	_	_	3	det	_	_
 3	photographie	photographie	NOUN	_	_	6	subj@pass	_	_
@@ -2713,7 +2518,6 @@
 
 # sent_id = 2256
 # text = c' était celle -là cet -là -là du bac
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	celle	celui	PRON	_	_	2	comp:pred	_	_
@@ -2726,7 +2530,6 @@
 
 # sent_id = 2257
 # text = on n' avait rien vu qu' un homme une auto noire et une jeune fille et et des cars pour indigènes
-# timestamp = 1601037997263
 1	on	on	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	3	mod	_	_
 3	avait	avoir	AUX	_	_	0	root	_	_
@@ -2751,7 +2554,6 @@
 
 # sent_id = 2258
 # text = mais c' est de là que tout est parti le fleuve une fois traversé
-# timestamp = 1601037997263
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -2769,7 +2571,6 @@
 
 # sent_id = 2259
 # text = qui il y a dans qui y a - t - il dans la voiture noire
-# timestamp = 1601037997263
 1	qui	qui	PRON	_	_	4	comp:obj	_	_
 2	il	il	PRON	_	_	4	comp:obj@expl	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -2789,7 +2590,6 @@
 
 # sent_id = 2260
 # text = alors vous en donnez
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	4	mod@periph	_	_
 2	vous	vous	PRON	_	_	4	subj	_	_
 3	en	en	PRON	_	_	4	comp:obj	_	_
@@ -2797,7 +2597,6 @@
 
 # sent_id = 2261
 # text = c' est une Morris Léon Bollée
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	une	un	DET	_	_	4	det	_	_
@@ -2807,7 +2606,6 @@
 
 # sent_id = 2262
 # text = mais je n' en vois plus de ces autos -là
-# timestamp = 1601037997263
 1	mais	mais	CCONJ	_	_	5	cc	_	_
 2	je	je	PRON	_	_	5	subj	_	_
 3	n'	ne	PART	_	_	5	mod	_	_
@@ -2821,7 +2619,6 @@
 
 # sent_id = 2263
 # text = ah oui non de toute façon il y a bien longtemps
-# timestamp = 1601037997263
 1	ah	ah	INTJ	_	_	9	discourse	_	_
 2	oui	oui	INTJ	_	_	9	discourse	_	_
 3	non	non	INTJ	_	_	9	discourse	_	_
@@ -2836,7 +2633,6 @@
 
 # sent_id = 2264
 # text = c' était qu' elles sont dans les musées hein
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	qu'	que	SCONJ	_	_	2	comp:obj	_	_
@@ -2849,7 +2645,6 @@
 
 # sent_id = 2265
 # text = je pense que si on s' était assis l' un devant l' autre on aurait été à c~ à cette distance -là dans cette auto avec dans cette auto
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	2	subj	_	_
 2	pense	penser	VERB	_	_	0	root	_	_
 3	que	que	SCONJ	_	_	2	comp:obj	_	_
@@ -2882,14 +2677,12 @@
 
 # sent_id = 2266
 # text = c' était gigantesque
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	gigantesque	gigantesque	ADJ	_	_	2	comp:pred	_	_
 
 # sent_id = 2267
 # text = alors qui vous regarde
-# timestamp = 1601037997263
 1	alors	alors	ADV	_	_	4	discourse	_	_
 2	qui	qui	PRON	_	_	4	subj	_	_
 3	vous	vous	PRON	_	_	4	comp:obj	_	_
@@ -2897,7 +2690,6 @@
 
 # sent_id = 2268
 # text = c' est un Chinois très riche
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	un	un	DET	_	_	4	det	_	_
@@ -2907,7 +2699,6 @@
 
 # sent_id = 2269
 # text = mais vous le savez pas qu' il est riche à ce moment -là
-# timestamp = 1601037997263
 1	mais	mais	CCONJ	_	_	4	cc	_	_
 2	vous	vous	PRON	_	_	4	subj	_	_
 3	le	le	PRON	_	_	4	comp:obj	_	_
@@ -2924,7 +2715,6 @@
 
 # sent_id = 2270
 # text = je le sais à l' automobile ah ouais et puis au chauffeur
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	3	subj	_	_
 2	le	le	PRON	_	_	3	comp:obj	_	_
 3	sais	savoir	VERB	_	_	0	root	_	_
@@ -2940,7 +2730,6 @@
 
 # sent_id = 2271
 # text = je sais les choses comme ça
-# timestamp = 1601037997263
 1	je	je	PRON	_	_	2	subj	_	_
 2	sais	savoir	VERB	_	_	0	root	_	_
 3	les	le	DET	_	_	4	det	_	_
@@ -2950,7 +2739,6 @@
 
 # sent_id = 2272
 # text = il a douze ans de plus que vous
-# timestamp = 1601037997263
 1	il	il	PRON	_	_	2	subj	_	_
 2	a	avoir	VERB	_	_	0	root	_	_
 3	douze	douze	NUM	_	_	4	mod	_	_
@@ -2962,7 +2750,6 @@
 
 # sent_id = 2273
 # text = j' ai quinze ans
-# timestamp = 1601037997263
 1	j'	je	PRON	_	_	2	subj	_	_
 2	ai	avoir	VERB	_	_	0	root	_	_
 3	quinze	quinze	NUM	_	_	4	mod	_	_
@@ -2970,7 +2757,6 @@
 
 # sent_id = 2274
 # text = il a vingt-sept ans
-# timestamp = 1601037997263
 1	il	il	PRON	_	_	2	subj	_	_
 2	a	avoir	VERB	_	_	0	root	_	_
 3	vingt-sept	vingt-sept	NUM	_	_	4	mod	_	_
@@ -2978,14 +2764,12 @@
 
 # sent_id = 2275
 # text = c' est ça
-# timestamp = 1601037997263
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	ça	ça	PRON	_	_	2	comp:pred	_	_
 
 # sent_id = 2276
 # text = et vous savez on a l' impression que vous savez qu' il va devenir votre amant votre premier amant tout de suite
-# timestamp = 1601037997263
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	savez	savoir	VERB	DISCOURSE	_	5	parataxis@discourse	_	_
@@ -3011,7 +2795,6 @@
 
 # sent_id = 2277
 # text = c' est - à - dire que j' ai su après qu' il m' avait pas déplu sur le bac
-# timestamp = 1601037997263
 1	c'	c'	PRON	_	_	0	root	_	_
 2	est	est	VERB	_	_	1	unk@fixed	_	_
 3	-	-	PUNCT	_	_	4	punct	_	_
@@ -3035,7 +2818,6 @@
 
 # sent_id = 2278
 # text = mais sur le moment je n' avais pas d' avis
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	7	cc	_	_
 2	sur	sur	ADP	_	_	7	obl@periph	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -3049,7 +2831,6 @@
 
 # sent_id = 2279
 # text = sauf que j' étais assez étonnée par tout cet attirail de milliardaire
-# timestamp = 1601037997264
 1	sauf	sauf	CCONJ	_	_	0	root	_	_
 2	que	que	SCONJ	_	_	1	unk@fixed	_	_
 3	j'	je	PRON	_	_	4	subj	_	_
@@ -3065,7 +2846,6 @@
 
 # sent_id = 2280
 # text = j' étais un peu étonnée un peu épatée enfin et attirée aussi bien sûr
-# timestamp = 1601037997264
 1	j'	je	PRON	_	_	2	subj@pass	_	_
 2	étais	être	AUX	_	_	0	root	_	_
 3	un	un	DET	_	_	2	mod	_	_
@@ -3083,7 +2863,6 @@
 
 # sent_id = 2281
 # text = deux préludes de Karol Szymanowski extraits de son opus un de mille neuf cents le sixième et le septième interprétés par euh Maria Yudina enregistrés en mille neuf cent cinquante-six
-# timestamp = 1601037997264
 1	deux	deux	NUM	_	_	2	mod	_	_
 2	préludes	prélude	NOUN	_	_	0	root	_	_
 3	de	de	ADP	_	_	2	udep	_	_
@@ -3117,7 +2896,6 @@
 
 # sent_id = 2282
 # text = vous n' avez pas choisi Yudina euh par hasard Didier Von Moere
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	3	mod	_	_
 3	avez	avoir	AUX	_	_	0	root	_	_
@@ -3133,7 +2911,6 @@
 
 # sent_id = 2283
 # text = je l' ai choisie parce que c' était une une élève de Blumenfeld de Felix Blumenfeld l' oncle de Szymanoski dont on va parler tout à l' heure
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	l'	le	PRON	_	_	4	comp:obj	_	_
 3	ai	avoir	AUX	_	_	0	root	_	_
@@ -3165,7 +2942,6 @@
 
 # sent_id = 2284
 # text = donc on peut penser que c' est une tradition euh ici qui est représentée
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	4	discourse	_	_
 2	on	on	PRON	_	_	3	subj	_	_
 3	peut	pouvoir	AUX	_	_	0	root	_	_
@@ -3183,7 +2959,6 @@
 
 # sent_id = 2285
 # text = on peut penser que euh à l' époque de Szymanoski on jouait ces préludes comme ça que par exemple Neuhaus le cousin de Szymanoski les jouait euh de cette façon aussi
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	2	subj	_	_
 2	peut	pouvoir	AUX	_	_	0	root	_	_
 3	penser	penser	VERB	_	_	2	comp:aux	_	_
@@ -3218,7 +2993,6 @@
 
 # sent_id = 2286
 # text = alors c' est à la fois euh comment dire
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	3	mod@periph	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -3231,7 +3005,6 @@
 
 # sent_id = 2287
 # text = parce que prélude ça fait penser à évidemment à Frédéric Chopin
-# timestamp = 1601037997264
 1	parce	parce	SCONJ	_	_	0	root	_	_
 2	que	que	SCONJ	_	_	1	unk@fixed	_	_
 3	prélude	prélude	NOUN	_	_	5	dislocated	_	_
@@ -3246,7 +3019,6 @@
 
 # sent_id = 2288
 # text = mais moi je trouve pas ça chopinien du tout
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	4	cc	_	_
 2	moi	lui	PRON	_	_	4	dislocated	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -3259,7 +3031,6 @@
 
 # sent_id = 2289
 # text = je trouve ça plutôt dans une mouvance wagnérienne
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	trouve	trouver	VERB	_	_	0	root	_	_
 3	ça	ça	PRON	_	_	2	comp:obj	_	_
@@ -3271,7 +3042,6 @@
 
 # sent_id = 2290
 # text = ben le premier qu' on a entendu est très tristanien
-# timestamp = 1601037997264
 1	ben	ben	INTJ	_	_	10	discourse	_	_
 2	le	le	DET	_	_	3	det	_	_
 3	premier	premier	ADJ	_	_	8	subj	_	_
@@ -3285,7 +3055,6 @@
 
 # sent_id = 2291
 # text = il y a d' ailleurs à un moment le le motif euh avec la montée chromatique du leitmotiv du désir de Tristan qui apparaît
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -3313,7 +3082,6 @@
 
 # sent_id = 2292
 # text = et c' est l' occasion de dire que la découverte de Wagner pour Szymanoski a peut-être déterminé sa vocation musicale
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -3337,7 +3105,6 @@
 
 # sent_id = 2293
 # text = il a treize ans
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	a	avoir	VERB	_	_	0	root	_	_
 3	treize	treize	NUM	_	_	4	mod	_	_
@@ -3345,7 +3112,6 @@
 
 # sent_id = 2294
 # text = il est à l' opéra de Vienne
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	à	à	ADP	_	_	2	comp:pred	_	_
@@ -3356,14 +3122,12 @@
 
 # sent_id = 2295
 # text = il entend Lohengrin
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	entend	entendre	VERB	_	_	0	root	_	_
 3	Lohengrin	Lohengrin	PROPN	_	_	2	comp:obj	_	_
 
 # sent_id = 2296
 # text = et il l' a dit euh ensuite à plusieurs reprises
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	il	il	PRON	_	_	4	subj	_	_
 3	l'	le	PRON	_	_	5	comp:obj	_	_
@@ -3377,7 +3141,6 @@
 
 # sent_id = 2297
 # text = ça a été vraiment pour lui une une révélation
-# timestamp = 1601037997264
 1	ça	ça	PRON	_	_	2	subj	_	_
 2	a	avoir	AUX	_	_	0	root	_	_
 3	été	être	AUX	_	_	2	comp:aux	_	_
@@ -3390,7 +3153,6 @@
 
 # sent_id = 2298
 # text = je n~ me demande d' ailleurs si euh l' arrivée du berger dans Le roi Roger ce berger qui euh amène d' autres d' autres valeurs d' autres YYY si vous voulez dans un monde qui est figé euh ne rappelle pas un peu l' arrivée de Lohengrin
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	4	subj	_	_
 2	n~	n~	PART	_	_	4	comp:obl	_	_
 3	me	me	PRON	_	_	2	conj@dicto	_	_
@@ -3442,7 +3204,6 @@
 
 # sent_id = 2299
 # text = mais je ne voudrais pas faire de la psychanalyse à trois sous
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	4	cc	_	_
 2	je	je	PRON	_	_	4	subj	_	_
 3	ne	ne	PART	_	_	4	mod	_	_
@@ -3458,7 +3219,6 @@
 
 # sent_id = 2300
 # text = c' est à la fois à ce moment -là euh Lohengrin et Parsifal il me semble dans le
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	à	à	ADP	_	_	2	mod	_	_
@@ -3480,7 +3240,6 @@
 
 # sent_id = 2301
 # text = ça pourrait être Lohengrin oui et Parsifal effectivement
-# timestamp = 1601037997264
 1	ça	ça	PRON	_	_	2	subj	_	_
 2	pourrait	pouvoir	AUX	_	_	0	root	_	_
 3	être	être	AUX	_	_	2	comp:aux	_	_
@@ -3492,7 +3251,6 @@
 
 # sent_id = 2302
 # text = alors page cent douze de votre ouvrage donc cette cette monumentale biographie de Szymanoski je lis son le portrait de notre de votre héros vers vingt-six ans à peu près euh fait par un ami qui l' attend à la gare
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	16	discourse	_	_
 2	page	page	NOUN	_	_	16	mod	_	_
 3	cent	cent	NUM	_	_	2	mod	_	_
@@ -3537,7 +3295,6 @@
 
 # sent_id = 2303
 # text = il était d' une belle taille très élégamment vêtu boitait légèrement de la jambe gauche qui sans être plus courte que la droite trahissait discrètement à chaque pas un raidissement de l' articulation
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	d'	de	ADP	_	_	2	comp:pred	_	_
@@ -3574,7 +3331,6 @@
 
 # sent_id = 2304
 # text = la lavallière de soie noire de la photographie de Berlin de mille neuf cent six avait fait place à une cravate parfaitement nouée de couleur idéalement assortie avec le ton de sa pèlerine
-# timestamp = 1601037997264
 1	la	le	DET	_	_	2	det	_	_
 2	lavallière	lavallière	NOUN	_	_	16	subj	_	_
 3	de	de	ADP	_	_	2	udep	_	_
@@ -3611,7 +3367,6 @@
 
 # sent_id = 2305
 # text = toute l' élégance de Szymanoski était du meilleur genre
-# timestamp = 1601037997264
 1	toute	tout	ADJ	_	_	2	unk	_	_
 2	l'	le	DET	_	_	3	det	_	_
 3	élégance	élégance	NOUN	_	_	6	subj	_	_
@@ -3624,7 +3379,6 @@
 
 # sent_id = 2306
 # text = et tout cela n' était qu' une sorte d' accompagnement pour le charme qui émanait de la personne de l' artiste par lequel il attirait aussitôt
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	6	cc	_	_
 2	tout	tout	ADJ	_	_	3	mod	_	_
 3	cela	cela	PRON	_	_	5	subj	_	_
@@ -3654,7 +3408,6 @@
 
 # sent_id = 2307
 # text = il était visible dans la douceur du regard de ses grands yeux vert foncé
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	visible	visible	ADJ	_	_	2	comp:pred	_	_
@@ -3672,7 +3425,6 @@
 
 # sent_id = 2308
 # text = alors effectivement euh Szymanoski était un homme très élégant
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	7	discourse	_	_
 2	effectivement	effectivement	ADV	_	_	5	mod@periph	_	_
 3	euh	euh	INTJ	_	_	2	discourse	_	_
@@ -3685,7 +3437,6 @@
 
 # sent_id = 2309
 # text = il avait un côté aristocrate un côté dandy un côté esthète qu' il gardera jusqu' à la fin de sa vie
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	avait	avoir	VERB	_	_	0	root	_	_
 3	un	un	DET	_	_	4	det	_	_
@@ -3710,7 +3461,6 @@
 
 # sent_id = 2310
 # text = et il était très attaché à la beauté des choses
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	il	il	PRON	_	_	3	subj@pass	_	_
 3	était	être	AUX	_	_	0	root	_	_
@@ -3724,7 +3474,6 @@
 
 # sent_id = 2311
 # text = ce qui euh explique que ben il aimait bien descendre dans les beaux hôtels les grands dans les grands hôtels
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	0	root	_	_
 2	qui	qui	PRON	_	_	4	subj	_	_
 3	euh	euh	INTJ	_	_	2	discourse	_	_
@@ -3748,7 +3497,6 @@
 
 # sent_id = 2312
 # text = et à la fin de sa vie euh quand il est en France d' ailleurs pour essayer de soigner en vain euh sa tuberculose euh il dira euh si si je dois aller dans un bouiboui euh je caricature un petit peu mais enfin euh si je dois descendre dans un hôtel de troisième catégorie alors ça ne vaut plus la peine
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	27	cc	_	_
 2	à	à	ADP	_	_	27	obl@periph	_	_
 3	la	le	DET	_	_	4	det	_	_
@@ -3814,7 +3562,6 @@
 
 # sent_id = 2313
 # text = il faut dire que la guerre va être pour sa famille un un grand changement de fortune
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	faut	falloir	VERB	_	_	0	root	_	_
 3	dire	dire	VERB	_	_	2	comp:pred	_	_
@@ -3835,7 +3582,6 @@
 
 # sent_id = 2314
 # text = mais là nous sommes encore avant guerre
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	4	cc	_	_
 2	là	là	ADV	_	_	6	mod@periph	_	_
 3	nous	nous	PRON	_	_	4	subj	_	_
@@ -3846,7 +3592,6 @@
 
 # sent_id = 2315
 # text = c' est - à - dire nous sommes dans cette Pologne euh encore occupée mais où euh la la vie artistique est est très importante et où se coalise en quelque sorte le le le mouvement de la jeune Pologne
-# timestamp = 1601037997264
 1	c'	c'	PRON	_	_	8	cc	_	_
 2	est	est	VERB	_	_	1	unk@fixed	_	_
 3	-	-	PUNCT	_	_	4	punct	_	_
@@ -3890,7 +3635,6 @@
 
 # sent_id = 2316
 # text = alors la jeune Pologne c' est d' abord un mouvement artistique
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	10	discourse	_	_
 2	la	le	DET	_	_	4	det	_	_
 3	jeune	jeune	ADJ	_	_	4	mod	_	_
@@ -3905,7 +3649,6 @@
 
 # sent_id = 2317
 # text = et ensuite c' est devenu du côté de la musique la jeune Pologne en musique avec quatre compositeurs euh tous ses élèves d' ailleurs de Noskowski qui se retrouvent
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	ensuite	ensuite	ADV	_	_	4	mod@periph	_	_
 3	c'	ce	PRON	_	_	4	subj@pass	_	_
@@ -3938,7 +3681,6 @@
 
 # sent_id = 2318
 # text = il y a Szymanoski
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -3946,7 +3688,6 @@
 
 # sent_id = 2319
 # text = il y a Rozycki
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -3954,7 +3695,6 @@
 
 # sent_id = 2320
 # text = il y a Fitelberg qui ensuite euh va abandonner la composition pour euh la direction de l' orchestre pour la direction de l' orchestre
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -3982,7 +3722,6 @@
 
 # sent_id = 2321
 # text = et puis il y a euh Szeluto
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	puis	puis	ADV	_	_	1	unk@fixed	_	_
 3	il	il	PRON	_	_	5	comp:obj@expl	_	_
@@ -3993,7 +3732,6 @@
 
 # sent_id = 2322
 # text = alors c' est un groupe qui va très vite se désunir parce qu' il y a des des jalousies il y a des inimitiés euh
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	3	mod@periph	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -4022,7 +3760,6 @@
 
 # sent_id = 2323
 # text = les uns ont plus de succès que les autres
-# timestamp = 1601037997264
 1	les	les	DET	_	_	2	det	_	_
 2	uns	uns	PRON	_	_	3	subj	_	_
 3	ont	avoir	VERB	_	_	0	root	_	_
@@ -4035,7 +3772,6 @@
 
 # sent_id = 2324
 # text = donc ce n' est pas fait pour cimenter ce groupe
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	6	mod@periph	_	_
 2	ce	ce	PRON	_	_	6	subj@pass	_	_
 3	n'	ne	PART	_	_	6	mod	_	_
@@ -4049,7 +3785,6 @@
 
 # sent_id = 2325
 # text = mais enfin euh c' est intéressant parce qu' on a là si vous voulez quatre mousquetaires de euh la jeune musique polonaise qui veulent en découdre avec le conservatisme de Varsovie et qui euh fondent une société d' édition dont le siège est à Berlin
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	5	cc	_	_
 2	enfin	enfin	ADV	_	_	6	discourse	_	_
 3	euh	euh	INTJ	_	_	6	discourse	_	_
@@ -4098,7 +3833,6 @@
 
 # sent_id = 2326
 # text = ce qui assure évidemment un plus grand rayonnement que Varsovie
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	0	root	_	_
 2	qui	qui	PRON	_	_	3	subj	_	_
 3	assure	assurer	VERB	_	_	1	mod@relcl	_	_
@@ -4112,7 +3846,6 @@
 
 # sent_id = 2327
 # text = et c' est dans cet esprit qu' est proposée par Szymanoski l' ouverture du concert son opus douze
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -4134,7 +3867,6 @@
 
 # sent_id = 2328
 # text = alors l' ouverture de concert qui date de mille neuf cent cinq mille neuf cent six date de justement de ces années -là des années de la jeune Pologne on voit la marque on va l' entendre la marque de Strauss
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	3	discourse	_	_
 2	l'	le	DET	_	_	3	det	_	_
 3	ouverture	ouverture	NOUN	_	_	31	dislocated	_	_
@@ -4179,13 +3911,11 @@
 
 # sent_id = 2329
 # text = ah oui
-# timestamp = 1601037997264
 1	ah	ah	INTJ	_	_	0	root	_	_
 2	oui	oui	INTJ	_	_	1	discourse	_	_
 
 # sent_id = 2330
 # text = ça c' est très très évident dans cette partition
-# timestamp = 1601037997264
 1	ça	ça	PRON	_	_	3	dislocated	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -4198,7 +3928,6 @@
 
 # sent_id = 2331
 # text = et alors ils communient tous dans ce culte de Strauss
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	alors	alors	ADV	_	_	4	mod@periph	_	_
 3	ils	il	PRON	_	_	4	subj	_	_
@@ -4212,7 +3941,6 @@
 
 # sent_id = 2332
 # text = et à un moment Rozycki raconte dans ses souvenirs que ils jouaient à quatre mains tout Strauss Strauss que euh Szymanoski jouait aussi à quatre mains avec le cousin Neuhaus qui euh est pianiste bien connu
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	6	cc	_	_
 2	à	à	ADP	_	_	6	obl@periph	_	_
 3	un	un	DET	_	_	4	det	_	_
@@ -4252,7 +3980,6 @@
 
 # sent_id = 2333
 # text = et Rozyski dit on ne pouvait pas s' empêcher à la fin de Mort et transfiguration de faire résonner résonner et résonner et encore ces accords qui nous enchantaient
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	Rozyski	Rozyski	PROPN	_	_	3	subj	_	_
 3	dit	dire	VERB	_	_	0	root	_	_
@@ -4285,7 +4012,6 @@
 
 # sent_id = 2334
 # text = voici un extrait de cette ouverture de concert interprété par l' orchestre national de la radio polonaise direction Casimir Kord
-# timestamp = 1601037997264
 1	voici	voici	VERB	_	_	0	root	_	_
 2	un	un	DET	_	_	3	det	_	_
 3	extrait	extrait	NOUN	_	_	1	comp:obj	_	_
@@ -4309,14 +4035,12 @@
 
 # sent_id = 2335
 # text = bonsoir à tous
-# timestamp = 1601037997264
 1	bonsoir	bonsoir	NOUN	_	_	0	root	_	_
 2	à	à	ADP	_	_	1	udep	_	_
 3	tous	tout	PRON	_	_	2	comp:obj	_	_
 
 # sent_id = 2336
 # text = nous consacrerons la dernière partie de cette émission à vos questions SMS
-# timestamp = 1601037997264
 1	nous	nous	PRON	_	_	2	subj	_	_
 2	consacrerons	consacrer	VERB	_	_	0	root	_	_
 3	la	le	DET	_	_	5	det	_	_
@@ -4332,7 +4056,6 @@
 
 # sent_id = 2337
 # text = alors où en est -on vraiment du côté de la grippe A H un N un
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	2	discourse	_	_
 2	où	où	PRON	_	_	4	comp:pred	_	_
 3	en	en	PRON	_	_	2	unk	_	_
@@ -4352,7 +4075,6 @@
 
 # sent_id = 2338
 # text = la tendance dans les médias est plutôt vous l' avez vu du côté d' un léger assoupissement
-# timestamp = 1601037997264
 1	la	le	DET	_	_	2	det	_	_
 2	tendance	tendance	NOUN	_	_	6	subj	_	_
 3	dans	dans	ADP	_	_	2	udep	_	_
@@ -4373,7 +4095,6 @@
 
 # sent_id = 2339
 # text = mais les déclarations des spécialistes et de l' OMS euh ont effectivement de quoi alarmer
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	11	cc	_	_
 2	les	le	DET	_	_	3	det	_	_
 3	déclarations	déclaration	NOUN	_	_	11	subj	_	_
@@ -4392,7 +4113,6 @@
 
 # sent_id = 2340
 # text = c' est comme un très mauvais rendez - vous à venir
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	comme	comme	ADP	_	_	2	comp:pred	_	_
@@ -4407,7 +4127,6 @@
 
 # sent_id = 2341
 # text = rappelons euh qu' il y a moins d' une semaine le numéro deux de l' organisation mondiale de la santé estimait qu' un tiers de la population mondiale pourrait être contaminé
-# timestamp = 1601037997264
 1	rappelons	rappeler	VERB	_	_	0	root	_	_
 2	euh	euh	INTJ	_	_	1	discourse	_	_
 3	qu'	que	SCONJ	_	_	1	comp:obj	_	_
@@ -4442,7 +4161,6 @@
 
 # sent_id = 2342
 # text = nous avons intitulé cette émission grippe A les chiffres alarmistes
-# timestamp = 1601037997264
 1	nous	nous	PRON	_	_	2	subj	_	_
 2	avons	avoir	AUX	_	_	0	root	_	_
 3	intitulé	intituler	VERB	_	_	2	comp:aux	_	_
@@ -4456,7 +4174,6 @@
 
 # sent_id = 2343
 # text = et voici les invités qui ont accepté d' y participer en direct comme chaque soir
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	2	cc	_	_
 2	voici	voici	INTJ	_	_	0	root	_	_
 3	les	le	DET	_	_	4	det	_	_
@@ -4475,7 +4192,6 @@
 
 # sent_id = 2344
 # text = Antoine Flahault est épidémiologiste spécialiste de la grippe
-# timestamp = 1601037997264
 1	Antoine	Antoine	PROPN	_	_	3	subj	_	_
 2	Flahault	Flahault	PROPN	_	_	1	flat	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -4487,7 +4203,6 @@
 
 # sent_id = 2345
 # text = vous êtes directeur de l' École des hautes études en santé publique à Rennes
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	êtes	être	AUX	_	_	0	root	_	_
 3	directeur	directeur	NOUN	_	_	2	comp:pred	_	_
@@ -4505,7 +4220,6 @@
 
 # sent_id = 2346
 # text = nous avons tous entendu parler de votre scénario envisageant trente mille morts dans notre pays l' an prochain pour de grippe A H un N un
-# timestamp = 1601037997264
 1	nous	nous	PRON	_	_	2	subj	_	_
 2	avons	avoir	AUX	_	_	0	root	_	_
 3	tous	tout	PRON	_	_	2	mod	_	_
@@ -4535,7 +4249,6 @@
 
 # sent_id = 2347
 # text = euh je rappelle que votre livre Des épidémies et des Hommes vient de paraître aux éditions de la Martinière
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	3	discourse	_	_
 2	je	je	PRON	_	_	3	subj	_	_
 3	rappelle	rappeler	VERB	_	_	0	root	_	_
@@ -4558,7 +4271,6 @@
 
 # sent_id = 2348
 # text = Jean François Saluzzo est lui virologue
-# timestamp = 1601037997264
 1	Jean	Jean	PROPN	_	_	4	subj	_	_
 2	François	François	PROPN	_	_	1	flat	_	_
 3	Saluzzo	Saluzzo	PROPN	_	_	2	flat	_	_
@@ -4568,7 +4280,6 @@
 
 # sent_id = 2349
 # text = vous êtes expert auprès de l' OMS et ancien chercheur à l' institut Pasteur
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	êtes	être	AUX	_	_	0	root	_	_
 3	expert	expert	NOUN	_	_	2	comp:pred	_	_
@@ -4586,7 +4297,6 @@
 
 # sent_id = 2350
 # text = vous êtes par ailleurs responsable du développement des vaccins contre les maladies virales émergentes dans un laboratoire
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	êtes	être	AUX	_	_	0	root	_	_
 3	par	par	ADP	_	_	2	mod@periph	_	_
@@ -4607,7 +4317,6 @@
 
 # sent_id = 2351
 # text = votre dernier livre À la conquête des virus euh vient lui de paraître chez Belin
-# timestamp = 1601037997264
 1	votre	son	DET	_	_	3	det	_	_
 2	dernier	dernier	ADJ	_	_	3	mod	_	_
 3	livre	livre	NOUN	_	_	10	subj	_	_
@@ -4626,7 +4335,6 @@
 
 # sent_id = 2352
 # text = Christian Perronne est infectiologue chef du service des maladies infectieuses et tropicales à l' hôpital Raymond Poincaré de Garches dans les Hauts - de - Seine
-# timestamp = 1601037997264
 1	Christian	Christian	PROPN	_	_	3	subj	_	_
 2	Perronne	Perronne	PROPN	_	_	1	flat	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -4656,7 +4364,6 @@
 
 # sent_id = 2353
 # text = vous présidez par ailleurs la commission maladies transmissibles euh du Haut Conseil de la santé publique
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	présidez	présider	VERB	_	_	0	root	_	_
 3	par	par	NOUN	_	_	2	dislocated	_	_
@@ -4676,7 +4383,6 @@
 
 # sent_id = 2354
 # text = enfin Michel Setbon est sociologue spécialiste des crises sanitaires
-# timestamp = 1601037997264
 1	enfin	enfin	ADV	_	_	0	root	_	_
 2	Michel	Michel	PROPN	_	_	4	subj	_	_
 3	Setbon	Setbon	PROPN	_	_	2	flat	_	_
@@ -4689,7 +4395,6 @@
 
 # sent_id = 2355
 # text = vous êtes directeur de recherche au CNRS et responsable du centre de recherche sur le risque et sa régulation à l' École des hautes études en santé publique
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	êtes	être	AUX	_	_	0	root	_	_
 3	directeur	directeur	NOUN	_	_	2	comp:pred	_	_
@@ -4721,7 +4426,6 @@
 
 # sent_id = 2356
 # text = euh Antoine Flahault bon ben on commence par vous hein
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	7	discourse	_	_
 2	Antoine	Antoine	PROPN	_	_	7	dislocated	_	_
 3	Flahault	Flahault	PROPN	_	_	2	flat	_	_
@@ -4735,13 +4439,11 @@
 
 # sent_id = 2357
 # text = c' est
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 
 # sent_id = 2358
 # text = voilà est -ce que vous maintenez vos prévisions si je puis dire
-# timestamp = 1601037997264
 1	voilà	voilà	VERB	DISCOURSE	_	2	parataxis@discourse	_	_
 2	est	être	AUX	_	_	6	comp:obj	_	_
 3	-ce	ce	PRON	_	_	6	subj	_	_
@@ -4757,7 +4459,6 @@
 
 # sent_id = 2359
 # text = enfin sauf que là on n' est pas dans la météo
-# timestamp = 1601037997264
 1	enfin	enfin	ADV	_	_	2	discourse	_	_
 2	sauf	sauf	CCONJ	_	_	0	root	_	_
 3	que	que	SCONJ	_	_	2	unk@fixed	_	_
@@ -4772,20 +4473,17 @@
 
 # sent_id = 2360
 # text = donc euh
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	0	root	_	_
 2	euh	euh	INTJ	_	_	1	conj@dicto	_	_
 
 # sent_id = 2361
 # text = oui euh voilà
-# timestamp = 1601037997264
 1	oui	oui	INTJ	_	_	3	discourse	_	_
 2	euh	euh	INTJ	_	_	3	discourse	_	_
 3	voilà	voilà	VERB	_	_	0	root	_	_
 
 # sent_id = 2362
 # text = ce sont pas des prévisions
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	2	subj	_	_
 2	sont	être	AUX	_	_	0	root	_	_
 3	pas	pas	PART	_	_	5	mod	_	_
@@ -4794,13 +4492,11 @@
 
 # sent_id = 2363
 # text = c' est
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 
 # sent_id = 2364
 # text = vous l' avez m~ peut-être mieux euh explicité en disant c' est un scénario
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	3	subj	_	_
 2	l'	le	PRON	_	_	8	comp:obj	_	_
 3	avez	avoir	AUX	_	_	0	root	_	_
@@ -4818,7 +4514,6 @@
 
 # sent_id = 2365
 # text = c' est un un des scénarios possibles euh
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	un	un	PRON	_	_	2	comp:pred	_	_
@@ -4830,7 +4525,6 @@
 
 # sent_id = 2366
 # text = c' est - à - dire que si vraiment euh l' activité que l' on constate aujourd' hui en en Amérique du Nord oui euh devient l' activité d' une pandémie alors euh
-# timestamp = 1601037997264
 1	c'	c'	PRON	_	_	8	cc	_	_
 2	est	est	VERB	_	_	1	unk@fixed	_	_
 3	-	-	PUNCT	_	_	4	punct	_	_
@@ -4867,7 +4561,6 @@
 
 # sent_id = 2367
 # text = on n' a jamais vraiment su jusqu' à présent arrêter les épidémies de grippe saisonnière
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	3	mod	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -4886,7 +4579,6 @@
 
 # sent_id = 2368
 # text = et euh on n' a pas beaucoup d' expérience
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	euh	euh	INTJ	_	_	5	discourse	_	_
 3	on	on	PRON	_	_	5	subj	_	_
@@ -4899,7 +4591,6 @@
 
 # sent_id = 2369
 # text = mais on a quand même de l' expérience de trois pandémies passées
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	on	on	PRON	_	_	3	subj	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -4915,7 +4606,6 @@
 
 # sent_id = 2370
 # text = et aucun des pays n' a su pour l' instant arrêter la vague pandémique dans son pays
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	6	cc	_	_
 2	aucun	aucun	PRON	_	_	6	subj	_	_
 3	des	de+le	ADP	_	_	2	udep	_	_
@@ -4936,7 +4626,6 @@
 
 # sent_id = 2371
 # text = alors il est possible que dans le vingt-et-unième siècle dans certains pays mieux dotés que d' autres on puisse freiner arrêter atténuer la vague
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	3	mod@periph	_	_
 2	il	il	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -4964,7 +4653,6 @@
 
 # sent_id = 2372
 # text = mais si elle se déroule de façon je dirais euh un peu comme dans les les fois passées c' est les scénarios que l' on peut imaginer
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	20	cc	_	_
 2	si	si	SCONJ	_	_	20	mod@periph	_	_
 3	elle	il	PRON	_	_	5	subj	_	_
@@ -4995,7 +4683,6 @@
 
 # sent_id = 2373
 # text = alors je je je
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	2	discourse	_	_
 2	je	je	PRON	_	_	0	root	_	_
 3	je	je	PRON	conj:reform	_	2	conj@dicto	_	_
@@ -5003,7 +4690,6 @@
 
 # sent_id = 2374
 # text = c' est très bien que vous nous précisiez les choses comme ça
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	très	très	ADV	_	_	2	mod	_	_
@@ -5019,7 +4705,6 @@
 
 # sent_id = 2375
 # text = ce ce chiffre de trente mille c' est finalement une extrapolation que vous faites mais à partir de scénarios passés entre guillemets raisonnables mais en tenant compte de ce qu' on a pu faire ou surtout de ce qu' on n' a pas pu faire
-# timestamp = 1601037997264
 1	ce	ce	DET	_	_	3	det	_	_
 2	ce	ce	DET	conj:reform	_	1	conj@dicto	_	_
 3	chiffre	chiffre	NOUN	_	_	8	dislocated	_	_
@@ -5068,7 +4753,6 @@
 
 # sent_id = 2376
 # text = je vous ai bien compris
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	vous	vous	PRON	_	_	5	comp:obj	_	_
 3	ai	avoir	AUX	_	_	0	root	_	_
@@ -5077,7 +4761,6 @@
 
 # sent_id = 2377
 # text = c' est exactement cela
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	exactement	exactement	ADV	_	_	2	mod	_	_
@@ -5085,14 +4768,12 @@
 
 # sent_id = 2378
 # text = un petit peu
-# timestamp = 1601037997264
 1	un	un	DET	_	_	3	det	_	_
 2	petit	petit	ADJ	_	_	3	mod	_	_
 3	peu	peu	NOUN	_	_	0	root	_	_
 
 # sent_id = 2379
 # text = vous parliez de la météo
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	parliez	parler	VERB	_	_	0	root	_	_
 3	de	de	ADP	_	_	2	obl@comp	_	_
@@ -5101,7 +4782,6 @@
 
 # sent_id = 2380
 # text = mais dans le fond quand on veut prédire un cyclone au jour d' aujourd' hui on se rapporte au catalogue des cyclones passés
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	18	cc	_	_
 2	dans	dans	ADP	_	_	18	obl@periph	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -5128,7 +4808,6 @@
 
 # sent_id = 2381
 # text = et on regarde c~ le plus proche cyclone euh ou embryon de cyclone de ce que l' on voit euh actuellement
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	on	on	PRON	_	_	3	subj	_	_
 3	regarde	regarder	VERB	_	_	0	root	_	_
@@ -5153,7 +4832,6 @@
 
 # sent_id = 2382
 # text = eh bien on peut dire un peu de la même façon qu' aujourd'hui ce que l'on voit c' est un prémice de démarrage de pandémie euh
-# timestamp = 1601037997264
 1	eh	eh	INTJ	_	_	5	discourse	_	_
 2	bien	bien	INTJ	_	_	5	discourse	_	_
 3	on	on	PRON	_	_	4	subj	_	_
@@ -5183,7 +4861,6 @@
 
 # sent_id = 2383
 # text = on n' est pas des devins
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	6	mod	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -5193,7 +4870,6 @@
 
 # sent_id = 2384
 # text = on ne fait pas de la prédiction ou de la prévision euh
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	3	subj	_	_
 2	ne	ne	PART	_	_	3	mod	_	_
 3	fait	faire	VERB	_	_	0	root	_	_
@@ -5209,7 +4885,6 @@
 
 # sent_id = 2385
 # text = on imagine des scénarios
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	2	subj	_	_
 2	imagine	imaginer	VERB	_	_	0	root	_	_
 3	des	de+le	ADP	_	_	2	obl@comp	_	_
@@ -5217,7 +4892,6 @@
 
 # sent_id = 2386
 # text = et il y a plusieurs scénarios possibles
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	il	il	PRON	_	_	4	comp:obj@expl	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -5228,7 +4902,6 @@
 
 # sent_id = 2387
 # text = mais celui qui est le plus grave le plus pour la Fran~ non pas le plus grave
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	2	cc	_	_
 2	celui	celui	PRON	_	_	0	root	_	_
 3	qui	qui	PRON	_	_	4	subj	_	_
@@ -5249,7 +4922,6 @@
 
 # sent_id = 2388
 # text = pa~ parce que à trente mille vous êtes dans dans encore dans le dans le raison~ enfin dans l~
-# timestamp = 1601037997264
 1	pa~	pa~	SCONJ	_	_	0	root	_	_
 2	parce	parce	SCONJ	_	_	1	conj@dicto	_	_
 3	que	que	SCONJ	_	_	2	unk@fixed	_	_
@@ -5272,7 +4944,6 @@
 
 # sent_id = 2389
 # text = à trente mille on est dans quelque chose où la mortalité est très voisine de la mortalité de la grippe saisonnière
-# timestamp = 1601037997264
 1	à	à	ADP	_	_	3	mod	_	_
 2	trente	trente	NUM	_	_	1	comp:obj	_	_
 3	mille	mille	NUM	_	_	6	obl@periph	_	_
@@ -5297,7 +4968,6 @@
 
 # sent_id = 2390
 # text = car la grippe saisonnière est meurtrière
-# timestamp = 1601037997264
 1	car	car	CCONJ	_	_	5	cc	_	_
 2	la	le	DET	_	_	3	det	_	_
 3	grippe	grippe	NOUN	_	_	5	subj	_	_
@@ -5307,14 +4977,12 @@
 
 # sent_id = 2391
 # text = la grippe saisonnière
-# timestamp = 1601037997264
 1	la	le	DET	_	_	2	det	_	_
 2	grippe	grippe	NOUN	_	_	0	root	_	_
 3	saisonnière	saisonnier	ADJ	_	_	2	mod	_	_
 
 # sent_id = 2392
 # text = mais enfin entre cinq mille morts par an et trente mille v~ je il y a six fois plus de cas
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	16	cc	_	_
 2	enfin	enfin	ADV	_	_	16	discourse	_	_
 3	entre	entre	ADP	_	_	16	obl@periph	_	_
@@ -5339,14 +5007,12 @@
 
 # sent_id = 2393
 # text = vous avez raison
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	avez	avoir	VERB	_	_	0	root	_	_
 3	raison	raison	NOUN	_	_	2	comp:obj	_	_
 
 # sent_id = 2394
 # text = s' il y a six fois plus de cas simplement de cas de gens infectés par le virus alors mécaniquement il y a une chance un risque qu' il y ait six fois plus de de décès
-# timestamp = 1601037997264
 1	s'	si	SCONJ	_	_	23	mod@periph	_	_
 2	il	il	PRON	_	_	4	comp:obj@expl	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -5387,7 +5053,6 @@
 
 # sent_id = 2395
 # text = j~ j~ je suis pas pervers
-# timestamp = 1601037997264
 1	j~	j~	PRON	_	_	4	subj	_	_
 2	j~	j~	PRON	_	_	1	conj@dicto	_	_
 3	je	je	PRON	_	_	1	conj@dicto	_	_
@@ -5397,14 +5062,12 @@
 
 # sent_id = 2396
 # text = mais enfin de~
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	0	root	_	_
 2	enfin	enfin	ADV	_	_	1	discourse	_	_
 3	de~	de~	X	_	_	2	conj@dicto	_	_
 
 # sent_id = 2397
 # text = pardonnez -moi si ça c' était on va dire une des estimations à euh potentiel raisonnable le le l' estimation inquiétante c' est quoi
-# timestamp = 1601037997264
 1	pardonnez	pardonner	VERB	DISCOURSE	_	23	parataxis@discourse	_	_
 2	-moi	moi	PRON	_	_	1	comp:obj	_	_
 3	si	si	SCONJ	_	_	23	mod@periph	_	_
@@ -5432,7 +5095,6 @@
 
 # sent_id = 2398
 # text = les estimations inquiétantes euh
-# timestamp = 1601037997264
 1	les	le	DET	_	_	2	det	_	_
 2	estimations	estimation	NOUN	_	_	0	root	_	_
 3	inquiétantes	inquiétant	ADJ	_	_	2	mod	_	_
@@ -5440,7 +5102,6 @@
 
 # sent_id = 2399
 # text = ça peut aller jusqu' à combien concernant les les la France et les Français
-# timestamp = 1601037997264
 1	ça	ça	PRON	_	_	2	subj	_	_
 2	peut	pouvoir	AUX	_	_	0	root	_	_
 3	aller	aller	VERB	ETRE	_	2	comp:aux	_	_
@@ -5458,7 +5119,6 @@
 
 # sent_id = 2400
 # text = les estimations inquiétantes euh elles ne me semblent pas beau~ pas très probables
-# timestamp = 1601037997264
 1	les	le	DET	_	_	2	det	_	_
 2	estimations	estimation	NOUN	_	_	8	dislocated	_	_
 3	inquiétantes	inquiétant	ADJ	_	_	2	mod	_	_
@@ -5475,7 +5135,6 @@
 
 # sent_id = 2401
 # text = une des estimations inquiétantes c' est celle de mille neuf cent dix-huit
-# timestamp = 1601037997264
 1	une	un	PRON	_	_	6	dislocated	_	_
 2	des	de+le	ADP	_	_	1	udep	_	_
 3	estimations	estimation	NOUN	_	_	2	comp:obj	_	_
@@ -5491,7 +5150,6 @@
 
 # sent_id = 2402
 # text = il y a eu en mille neuf cent dix-huit sur l' ensemble de la planète on dit quarante millions de décès
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	4	comp:obl	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -5516,7 +5174,6 @@
 
 # sent_id = 2403
 # text = c' est - à - dire une mortalité effroyable
-# timestamp = 1601037997264
 1	c'	c'	PRON	_	_	8	cc	_	_
 2	est	est	VERB	_	_	1	unk@fixed	_	_
 3	-	-	PUNCT	_	_	4	punct	_	_
@@ -5529,13 +5186,11 @@
 
 # sent_id = 2404
 # text = mais pourquoi
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	2	cc	_	_
 2	pourquoi	pourquoi	PRON	_	_	0	root	_	_
 
 # sent_id = 2405
 # text = mais en mille neuf cent dix-huit à Rennes par exemple soixante-dix mille habitants en mille neuf cent dix-huit il y avait trente baignoires
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	13	cc	_	_
 2	en	en	ADP	_	_	13	obl@periph	_	_
 3	mille	mille	NUM	_	_	2	mod	_	_
@@ -5562,7 +5217,6 @@
 
 # sent_id = 2406
 # text = en mille neuf cent dix-huit il y avait pas de de de
-# timestamp = 1601037997264
 1	en	en	ADP	_	_	8	mod@periph	_	_
 2	mille	mille	NUM	_	_	1	mod	_	_
 3	neuf	neuf	NUM	_	_	2	mod	_	_
@@ -5578,7 +5232,6 @@
 
 # sent_id = 2407
 # text = la moitié des des des domiciles parisiens n' avait pas le le raccord à l' égout euh
-# timestamp = 1601037997264
 1	la	le	DET	_	_	2	det	_	_
 2	moitié	moitié	NOUN	_	_	9	subj	_	_
 3	des	de+le	ADP	de	_	2	udep	_	_
@@ -5599,7 +5252,6 @@
 
 # sent_id = 2408
 # text = vous aviez donc euh pas d' antibiotiques bien entendu
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	aviez	avoir	VERB	_	_	0	root	_	_
 3	donc	donc	ADV	_	_	2	mod@periph	_	_
@@ -5612,7 +5264,6 @@
 
 # sent_id = 2409
 # text = on ne savait pas ce qu' était un virus en mille neuf cent dix-huit
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	3	subj	_	_
 2	ne	ne	PART	_	_	3	mod	_	_
 3	savait	savoir	VERB	_	_	0	root	_	_
@@ -5630,7 +5281,6 @@
 
 # sent_id = 2410
 # text = on est au Moyen Âge de la santé en mille neuf cent dix-huit
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	au	à+le	ADP	_	_	2	comp:pred	_	_
@@ -5647,7 +5297,6 @@
 
 # sent_id = 2411
 # text = il y a pas de d' anti - viraux
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -5660,7 +5309,6 @@
 
 # sent_id = 2412
 # text = il y a pas de vaccins
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -5670,7 +5318,6 @@
 
 # sent_id = 2413
 # text = je pense que aujourd' hui euh s~ euh même une grippe aussi virulente que celle de mille neuf cent dix-huit n' entraînerait pas une mortalité aussi effroyable
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	pense	penser	VERB	_	_	0	root	_	_
 3	que	que	SCONJ	_	_	2	comp:obj	_	_
@@ -5701,7 +5348,6 @@
 
 # sent_id = 2414
 # text = donc euh les scénarios euh catastrophes qu' on a pu voir éclore de ci oui euh de ci de là ne me paraissent pas mais encore une fois je suis pas un un un devin ne me paraissent pas très probables
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	23	mod@periph	_	_
 2	euh	euh	INTJ	_	_	1	discourse	_	_
 3	les	le	DET	_	_	4	det	_	_
@@ -5746,13 +5392,11 @@
 
 # sent_id = 2415
 # text = euh vous
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	0	root	_	_
 2	vous	vous	PRON	_	_	1	conj@dicto	_	_
 
 # sent_id = 2416
 # text = il il y a un
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	4	comp:obj@expl	_	_
 2	il	il	PRON	conj:reform	_	1	conj@dicto	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -5761,7 +5405,6 @@
 
 # sent_id = 2417
 # text = enfin dans cette projection euh est -ce qu' il y a une limite de date si je puis dire
-# timestamp = 1601037997264
 1	enfin	enfin	ADV	_	_	11	discourse	_	_
 2	dans	dans	ADP	_	_	8	obl@periph	_	_
 3	cette	ce	DET	_	_	4	det	_	_
@@ -5784,13 +5427,11 @@
 
 # sent_id = 2418
 # text = c' est
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 
 # sent_id = 2419
 # text = est -ce que vous nous dites voilà si ça tourne mal c' est euh dans l' année à venir euh voilà
-# timestamp = 1601037997264
 1	est	être	AUX	_	_	6	comp:obj	_	_
 2	-ce	ce	PRON	_	_	6	subj	_	_
 3	que	que	SCONJ	_	_	0	root	_	_
@@ -5815,7 +5456,6 @@
 
 # sent_id = 2420
 # text = est -ce que vous vous êtes fixé aussi un cadre si je puis dire dans la durée du du du scénario et donc du film en quelque sorte
-# timestamp = 1601037997264
 1	est	être	AUX	_	_	7	comp:obj	_	_
 2	-ce	ce	PRON	_	_	6	subj	_	_
 3	que	que	SCONJ	_	_	0	root	_	_
@@ -5847,7 +5487,6 @@
 
 # sent_id = 2421
 # text = alors euh oui c' est c' est une c' est une question
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	5	mod@periph	_	_
 2	euh	euh	INTJ	_	_	1	discourse	_	_
 3	oui	oui	INTJ	_	_	1	discourse	_	_
@@ -5863,7 +5502,6 @@
 
 # sent_id = 2422
 # text = vous vous savez on a tous été frai~ très frappés
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	3	subj	_	_
 2	vous	vous	PRON	conj:reform	_	1	conj@dicto	_	_
 3	savez	savoir	VERB	_	_	0	root	_	_
@@ -5877,7 +5515,6 @@
 
 # sent_id = 2423
 # text = par exemple notre notre ministre de la santé Roselyne Bachelot elle a géré cette crise on va dire au minimum en trois temps en termes de communication perçue par
-# timestamp = 1601037997264
 1	par	par	ADP	_	_	13	obl@periph	_	_
 2	exemple	exemple	NOUN	_	_	1	comp:obj	_	_
 3	notre	son	DET	_	_	5	det	_	_
@@ -5910,7 +5547,6 @@
 
 # sent_id = 2424
 # text = elle a commencé par nous dire euh on est aux affaires
-# timestamp = 1601037997264
 1	elle	il	PRON	_	_	2	subj	_	_
 2	a	avoir	AUX	_	_	0	root	_	_
 3	commencé	commencer	VERB	_	_	2	comp:aux	_	_
@@ -5925,7 +5561,6 @@
 
 # sent_id = 2425
 # text = après elle a dit on est aux affaires
-# timestamp = 1601037997264
 1	après	après	ADV	_	_	3	mod@periph	_	_
 2	elle	il	PRON	_	_	3	subj	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -5937,7 +5572,6 @@
 
 # sent_id = 2426
 # text = ça pourrait être grave
-# timestamp = 1601037997264
 1	ça	ça	PRON	_	_	2	subj	_	_
 2	pourrait	pouvoir	AUX	_	_	0	root	_	_
 3	être	être	AUX	_	_	2	comp:aux	_	_
@@ -5945,7 +5579,6 @@
 
 # sent_id = 2427
 # text = ensuite elle a dit j' ai mis tout mon Tamiflu de côté
-# timestamp = 1601037997264
 1	ensuite	ensuite	ADV	_	_	3	mod@periph	_	_
 2	elle	il	PRON	_	_	3	subj	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -5961,7 +5594,6 @@
 
 # sent_id = 2428
 # text = on travaille là - dessus
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	2	subj	_	_
 2	travaille	travailler	VERB	_	_	0	root	_	_
 3	là	là	ADV	_	_	5	compound	_	_
@@ -5970,7 +5602,6 @@
 
 # sent_id = 2429
 # text = mais on ne peut pas exclure que il y ait quelque chose de grave
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	4	cc	_	_
 2	on	on	PRON	_	_	4	subj	_	_
 3	ne	ne	PART	_	_	4	mod	_	_
@@ -5988,13 +5619,11 @@
 
 # sent_id = 2430
 # text = vous voyez
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	voyez	voir	VERB	_	_	0	root	_	_
 
 # sent_id = 2431
 # text = donc il y il y a eu des gradations
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	6	mod@periph	_	_
 2	il	il	PRON	_	_	6	comp:obj@expl	_	_
 3	y	y	PRON	_	_	7	comp:obl	_	_
@@ -6007,13 +5636,11 @@
 
 # sent_id = 2432
 # text = voilà euh
-# timestamp = 1601037997264
 1	voilà	voilà	VERB	_	_	0	root	_	_
 2	euh	euh	INTJ	_	_	1	discourse	_	_
 
 # sent_id = 2433
 # text = mais surtout elle nous a dit faut se méfier du retour de balancier
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	5	cc	_	_
 2	surtout	surtout	ADV	_	_	5	mod	_	_
 3	elle	il	PRON	_	_	5	subj	_	_
@@ -6030,7 +5657,6 @@
 
 # sent_id = 2434
 # text = en gros de passer l' été qu' est - ce qu' il va se passer l' hiver prochain
-# timestamp = 1601037997264
 1	en	en	ADP	_	_	13	mod@periph	_	_
 2	gros	gros	ADJ	_	_	1	comp:obj	_	_
 3	de	de	ADP	_	_	13	mod@periph	_	_
@@ -6052,7 +5678,6 @@
 
 # sent_id = 2435
 # text = dans le cadre déjà de la grippe traditionnelle est -ce que ce chiffre de trente mille il s' applique à ça
-# timestamp = 1601037997264
 1	dans	dans	ADP	_	_	11	obl@periph	_	_
 2	le	le	DET	_	_	3	det	_	_
 3	cadre	cadre	NOUN	_	_	1	comp:obj	_	_
@@ -6077,7 +5702,6 @@
 
 # sent_id = 2436
 # text = c' est - à - dire que la grippe ce qu' on connaît de la grippe
-# timestamp = 1601037997264
 1	c'	c'	PRON	_	_	0	root	_	_
 2	est	est	VERB	_	_	1	unk@fixed	_	_
 3	-	-	PUNCT	_	_	4	punct	_	_
@@ -6097,7 +5721,6 @@
 
 # sent_id = 2437
 # text = parce que la grippe est une maladie qu' on connaît bien
-# timestamp = 1601037997264
 1	parce	parce	SCONJ	_	_	0	root	_	_
 2	que	que	SCONJ	_	_	1	unk@fixed	_	_
 3	la	le	DET	_	_	4	det	_	_
@@ -6112,7 +5735,6 @@
 
 # sent_id = 2438
 # text = euh chaque année elle revient dans notre pays
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	5	discourse	_	_
 2	chaque	chaque	DET	_	_	3	det	_	_
 3	année	année	NOUN	_	_	5	dislocated	_	_
@@ -6124,7 +5746,6 @@
 
 # sent_id = 2439
 # text = et chaque année c' est un virus qui a fait le tour du monde qui nous revient euh
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	chaque	chaque	DET	_	_	3	det	_	_
 3	année	année	NOUN	_	_	5	mod	_	_
@@ -6146,7 +5767,6 @@
 
 # sent_id = 2440
 # text = le virus il émerge quelque part dans le monde
-# timestamp = 1601037997264
 1	le	le	DET	_	_	2	det	_	_
 2	virus	virus	NOUN	_	_	4	dislocated	_	_
 3	il	il	PRON	_	_	4	subj	_	_
@@ -6159,7 +5779,6 @@
 
 # sent_id = 2441
 # text = il va dans l' hémisphère sud pendant les mois de juillet et d' août euh p~ qui est leur hiver austral
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	va	aller	VERB	ETRE	_	0	root	_	_
 3	dans	dans	ADP	_	_	2	obl@comp	_	_
@@ -6184,13 +5803,11 @@
 
 # sent_id = 2442
 # text = il circule
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	circule	circuler	VERB	_	_	0	root	_	_
 
 # sent_id = 2443
 # text = on ne sait pas très bien comment
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	3	subj	_	_
 2	ne	ne	PART	_	_	3	mod	_	_
 3	sait	savoir	VERB	_	_	0	root	_	_
@@ -6201,7 +5818,6 @@
 
 # sent_id = 2444
 # text = car c' est pas très surveillé dans la zone intertropicale
-# timestamp = 1601037997264
 1	car	car	CCONJ	_	_	3	cc	_	_
 2	c'	ce	PRON	_	_	3	subj@pass	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -6215,7 +5831,6 @@
 
 # sent_id = 2445
 # text = et il remonte chez nous pendant notre hiver à nous
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	il	il	PRON	_	_	3	subj	_	_
 3	remonte	remonter	VERB	_	_	0	root	_	_
@@ -6229,7 +5844,6 @@
 
 # sent_id = 2446
 # text = donc euh le scénario auquel on peut s' attendre encore une fois avec toutes les précautions qu' il faut d' usage qu' il faut mettre c' est que cette souche que l' on voit en Amérique du Nord ne va pas se plaire beaucoup avec l' été euh chez nous dans l' hémisphère nord
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	27	discourse	_	_
 2	euh	euh	INTJ	_	_	27	discourse	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -6287,7 +5901,6 @@
 
 # sent_id = 2447
 # text = mais elle pourrait tout à fait f~ euh entraîner un certain nombre d' épidémies euh de plus forte ampleur que des épidémies saisonnières habituelles dans l' hémisphère sud
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	elle	il	PRON	_	_	3	subj	_	_
 3	pourrait	pouvoir	AUX	_	_	0	root	_	_
@@ -6319,7 +5932,6 @@
 
 # sent_id = 2448
 # text = on va donc avoir nos regards braqués sur l' hémisphère sud et notamment sur les pays de la zone tempérée de l' hémisphère sud dans les mois à venir
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	2	subj	_	_
 2	va	aller	VERB	ETRE	_	0	root	_	_
 3	donc	donc	ADV	_	_	2	mod	_	_
@@ -6352,7 +5964,6 @@
 
 # sent_id = 2449
 # text = et puis après si jamais ces épidémies euh surviennent dans l' hémisphère sud on aura une chance encore plus renforcée
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	15	cc	_	_
 2	puis	puis	ADV	_	_	1	unk@fixed	_	_
 3	après	après	ADV	_	_	15	mod	_	_
@@ -6376,7 +5987,6 @@
 
 # sent_id = 2450
 # text = ce qui peut comprendre le le discours de nos autorités de santé qui vont se voir euh non pas réconfortées hein mais euh plutôt euh euh vigilan~ avec une vigilance encore accrue sur euh l' hiver qui qui arrive
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	0	root	_	_
 2	qui	qui	PRON	_	_	3	subj	_	_
 3	peut	pouvoir	AUX	_	_	1	mod@relcl	_	_
@@ -6419,7 +6029,6 @@
 
 # sent_id = 2451
 # text = une dernière petite question avant qu' on découvre notre premier reportage
-# timestamp = 1601037997264
 1	une	un	DET	_	_	4	det	_	_
 2	dernière	dernier	ADJ	_	_	4	mod	_	_
 3	petite	petit	ADJ	_	_	4	mod	_	_
@@ -6434,14 +6043,12 @@
 
 # sent_id = 2452
 # text = c' est euh
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	euh	euh	INTJ	_	_	2	discourse	_	_
 
 # sent_id = 2453
 # text = si ça se passe comme ça c' est - à - dire de façon euh inquiétante on le sait quand
-# timestamp = 1601037997264
 1	si	si	SCONJ	_	_	19	mod@periph	_	_
 2	ça	ça	PRON	_	_	4	subj	_	_
 3	se	se	PRON	_	_	4	unk@obj	_	_
@@ -6465,7 +6072,6 @@
 
 # sent_id = 2454
 # text = on le sait le premier octobre
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	3	subj	_	_
 2	le	le	PRON	_	_	3	comp:obj	_	_
 3	sait	savoir	VERB	_	_	0	root	_	_
@@ -6475,7 +6081,6 @@
 
 # sent_id = 2455
 # text = on le sait le premier décembre euh
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	3	subj	_	_
 2	le	le	PRON	_	_	3	comp:obj	_	_
 3	sait	savoir	VERB	_	_	0	root	_	_
@@ -6486,7 +6091,6 @@
 
 # sent_id = 2456
 # text = on le sait le premier
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	3	subj	_	_
 2	le	le	PRON	_	_	3	comp:obj	_	_
 3	sait	savoir	VERB	_	_	0	root	_	_
@@ -6495,7 +6099,6 @@
 
 # sent_id = 2457
 # text = vous voyez ce que je veux dire euh
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	voyez	voir	VERB	_	_	0	root	_	_
 3	ce	ce	PRON	_	_	2	comp:obj	_	_
@@ -6507,7 +6110,6 @@
 
 # sent_id = 2458
 # text = à quel moment euh pas à la journée près
-# timestamp = 1601037997264
 1	à	à	ADP	_	_	0	root	_	_
 2	quel	quel	PRON	_	_	3	det	_	_
 3	moment	moment	NOUN	_	_	1	comp:obj	_	_
@@ -6520,7 +6122,6 @@
 
 # sent_id = 2459
 # text = ça fait rire cette
-# timestamp = 1601037997264
 1	ça	ça	PRON	_	_	2	subj@caus	_	_
 2	fait	faire	AUX	_	_	0	root	_	_
 3	rire	rire	VERB	CAUSATIVE	_	2	comp:aux@caus	_	_
@@ -6528,7 +6129,6 @@
 
 # sent_id = 2460
 # text = euh mais je veux dire
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	5	discourse	_	_
 2	mais	mais	CCONJ	_	_	4	cc	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -6537,7 +6137,6 @@
 
 # sent_id = 2461
 # text = à qu~ à quel moment dans l' année euh à l' automne à l' hiver on sait qu' on est dedans et que ça va s~ ça sera pas la grippe traditionnelle mais autre chose
-# timestamp = 1601037997264
 1	à	à	ADP	_	_	17	mod	_	_
 2	qu~	qu~	PRON	_	_	5	det	_	_
 3	à	à	ADP	_	_	2	conj@dicto	_	_
@@ -6576,7 +6175,6 @@
 
 # sent_id = 2462
 # text = alors les la probabilité ne fait qu' augmenter avec le temps
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	6	mod@periph	_	_
 2	les	le	DET	_	_	3	det	_	_
 3	la	le	DET	_	_	4	det	_	_
@@ -6591,7 +6189,6 @@
 
 # sent_id = 2463
 # text = déjà la probabilité qu' on n~ qu' on soit dedans par exemple enfin ne fait qu' augmenter
-# timestamp = 1601037997264
 1	déjà	déjà	ADV	_	_	15	mod@periph	_	_
 2	la	le	DET	_	_	3	det	_	_
 3	probabilité	probabilité	NOUN	_	_	15	subj@caus	_	_
@@ -6612,7 +6209,6 @@
 
 # sent_id = 2464
 # text = donc je pars en vacances de bonne humeur
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	3	mod@periph	_	_
 2	je	je	PRON	_	_	3	subj	_	_
 3	pars	partir	VERB	ETRE	_	0	root	_	_
@@ -6624,7 +6220,6 @@
 
 # sent_id = 2465
 # text = je reviens au milieu de l' été en me disant qu' est - ce qu' il va se passer à l' automne
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	reviens	revenir	VERB	_	_	0	root	_	_
 3	au	à+le	ADP	_	_	2	obl@comp	_	_
@@ -6650,7 +6245,6 @@
 
 # sent_id = 2466
 # text = et quand je reçois le bulletin trimestrimel de le premier bulletin trimestriel de ma de ma fille je j' appelle les pompes funèbres
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	20	cc	_	_
 2	quand	quand	SCONJ	_	_	20	mod	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -6677,7 +6271,6 @@
 
 # sent_id = 2467
 # text = ce que je veux dire c' est que c' est cumulatif
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	7	dislocated	_	_
 2	que	que	PRON	_	_	5	comp:obj	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -6692,7 +6285,6 @@
 
 # sent_id = 2468
 # text = aujourd' hui on sait que la petite souche qui a émergé au Mexique est quand même un peu plus contagieuse que euh on aurait pu l' espérer
-# timestamp = 1601037997264
 1	aujourd'	aujourd'	ADV	_	_	4	mod@periph	_	_
 2	hui	hui	ADV	_	_	1	unk@fixed	_	_
 3	on	on	PRON	_	_	4	subj	_	_
@@ -6723,7 +6315,6 @@
 
 # sent_id = 2469
 # text = elle est plus contagieuse
-# timestamp = 1601037997264
 1	elle	il	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	plus	plus	ADV	_	_	2	mod	_	_
@@ -6731,7 +6322,6 @@
 
 # sent_id = 2470
 # text = elle s' est ren~ répandue assez rapidement quand même aux États - Unis au Canada en en Grande - Bretagne au au Royaume-Uni
-# timestamp = 1601037997264
 1	elle	il	PRON	_	_	3	subj@pass	_	_
 2	s'	se	PRON	_	_	5	unk@obj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -6758,7 +6348,6 @@
 
 # sent_id = 2471
 # text = dans tous ces endroits -là il y a des chaînes de transmission locale
-# timestamp = 1601037997264
 1	dans	dans	ADP	_	_	8	obl@periph	_	_
 2	tous	tout	ADJ	_	_	4	mod	_	_
 3	ces	ce	DET	_	_	4	det	_	_
@@ -6775,7 +6364,6 @@
 
 # sent_id = 2472
 # text = c' est - à - dire que le m~ le le virus sait faire sa propre besogne de lui -même sur place
-# timestamp = 1601037997264
 1	c'	c'	PRON	_	_	0	root	_	_
 2	est	est	VERB	_	_	1	unk@fixed	_	_
 3	-	-	PUNCT	_	_	4	punct	_	_
@@ -6801,7 +6389,6 @@
 
 # sent_id = 2473
 # text = ce que je crois c' est qu' à la fin de l' été si on sait qu' il y a eu des très fortes épidémies dans l' hémisphère sud la probabilité sera très renforcée que ça nous nous nous revienne pendant notre hiver à nous et peut-être même pendant l' automne c' est - à - dire peut-être assez précocement
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	6	dislocated	_	_
 2	que	que	PRON	_	_	4	comp:obj	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -6865,13 +6452,11 @@
 
 # sent_id = 2474
 # text = alors j~
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	0	root	_	_
 2	j~	j~	PRON	_	_	1	conj@dicto	_	_
 
 # sent_id = 2475
 # text = donc la vigilance sera accrue à ce moment -là
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	4	mod@periph	_	_
 2	la	le	DET	_	_	3	det	_	_
 3	vigilance	vigilance	NOUN	_	_	4	subj@pass	_	_
@@ -6884,7 +6469,6 @@
 
 # sent_id = 2476
 # text = alors je vous rappelle que depuis le début de la crise l' Organisation mondiale de la santé euh contribue largement euh à l' angoisse ou à l' inquiétude par ses communiqués euh
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	4	discourse	_	_
 2	je	je	PRON	_	_	4	subj	_	_
 3	vous	vous	PRON	_	_	4	comp:obj	_	_
@@ -6920,7 +6504,6 @@
 
 # sent_id = 2477
 # text = on sera monté jusqu' au niveau cinq euh d' une échelle qui en compte six en ce qui concerne bien entendu les niveaux d' alerte euh
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	2	subj	_	_
 2	sera	être	AUX	_	_	0	root	_	_
 3	monté	monter	VERB	ETRE	_	2	comp:aux	_	_
@@ -6950,7 +6533,6 @@
 
 # sent_id = 2478
 # text = l' OMS voit d' ailleurs grand puisqu' elle a même évoqué la possibilité d' une pandémie touchant le tiers de l' humanité euh
-# timestamp = 1601037997264
 1	l'	le	DET	_	_	2	det	_	_
 2	OMS	OMS	PROPN	_	_	3	subj	_	_
 3	voit	voir	VERB	_	_	0	root	_	_
@@ -6977,7 +6559,6 @@
 
 # sent_id = 2479
 # text = visite à l' épicentre de la peur avec Sophie Pagès et Dominique Le Marchant
-# timestamp = 1601037997264
 1	visite	visite	NOUN	_	_	0	root	_	_
 2	à	à	ADP	_	_	1	udep	_	_
 3	l'	le	DET	_	_	4	det	_	_
@@ -6995,7 +6576,6 @@
 
 # sent_id = 2480
 # text = c' est la première journée de Jésus que nous venons d' entendre la première journée où il manifeste son autorité et la nouveauté la bonne nouvelle l' évangile qui arrive avec lui
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	la	le	DET	_	_	5	det	_	_
@@ -7031,7 +6611,6 @@
 
 # sent_id = 2481
 # text = et vous l' avez remarqué en écoutant l' évangile
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	vous	vous	PRON	_	_	4	subj	_	_
 3	l'	le	PRON	_	_	5	comp:obj	_	_
@@ -7044,7 +6623,6 @@
 
 # sent_id = 2482
 # text = Jésus ne dit rien avant la fin de l' épisode
-# timestamp = 1601037997264
 1	Jésus	Jésus	PROPN	_	_	3	subj	_	_
 2	ne	ne	PART	_	_	3	mod	_	_
 3	dit	dire	VERB	_	_	0	root	_	_
@@ -7058,13 +6636,11 @@
 
 # sent_id = 2483
 # text = il agit
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	agit	agir	VERB	_	_	0	root	_	_
 
 # sent_id = 2484
 # text = il fait d' abord lever la belle - mère de Pierre
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj@caus	_	_
 2	fait	faire	AUX	_	_	0	root	_	_
 3	d'	de	ADP	_	_	5	obl@comp	_	_
@@ -7079,7 +6655,6 @@
 
 # sent_id = 2485
 # text = et sa fièvre la quitte
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	sa	son	DET	_	_	3	det	_	_
 3	fièvre	fièvre	NOUN	_	_	5	subj	_	_
@@ -7088,7 +6663,6 @@
 
 # sent_id = 2486
 # text = il guérit ensuite toutes sortes de malades comme plus tard dans l' évangile il acceptera de se laisser toucher ou de bénir en imposant les mains
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	guérit	guérir	VERB	_	_	0	root	_	_
 3	ensuite	ensuite	ADV	_	_	2	mod	_	_
@@ -7118,7 +6692,6 @@
 
 # sent_id = 2487
 # text = il chasse beaucoup d' esprits ce qui fait du mal aux gens
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	chasse	chasser	VERB	_	_	0	root	_	_
 3	beaucoup	beaucoup	PRON	_	_	2	comp:obj	_	_
@@ -7134,7 +6707,6 @@
 
 # sent_id = 2488
 # text = avant de parler avant toute parole la vie de Jésus est une action est une action salutaire
-# timestamp = 1601037997264
 1	avant	avant	NOUN	_	_	11	dislocated	_	_
 2	de	de	ADP	_	_	1	udep	_	_
 3	parler	parler	VERB	_	_	2	comp:obj	_	_
@@ -7155,7 +6727,6 @@
 
 # sent_id = 2489
 # text = tout chez lui est fait de compassion et non de violence ou de châtiment
-# timestamp = 1601037997264
 1	tout	tout	PRON	_	_	4	subj@pass	_	_
 2	chez	chez	ADP	_	_	4	mod	_	_
 3	lui	lui	PRON	_	_	2	comp:obj	_	_
@@ -7173,7 +6744,6 @@
 
 # sent_id = 2490
 # text = en fait tout l' évangile nous montre un Jésus qui remet l' humanité debout
-# timestamp = 1601037997264
 1	en	en	PRON	_	_	7	mod@periph	_	_
 2	fait	fait	ADJ	_	_	1	unk@fixed	_	_
 3	tout	tout	ADJ	_	_	5	mod	_	_
@@ -7191,7 +6761,6 @@
 
 # sent_id = 2491
 # text = et aujourd' hui dans sa première journée il fait de la belle - mère de Pierre une des toutes premières disciples
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	9	cc	_	_
 2	aujourd'	aujourd'	ADV	_	_	9	mod@periph	_	_
 3	hui	hui	ADV	_	_	2	unk@fixed	_	_
@@ -7216,7 +6785,6 @@
 
 # sent_id = 2492
 # text = l' évangile la bonne nouvelle comme le répète l' apôtre Paul la bonne nouvelle en la personne de Jésus c' est d' abord une action une action pour restaurer la dignité de la personne humaine une action pour rétablir la personne en sa qualité de sujet de parole une action pour rétablir les uns et les autres dans les relations avec le uns et avec les autres
-# timestamp = 1601037997264
 1	l'	le	DET	_	_	2	det	_	_
 2	évangile	évangile	NOUN	_	_	21	dislocated	_	_
 3	la	le	DET	_	_	5	det	_	_
@@ -7287,7 +6855,6 @@
 
 # sent_id = 2493
 # text = Jésus ne pose même pas ses gestes de bonté comme des appels à la foi
-# timestamp = 1601037997264
 1	Jésus	Jésus	PROPN	_	_	3	subj	_	_
 2	ne	ne	PART	_	_	3	mod	_	_
 3	pose	poser	VERB	_	_	0	root	_	_
@@ -7306,7 +6873,6 @@
 
 # sent_id = 2494
 # text = en ses gestes dans ce premier jour il inaugure en sa personne la venue de Dieu parmi les Hommes la venue définitive de Dieu pour rétablir l' humanité dans sa vocation et dans sa dignité
-# timestamp = 1601037997264
 1	en	en	ADP	_	_	9	obl@periph	_	_
 2	ses	son	DET	_	_	3	det	_	_
 3	gestes	geste	NOUN	_	_	1	comp:obj	_	_
@@ -7345,7 +6911,6 @@
 
 # sent_id = 2495
 # text = son message initial au tout début de l' évangile convertissez -vous le royaume de Dieu est proche de vous son message s' inscrit aujourd' hui dans sa personne
-# timestamp = 1601037997264
 1	son	son	DET	_	_	2	det	_	_
 2	message	message	NOUN	_	_	23	subj	_	_
 3	initial	initial	ADJ	_	_	2	mod	_	_
@@ -7377,7 +6942,6 @@
 
 # sent_id = 2496
 # text = il trouve sa traduction en action dans ses gestes de libération
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	trouve	trouver	VERB	_	_	0	root	_	_
 3	sa	son	DET	_	_	4	det	_	_
@@ -7392,7 +6956,6 @@
 
 # sent_id = 2497
 # text = plus encore dans l' évangile d' aujourd' hui Jésus s' accorde le pouvoir de guérir et de chasser les esprits mauvais
-# timestamp = 1601037997264
 1	plus	plus	PART	_	_	2	unk	_	_
 2	encore	encore	ADV	_	_	11	mod@periph	_	_
 3	dans	dans	ADP	_	_	11	obl@periph	_	_
@@ -7417,7 +6980,6 @@
 
 # sent_id = 2498
 # text = il n' en appelle plus comme on le faisait en son temps à Salomon comme le faisaient des guérisseurs de son temps
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	4	subj	_	_
 2	n'	ne	PART	_	_	4	mod	_	_
 3	en	en	PRON	_	_	4	comp:obj	_	_
@@ -7443,7 +7005,6 @@
 
 # sent_id = 2499
 # text = il guérit de son propre chef les malades
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	guérit	guérir	VERB	_	_	0	root	_	_
 3	de	de	ADP	_	_	2	mod	_	_
@@ -7455,7 +7016,6 @@
 
 # sent_id = 2500
 # text = c' est sa propre vie qu' il communique à ceux qu' il rencontre
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	sa	son	DET	_	_	5	det	_	_
@@ -7472,7 +7032,6 @@
 
 # sent_id = 2501
 # text = c' est sa propre autorité qu' il engage l' autorité de sa vie
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	sa	son	DET	_	_	5	det	_	_
@@ -7489,14 +7048,12 @@
 
 # sent_id = 2502
 # text = je le veux
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	le	le	PRON	_	_	3	comp:obj	_	_
 3	veux	vouloir	VERB	_	_	0	root	_	_
 
 # sent_id = 2503
 # text = sois purifié entend -on dans l' évangile
-# timestamp = 1601037997264
 1	sois	être	AUX	CCOMP	_	3	parataxis@obj	_	_
 2	purifié	purifier	VERB	_	_	1	comp:pred	_	_
 3	entend	entendre	VERB	_	_	0	root	_	_
@@ -7507,7 +7064,6 @@
 
 # sent_id = 2504
 # text = ou encore fillette je te le dis lève -toi
-# timestamp = 1601037997264
 1	ou	ou	CCONJ	_	_	8	mod@periph	_	_
 2	encore	encore	ADV	_	_	1	unk	_	_
 3	fillette	fillette	NOUN	_	_	8	dislocated	_	_
@@ -7520,7 +7076,6 @@
 
 # sent_id = 2505
 # text = ou encore moi moi je te l' ordonne
-# timestamp = 1601037997264
 1	ou	ou	CCONJ	_	_	8	mod@periph	_	_
 2	encore	encore	ADV	_	_	1	unk	_	_
 3	moi	lui	PRON	_	_	8	dislocated	_	_
@@ -7532,7 +7087,6 @@
 
 # sent_id = 2506
 # text = c' est désormais en son propre nom que Jésus chasse les démons
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	désormais	désormais	ADV	_	_	4	mod	_	_
@@ -7548,7 +7102,6 @@
 
 # sent_id = 2507
 # text = il enseigne avec autorité pas comme les pharisiens et les scribes
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	enseigne	enseigner	VERB	_	_	0	root	_	_
 3	avec	avec	ADP	_	_	2	mod	_	_
@@ -7563,7 +7116,6 @@
 
 # sent_id = 2508
 # text = il guérit en donnant la vie en donnant sa propre vie
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	guérit	guérir	VERB	_	_	0	root	_	_
 3	en	en	ADP	_	_	2	mod	_	_
@@ -7578,7 +7130,6 @@
 
 # sent_id = 2509
 # text = mais voilà le mal est toujours présent au milieu de nous
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	5	cc	_	_
 2	voilà	voilà	VERB	DISCOURSE	_	5	parataxis@discourse	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -7593,7 +7144,6 @@
 
 # sent_id = 2510
 # text = depuis le temps de Jésus il y a le mal dans l' humanité le mal moral celui que l' on fait en faisant du mal aux autres le mal physique quand surviennent aussi des catastrophes naturelles
-# timestamp = 1601037997264
 1	depuis	depuis	ADP	_	_	8	obl@periph	_	_
 2	le	le	DET	_	_	3	det	_	_
 3	temps	temps	NOUN	_	_	1	comp:obj	_	_
@@ -7633,7 +7183,6 @@
 
 # sent_id = 2511
 # text = et le cri de Job que nous avons entendu dans la première lecture retentit à nos oreilles
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	14	cc	_	_
 2	le	le	DET	_	_	3	det	_	_
 3	cri	cri	NOUN	_	_	14	subj	_	_
@@ -7654,7 +7203,6 @@
 
 # sent_id = 2512
 # text = vraiment dit Job la vie de l' homme sur terre est une corvée
-# timestamp = 1601037997264
 1	vraiment	vraiment	ADV	_	_	11	mod@periph	_	_
 2	dit	dire	VERB	_	_	1	parataxis@insert	_	_
 3	Job	Job	PROPN	_	_	2	subj	_	_
@@ -7671,7 +7219,6 @@
 
 # sent_id = 2513
 # text = il fait des journées de manoeuvre
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	fait	faire	VERB	_	_	0	root	_	_
 3	des	de+le	ADP	_	_	2	obl@comp	_	_
@@ -7681,7 +7228,6 @@
 
 # sent_id = 2514
 # text = comme l' esclave qui désire un peu d' ombre comme le manoeuvre qui attend sa paye depuis des mois dit Job je n' y ai rien gagné sinon que du néant
-# timestamp = 1601037997264
 1	comme	comme	ADP	_	_	27	obl@periph	_	_
 2	l'	le	DET	_	_	3	det	_	_
 3	esclave	esclave	NOUN	_	_	1	comp:obj	_	_
@@ -7716,7 +7262,6 @@
 
 # sent_id = 2515
 # text = je ne compte que des nuits de souffrance
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	ne	ne	PART	_	_	3	mod	_	_
 3	compte	compter	VERB	_	_	0	root	_	_
@@ -7728,7 +7273,6 @@
 
 # sent_id = 2516
 # text = que de nuits de souffrance dans notre humanité
-# timestamp = 1601037997264
 1	que	que	PART	_	_	0	root	_	_
 2	de	de	ADP	_	_	1	unk	_	_
 3	nuits	nuit	NOUN	_	_	2	comp:obj	_	_
@@ -7740,7 +7284,6 @@
 
 # sent_id = 2517
 # text = et beaucoup il faut l' avouer beaucoup s' éloignent de la foi à cause de ce mal à cause de cette souffrance sans répit
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	9	cc	_	_
 2	beaucoup	beaucoup	PRON	_	_	9	subj	_	_
 3	il	il	PRON	_	_	4	subj	_	_
@@ -7768,7 +7311,6 @@
 
 # sent_id = 2518
 # text = aussi à l' approche de la journée des malades voulue par Jean - Paul deux le onze février en la fête de Notre - Dame de Lourdes en ce jour de la pastorale de la santé la puissance de guérison de Jésus le don de la vie qu' il communique interroge vraiment vraiment la responsabilité de l' Église c'est-à-dire la responsabilité de chacun d' entre nous
-# timestamp = 1601037997264
 1	aussi	aussi	ADV	_	_	51	mod@periph	_	_
 2	à	à	ADP	_	_	51	obl@periph	_	_
 3	l'	le	DET	_	_	4	det	_	_
@@ -7838,7 +7380,6 @@
 
 # sent_id = 2519
 # text = pour que la parole des chrétiens soit entendue comme la parole du Christ qui donne la vie pour que notre parole soit entendue pour qu' elle soit comprise ne faut -il pas comme pour Jésus que d' abord nous agissions
-# timestamp = 1601037997264
 1	pour	pour	ADP	_	_	30	mod@periph	_	_
 2	que	que	SCONJ	_	_	1	unk@fixed	_	_
 3	la	le	DET	_	_	4	det	_	_
@@ -7882,7 +7423,6 @@
 
 # sent_id = 2520
 # text = alors euh je m' appelle Clara
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	5	mod@periph	_	_
 2	euh	euh	INTJ	_	_	1	discourse	_	_
 3	je	je	PRON	_	_	5	subj	_	_
@@ -7892,7 +7432,6 @@
 
 # sent_id = 2521
 # text = j' ai dix-neuf ans
-# timestamp = 1601037997264
 1	j'	je	PRON	_	_	2	subj	_	_
 2	ai	avoir	VERB	_	_	0	root	_	_
 3	dix-neuf	dix-neuf	NUM	_	_	4	mod	_	_
@@ -7900,7 +7439,6 @@
 
 # sent_id = 2522
 # text = j' ai eu l' obtention de mon bac euh donc l' année dernière
-# timestamp = 1601037997264
 1	j'	je	PRON	_	_	2	subj	_	_
 2	ai	avoir	AUX	_	_	0	root	_	_
 3	eu	avoir	VERB	_	_	2	comp:aux	_	_
@@ -7917,7 +7455,6 @@
 
 # sent_id = 2523
 # text = c' est un bac euh SMS donc technologique
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	un	un	DET	_	_	4	det	_	_
@@ -7929,7 +7466,6 @@
 
 # sent_id = 2524
 # text = c' est sciences médico - sociales
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	sciences	science	NOUN	_	_	2	comp:pred	_	_
@@ -7939,7 +7475,6 @@
 
 # sent_id = 2525
 # text = ça n' a rien à voir avec euh la littérature
-# timestamp = 1601037997264
 1	ça	ça	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	3	mod	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -7953,7 +7488,6 @@
 
 # sent_id = 2526
 # text = parce qu' en fait euh j' aime la biologie
-# timestamp = 1601037997264
 1	parce	parce	SCONJ	_	_	0	root	_	_
 2	qu'	que	SCONJ	_	_	1	unk@fixed	_	_
 3	en	en	PRON	_	_	7	discourse	_	_
@@ -7966,7 +7500,6 @@
 
 # sent_id = 2527
 # text = et je suis plus euh vers la biologie et euh le social donc euh sciences médico - sociales
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	je	je	PRON	_	_	3	subj	_	_
 3	suis	être	AUX	_	_	0	root	_	_
@@ -7988,7 +7521,6 @@
 
 # sent_id = 2528
 # text = et donc en fait euh j' ai choisi italien en deuxième choix
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	7	cc	_	_
 2	donc	donc	ADV	_	_	7	mod@periph	_	_
 3	en	en	PRON	_	_	2	discourse	_	_
@@ -8004,7 +7536,6 @@
 
 # sent_id = 2529
 # text = mon premier choix euh c' était euh psychologie
-# timestamp = 1601037997264
 1	mon	son	DET	_	_	3	det	_	_
 2	premier	premier	ADJ	_	_	3	mod	_	_
 3	choix	choix	NOUN	_	_	6	dislocated	_	_
@@ -8016,7 +7547,6 @@
 
 # sent_id = 2530
 # text = et en fait euh j' ai pas été acceptée parce qu' il y avait un entretien oral
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	6	cc	_	_
 2	en	en	PRON	_	_	9	discourse	_	_
 3	fait	fait	ADJ	_	_	2	unk@fixed	_	_
@@ -8037,7 +7567,6 @@
 
 # sent_id = 2531
 # text = et je le savais pas
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	je	je	PRON	_	_	4	subj	_	_
 3	le	le	PRON	_	_	4	comp:obj	_	_
@@ -8046,7 +7575,6 @@
 
 # sent_id = 2532
 # text = donc euh en fait euh voilà
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	6	discourse	_	_
 2	euh	euh	INTJ	_	_	6	discourse	_	_
 3	en	en	PRON	_	_	6	discourse	_	_
@@ -8056,7 +7584,6 @@
 
 # sent_id = 2533
 # text = c' est c' est trop enfin s~ stupide
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	c'	ce	PRON	_	_	4	subj	_	_
@@ -8068,7 +7595,6 @@
 
 # sent_id = 2534
 # text = donc j' ai pris italien en deuxième choix parce que aussi euh j' ai des facilités en italien
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	3	mod@periph	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	ai	avoir	AUX	_	_	0	root	_	_
@@ -8090,14 +7616,12 @@
 
 # sent_id = 2535
 # text = je suis bilingue
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	suis	être	AUX	_	_	0	root	_	_
 3	bilingue	bilingue	ADJ	_	_	2	comp:pred	_	_
 
 # sent_id = 2536
 # text = je parle l' italien
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	parle	parler	VERB	_	_	0	root	_	_
 3	l'	le	DET	_	_	4	det	_	_
@@ -8105,14 +7629,12 @@
 
 # sent_id = 2537
 # text = je le comprends
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	le	le	PRON	_	_	3	comp:obj	_	_
 3	comprends	comprendre	VERB	_	_	0	root	_	_
 
 # sent_id = 2538
 # text = et donc euh en fait euh ben j' aime beaucoup l' italien là euh
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	9	cc	_	_
 2	donc	donc	ADV	_	_	9	mod@periph	_	_
 3	euh	euh	INTJ	_	_	2	discourse	_	_
@@ -8130,7 +7652,6 @@
 
 # sent_id = 2539
 # text = et j' apprécie vraiment ce que je fais
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	apprécie	apprécier	VERB	_	_	0	root	_	_
@@ -8142,7 +7663,6 @@
 
 # sent_id = 2540
 # text = mais en fait euh je pense que je vais peut-être me réorienter euh si à la fin de l' année si euh
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	6	cc	_	_
 2	en	en	PRON	_	_	6	discourse	_	_
 3	fait	fait	ADJ	_	_	2	unk@fixed	_	_
@@ -8168,7 +7688,6 @@
 
 # sent_id = 2541
 # text = enfin je vais finir l' année là euh en un an
-# timestamp = 1601037997264
 1	enfin	enfin	ADV	_	_	3	discourse	_	_
 2	je	je	PRON	_	_	3	subj	_	_
 3	vais	aller	VERB	ETRE	_	0	root	_	_
@@ -8183,7 +7702,6 @@
 
 # sent_id = 2542
 # text = et euh si euh je réussis pas ben je pense que je vais en psychologie parce que c' est plus euh ce que je veux faire la psycho
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	10	cc	_	_
 2	euh	euh	INTJ	_	_	10	discourse	_	_
 3	si	si	SCONJ	_	_	10	mod@periph	_	_
@@ -8215,7 +7733,6 @@
 
 # sent_id = 2543
 # text = et euh si je si je passe l' année par contre je pense que je vais finir ma licence
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	13	cc	_	_
 2	euh	euh	INTJ	_	_	13	discourse	_	_
 3	si	si	SCONJ	_	_	13	mod	_	_
@@ -8238,7 +7755,6 @@
 
 # sent_id = 2544
 # text = s~ si je passe je passerai en deuxième année en troisième année
-# timestamp = 1601037997264
 1	s~	s~	X	_	_	6	mod@periph	_	_
 2	si	si	SCONJ	_	_	1	conj@dicto	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -8254,7 +7770,6 @@
 
 # sent_id = 2545
 # text = je fini~ je finirai ma licence pour avoir ma licence
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	unk	_	_
 2	fini~	fini~	VERB	_	_	0	root	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -8268,7 +7783,6 @@
 
 # sent_id = 2546
 # text = mais si je la passe pas enfin je c' est j' ai beau~ j' ai appris beaucoup de choses
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	10	cc	_	_
 2	si	si	SCONJ	_	_	10	mod@periph	_	_
 3	je	je	PRON	_	_	5	subj	_	_
@@ -8291,7 +7805,6 @@
 
 # sent_id = 2547
 # text = et euh c' est très intéressant
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	euh	euh	INTJ	_	_	6	discourse	_	_
 3	c'	ce	PRON	_	_	4	subj	_	_
@@ -8301,7 +7814,6 @@
 
 # sent_id = 2548
 # text = mais je pense que je me réorienterai en psychologie parce que ça m' intéresse plus
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	je	je	PRON	_	_	3	subj	_	_
 3	pense	penser	VERB	_	_	0	root	_	_
@@ -8320,7 +7832,6 @@
 
 # sent_id = 2549
 # text = je suis plus euh
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	suis	être	AUX	_	_	0	root	_	_
 3	plus	plus	PART	_	_	2	mod	_	_
@@ -8328,7 +7839,6 @@
 
 # sent_id = 2550
 # text = enfin on dit que je suis à l' écoute des personnes je suis compréhensive et que
-# timestamp = 1601037997264
 1	enfin	enfin	ADV	_	_	3	discourse	_	_
 2	on	on	PRON	_	_	3	subj	_	_
 3	dit	dire	VERB	_	_	0	root	_	_
@@ -8348,7 +7858,6 @@
 
 # sent_id = 2551
 # text = enfin tout le monde me dit que je suis plus euh faite pour euh pour euh ces métiers -là et ces études -là que pour l' italien
-# timestamp = 1601037997264
 1	enfin	enfin	ADV	_	_	6	discourse	_	_
 2	tout	tout	ADV	_	_	4	mod	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -8379,7 +7888,6 @@
 
 # sent_id = 2552
 # text = donc euh je pense que je vais euh je vais sûrement me réorienter en psychologie
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	4	mod@periph	_	_
 2	euh	euh	INTJ	_	_	1	discourse	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -8398,14 +7906,12 @@
 
 # sent_id = 2553
 # text = vous étiez sténodactylo
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	étiez	être	AUX	_	_	0	root	_	_
 3	sténodactylo	sténodactylo	NOUN	_	_	2	comp:pred	_	_
 
 # sent_id = 2554
 # text = vous êtes euh directrice de L' Express
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	êtes	être	AUX	_	_	0	root	_	_
 3	euh	euh	INTJ	_	_	4	discourse	_	_
@@ -8416,7 +7922,6 @@
 
 # sent_id = 2555
 # text = euh deux petites phrases deux vraies options qui dessinent votre route une route qui témoigne d' une certaine d' une bonne d' une très bonne conduite
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	4	discourse	_	_
 2	deux	deux	NUM	_	_	4	mod	_	_
 3	petites	petit	ADJ	_	_	4	mod	_	_
@@ -8446,7 +7951,6 @@
 
 # sent_id = 2556
 # text = Françoise Giroud vous occupez un poste d' observation que des gens haut placés vous envient
-# timestamp = 1601037997264
 1	Françoise	Françoise	PROPN	_	_	4	dislocated	_	_
 2	Giroud	Giroud	PROPN	_	_	1	flat	_	_
 3	vous	vous	PRON	_	_	4	subj	_	_
@@ -8465,7 +7969,6 @@
 
 # sent_id = 2557
 # text = si je ne craignais pas d' entrer dans le jeu de certains hommes qui abusent de leur condition je dirais que vous avez donné quelque chose de plus à la femme des armes de persuasion
-# timestamp = 1601037997264
 1	si	si	SCONJ	_	_	20	mod@periph	_	_
 2	je	je	PRON	_	_	4	subj	_	_
 3	ne	ne	PART	_	_	4	mod	_	_
@@ -8504,7 +8007,6 @@
 
 # sent_id = 2558
 # text = usez -vous à ce niveau du charme de la femme pour réussir tout à fait
-# timestamp = 1601037997264
 1	usez	user	VERB	_	_	0	root	_	_
 2	-vous	vous	PRON	_	_	1	subj	_	_
 3	à	à	ADP	_	_	1	mod	_	_
@@ -8523,7 +8025,6 @@
 
 # sent_id = 2559
 # text = je suis incapable de vous répondre sur ce point
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	suis	être	AUX	_	_	0	root	_	_
 3	incapable	incapable	ADJ	_	_	2	comp:pred	_	_
@@ -8536,7 +8037,6 @@
 
 # sent_id = 2560
 # text = il n' y a que les hommes qui travaillent avec moi ou qui ont travaillé avec moi qui pourraient vous répondre
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	4	comp:obj@expl	_	_
 2	n'	ne	PART	_	_	4	mod	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -8561,7 +8061,6 @@
 
 # sent_id = 2561
 # text = je voudrais simplement reprendre un mot dans ce que vous avez dit
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	voudrais	vouloir	AUX	_	_	0	root	_	_
 3	simplement	simplement	ADV	_	_	2	mod	_	_
@@ -8577,7 +8076,6 @@
 
 # sent_id = 2562
 # text = vous avez dit que euh disons ma carrière pour simplifier témoigne de ma bonne conduite
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	avez	avoir	AUX	_	_	0	root	_	_
 3	dit	dire	VERB	_	_	2	comp:aux	_	_
@@ -8596,7 +8094,6 @@
 
 # sent_id = 2563
 # text = il me semble que c' est le contraire
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	subj	_	_
 2	me	me	PRON	_	_	3	comp:obl	_	_
 3	semble	sembler	VERB	_	_	0	root	_	_
@@ -8608,7 +8105,6 @@
 
 # sent_id = 2564
 # text = vous m' expliquez alors
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	3	subj	_	_
 2	m'	me	PRON	_	_	3	comp:obj	_	_
 3	expliquez	expliquer	VERB	_	_	0	root	_	_
@@ -8616,7 +8112,6 @@
 
 # sent_id = 2565
 # text = eh bien je crois que je ne me suis pas conduit d' une façon conforme à ce qu' on attend euh d' une jeune fille d' abord et d' une femme ensuite d' une jeune bourgeoise dans la disons d' une jeune bourgeoise
-# timestamp = 1601037997264
 1	eh	eh	INTJ	_	_	4	discourse	_	_
 2	bien	bien	INTJ	_	_	4	discourse	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -8663,7 +8158,6 @@
 
 # sent_id = 2566
 # text = vous le regrettez aujourd' hui
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	3	subj	_	_
 2	le	le	PRON	_	_	3	comp:obj	_	_
 3	regrettez	regretter	VERB	_	_	0	root	_	_
@@ -8672,13 +8166,11 @@
 
 # sent_id = 2567
 # text = ah non
-# timestamp = 1601037997264
 1	ah	ah	INTJ	_	_	0	root	_	_
 2	non	non	INTJ	_	_	1	discourse	_	_
 
 # sent_id = 2568
 # text = je voudrais reprendre euh des phrases de Marcel Achard
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	voudrais	vouloir	AUX	_	_	0	root	_	_
 3	reprendre	reprendre	VERB	_	_	2	comp:aux	_	_
@@ -8691,7 +8183,6 @@
 
 # sent_id = 2569
 # text = et vous me direz si vous êtes d' accord
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	vous	vous	PRON	_	_	4	subj	_	_
 3	me	me	PRON	_	_	4	comp:obl	_	_
@@ -8704,7 +8195,6 @@
 
 # sent_id = 2570
 # text = Marcel Achard écrivait elle est très jolie
-# timestamp = 1601037997264
 1	Marcel	Marcel	PROPN	_	_	3	subj	_	_
 2	Achard	Achard	PROPN	_	_	1	flat	_	_
 3	écrivait	écrire	VERB	_	_	0	root	_	_
@@ -8715,7 +8205,6 @@
 
 # sent_id = 2571
 # text = elle est même belle
-# timestamp = 1601037997264
 1	elle	il	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	même	même	ADV	_	_	2	mod	_	_
@@ -8723,14 +8212,12 @@
 
 # sent_id = 2572
 # text = elle est élégante
-# timestamp = 1601037997264
 1	elle	il	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	élégante	élégant	ADJ	_	_	2	comp:pred	_	_
 
 # sent_id = 2573
 # text = on s' en aperçoit tout de suite
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	4	subj	_	_
 2	s'	se	PRON	_	_	4	unk@iobj	_	_
 3	en	en	PRON	_	_	4	comp:obj	_	_
@@ -8741,7 +8228,6 @@
 
 # sent_id = 2574
 # text = mais on l' oublie dès qu' on a regardé ses yeux des yeux qui sont en même temps et c' est difficile profonds et perçants pleins de curiosité et de mystère des yeux qui enregistrent chaque détail avec l' implacable précision d' une caméra
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	4	cc	_	_
 2	on	on	PRON	_	_	4	subj	_	_
 3	l'	le	PRON	_	_	4	comp:obj	_	_
@@ -8789,7 +8275,6 @@
 
 # sent_id = 2575
 # text = et j' ai l' impression que c' est avec ces yeux que vous avez dessiné votre route Françoise Giroud
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	ai	avoir	VERB	_	_	0	root	_	_
@@ -8812,7 +8297,6 @@
 
 # sent_id = 2576
 # text = écoutez vous m' avez demandé si je suis d' accord avec Marcel Achard
-# timestamp = 1601037997264
 1	écoutez	écouter	VERB	DISCOURSE	_	4	parataxis@discourse	_	_
 2	vous	vous	PRON	_	_	4	subj	_	_
 3	m'	me	PRON	_	_	5	comp:obl	_	_
@@ -8829,7 +8313,6 @@
 
 # sent_id = 2577
 # text = je suppose que vous connaissez Marcel Achard
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	suppose	supposer	VERB	_	_	0	root	_	_
 3	que	que	SCONJ	_	_	2	comp:obj	_	_
@@ -8840,7 +8323,6 @@
 
 # sent_id = 2578
 # text = c' est un homme incapable de dire quoi que - ce soit de désagréable sur qui que ce soit
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	un	un	DET	_	_	4	det	_	_
@@ -8863,7 +8345,6 @@
 
 # sent_id = 2579
 # text = je ne vois pas pourquoi j' aurais fait exception à cette règle
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	ne	ne	PART	_	_	3	mod	_	_
 3	vois	voir	VERB	_	_	0	root	_	_
@@ -8879,7 +8360,6 @@
 
 # sent_id = 2580
 # text = et est -ce que c' est avec ces yeux si vous voulez dire que je sais regarder
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	2	cc	_	_
 2	est	être	AUX	_	_	6	comp:pred	_	_
 3	-ce	ce	PRON	_	_	6	subj	_	_
@@ -8900,7 +8380,6 @@
 
 # sent_id = 2581
 # text = je crois que je sais regarder
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	crois	croire	VERB	_	_	0	root	_	_
 3	que	que	SCONJ	_	_	2	comp:obj	_	_
@@ -8910,7 +8389,6 @@
 
 # sent_id = 2582
 # text = mais je crois que j' ai toujours oui eu eu cette cette disons cette faculté
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	je	je	PRON	_	_	3	subj	_	_
 3	crois	croire	VERB	_	_	0	root	_	_
@@ -8929,7 +8407,6 @@
 
 # sent_id = 2583
 # text = ce qui vous a toujours intéressée c' était chez les gens le mécanisme de la carrière le mécanisme tout simplement pas spécialement de la carrière et la personnalité aussi
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	8	dislocated	_	_
 2	qui	qui	PRON	_	_	4	subj	_	_
 3	vous	vous	PRON	_	_	6	comp:obl	_	_
@@ -8962,7 +8439,6 @@
 
 # sent_id = 2584
 # text = j' aime bien comprendre comment ça marche les autres
-# timestamp = 1601037997264
 1	j'	je	PRON	_	_	2	subj	_	_
 2	aime	aimer	VERB	_	_	0	root	_	_
 3	bien	bien	ADV	_	_	2	mod	_	_
@@ -8975,7 +8451,6 @@
 
 # sent_id = 2585
 # text = ça c' est euh
-# timestamp = 1601037997264
 1	ça	ça	PRON	_	_	3	dislocated	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -8983,7 +8458,6 @@
 
 # sent_id = 2586
 # text = bon je l' ai toujours eu je crois
-# timestamp = 1601037997264
 1	bon	bon	INTJ	_	_	6	discourse	_	_
 2	je	je	PRON	_	_	4	subj	_	_
 3	l'	le	PRON	_	_	6	comp:obj	_	_
@@ -8995,7 +8469,6 @@
 
 # sent_id = 2587
 # text = par conséquent j' ai eu envie de savoir un petit peu mieux comment ça marchait
-# timestamp = 1601037997264
 1	par	par	ADP	_	_	5	obl@periph	_	_
 2	conséquent	conséquent	NOUN	_	_	1	comp:obj	_	_
 3	j'	je	PRON	_	_	4	subj	_	_
@@ -9014,7 +8487,6 @@
 
 # sent_id = 2588
 # text = et puis je suis toujours étonnée maintenant plus
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	puis	puis	ADV	_	_	1	unk@fixed	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -9026,7 +8498,6 @@
 
 # sent_id = 2589
 # text = et je précise d' ailleurs que quand Marcel Achard a écrit ce texte il y avait déjà presque dix-sept ans
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	je	je	PRON	_	_	3	subj	_	_
 3	précise	préciser	VERB	_	_	0	root	_	_
@@ -9050,7 +8521,6 @@
 
 # sent_id = 2590
 # text = et mais ensuite j' ai toujours été étonnée de voir que les gens ne voyaient pas des choses qui me paraissaient évidentes dans le comportement des autres je veux dire
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	mais	mais	CCONJ	_	_	5	cc	_	_
 3	ensuite	ensuite	ADV	_	_	5	mod	_	_
@@ -9084,7 +8554,6 @@
 
 # sent_id = 2591
 # text = j' ai toujours l' impression que c' est c' est énorme que c' est là en noir sur blanc et et les autres ne voient pas
-# timestamp = 1601037997264
 1	j'	je	PRON	_	_	2	subj	_	_
 2	ai	avoir	VERB	_	_	0	root	_	_
 3	toujours	toujours	ADV	_	_	2	mod	_	_
@@ -9114,14 +8583,12 @@
 
 # sent_id = 2592
 # text = ça m' étonne
-# timestamp = 1601037997264
 1	ça	ça	PRON	_	_	3	subj	_	_
 2	m'	me	PRON	_	_	3	comp:obj	_	_
 3	étonne	étonner	VERB	_	_	0	root	_	_
 
 # sent_id = 2593
 # text = est -ce que vous avez eu un desc~ un destin exceptionnel
-# timestamp = 1601037997264
 1	est	être	AUX	_	_	6	comp:obj	_	_
 2	-ce	ce	PRON	_	_	5	subj	_	_
 3	que	que	SCONJ	_	_	0	root	_	_
@@ -9136,7 +8603,6 @@
 
 # sent_id = 2594
 # text = ou est -ce simplement la réussite qui devait venir
-# timestamp = 1601037997264
 1	ou	ou	CCONJ	_	_	2	cc	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	-ce	ce	PRON	_	_	2	subj	_	_
@@ -9149,7 +8615,6 @@
 
 # sent_id = 2595
 # text = ou s' est -il passé tout à fait autre chose dans votre vie
-# timestamp = 1601037997264
 1	ou	ou	CCONJ	_	_	3	cc	_	_
 2	s'	se	PRON	_	_	5	unk@iobj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -9166,7 +8631,6 @@
 
 # sent_id = 2596
 # text = oh écoutez j' ai eu un destin
-# timestamp = 1601037997264
 1	oh	oh	INTJ	_	_	5	discourse	_	_
 2	écoutez	écouter	VERB	DISCOURSE	_	4	parataxis@discourse	_	_
 3	j'	je	PRON	_	_	4	subj	_	_
@@ -9177,7 +8641,6 @@
 
 # sent_id = 2597
 # text = euh exceptionnel me paraît un grand mot
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	4	discourse	_	_
 2	exceptionnel	exceptionnel	ADJ	_	_	4	subj	_	_
 3	me	me	PRON	_	_	4	comp:obl	_	_
@@ -9188,7 +8651,6 @@
 
 # sent_id = 2598
 # text = disons que j' ai eu un destin un peu différent euh parce que les conditions objectives de ma vie ont été en effet différentes euh
-# timestamp = 1601037997264
 1	disons	dire	VERB	_	_	0	root	_	_
 2	que	que	SCONJ	_	_	1	comp:obj	_	_
 3	j'	je	PRON	_	_	4	subj	_	_
@@ -9217,7 +8679,6 @@
 
 # sent_id = 2599
 # text = par exemple j' ai été s~ j' ai été obligée de travailler très tôt euh à une époque où les jeunes filles de ma génération et appartenant au monde bourgeois ne travaillaient pas
-# timestamp = 1601037997264
 1	par	par	ADP	_	_	5	obl@periph	_	_
 2	exemple	exemple	NOUN	_	_	1	comp:obj	_	_
 3	j'	je	PRON	_	_	4	subj	_	_
@@ -9254,7 +8715,6 @@
 
 # sent_id = 2600
 # text = maintenant c' est tout à fait normal
-# timestamp = 1601037997264
 1	maintenant	maintenant	ADV	_	_	3	mod@periph	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -9265,7 +8725,6 @@
 
 # sent_id = 2601
 # text = euh disons que si mon père était mort enfin si s' étaient produites sensiblement plus tard je ne sais pas moi quand j' avais vingt ans ou vingt-deux ans eh bien
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	2	discourse	_	_
 2	disons	dire	VERB	_	_	0	root	_	_
 3	que	que	SCONJ	_	_	2	comp:obj	_	_
@@ -9300,7 +8759,6 @@
 
 # sent_id = 2602
 # text = les circonstances disons qui m' ont conduit à être obligée de gagner ma vie très tôt
-# timestamp = 1601037997264
 1	les	le	DET	_	_	2	det	_	_
 2	circonstances	circonstance	NOUN	_	_	0	root	_	_
 3	disons	dire	VERB	DISCOURSE	_	2	parataxis@discourse	_	_
@@ -9320,7 +8778,6 @@
 
 # sent_id = 2603
 # text = peut-être que je me serais mariée et et que j' aurais trouvé plus commode d' épouser un monsieur avec de l' argent
-# timestamp = 1601037997264
 1	peut-être	peut-être	ADV	_	_	0	root	_	_
 2	que	que	SCONJ	_	_	1	mod	_	_
 3	je	je	PRON	_	_	5	subj@pass	_	_
@@ -9346,7 +8803,6 @@
 
 # sent_id = 2604
 # text = est -ce que je sais moi
-# timestamp = 1601037997264
 1	est	être	AUX	_	_	5	comp:obj	_	_
 2	-ce	ce	PRON	_	_	5	subj	_	_
 3	que	que	SCONJ	_	_	0	root	_	_
@@ -9356,7 +8812,6 @@
 
 # sent_id = 2605
 # text = mais j' avais quatorze ans
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	avais	avoir	VERB	_	_	0	root	_	_
@@ -9365,7 +8820,6 @@
 
 # sent_id = 2606
 # text = eh ben j' ai choisi de travailler
-# timestamp = 1601037997264
 1	eh	eh	INTJ	_	_	5	discourse	_	_
 2	ben	ben	INTJ	_	_	5	discourse	_	_
 3	j'	je	PRON	_	_	4	subj	_	_
@@ -9376,7 +8830,6 @@
 
 # sent_id = 2607
 # text = alors il y a tout de même des circonstances objectives
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	4	mod@periph	_	_
 2	il	il	PRON	_	_	4	comp:obj@expl	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -9390,7 +8843,6 @@
 
 # sent_id = 2608
 # text = euh pourquoi j' ai fait du journalisme parce que euh ça se passait tout de suite après la guerre
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	5	discourse	_	_
 2	pourquoi	pourquoi	PRON	_	_	4	mod	_	_
 3	j'	je	PRON	_	_	4	subj	_	_
@@ -9413,7 +8865,6 @@
 
 # sent_id = 2609
 # text = et euh je n' avais aucune raison d' aller faire ce métier
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	euh	euh	INTJ	_	_	5	discourse	_	_
 3	je	je	PRON	_	_	5	subj	_	_
@@ -9429,7 +8880,6 @@
 
 # sent_id = 2610
 # text = je gagnais beaucoup d' argent dans le cinéma euh
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	gagnais	gagner	VERB	_	_	0	root	_	_
 3	beaucoup	beaucoup	PRON	_	_	2	comp:obj	_	_
@@ -9442,7 +8892,6 @@
 
 # sent_id = 2611
 # text = j' y avais un bon nom
-# timestamp = 1601037997264
 1	j'	je	PRON	_	_	3	subj	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	avais	avoir	VERB	_	_	0	root	_	_
@@ -9452,7 +8901,6 @@
 
 # sent_id = 2612
 # text = je ne s~ n' aurais certainement pas débuté à ce moment -là comme euh une jeune journaliste
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	5	subj	_	_
 2	ne	ne	PART	_	_	1	conj@dicto	_	_
 3	s~	s~	X	_	_	1	conj@dicto	_	_
@@ -9473,7 +8921,6 @@
 
 # sent_id = 2613
 # text = il se trouve qu' il y a eu la guerre
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	subj	_	_
 2	se	se	PRON	_	_	3	unk@obj	_	_
 3	trouve	trouver	VERB	_	_	0	root	_	_
@@ -9487,7 +8934,6 @@
 
 # sent_id = 2614
 # text = il se trouve que tout a été bouleversé qu' il n' y avait plus un journaliste à Paris puisque ils avaient tous plus ou moins collaboré et que à le moment de faire un journal on m' a proposé d' y entrer comme directrice ce qui est incroyable comme directrice de la rédaction
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	subj	_	_
 2	se	se	PRON	_	_	3	unk@obj	_	_
 3	trouve	trouver	VERB	_	_	0	root	_	_
@@ -9544,7 +8990,6 @@
 
 # sent_id = 2615
 # text = euh tout ça ce sont des conditions objectives
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	3	discourse	_	_
 2	tout	tout	ADJ	_	_	3	mod	_	_
 3	ça	ça	PRON	_	_	7	dislocated	_	_
@@ -9556,7 +9001,6 @@
 
 # sent_id = 2616
 # text = faudrait quand même revenir un peu au début
-# timestamp = 1601037997264
 1	faudrait	falloir	VERB	_	_	0	root	_	_
 2	quand	quand	PRON	_	_	3	unk	_	_
 3	même	même	ADV	_	_	4	mod@periph	_	_
@@ -9568,7 +9012,6 @@
 
 # sent_id = 2617
 # text = il y a eu votre père
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	4	comp:obl	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -9578,7 +9021,6 @@
 
 # sent_id = 2618
 # text = votre père était riche
-# timestamp = 1601037997264
 1	votre	son	DET	_	_	2	det	_	_
 2	père	père	NOUN	_	_	3	subj	_	_
 3	était	être	AUX	_	_	0	root	_	_
@@ -9586,7 +9028,6 @@
 
 # sent_id = 2619
 # text = riche t~ c' est un grand mot
-# timestamp = 1601037997264
 1	riche	riche	ADJ	_	_	4	mod@periph	_	_
 2	t~	t~	X	_	_	1	conj@dicto	_	_
 3	c'	ce	PRON	_	_	4	subj	_	_
@@ -9597,7 +9038,6 @@
 
 # sent_id = 2620
 # text = mais enfin disons qu' il appartenait à cette bourgeoisie euh qui n' a pas de problèmes d' argent
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	enfin	enfin	ADV	_	_	3	discourse	_	_
 3	disons	dire	VERB	_	_	0	root	_	_
@@ -9619,7 +9059,6 @@
 
 # sent_id = 2621
 # text = ensuite euh disons les mots comme ils sont vous avez été ruinée
-# timestamp = 1601037997264
 1	ensuite	ensuite	ADV	_	_	10	mod@periph	_	_
 2	euh	euh	INTJ	_	_	1	discourse	_	_
 3	disons	dire	VERB	_	_	1	parataxis@parenth	_	_
@@ -9635,7 +9074,6 @@
 
 # sent_id = 2622
 # text = il a fallu travailler
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	a	avoir	AUX	_	_	0	root	_	_
 3	fallu	falloir	VERB	DoubleAux	_	2	comp:aux	_	_
@@ -9643,7 +9081,6 @@
 
 # sent_id = 2623
 # text = vous savez ce que c' est que d' être pauvre
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	savez	savoir	VERB	_	_	0	root	_	_
 3	ce	ce	PRON	_	_	2	comp:obj	_	_
@@ -9657,7 +9094,6 @@
 
 # sent_id = 2624
 # text = je sais ce que c' est que d' être pauvre
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	sais	savoir	VERB	_	_	0	root	_	_
 3	ce	ce	PRON	_	_	2	comp:obj	_	_
@@ -9671,7 +9107,6 @@
 
 # sent_id = 2625
 # text = je sais surtout ce qui me paraît plus utile euh ce que c' est que de travailler dans des emplois subalternes avec le sentiment qu' on n' en sortira jamais
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	sais	savoir	VERB	_	_	0	root	_	_
 3	surtout	surtout	ADV	_	_	2	mod	_	_
@@ -9705,7 +9140,6 @@
 
 # sent_id = 2626
 # text = c' est une expérience ça que je n' ai jamais oubliée
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	une	un	DET	_	_	4	det	_	_
@@ -9720,7 +9154,6 @@
 
 # sent_id = 2627
 # text = ce qui est dur ce n' est pas surtout quand on est très jeune ce n' est vraiment pas d' être pauvre ou de
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	7	dislocated	_	_
 2	qui	qui	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	1	mod	_	_
@@ -9748,7 +9181,6 @@
 
 # sent_id = 2628
 # text = ce n' est c' est pas grave quand on est très jeune
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	3	mod	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -9764,7 +9196,6 @@
 
 # sent_id = 2629
 # text = ce qui est horrible c' est de se dire je n' en sortirai jamais
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	6	dislocated	_	_
 2	qui	qui	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	1	mod	_	_
@@ -9782,7 +9213,6 @@
 
 # sent_id = 2630
 # text = mais est -ce que vous aviez prévu tout cela
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	2	cc	_	_
 2	est	être	AUX	_	_	7	comp:obj	_	_
 3	-ce	ce	PRON	_	_	6	subj	_	_
@@ -9795,7 +9225,6 @@
 
 # sent_id = 2631
 # text = car vous aviez pris des cours de sténodactylo
-# timestamp = 1601037997264
 1	car	car	CCONJ	_	_	3	cc	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	aviez	avoir	AUX	_	_	0	root	_	_
@@ -9807,13 +9236,11 @@
 
 # sent_id = 2632
 # text = ah non
-# timestamp = 1601037997264
 1	ah	ah	INTJ	_	_	0	root	_	_
 2	non	non	INTJ	_	_	1	discourse	_	_
 
 # sent_id = 2633
 # text = je n' ai pas pris des cours de sténodactylo
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	3	mod	_	_
 3	ai	avoir	AUX	_	_	0	root	_	_
@@ -9826,7 +9253,6 @@
 
 # sent_id = 2634
 # text = la vérité est que euh au moment où il a fallu vraiment que je gagne ma vie je vous dirais que c' est la seule décision de ma vie dont je sois fière euh au lieu d' accepter de prendre tout de suite un emploi du type vendeuse du type je me suis dit ce qu' il faut c' est avoir un métier
-# timestamp = 1601037997264
 1	la	le	DET	_	_	2	det	_	_
 2	vérité	vérité	NOUN	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -9893,7 +9319,6 @@
 
 # sent_id = 2635
 # text = même s' il est très humble ça n' a aucune importance
-# timestamp = 1601037997264
 1	même	même	ADV	_	_	9	mod@periph	_	_
 2	s'	si	SCONJ	_	_	1	unk@fixed	_	_
 3	il	il	PRON	_	_	4	subj	_	_
@@ -9908,7 +9333,6 @@
 
 # sent_id = 2636
 # text = il faut que je sache faire quelque chose
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	faut	falloir	VERB	_	_	0	root	_	_
 3	que	que	SCONJ	_	_	2	comp:obj	_	_
@@ -9920,7 +9344,6 @@
 
 # sent_id = 2637
 # text = et pour le moment je ne sais rien faire
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	7	cc	_	_
 2	pour	pour	ADP	_	_	7	obl@periph	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -9933,7 +9356,6 @@
 
 # sent_id = 2638
 # text = je sais ce qu' on apprend aux jeunes filles bien élevées donc qu' est - ce qu' je peux apprendre
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	sais	savoir	VERB	_	_	0	root	_	_
 3	ce	ce	PRON	_	_	2	comp:obj	_	_
@@ -9957,7 +9379,6 @@
 
 # sent_id = 2639
 # text = je me suis dit je vais apprendre la sténodactylo
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj@pass	_	_
 2	me	me	PRON	_	_	4	unk@iobj	_	_
 3	suis	être	AUX	_	_	0	root	_	_
@@ -9970,7 +9391,6 @@
 
 # sent_id = 2640
 # text = avec ça quoi qu' il arrive j' aurai un métier
-# timestamp = 1601037997264
 1	avec	avec	ADP	_	_	8	obl@periph	_	_
 2	ça	ça	PRON	_	_	1	comp:obj	_	_
 3	quoi	quoi	PRON	_	_	8	mod@periph	_	_
@@ -9984,7 +9404,6 @@
 
 # sent_id = 2641
 # text = et j' ai donc été à l' école Remington apprendre la sténodactylo
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	ai	avoir	AUX	_	_	0	root	_	_
@@ -10000,7 +9419,6 @@
 
 # sent_id = 2642
 # text = c' était le vrai départ
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	le	le	DET	_	_	5	det	_	_
@@ -10009,13 +9427,11 @@
 
 # sent_id = 2643
 # text = euh oui
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	0	root	_	_
 2	oui	oui	ADV	_	_	1	discourse	_	_
 
 # sent_id = 2644
 # text = enfin c' est comme ça que j' ai commencé à gagner ma vie
-# timestamp = 1601037997264
 1	enfin	enfin	ADV	_	_	5	discourse	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -10032,7 +9448,6 @@
 
 # sent_id = 2645
 # text = ensuite il y a eu une librairie
-# timestamp = 1601037997264
 1	ensuite	ensuite	ADV	_	_	4	mod@periph	_	_
 2	il	il	PRON	_	_	4	comp:obj@expl	_	_
 3	y	y	PRON	_	_	5	comp:obl	_	_
@@ -10043,7 +9458,6 @@
 
 # sent_id = 2646
 # text = c' est dans cette librairie que je crois que Allégret vous a trouvée
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	dans	dans	ADP	_	_	2	comp:pred	_	_
@@ -10060,7 +9474,6 @@
 
 # sent_id = 2647
 # text = euh c' est - à - dire que je connaissais Allégret très bien
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	10	discourse	_	_
 2	c'	c'	PRON	_	_	0	root	_	_
 3	est	est	VERB	_	_	2	unk@fixed	_	_
@@ -10077,7 +9490,6 @@
 
 # sent_id = 2648
 # text = euh j' ai donc
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	3	discourse	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	ai	avoir	VERB	_	_	0	root	_	_
@@ -10085,7 +9497,6 @@
 
 # sent_id = 2649
 # text = je suis donc rentrée dans cette librairie
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj@pass	_	_
 2	suis	être	AUX	_	_	0	root	_	_
 3	donc	donc	ADV	_	_	2	mod@periph	_	_
@@ -10096,7 +9507,6 @@
 
 # sent_id = 2650
 # text = et j' étais à la fois la la secrétaire du libraire et une et vendeuse
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	étais	être	AUX	_	_	0	root	_	_
@@ -10115,7 +9525,6 @@
 
 # sent_id = 2651
 # text = et puis il ne savait pas du tout l' âge que j' avais
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	puis	puis	ADV	_	_	1	unk@fixed	_	_
 3	il	il	PRON	_	_	5	subj	_	_
@@ -10132,7 +9541,6 @@
 
 # sent_id = 2652
 # text = il m' a laissé toute sa librairie
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	subj	_	_
 2	m'	me	PRON	_	_	4	comp:obj	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -10143,7 +9551,6 @@
 
 # sent_id = 2653
 # text = ce qui n' était pas très sérieux
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	0	root	_	_
 2	qui	qui	PRON	_	_	4	subj	_	_
 3	n'	ne	PART	_	_	4	mod	_	_
@@ -10154,7 +9561,6 @@
 
 # sent_id = 2654
 # text = enfin j' avais l' air d' avoir dix-huit ou dix-neuf ans
-# timestamp = 1601037997264
 1	enfin	enfin	ADV	_	_	3	discourse	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	avais	avoir	VERB	_	_	0	root	_	_
@@ -10169,14 +9575,12 @@
 
 # sent_id = 2655
 # text = donc il ne
-# timestamp = 1601037997264
 1	donc	donc	ADV	_	_	0	root	_	_
 2	il	il	PRON	_	_	1	conj@dicto	_	_
 3	ne	ne	PART	_	_	1	conj@dicto	_	_
 
 # sent_id = 2656
 # text = ce qui quand même n' était pas très sérieux
-# timestamp = 1601037997264
 1	ce	ce	PRON	_	_	0	root	_	_
 2	qui	qui	PRON	_	_	6	subj	_	_
 3	quand	quand	PRON	_	_	4	unk	_	_
@@ -10189,7 +9593,6 @@
 
 # sent_id = 2657
 # text = mais il ne se doutait quand même pas que je n' en avais pas quinze
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	5	cc	_	_
 2	il	il	PRON	_	_	5	subj	_	_
 3	ne	ne	PART	_	_	5	mod	_	_
@@ -10208,7 +9611,6 @@
 
 # sent_id = 2658
 # text = et je connaissais très bien Marc Allégret depuis très longtemps
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	je	je	PRON	_	_	3	subj	_	_
 3	connaissais	connaître	VERB	_	_	0	root	_	_
@@ -10222,7 +9624,6 @@
 
 # sent_id = 2659
 # text = enfin ma famille le connaissait
-# timestamp = 1601037997264
 1	enfin	enfin	ADV	_	_	5	discourse	_	_
 2	ma	son	DET	_	_	3	det	_	_
 3	famille	famille	NOUN	_	_	5	subj	_	_
@@ -10231,7 +9632,6 @@
 
 # sent_id = 2660
 # text = il est entré un jour dans cette librairie
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	entré	entrer	VERB	ETRE	_	2	comp:aux	_	_
@@ -10243,7 +9643,6 @@
 
 # sent_id = 2661
 # text = il m' a dit mais qu' est - ce qu' tu fais là très surpris
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	subj	_	_
 2	m'	me	PRON	_	_	4	comp:obl	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -10262,7 +9661,6 @@
 
 # sent_id = 2662
 # text = je lui ai dit ben tu vois je vends des livres
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	lui	lui	PRON	_	_	4	comp:obl	_	_
 3	ai	avoir	AUX	_	_	0	root	_	_
@@ -10277,7 +9675,6 @@
 
 # sent_id = 2663
 # text = il m' a dit qu' est - ce qu' tu gagnes
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	subj	_	_
 2	m'	me	PRON	_	_	4	comp:obl	_	_
 3	a	avoir	AUX	_	_	0	root	_	_
@@ -10292,7 +9689,6 @@
 
 # sent_id = 2664
 # text = et j' ai dit je gagne trois cents francs par mois
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	j'	je	PRON	_	_	3	subj	_	_
 3	ai	avoir	AUX	_	_	0	root	_	_
@@ -10307,7 +9703,6 @@
 
 # sent_id = 2665
 # text = et il m' a dit mais tu perds ton temps
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	il	il	PRON	_	_	4	subj	_	_
 3	m'	me	PRON	_	_	5	comp:obl	_	_
@@ -10321,7 +9716,6 @@
 
 # sent_id = 2666
 # text = j' ai dit ben oui mais en attendant je paie mon loyer enfin pas mon loyer
-# timestamp = 1601037997264
 1	j'	je	PRON	_	_	2	subj	_	_
 2	ai	avoir	AUX	_	_	0	root	_	_
 3	dit	dire	VERB	_	_	2	comp:aux	_	_
@@ -10341,7 +9735,6 @@
 
 # sent_id = 2667
 # text = j' habitais avec ma mère
-# timestamp = 1601037997264
 1	j'	je	PRON	_	_	2	subj	_	_
 2	habitais	habiter	VERB	_	_	0	root	_	_
 3	avec	avec	ADP	_	_	2	mod	_	_
@@ -10350,7 +9743,6 @@
 
 # sent_id = 2668
 # text = mais enfin je gagnais un peu d' argent
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	4	cc	_	_
 2	enfin	enfin	ADV	_	_	4	discourse	_	_
 3	je	je	PRON	_	_	4	subj	_	_
@@ -10362,7 +9754,6 @@
 
 # sent_id = 2669
 # text = et il m' a dit écoute tout ça n' est pas sérieux il faut que tu deviennes script girl par exemple viens travailler avec moi
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	il	il	PRON	_	_	4	subj	_	_
 3	m'	me	PRON	_	_	5	comp:obl	_	_
@@ -10391,7 +9782,6 @@
 
 # sent_id = 2670
 # text = c' était une autre époque où on pouvait faire ça
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	une	un	DET	_	_	5	det	_	_
@@ -10405,7 +9795,6 @@
 
 # sent_id = 2671
 # text = aujourd' hui euh je ne crois pas que ce serait possible
-# timestamp = 1601037997264
 1	aujourd'	aujourd'	ADV	_	_	6	mod@periph	_	_
 2	hui	hui	ADV	_	_	1	unk@fixed	_	_
 3	euh	euh	INTJ	_	_	6	discourse	_	_
@@ -10420,7 +9809,6 @@
 
 # sent_id = 2672
 # text = mais à l' époque euh personne ne savait que je n' avais jamais fait ce métier sauf lui
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	8	cc	_	_
 2	à	à	ADP	_	_	8	obl@periph	_	_
 3	l'	le	DET	_	_	4	det	_	_
@@ -10442,7 +9830,6 @@
 
 # sent_id = 2673
 # text = tout était possible à cette époque -là
-# timestamp = 1601037997264
 1	tout	tout	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	possible	possible	ADJ	_	_	2	comp:pred	_	_
@@ -10453,7 +9840,6 @@
 
 # sent_id = 2674
 # text = il était metteur en scène
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	était	être	AUX	_	_	0	root	_	_
 3	metteur	metteur	NOUN	_	_	2	comp:pred	_	_
@@ -10462,7 +9848,6 @@
 
 # sent_id = 2675
 # text = le cinéma était beaucoup moins euh n' était pas une organisation rigide comme elle l' est aujourd' hui
-# timestamp = 1601037997264
 1	le	le	DET	_	_	2	det	_	_
 2	cinéma	cinéma	NOUN	_	_	3	subj	_	_
 3	était	être	AUX	_	_	0	root	_	_
@@ -10484,7 +9869,6 @@
 
 # sent_id = 2676
 # text = c' est peut-être à ce moment -là que vous avez raté une autre carrière
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	peut-être	peut-être	ADV	_	_	4	mod@periph	_	_
@@ -10502,7 +9886,6 @@
 
 # sent_id = 2677
 # text = car euh on vous avait proposé de tourner dans un film
-# timestamp = 1601037997264
 1	car	car	CCONJ	_	_	5	cc	_	_
 2	euh	euh	INTJ	_	_	6	discourse	_	_
 3	on	on	PRON	_	_	5	subj	_	_
@@ -10517,7 +9900,6 @@
 
 # sent_id = 2678
 # text = je crois pas que j' ai raté une carrière
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	crois	croire	VERB	_	_	0	root	_	_
 3	pas	pas	PART	_	_	2	mod	_	_
@@ -10530,7 +9912,6 @@
 
 # sent_id = 2679
 # text = je crois vraiment que j' étais pas faite pour ça du tout
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	crois	croire	VERB	_	_	0	root	_	_
 3	vraiment	vraiment	ADV	_	_	2	mod	_	_
@@ -10546,7 +9927,6 @@
 
 # sent_id = 2680
 # text = mais mettons que vous ayez tourné dans ce film oui que le film ait eu du succès oui que vous soyez devenue une vedette
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	2	cc	_	_
 2	mettons	mettre	VERB	_	_	0	root	_	_
 3	que	que	SCONJ	_	_	2	comp:obj	_	_
@@ -10574,7 +9954,6 @@
 
 # sent_id = 2681
 # text = vous étiez normalement entraînée
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj@pass	_	_
 2	étiez	être	AUX	_	_	0	root	_	_
 3	normalement	normalement	ADV	_	_	2	mod	_	_
@@ -10582,7 +9961,6 @@
 
 # sent_id = 2682
 # text = je ne r~ serais pas devenue une vedette
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	4	subj@pass	_	_
 2	ne	ne	PART	_	_	4	mod	_	_
 3	r~	r~	VERB	_	_	2	conj@dicto	_	_
@@ -10594,7 +9972,6 @@
 
 # sent_id = 2683
 # text = je crois véritablement que je n' étais pas douée pour ça pas du tout
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	crois	croire	VERB	_	_	0	root	_	_
 3	véritablement	véritablement	ADV	_	_	2	mod	_	_
@@ -10612,7 +9989,6 @@
 
 # sent_id = 2684
 # text = je ne suis pas du tout quelqu' un de d' extraverti
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	ne	ne	PART	_	_	3	mod	_	_
 3	suis	être	AUX	_	_	0	root	_	_
@@ -10627,7 +10003,6 @@
 
 # sent_id = 2685
 # text = et je ne l' étais surtout pas euh à cet âge -là
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	je	je	PRON	_	_	5	subj	_	_
 3	ne	ne	PART	_	_	5	mod	_	_
@@ -10643,7 +10018,6 @@
 
 # sent_id = 2686
 # text = et j~ je crois que je n' avais aucune des qualités ni des défauts qui font euh une bonne comédienne
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	j~	j~	PRON	_	_	4	subj	_	_
 3	je	je	PRON	_	_	2	conj@dicto	_	_
@@ -10667,7 +10041,6 @@
 
 # sent_id = 2687
 # text = mais il y a quand même dans la vie des enchaînements normaux
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	4	cc	_	_
 2	il	il	PRON	_	_	4	comp:obj@expl	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -10683,7 +10056,6 @@
 
 # sent_id = 2688
 # text = car euh vous avez tourné avec Jean Renoir
-# timestamp = 1601037997264
 1	car	car	CCONJ	_	_	4	cc	_	_
 2	euh	euh	INTJ	_	_	5	discourse	_	_
 3	vous	vous	PRON	_	_	4	subj	_	_
@@ -10695,7 +10067,6 @@
 
 # sent_id = 2689
 # text = je veux dire que oui beaucoup oui vous avez travaillé avec Jean Renoir
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	veux	vouloir	AUX	_	_	0	root	_	_
 3	dire	dire	VERB	_	_	2	comp:aux	_	_
@@ -10712,14 +10083,12 @@
 
 # sent_id = 2690
 # text = La grande illusion
-# timestamp = 1601037997264
 1	La	le	DET	_	_	3	det	_	_
 2	grande	grand	ADJ	_	_	3	mod	_	_
 3	illusion	illusion	NOUN	_	_	0	root	_	_
 
 # sent_id = 2691
 # text = il y avait Jacques Becker
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	avait	avoir	VERB	_	_	0	root	_	_
@@ -10728,7 +10097,6 @@
 
 # sent_id = 2692
 # text = Jacques Becker ensuite c' était autre chose
-# timestamp = 1601037997264
 1	Jacques	Jacques	PROPN	_	_	5	dislocated	_	_
 2	Becker	Becker	PROPN	_	_	1	flat	_	_
 3	ensuite	ensuite	ADV	_	_	5	mod@periph	_	_
@@ -10739,7 +10107,6 @@
 
 # sent_id = 2693
 # text = car vous avez travaillé travaillé directement avec lui
-# timestamp = 1601037997264
 1	car	car	CCONJ	_	_	3	cc	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	avez	avoir	AUX	_	_	0	root	_	_
@@ -10751,7 +10118,6 @@
 
 # sent_id = 2694
 # text = c' est - à - dire nous avons été tous les deux euh nous avons tous les deux collaboré avec euh avec Renoir
-# timestamp = 1601037997264
 1	c'	c'	PRON	_	_	8	cc	_	_
 2	est	est	VERB	_	_	1	unk@fixed	_	_
 3	-	-	PUNCT	_	_	4	punct	_	_
@@ -10778,7 +10144,6 @@
 
 # sent_id = 2695
 # text = et nous nous nous avons eu beaucoup d' amitié l' un pour l' autre à pendant La grande illusion pour des raisons que j' ai j' ai déjà dites une fois
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	nous	nous	PRON	_	_	5	subj	_	_
 3	nous	nous	PRON	conj:reform	_	2	conj@dicto	_	_
@@ -10813,7 +10178,6 @@
 
 # sent_id = 2696
 # text = je m' excuse de les répéter si vous les connaissez
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	m'	me	PRON	_	_	3	comp:obl	_	_
 3	excuse	excuser	VERB	_	_	0	root	_	_
@@ -10827,7 +10191,6 @@
 
 # sent_id = 2697
 # text = euh c' est que il y avait beaucoup de choses communes entre nous
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	3	discourse	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -10844,7 +10207,6 @@
 
 # sent_id = 2698
 # text = nous étions tous les deux d' origine bourgeoise élevés un peu de la même manière euh c' est - à - dire disons d' une façon un peu britannique dans le comportement n' est -ce pas
-# timestamp = 1601037997264
 1	nous	nous	PRON	_	_	2	subj	_	_
 2	étions	être	AUX	_	_	0	root	_	_
 3	tous	tout	ADJ	_	_	5	mod	_	_
@@ -10884,7 +10246,6 @@
 
 # sent_id = 2699
 # text = euh on ne pleure pas
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	4	discourse	_	_
 2	on	on	PRON	_	_	4	subj	_	_
 3	ne	ne	PART	_	_	4	mod	_	_
@@ -10893,7 +10254,6 @@
 
 # sent_id = 2700
 # text = euh on se tient toujours
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	4	discourse	_	_
 2	on	on	PRON	_	_	4	subj	_	_
 3	se	se	PRON	_	_	4	unk@obj	_	_
@@ -10902,7 +10262,6 @@
 
 # sent_id = 2701
 # text = euh vous voyez ce que je veux dire
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	3	discourse	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	voyez	voir	VERB	_	_	0	root	_	_
@@ -10914,7 +10273,6 @@
 
 # sent_id = 2702
 # text = un~ un~ une é~ édu~ une éducation un petit peu rigide à cet égard
-# timestamp = 1601037997264
 1	un~	un~	DET	_	_	7	det	_	_
 2	un~	un~	DET	_	_	1	conj@dicto	_	_
 3	une	un	DET	_	_	2	conj@dicto	_	_
@@ -10932,7 +10290,6 @@
 
 # sent_id = 2703
 # text = nous avions donc ça en commun
-# timestamp = 1601037997264
 1	nous	nous	PRON	_	_	2	subj	_	_
 2	avions	avoir	VERB	_	_	0	root	_	_
 3	donc	donc	ADV	_	_	2	mod	_	_
@@ -10942,7 +10299,6 @@
 
 # sent_id = 2704
 # text = et nous étions tous les deux extraordinairement pauvres à ce moment -là euh en contact avec ce milieu de cinéma euh très très exhibitionniste en matière d' argent
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	nous	nous	PRON	_	_	3	subj	_	_
 3	étions	être	AUX	_	_	0	root	_	_
@@ -10974,7 +10330,6 @@
 
 # sent_id = 2705
 # text = et nous avions tous les deux la passion de de la musique
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	nous	nous	PRON	_	_	3	subj	_	_
 3	avions	avoir	VERB	_	_	0	root	_	_
@@ -10990,7 +10345,6 @@
 
 # sent_id = 2706
 # text = et nous jouions tous les deux du piano
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	nous	nous	PRON	_	_	3	subj	_	_
 3	jouions	jouer	VERB	_	_	0	root	_	_
@@ -11002,7 +10356,6 @@
 
 # sent_id = 2707
 # text = vous allez à Hermillon
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	allez	aller	VERB	ETRE	_	0	root	_	_
 3	à	à	ADP	_	_	2	obl@comp	_	_
@@ -11010,7 +10363,6 @@
 
 # sent_id = 2708
 # text = et euh ensuite vous prenez la direction de Saint - Jean
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	euh	euh	INTJ	_	_	5	discourse	_	_
 3	ensuite	ensuite	ADV	_	_	5	mod@periph	_	_
@@ -11025,14 +10377,12 @@
 
 # sent_id = 2709
 # text = vous passe~ euh
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	passe~	passer	VERB	ETRE	_	0	root	_	_
 3	euh	euh	INTJ	_	_	2	discourse	_	_
 
 # sent_id = 2710
 # text = vous prenez la grande ligne droite
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	prenez	prendre	VERB	_	_	0	root	_	_
 3	la	le	DET	_	_	5	det	_	_
@@ -11042,7 +10392,6 @@
 
 # sent_id = 2711
 # text = et vous tournez à à gauche
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	tournez	tourner	VERB	_	_	0	root	_	_
@@ -11052,7 +10401,6 @@
 
 # sent_id = 2712
 # text = euh vous passez devant les pompiers
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	3	discourse	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	passez	passer	VERB	ETRE	_	0	root	_	_
@@ -11062,7 +10410,6 @@
 
 # sent_id = 2713
 # text = et ensuite il y a une ligne droite
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	ensuite	ensuite	ADV	_	_	5	mod@periph	_	_
 3	il	il	PRON	_	_	5	comp:obj@expl	_	_
@@ -11074,7 +10421,6 @@
 
 # sent_id = 2714
 # text = vous allez à droite
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	allez	aller	VERB	ETRE	_	0	root	_	_
 3	à	à	ADP	_	_	2	obl@comp	_	_
@@ -11082,7 +10428,6 @@
 
 # sent_id = 2715
 # text = et euh vous continuez
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	euh	euh	INTJ	_	_	4	discourse	_	_
 3	vous	vous	PRON	_	_	4	subj	_	_
@@ -11090,7 +10435,6 @@
 
 # sent_id = 2716
 # text = et vous tombez sur la gare
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	tombez	tomber	VERB	ETRE	_	0	root	_	_
@@ -11100,7 +10444,6 @@
 
 # sent_id = 2717
 # text = mesdames et messieurs je suis heureux de me retrouver ce soir parmi vous
-# timestamp = 1601037997264
 1	mesdames	Monsieur	NOUN	_	_	5	dislocated	_	_
 2	et	et	CCONJ	_	_	3	cc	_	_
 3	messieurs	Monsieur	NOUN	_	_	5	dislocated	_	_
@@ -11117,7 +10460,6 @@
 
 # sent_id = 2718
 # text = après ma visite à Landivisiau et à l' île Longue ce matin c' est donc une journée entière que j' aurai passée avec nos forces armées
-# timestamp = 1601037997264
 1	après	après	ADP	_	_	17	obl@periph	_	_
 2	ma	son	DET	_	_	3	det	_	_
 3	visite	visite	NOUN	_	_	1	comp:obj	_	_
@@ -11147,7 +10489,6 @@
 
 # sent_id = 2719
 # text = c' est bien sûr dans mon esprit la marque du lien direct qui unit le président de la république chef des armées avec euh toutes celles et tous ceux qui ont la difficile mission de veiller sur nos intérêts et sur la sécurité de nos concitoyens
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	bien	bien	ADV	_	_	2	mod	_	_
@@ -11197,7 +10538,6 @@
 
 # sent_id = 2720
 # text = c' est pour cela que je tenais à vous rencontrer la veille de notre fête nationale
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	pour	pour	ADP	_	_	2	comp:pred	_	_
@@ -11217,7 +10557,6 @@
 
 # sent_id = 2721
 # text = le quatorze juillet lors de traditionnel défilé c' est la nation toute entière qui vous rend hommage
-# timestamp = 1601037997264
 1	le	le	DET	_	_	2	det	_	_
 2	quatorze	quatorze	NUM	_	_	11	obl@periph	_	_
 3	juillet	juillet	NOUN	_	_	2	mod	_	_
@@ -11238,7 +10577,6 @@
 
 # sent_id = 2722
 # text = elle salue le courage elle salue la loyauté elle salue le dévouement elle salue l' esprit de sacrifice de ceux qui ont choisi de servir sa défense ses intérêts et ses valeurs à travers le monde
-# timestamp = 1601037997264
 1	elle	il	PRON	_	_	2	subj	_	_
 2	salue	saluer	VERB	_	_	0	root	_	_
 3	le	le	DET	_	_	4	det	_	_
@@ -11278,7 +10616,6 @@
 
 # sent_id = 2723
 # text = et c' est la raison pour laquelle au nom de la république j' honorerai certains d' entre vous dans quelques instants
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -11303,7 +10640,6 @@
 
 # sent_id = 2724
 # text = cette année j' ai tenu à ce que cette fête nationale soit aussi celle de l' Europe
-# timestamp = 1601037997264
 1	cette	ce	DET	_	_	2	det	_	_
 2	année	année	NOUN	_	_	4	dislocated	_	_
 3	j'	je	PRON	_	_	4	subj	_	_
@@ -11324,7 +10660,6 @@
 
 # sent_id = 2725
 # text = et demain ce sont les vingt-six drapeaux de nos partenaires européens qui défileront aux côtés de nos armées
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	demain	demain	ADV	_	_	4	mod	_	_
 3	ce	ce	PRON	_	_	4	subj	_	_
@@ -11346,7 +10681,6 @@
 
 # sent_id = 2726
 # text = j' en remercie d' ailleurs cher Hervé cher Alain tout spécialement les ministres de la défense qui sont parmi nous ce soir
-# timestamp = 1601037997264
 1	j'	je	PRON	_	_	3	subj	_	_
 2	en	en	PRON	_	_	3	comp:obj	_	_
 3	remercie	remercier	VERB	_	_	0	root	_	_
@@ -11372,7 +10706,6 @@
 
 # sent_id = 2727
 # text = je leur adresse un salut très amical
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	leur	lui	PRON	_	_	3	comp:obl	_	_
 3	adresse	adresser	VERB	_	_	0	root	_	_
@@ -11383,7 +10716,6 @@
 
 # sent_id = 2728
 # text = c' est l' image d' une Europe qui repart d' un même pas une Europe résolue à se remettre en mouvement après deux années d' immobilisme une Europe vigilante qui n' oublie pas l' impératif de protection dans un monde plus instable et moins prévisible une Europe prête à assumer ses responsabilités et au sein de laquelle la France a bien l' intention de tenir son rang
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	l'	le	DET	_	_	4	det	_	_
@@ -11454,7 +10786,6 @@
 
 # sent_id = 2729
 # text = les bases d' une défense européenne existent
-# timestamp = 1601037997264
 1	les	le	DET	_	_	2	det	_	_
 2	bases	base	NOUN	_	_	7	subj	_	_
 3	d'	de	ADP	_	_	2	udep	_	_
@@ -11465,7 +10796,6 @@
 
 # sent_id = 2730
 # text = il faut les faire grandir en quittant le terrain des mots pour gagner celui de l' action
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	4	subj@caus	_	_
 2	faut	falloir	VERB	_	_	4	comp:aux@caus	_	_
 3	les	le	PRON	_	_	5	comp:obj	_	_
@@ -11486,7 +10816,6 @@
 
 # sent_id = 2731
 # text = demain davantage qu' aujourd' hui je souhaite que l' Europe soit capable d' assurer sa sécurité de façon autonome
-# timestamp = 1601037997264
 1	demain	demain	ADV	_	_	7	mod@periph	_	_
 2	davantage	davantage	ADV	_	_	1	mod	_	_
 3	qu'	que	SCONJ	_	_	1	mod	_	_
@@ -11509,7 +10838,6 @@
 
 # sent_id = 2732
 # text = alors si la France pèse aujourd' hui sur la scène internationale il lui faut un outil de défense adapté à la hauteur de ses ambitions
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	14	discourse	_	_
 2	si	si	SCONJ	_	_	14	mod@periph	_	_
 3	la	le	DET	_	_	4	det	_	_
@@ -11538,7 +10866,6 @@
 
 # sent_id = 2733
 # text = c' est aussi là l' intérêt fondamental de l' Europe et de nos partenaires
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	aussi	aussi	ADV	_	_	2	mod	_	_
@@ -11556,7 +10883,6 @@
 
 # sent_id = 2734
 # text = aujourd' hui plus que jamais et vous le savez mieux que personne c' est sur le terrain que se gagne ou se perd le combat
-# timestamp = 1601037997264
 1	aujourd'	aujourd'	NOUN	_	_	17	mod@periph	_	_
 2	hui	hui	NOUN	_	_	1	unk@fixed	_	_
 3	plus	plus	ADV	_	_	1	conj@coord	_	_
@@ -11585,7 +10911,6 @@
 
 # sent_id = 2735
 # text = c' est sur le terrain qu' une nation affirme son influence qu' elle pèse dans une coalition au travers des forces qu' elle est capable d' engager
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	sur	sur	ADP	_	_	2	comp:pred	_	_
@@ -11616,7 +10941,6 @@
 
 # sent_id = 2736
 # text = cet engagement sur le terrain est pour vous de plus en plus difficile et de plus en plus dangereux
-# timestamp = 1601037997264
 1	cet	ce	DET	_	_	2	det	_	_
 2	engagement	engagement	NOUN	_	_	6	subj	_	_
 3	sur	sur	ADP	_	_	2	udep	_	_
@@ -11639,7 +10963,6 @@
 
 # sent_id = 2737
 # text = l' Afghanistan le Proche - Orient je connais la somme de courage et d' abnégation que requiert l' accomplissement de vos missions dans un tel contexte
-# timestamp = 1601037997264
 1	l'	le	DET	_	_	2	det	_	_
 2	Afghanistan	Afghanistan	PROPN	_	_	8	dislocated	_	_
 3	le	le	DET	_	_	6	det	_	_
@@ -11669,7 +10992,6 @@
 
 # sent_id = 2738
 # text = je sais également ce que cela signifie pour vos familles que je veux saluer particulièrement dont j' imagine qu' elles sont souvent confrontées à l' absence et parfois l' angoisse
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	sais	savoir	VERB	_	_	0	root	_	_
 3	également	également	ADV	_	_	2	mod	_	_
@@ -11703,7 +11025,6 @@
 
 # sent_id = 2739
 # text = je sais aussi hélas le lourd tribut payé par certains de vos compagnons d' armes tribut qui peut aller jusqu' au sacrifice ultime
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	2	subj	_	_
 2	sais	savoir	VERB	_	_	0	root	_	_
 3	aussi	aussi	ADV	_	_	2	mod	_	_
@@ -11730,7 +11051,6 @@
 
 # sent_id = 2740
 # text = et chaque région géographique a aussi son comportement euh vis - à - vis de la foi vis - à - vis de l' de l' église vis-à-vis de la vie chrétienne
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	5	cc	_	_
 2	chaque	chaque	DET	_	_	3	det	_	_
 3	région	région	NOUN	_	_	5	subj	_	_
@@ -11766,7 +11086,6 @@
 
 # sent_id = 2741
 # text = on dit que il y a la région de Beauce
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	2	subj	_	_
 2	dit	dire	VERB	_	_	0	root	_	_
 3	que	que	SCONJ	_	_	2	comp:obj	_	_
@@ -11780,7 +11099,6 @@
 
 # sent_id = 2742
 # text = dans la région de Beauce on dit que la culture est une culture euh qui rend bien mais qui demande beaucoup de travail
-# timestamp = 1601037997264
 1	dans	dans	ADP	_	_	7	obl@periph	_	_
 2	la	le	DET	_	_	3	det	_	_
 3	région	région	NOUN	_	_	1	comp:obj	_	_
@@ -11807,7 +11125,6 @@
 
 # sent_id = 2743
 # text = c' est une terre solide
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	une	un	DET	_	_	4	det	_	_
@@ -11816,7 +11133,6 @@
 
 # sent_id = 2744
 # text = c' est une terre forte
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	une	un	DET	_	_	4	det	_	_
@@ -11825,7 +11141,6 @@
 
 # sent_id = 2745
 # text = c' est long à mûrir et à pousser
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	long	long	ADJ	_	_	2	comp:pred	_	_
@@ -11837,7 +11152,6 @@
 
 # sent_id = 2746
 # text = mais c' est solide
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -11845,7 +11159,6 @@
 
 # sent_id = 2747
 # text = alors on dit que le tempérament des Beaucerons est un tempérament euh volontaire travailleur mais fidèle
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	3	mod@periph	_	_
 2	on	on	PRON	_	_	3	subj	_	_
 3	dit	dire	VERB	_	_	0	root	_	_
@@ -11865,7 +11178,6 @@
 
 # sent_id = 2748
 # text = et quand il a donné sa sa foi à quelqu' un c' est durable euh
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	13	cc	_	_
 2	quand	quand	SCONJ	_	_	13	mod@periph	_	_
 3	il	il	PRON	_	_	4	subj	_	_
@@ -11884,7 +11196,6 @@
 
 # sent_id = 2749
 # text = nous le ressentons certainement euh dans le comportement religieux
-# timestamp = 1601037997264
 1	nous	nous	PRON	_	_	3	subj	_	_
 2	le	le	PRON	_	_	3	comp:obj	_	_
 3	ressentons	ressentir	VERB	_	_	0	root	_	_
@@ -11897,7 +11208,6 @@
 
 # sent_id = 2750
 # text = il y a des des traditions de famille qui se transmettent dans le domaine religieux comme dans tout le domaine du travail du sérieux de l' économie de la résistance des cultures euh
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -11934,7 +11244,6 @@
 
 # sent_id = 2751
 # text = il y a la la tradition familiale
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -11945,7 +11254,6 @@
 
 # sent_id = 2752
 # text = nous sentons très bien que lorsque la foi euh est implantée dans une famille c' est solide
-# timestamp = 1601037997264
 1	nous	nous	PRON	_	_	2	subj	_	_
 2	sentons	sentir	VERB	_	_	0	root	_	_
 3	très	très	ADV	_	_	4	mod	_	_
@@ -11966,7 +11274,6 @@
 
 # sent_id = 2753
 # text = on n' a pas peur de l' effort
-# timestamp = 1601037997264
 1	on	on	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	3	mod	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -11978,7 +11285,6 @@
 
 # sent_id = 2754
 # text = et euh les curés qui sont en Beauce euh sentent cet attachement de la de la population
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	10	cc	_	_
 2	euh	euh	INTJ	_	_	10	discourse	_	_
 3	les	le	DET	_	_	4	det	_	_
@@ -11999,7 +11305,6 @@
 
 # sent_id = 2755
 # text = mais on sent aussi que le Beauceron n' accorde sa fidélité que après avoir bien connu
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	on	on	PRON	_	_	3	subj	_	_
 3	sent	sentir	VERB	_	_	0	root	_	_
@@ -12019,7 +11324,6 @@
 
 # sent_id = 2756
 # text = il faut avoir fait ses preuves soi - même d' attachement au pays
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	subj	_	_
 2	faut	falloir	VERB	_	_	3	comp:aux	_	_
 3	avoir	avoir	AUX	DoubleAux	_	0	root	_	_
@@ -12036,7 +11340,6 @@
 
 # sent_id = 2757
 # text = le Beauceron sait observer longtemps
-# timestamp = 1601037997264
 1	le	le	DET	_	_	2	det	_	_
 2	Beauceron	Beauceron	PROPN	_	_	3	subj	_	_
 3	sait	savoir	VERB	_	_	0	root	_	_
@@ -12045,7 +11348,6 @@
 
 # sent_id = 2758
 # text = mais nos prêtres de Beauce qui sont les curés de campagne euh ont en général avec leur population euh cet euh ce ce lien si vous voulez qui n' est pas superficiel mais en profondeur euh qui correspond bien à la fidélité d' une d' une race
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	13	cc	_	_
 2	nos	son	DET	_	_	3	det	_	_
 3	prêtres	prêtre	NOUN	_	_	13	subj	_	_
@@ -12096,7 +11398,6 @@
 
 # sent_id = 2759
 # text = et puis nous avons une autre région qui est le Gâtinais
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	puis	puis	ADV	_	_	1	unk@fixed	_	_
 3	nous	nous	PRON	_	_	4	subj	_	_
@@ -12111,7 +11412,6 @@
 
 # sent_id = 2760
 # text = le Gâtinais lui c' est une région beaucoup plus euh boisée d' une part et puis beaucoup plus euh vouée à à l' élevage
-# timestamp = 1601037997264
 1	le	le	DET	_	_	2	det	_	_
 2	Gâtinais	Gâtinais	PROPN	_	_	5	dislocated	_	_
 3	lui	lui	PRON	_	_	5	dislocated	_	_
@@ -12139,7 +11439,6 @@
 
 # sent_id = 2761
 # text = et il y a aussi de la très bonne culture
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	il	il	PRON	_	_	4	comp:obj@expl	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -12153,7 +11452,6 @@
 
 # sent_id = 2762
 # text = mais euh euh le Gâtinais est très accueillant
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	6	cc	_	_
 2	euh	euh	INTJ	_	_	8	discourse	_	_
 3	euh	euh	INTJ	_	_	8	discourse	_	_
@@ -12165,7 +11463,6 @@
 
 # sent_id = 2763
 # text = il est très bienveillant
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	très	très	ADV	_	_	2	mod	_	_
@@ -12173,7 +11470,6 @@
 
 # sent_id = 2764
 # text = il est très aimable
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	très	très	ADV	_	_	2	mod	_	_
@@ -12181,7 +11477,6 @@
 
 # sent_id = 2765
 # text = mais euh on ne trouve pas si vous voulez euh la même profondeur d' attachement à la foi chrétienne dans le Gâtinais
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	5	cc	_	_
 2	euh	euh	INTJ	_	_	5	discourse	_	_
 3	on	on	PRON	_	_	5	subj	_	_
@@ -12207,7 +11502,6 @@
 
 # sent_id = 2766
 # text = et puis c' est un pays dans lequel on aime la bonne vie
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	4	cc	_	_
 2	puis	puis	ADV	_	_	1	unk@fixed	_	_
 3	c'	ce	PRON	_	_	4	subj	_	_
@@ -12224,7 +11518,6 @@
 
 # sent_id = 2767
 # text = c' est un pays très joyeux euh
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	un	un	DET	_	_	4	det	_	_
@@ -12235,7 +11528,6 @@
 
 # sent_id = 2768
 # text = les fêtes y sont plus plus nombreuses
-# timestamp = 1601037997264
 1	les	le	DET	_	_	2	det	_	_
 2	fêtes	fête	NOUN	_	_	4	subj	_	_
 3	y	y	PRON	_	_	7	comp:obl	_	_
@@ -12246,7 +11538,6 @@
 
 # sent_id = 2769
 # text = euh je pourrais vous dire que certainement euh la morale chrétienne paraît plus difficile à nos gens du Gâtinais que dans la Beauce euh
-# timestamp = 1601037997264
 1	euh	euh	INTJ	_	_	5	discourse	_	_
 2	je	je	PRON	_	_	3	subj	_	_
 3	pourrais	pouvoir	AUX	_	_	0	root	_	_
@@ -12274,7 +11565,6 @@
 
 # sent_id = 2770
 # text = c' est aussi une des raisons pour lesquelles euh l' attachement est peut-être moins en profondeur
-# timestamp = 1601037997264
 1	c'	ce	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	aussi	aussi	ADV	_	_	2	mod	_	_
@@ -12294,7 +11584,6 @@
 
 # sent_id = 2771
 # text = mais il gagne tellement en spontanéité en en amabilité en gentillesse mh qu' ils euh qu' ils ont peut-être davantage si vous voulez de l' évangile la la caractéristique de la sympathie de l' accueil et de la charité mais que il faudrait peut-être moins moins chercher du côté du renoncement ou de ou de l' austérité
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	il	il	PRON	_	_	3	subj	_	_
 3	gagne	gagner	VERB	_	_	0	root	_	_
@@ -12355,7 +11644,6 @@
 
 # sent_id = 2772
 # text = est -ce qu' il y a une différence nette parmi l~ les différentes couches sociales dans la mesure où vous arrivez à à les toucher et à les attacher à l' église
-# timestamp = 1601037997264
 1	est	être	AUX	_	_	6	comp:obj	_	_
 2	-ce	ce	PRON	_	_	6	subj	_	_
 3	qu'	que	SCONJ	_	_	0	root	_	_
@@ -12391,7 +11679,6 @@
 
 # sent_id = 2773
 # text = c' est - à - dire que est -ce qu' il y a des couches sociales qui plus que d' autres disons dans Orléans même où évidemment la la société est plus stratifiée et peut-être plus variée que qu' à la campagne
-# timestamp = 1601037997264
 1	c'	c'	PRON	_	_	10	cc	_	_
 2	est	est	VERB	_	_	1	unk@fixed	_	_
 3	-	-	PUNCT	_	_	4	punct	_	_
@@ -12437,7 +11724,6 @@
 
 # sent_id = 2774
 # text = oui alors là on aborde l' autre point de vue qui n' est plus le point de vue géographique mais qui est le point de vue sociologique oui n' est -ce pas les différentes couches de la société
-# timestamp = 1601037997264
 1	oui	oui	INTJ	_	_	5	discourse	_	_
 2	alors	alors	ADV	_	_	5	discourse	_	_
 3	là	là	ADV	_	_	5	mod@periph	_	_
@@ -12479,7 +11765,6 @@
 
 # sent_id = 2775
 # text = il est bien vrai que dans les campagnes le prêtre est à même de côtoyer tout le monde mh n' est -ce pas
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	2	subj	_	_
 2	est	être	AUX	_	_	0	root	_	_
 3	bien	bien	ADV	_	_	2	mod	_	_
@@ -12506,7 +11791,6 @@
 
 # sent_id = 2776
 # text = il y a beaucoup moins de dis~ de distinction entre les contacts que peut avoir le prêtre et puis les classes dirigeantes et le prêtre et le monde ouvrier
-# timestamp = 1601037997264
 1	il	il	PRON	_	_	3	comp:obj@expl	_	_
 2	y	y	PRON	_	_	3	comp:obl	_	_
 3	a	avoir	VERB	_	_	0	root	_	_
@@ -12539,7 +11823,6 @@
 
 # sent_id = 2777
 # text = le prêtre connaît très bien tout le monde
-# timestamp = 1601037997264
 1	le	le	DET	_	_	2	det	_	_
 2	prêtre	prêtre	NOUN	_	_	3	subj	_	_
 3	connaît	connaître	VERB	_	_	0	root	_	_
@@ -12551,7 +11834,6 @@
 
 # sent_id = 2778
 # text = et il est en contact avec tout le monde dans un petit pays
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	il	il	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -12568,7 +11850,6 @@
 
 # sent_id = 2779
 # text = lorsqu' il s' agit d' une grande ville comme Orléans le prêtre est bien plus en contact avec ceux qui viennent le voir parce qu' il ne peut pas être en contact avec tout le monde
-# timestamp = 1601037997264
 1	lorsqu'	lorsque	SCONJ	_	_	13	mod@periph	_	_
 2	il	il	PRON	_	_	4	subj	_	_
 3	s'	se	PRON	_	_	4	unk@iobj	_	_
@@ -12608,7 +11889,6 @@
 
 # sent_id = 2780
 # text = alors ceux qui viennent le voir ce sont les les hommes qui ont une formation chrétienne et qui font partie de la paroisse et qui viennent à l' occasion de l' éducation des enfants à l' occasion des offices à l' occasion des cérémonies religieuses euh qui viennent pour les baptêmes pour les mariages les enterrements euh qui viennent toujours pour un but euh précis qui a trait à la à la vie chrétienne
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	11	discourse	_	_
 2	ceux	celui	PRON	_	_	8	dislocated	_	_
 3	qui	qui	PRON	_	_	4	subj	_	_
@@ -12686,7 +11966,6 @@
 
 # sent_id = 2781
 # text = mais euh les contacts du prêtre avec euh les couches avec les problèmes directs des hommes qui sont le le travail sous tous ses aspects euh ces ces problèmes -là sont certainement plus difficiles à aborder parce que le nombre des prêtres en ville est quand même très petit par rapport à la proportion de la campagne
-# timestamp = 1601037997264
 1	mais	mais	CCONJ	_	_	31	cc	_	_
 2	euh	euh	INTJ	_	_	34	discourse	_	_
 3	les	le	DET	_	_	4	det	_	_
@@ -12747,7 +12026,6 @@
 
 # sent_id = 2782
 # text = alors vous abordez là tout tout cet aspect de l' effort de l' église actuelle pour n' être pas simplement en contact avec ceux qui traditionnellement sont chrétiens mais le problème de l' église du contact avec tous les hommes et en particulier avec ceux qui qui sont plus plus éprouvés quoi dans le travail
-# timestamp = 1601037997264
 1	alors	alors	ADV	_	_	3	mod@periph	_	_
 2	vous	vous	PRON	_	_	3	subj	_	_
 3	abordez	aborder	VERB	_	_	0	root	_	_
@@ -12806,7 +12084,6 @@
 
 # sent_id = 2783
 # text = vous connaissez bien les problèmes actuels
-# timestamp = 1601037997264
 1	vous	vous	PRON	_	_	2	subj	_	_
 2	connaissez	connaître	VERB	_	_	0	root	_	_
 3	bien	bien	ADV	_	_	2	mod	_	_
@@ -12816,7 +12093,6 @@
 
 # sent_id = 2784
 # text = je n' ai pas l' intention en ce moment de pouvoir vous exposer quelles sont les difficultés de contact qu' il peut y avoir entre les églises que ce soit l' église catholique l' église protestante l' église orthodoxe toutes les églises et le monde des travailleurs
-# timestamp = 1601037997264
 1	je	je	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	3	mod	_	_
 3	ai	avoir	VERB	_	_	0	root	_	_
@@ -12867,7 +12143,6 @@
 
 # sent_id = 2785
 # text = nous connaissons tous n' est -ce pas comment le monde des travailleurs depuis un siècle a été travaillé par le théo~ les théories du marxisme
-# timestamp = 1601037997264
 1	nous	nous	PRON	_	_	2	subj	_	_
 2	connaissons	connaître	VERB	_	_	0	root	_	_
 3	tous	tout	PRON	_	_	2	mod	_	_
@@ -12896,7 +12171,6 @@
 
 # sent_id = 2786
 # text = et nous savons très bien quelle que soit l' église à laquelle nous appartenons
-# timestamp = 1601037997264
 1	et	et	CCONJ	_	_	3	cc	_	_
 2	nous	nous	PRON	_	_	3	subj	_	_
 3	savons	savoir	VERB	_	_	0	root	_	_
