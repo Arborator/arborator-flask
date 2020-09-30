@@ -5,8 +5,6 @@ import requests, sys
 def grew_request(fct_name, current_app, data={}, files={}):
     if current_app.config['ENV'] == 'development': server = 'http://arborator-dev.grew.fr'
     elif current_app.config['ENV'] == 'production': server = 'http://arborator.grew.fr'
-    print("KK gres request data,", data)
-    print("KK gres request files,", files)
     try:
         r = requests.post(
             "%s/%s" % (server,fct_name),

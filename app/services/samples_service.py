@@ -31,8 +31,12 @@ def get_project_samples(project_name):
 
 
 def get_sample_exercise_level(sample_name, project_id):
+    # return the integer of the exercise level
     sample_exercise_level = samples_dao.get_sample_exercise_level(sample_name, project_id)
-    return sample_exercise_level
+    if sample_exercise_level:
+        return sample_exercise_level.exercise_level.code
+    else:
+        return 4
 
 
 def create_or_update_sample_exercise_level(sample_name, project_id, new_exercise_level):
@@ -104,5 +108,10 @@ def samples2trees_exercise_mode(trees_on_grew, sample_name, current_user, projec
                     empty_conllu = conll3.emptyConllu(tree)
                     base_conllu = conll3.changeMetaField(empty_conllu, "user_id", BASE_TREE)
                     trees_processed[tree_id]["conlls"][BASE_TREE] = base_conllu
-    
+        
+        
+        if current_user.username not in trees_processed[tree_id]["conlls"]:
+            empty_conllu = conll3.emptyConllu(tree)
+            user_empty_conllu = conll3.changeMetaField(empty_conllu, "user_id", current_user.username)
+            trees_processed[tree_id]["conlls"][current_user.username] = user_empty_conllu
     return trees_processed

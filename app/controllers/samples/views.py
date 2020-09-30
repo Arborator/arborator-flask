@@ -117,27 +117,38 @@ def get_sample_trees(project_name, sample_name):
   samples = reply.get("data", {})	
   if not project: abort(404)
 
+
   ##### exercise mode block #####
+  exercise_level = 4
   if exercise_mode:
+    exercise_level = samples_service.get_sample_exercise_level(sample_name, project.id)
     project_access = project_service.get_project_access(project.id, current_user.id).accesslevel.code
+    
+    print("\nKK project access", project_access)
     if project_access == 2: # isAdmin (= isTeacher)
       sample_trees = samples_service.samples2trees(samples, sample_name)
     elif project_access == 1: # isGuest (= isStudent)
       sample_trees = samples_service.samples2trees_exercise_mode(samples, sample_name, current_user, project_name)
+      print("KK sample trees", sample_trees)
     else : abort(409) # is not authentificated
-
-    js = json.dumps(sample_trees)
-    return Response(js, status=200,  mimetype='application/json')
   ##### end block exercise mode #####
 
 
-  if project.show_all_trees or project.visibility == 2:
-    js = json.dumps( samples_service.samples2trees(samples, sample_name) )
   else:
-    validator = project_service.is_validator(project.id, sample_name, current_user.id)
-    if validator:  js = json.dumps( samples_service.samples2trees(samples, sample_name) )
-    else:  js = json.dumps( samples_service.samples2trees_with_restrictions(samples, sample_name, current_user, project_name) )
-  # print(js)
+    if project.show_all_trees or project.visibility == 2:
+      sample_trees = samples_service.samples2trees(samples, sample_name) 
+    else:
+      validator = project_service.is_validator(project.id, sample_name, current_user.id)
+      if validator:  
+        sample_trees =samples_service.samples2trees(samples, sample_name) 
+      else: 
+        sample_trees = samples_service.samples2trees_with_restrictions(samples, sample_name, current_user, project_name) 
+
+  data = {
+    "sample_trees": sample_trees,
+    "exercise_level":  exercise_level
+  }
+  js = json.dumps(data)
   resp = Response(js, status=200,  mimetype='application/json')
   return resp
   

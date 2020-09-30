@@ -1034,7 +1034,6 @@ def save_trees(project_name):
 				data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':user_id, 'sent_id':sent_id, "conll_graph":conll}
 				)
 			resp = json.loads(reply)
-			print("KK resp", resp)
 			if resp["status"] != "OK":
 				if "data" in resp:
 					response = jsonify({'status': 400, 'message': str(resp["data"])  })
