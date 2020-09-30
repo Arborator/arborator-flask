@@ -16,6 +16,11 @@ pip install -r requirements.txt
 
 `export FLASK_APP=run.py; export FLASK_CONFIG=development; flask run --cert=adhoc`
 
+if you want autoreload when code changes add ` export FLASK_DEBUG=1` as so:
+
+`export FLASK_APP=run.py; export FLASK_CONFIG=development; export FLASK_DEBUG=1; flask run --cert=adhoc`
+
+
 ### in case of problems try: 
 ```shell
 sudo pip3 uninstall flask_sqlalchemy flask_migrate flask_login sqlalchemy_utils flask_wtf authomatic flask_bootstrap
