@@ -6,7 +6,7 @@ from functools import wraps
 from flask import Flask, render_template, request, make_response, session, url_for, redirect
 # print('____session',session)
 from flask_sqlalchemy import SQLAlchemy
-# from flask_migrate import Migrate
+from flask_migrate import Migrate
 from flask_login import LoginManager, current_user
 from flask_bootstrap import Bootstrap
 
@@ -33,7 +33,7 @@ def create_app(config_name):
 	bootstrap = Bootstrap(app)
 	db.init_app(app)
 	login_manager.init_app(app)
-	# migrate= Migrate(app, db)
+	migrate= Migrate(app, db)
 	login_manager.login_message = "You must be logged in to access this page."
 
 	# commented to get a real 401 error in case of acces to an unauthorized page:
@@ -52,6 +52,9 @@ def create_app(config_name):
 
 	from .controllers.project import project as project_blueprint
 	app.register_blueprint(project_blueprint, url_prefix='/api/projects')
+
+	from .controllers.samples import samples as samples_blueprint
+	app.register_blueprint(samples_blueprint, url_prefix='/api/projects')
 
 	# with app.app_context():
 	# 	from main import main as main_blueprint

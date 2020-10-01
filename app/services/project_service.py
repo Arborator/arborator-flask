@@ -94,18 +94,24 @@ def get_settings_infos(project_name, current_user):
         "admins":admins, 
         "guests":guests,
         "show_all_trees":project.show_all_trees, 
+        "exercise_mode": project.exercise_mode,
         "default_user_trees":defaultUserTrees}
-    print("settingsinfo ", settings_info)
     return settings_info
 
 
 #new from kirian
 def get_project_config(project_name):
+    '''
+    call grew api for getting the annotation feature schema
+    '''
     reply = grew_request ( 'getProjectConfig', current_app, data = {'project_id': project_name} )
     data = json.loads(reply)
     return data
 
 def update_project_config(project_name, config):
+    '''
+    call grew api for updating the annotation feature schema
+    '''
     reply = grew_request ( 'updateProjectConfig', current_app, data = {
         'project_id': project_name,
         'config': json.dumps(config)
@@ -113,61 +119,14 @@ def update_project_config(project_name, config):
     data = json.loads(reply)
     return data
 
-
-# def add_cat_label(project_name, current_user, cat):
-#     """ add a cat to a project """
-#     return [c.value for c in project_dao.add_cat(project_name, cat)]
-
-# def remove_cat_label(project_name, current_user, cat):
-#     """ delete a cat from a project cats list """
-#     return [c.value for c in project_dao.delete_cat(project_name, cat)]
-
-# def parse_txtcats(project, cats):
-#     """ parse and replace all the cats by these ones """
-#     lines = cats.split('\n')
-#     lines = [line for line in lines if not line.startswith('#')]
-#     categories = lines[0].split(',')
-#     return [c.value for c in project_dao.set_cats(project, categories)]
-
-# def add_stock(project_name):
-#     """ add a stock """
-#     stocks = project_dao.add_stock(project_name)
-#     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
-#     return labels
-
-# def remove_stock(project_name, stockid):
-#     """ remove a stock """
-#     stocks = project_dao.delete_stock(project_name, stockid)
-#     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
-#     return labels
-
-# def add_label(project_name, stock_id, label):
-#     """ add a label to a project stock """
-#     stocks = project_dao.add_label(project_name, stock_id, label)
-#     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
-#     return labels
-
-# def remove_label(project_name, label_id, stock_id, label ):
-#     """ remove a label from its project stock """
-#     # stocks = project_dao.delete_label(project_name, stock_id, label)
-#     project_dao.delete_label_by_id(label_id)
-#     project = project_dao.find_by_name(project_name)
-#     stocks = project_dao.find_project_stocks(project.id)
-#     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
-#     return labels
-
-# def parse_txtlabels(project, labels):
-#     """ parse and replace all the labels by these ones. taking multiple columns (rows) """
-#     lines = labels.split('\n')
-#     lines = [line for line in lines if not line.startswith('#')]
-#     labelstocks_with_labels =  [line.split(',') for line in lines]
-#     stocks = project_dao.set_stock_and_labels(project, labelstocks_with_labels)
-#     labels = [ {'id':s.id,'labels':[ {"id":l.id, "stock_id":l.stock_id , "value":l.value} for l in project_dao.find_stock_labels(s.id) ]}  for s in stocks ]
-#     return labels
-
 def change_show_all_trees(project_name, value):
     """ set show all trees and return the new project  """
     project = project_dao.set_show_all_trees(project_name, value)
+    return project
+
+def change_exercise_mode(project_name, value):
+    """ set exercise mode and return the new project""" 
+    project = project_dao.set_exercise_mode(project_name, value)
     return project
 
 def change_visibility(project_name, value):
@@ -230,7 +189,6 @@ def get_hub_summary():
 def get_infos(project_name, current_user):
     ''' get project informations available for the current user '''
     project = project_dao.find_by_name(project_name)
-    # current_user.id = "rinema56@gmail.com"
     if not current_user.is_authenticated: # TODO : handle anonymous user
         # print("Anonymous User ")
         roles = []
@@ -239,94 +197,28 @@ def get_infos(project_name, current_user):
 
     # if not roles and project.is_private: return 403 # removed for now -> the check is done in view and for each actions
 
-    print(time.monotonic(), 'admins START')
     admins = [a.userid for a in project_dao.get_admins(project.id)]
     guests = [g.userid for g in project_dao.get_guests(project.id)]
-    print(time.monotonic(), 'admins DONE')
 
     # config
     shown_features = project_dao.find_project_features(project)
     shown_metafeatures = project_dao.find_project_metafeatures(project)
     config = {"shownfeatures":shown_features, "shownmeta":shown_metafeatures}
     
-    reply = grew_request ( 'getSamples', current_app, data = {'project_id': project.projectname} )
-    js = json.loads(reply)
-    data = js.get("data")
-    samples=[]
-    nb_samples=0
-    nb_sentences=0
-    sum_nb_tokens=0
-    average_tokens_per_sample=0
-    # print("type visibility", project.visibility)
-    if data:
-        nb_samples = len(data)
-        samples = []
-        sample_lengths = []
-        print(time.monotonic(), 'big for START')
-        for sa in data:
-            sample={'samplename':sa['name'], 'sentences':sa['number_sentences'], 'number_trees':sa['number_trees'], 'tokens':sa['number_tokens'], 'treesFrom':sa['users'], "roles":{}}
-            lengths = []
-            for r,label in project_dao.get_possible_roles():
-                role = db.session.query(User, SampleRole).filter(
-                    User.id == SampleRole.userid).filter(
-                        SampleRole.projectid==project.id).filter(
-                            SampleRole.samplename==sa['name']).filter(
-                                SampleRole.role==r).all()
-                # sample["roles"][label] = [a.as_json() for a,b in role]
-                sample["roles"][label] = [{'key':a.username,'value':a.username} for a,b in role]
-
-            # gael : removed temporarily for request time (need to be done in grew)
-            sample["exo"] = "" # dummy
-
-            # reply = json.loads(grew_request('getConll', data={'project_id': project.projectname, 'sample_id':sa["name"]}))
-            
-            # if reply.get("status") == "OK":
-            #     truc = reply.get("data", {})
-            #     for sent_id, dico in truc.items():
-            #         conll = list(dico.values())[0]
-            #         t = conll3.conll2tree(conll)
-            #         length = len(t)
-            #         lengths.append(length)
-
-            # sample["tokens"] = sum(lengths)
-            # if len(lengths) > 0 : sample["averageSentenceLength"] = float( round( Decimal(sum(lengths)/len(lengths)) , 2) )
-
-            # sample["exo"] = "" # TODO : create the table in the db and update it
-            # # print('sample', sample)
-            samples.append(sample)
-            # sample_lengths += [sample["tokens"]]
-
-        print(time.monotonic(), 'big for DONE')
-        # gael : removed temporarily for request time (need to be done in grew)
-        # sum_nb_tokens = sum(sample_lengths)
-        # average_tokens_per_sample = sum(sample_lengths)/len(sample_lengths)
-
-        print(time.monotonic(), 'average DONE')
-
-        reply = grew_request('getSentIds', current_app, data={'project_id': project_name})
-        js = json.loads(reply)
-        data = js.get("data")
-        if data: nb_sentences = len(data)
 
     if project.image != None: image = str(base64.b64encode(project.image))
     else: image = ''
     settings_info = { 
         "name":project.projectname, 
         "visibility":project.visibility,
-        # "is_private":project.is_private, 
-        # "is_open":project.is_open, 
         "description":project.description, 
         "image":image, 
         "config":config,
-        "samples":samples, 
         "admins":admins,  
         "guests":guests, 
-        "number_samples":nb_samples, 
-        "number_sentences":nb_sentences, 
-        "number_tokens":sum_nb_tokens, 
-        "averageSentenceLength":average_tokens_per_sample}
-    print("settings info 2", settings_info)
+        }
     return settings_info
+
 
 
 def get_project_treesfrom(project_name):
@@ -373,20 +265,20 @@ def create_add_sample_role(user_id, sample_name, project_id, role):
     new_sr = SampleRole(userid=user_id, samplename=sample_name, projectid=project_id, role=role)
     project_dao.add_sample_role(new_sr)
 
-def create_empty_project(project_name, creator, project_description, project_visibility, project_showalltrees):
+def create_empty_project(project_json, creator):
     ''' create an empty project '''
-    new_project = grew_request('newProject', current_app, data={'project_id': project_name})
+    new_project = grew_request('newProject', current_app, data={'project_id': project_json['name']})
     print('new_project', new_project)
     # private = False
     # if project_private == 'true': private = True
     isopen = False
     # if project_open == 'true': isopen = True
-    showalltrees = True
-    if project_showalltrees == 'false': showalltrees = False
-    project = Project(projectname=project_name, description=project_description, visibility=int(project_visibility), show_all_trees=showalltrees)
-    print('projecttoooo', project)
+    # showalltrees = True
+    # if project_showalltrees == 'false': showalltrees = False
+    project = Project(projectname=project_json['name'], description=project_json['description'], visibility=project_json['visibility'], show_all_trees=project_json['showAllTrees'], exercise_mode=project_json['exerciseMode'])
+    print('new project 2', project)
     project_dao.add_project(project)
-    p = project_dao.find_by_name(project_name)
+    p = project_dao.find_by_name(project_json['name'])
     pa = ProjectAccess(userid=creator, projectid=p.id, accesslevel=2)
     project_dao.add_access(pa)
     default_features = ["FORM", "UPOS", "LEMMA", "MISC.Gloss"]
@@ -412,7 +304,7 @@ def delete_sample_role_by_project(project_id):
     ''' delete a sample role by filtering a project id '''
     return project_dao.delete_sample_role_by_project(project_id)
 
-def get_sample(sample_name, project_name, current_user):
+def get_sample(sample_name, project_name):
     ''' retrieve a sample infos given the project name and sample name'''
     # p = get_infos(project_name, current_user)
     # sample = [s for s in p['samples'] if s['samplename'] == sample_name][0]
@@ -423,19 +315,10 @@ def get_sample(sample_name, project_name, current_user):
 def get_sample_roles(project_name, sample_name):
     """ subfunc as getInfos but only to retrieve roles for a given sample (limit calculation) """
     project = project_dao.find_by_name(project_name)
-    reply = json.loads( grew_request ( 'getSamples', current_app, data = {'project_id': project_name} ) )
-    data = reply.get("data")
     sample={'samplename':sample_name, "roles":{}}
-    if data:
-        for sa in data:
-            if sa['name'] == sample_name:
-                for r,label in project_dao.get_possible_roles():
-                    role = db.session.query(User, SampleRole).filter(
-                        User.id == SampleRole.userid).filter(
-                            SampleRole.projectid==project.id).filter(
-                                SampleRole.samplename==sa['name']).filter(
-                                    SampleRole.role==r).all()
-                    sample["roles"][label] = [{'key':a.username,'value':a.username} for a,b in role]
+    roles = project_dao.get_sample_roles(project.id, sample_name)
+    sample["roles"] = roles
+    
     return sample
 
 
@@ -474,33 +357,6 @@ def is_validator(project_id, sample_name, user_id):
 def get_possible_roles():
     return project_dao.get_possible_roles()
 
-def samples2trees(samples, sample_name):
-    ''' transforms a list of samples into a trees object '''
-    trees={}
-    for sentId, users in samples.items():	
-        for userId, conll in users.items():
-            tree = conll3.conll2tree(conll)
-            if sentId not in trees: trees[sentId] = {"samplename":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
-            trees[sentId]["conlls"][userId] = conll
-    return trees
-
-def samples2trees_with_restrictions(samples, sample_name, current_user, project_name):
-    ''' transforms a list of samples into a trees object and restrict it to user trees and default tree(s) '''
-    trees={}
-    p = project_dao.find_by_name(project_name)
-    default_user_trees_ids = [dut.username for dut in project_dao.find_default_user_trees(p.id)]
-
-    default_usernames = list()
-    default_usernames = default_user_trees_ids
-    # if len(default_user_trees_ids) > 0: default_usernames = user_dao.find_username_by_ids(default_user_trees_ids)
-    if current_user.username not in default_usernames: default_usernames.append(current_user.username)
-    for sentId, users in samples.items():	
-        filtered_users = { username: users[username] for username in default_usernames  if username in users}
-        for userId, conll in filtered_users.items():
-            tree = conll3.conll2tree(conll)
-            if sentId not in trees: trees[sentId] = {"samplename":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
-            trees[sentId]["conlls"][userId] = conll
-    return trees
 
 def add_or_keep_timestamps(conll_file):
     ''' adds a timestamp on the tree if there is not one '''
@@ -739,3 +595,5 @@ def update_metafeatures(project, updated_features):
         project_dao.add_metafeatures(project, to_add)
 
     return project_dao.find_project_metafeatures(project)
+
+    

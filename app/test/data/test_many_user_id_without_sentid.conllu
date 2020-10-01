@@ -1,0 +1,38 @@
+# user_id = lex
+# text = 好吃
+# timestamp = 1590483366.480263
+1	好	_	_	_	_	2	mod:m	_	_
+2	吃	_	_	_	_	0	root	_	_
+
+# user_id = luthor
+# text = 好吃
+# timestamp = 1590483366.480263
+1	好	_	_	_	_	2	mod:m	_	_
+2	吃	_	_	_	_	0	root	_	_
+
+# user_id = lex
+# text = 突如其来
+# timestamp = 1590483366.480261
+1	突	_	_	_	_	0	root	_	_
+2	如	_	_	_	_	1	comp:m	_	_
+3	其	_	_	_	_	4	comp:m	_	_
+4	来	_	_	_	_	2	comp:m	_	_
+
+# user_id = lex
+# text = 对呀
+# timestamp = 1590483366.480259
+1	对	_	_	_	_	0	root	_	_
+2	呀	_	_	_	_	1	comp:m	_	_
+
+# user_id = lex
+# text = 对哦
+# timestamp = 1590483366.480256
+1	对	_	_	_	_	0	root	_	_
+2	哦	_	_	_	_	1	comp:m	_	_
+
+# user_id = lex
+# text = 东西
+# timestamp = 1590483366.480254
+1	东	_	_	_	_	2	conj:m	_	_
+2	西	_	_	_	_	0	root	_	_
+

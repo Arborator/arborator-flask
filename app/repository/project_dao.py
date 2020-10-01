@@ -32,13 +32,33 @@ def find_by_name(project_name):
     """ find the projects by project_name and get the first one """
     return Project.query.filter_by(projectname=project_name).first()
 
+def get_possible_roles():
+    """ returns the overall possible roles """
+    return SampleRole.ROLES
+
 def get_roles(project_id, user_id):
     """ returns the sorted set of roles from roles for each sample."""
     return set(SampleRole.query.filter_by(projectid=project_id, userid=user_id).all())
 
-def get_possible_roles():
-    """ returns the overall possible roles """
-    return SampleRole.ROLES
+def get_sample_roles(project_id, sample_name):
+    """
+    get all roles (in a dict) for a given sample
+    return {
+        'role1': [user1, user2],
+        'role2': [user3]
+    }
+    """
+    roles = {}
+    for r,label in get_possible_roles():
+        role = db.session.query(User, SampleRole).filter(
+            User.id == SampleRole.userid).filter(
+                SampleRole.projectid==project_id).filter(
+                    SampleRole.samplename==sample_name).filter(
+                        SampleRole.role==r).all()
+        roles[label] = [{'key':a.username,'value':a.username} for a,b in role]
+        
+    return roles
+
 
 def delete(project):
     """ delete a project and its related accesses and roles """
@@ -184,6 +204,13 @@ def set_show_all_trees(project_name, value):
     """ change the value of showAllTrees """
     project = Project.query.filter_by(projectname=project_name.projectname).first()
     project.show_all_trees = value
+    db.session.commit()
+    return project
+
+def set_exercise_mode(project_name, value):
+    " change the value of exerciseMode"
+    project = Project.query.filter_by(projectname=project_name.projectname).first()
+    project.exercise_mode = value
     db.session.commit()
     return project
 

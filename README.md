@@ -163,6 +163,7 @@ To create database
 * `flask db init`
 init créé le dossier migration (pas la peine de relancer chaque fois)
 
+* `flask db stamp head`
 * `flask db migrate`
 si on a modifié models.py, il crée une nouveau script 123456xxxx.py dans migrations/versions
 

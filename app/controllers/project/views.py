@@ -56,6 +56,24 @@ def allow_github_api():
 	return redirect('/')
 
 
+# @cross_origin()
+@project.route('/fetch_all/', methods=['GET'])
+def fetch_all_projects():
+	"""
+	Returns list of projects with:
+	- visibility level
+	- roles (of the current user if logged in)
+	"""
+	projects_info = project_service.get_hub_summary()
+	js = json.dumps(projects_info)
+	resp = Response(js, status=200,  mimetype='application/json')
+	
+	# resp.headers['Access-Control-Allow-Origin'] = '*'
+	# resp.headers['Access-Control-Allow-Headers'] = '*'
+	# resp.headers['Access-Control-Allow-Methods'] = '*'
+	return resp
+
+
 @project.route('/<project_name>/', methods=['GET'])
 # @login_required
 # @requires_access_level(2)
@@ -80,14 +98,7 @@ def project_info(project_name):
 	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
 
-@project.route('/<project_name>/settings/infos')
-def project_settings_infos(project_name):
-	''' get project infos for settings view. Without bottleneck infos on samples '''
-	project_infos = project_service.get_settings_infos(project_name, current_user)
-	# if project_infos == 403: abort(403) # removed for now -> the check is done in view and for each actions
-	js = json.dumps(project_infos, default=str)
-	resp = Response(js, status=200, mimetype='application/json')
-	return resp
+
 
 @project.route('/<project_name>/treesfrom')
 def project_treesfrom(project_name):
@@ -97,10 +108,20 @@ def project_treesfrom(project_name):
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
+
+@project.route('/<project_name>/settings/fetch')
+def get_project_settings(project_name):
+	''' get project infos for settings view. Without bottleneck infos on samples '''
+	project_infos = project_service.get_settings_infos(project_name, current_user)
+	# if project_infos == 403: abort(403) # removed for now -> the check is done in view and for each actions
+	js = json.dumps(project_infos, default=str)
+	resp = Response(js, status=200, mimetype='application/json')
+	return resp
+
 # new from kim:
 @project.route('/<project_name>/settings/update', methods=['POST'])
 @requires_access_level(2)
-def project_settings_update(project_name):
+def update_project_settings(project_name):
 	""" add an admin/guest to the project {'user_id':id}"""
 	print("___project_settings_update")
 	if not request.json: abort(400)
@@ -127,7 +148,8 @@ def project_settings_update(project_name):
 			print("reply", reply)
 		elif a == "showAllTrees":
 			project_service.change_show_all_trees(project, v)
-			print("KSKQKKQFKK")
+		elif a == "exerciseMode":
+			project_service.change_exercise_mode(project, v)
 
 			
 	project_infos = project_service.get_settings_infos(project_name, current_user)
@@ -136,8 +158,8 @@ def project_settings_update(project_name):
 	return resp
 
 
-@project.route('/<project_name>/config/get', methods=['GET'])
-def get_project_config_view(project_name):
+@project.route('/<project_name>/conllu-schema/fetch', methods=['GET'])
+def get_project_conllu_schema(project_name):
 	''' get project config (annotation features json) for settings view.
 		these data are stocked in grew server
 	'''
@@ -147,8 +169,8 @@ def get_project_config_view(project_name):
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
 
-@project.route('/<project_name>/config/update', methods=['POST'])
-def update_project_config_view(project_name):
+@project.route('/<project_name>/conllu-schema/update', methods=['POST'])
+def update_project_conllu_schema(project_name):
 	''' update project config (annotation features json) for settings view.
 		these data are stocked in grew server.
 	'''
@@ -158,7 +180,6 @@ def update_project_config_view(project_name):
 	# user = user_service.get_by_id(request.json.get("user_id"))
 
 	project_config_dict = request.json['config']
-	print("KK, update_project_config project_config_dict", project_config_dict)
 	project_service.update_project_config(project_name, project_config_dict)
 	# if project_infos == 403: abort(403) # removed for now -> the check is done in view and for each actions
 	js = json.dumps(project_config_dict, default=str)
@@ -181,7 +202,9 @@ def project_userrole_add(project_name, target_role):
 		else: project_service.create_add_project_access(user.id, project.id, accesslevel_dict[target_role])
 	project_infos = project_service.get_settings_infos(project_name, current_user)
 	if project_infos == 403: abort(403) 
-	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
+
+	js = json.dumps(project_infos, default=str)
+	resp = Response(js , status=200, mimetype='application/json' )
 	return resp
 
 # equivalent of project_userrole_add but can handle multiple users in one call
@@ -208,7 +231,6 @@ def project_userrole_add_many(project_name, target_role):
 				# pa.accesslevel = accesslevel_dict[target_role]
 			else: project_service.create_add_project_access(user.id, project.id, accesslevel_dict[target_role])
 	project_infos = project_service.get_settings_infos(project_name, current_user)
-	print("\n KK project infos", json.dumps(project_infos, default=str))
 	if project_infos == 403: abort(403) 
 	resp = Response( json.dumps(project_infos, default=str), status=200, mimetype='application/json' )
 	return resp
@@ -550,15 +572,9 @@ def sample_upload(project_name):
 # @cross_origin()
 def create_project():
 	''' create an emty project'''
-	project_name = request.form.get("project_name", "")
-	# creator = request.form.get("import_user", "") 
+	project = request.get_json()['project']
 	creator = current_user.id
-	project_description = request.form.get("description", "")
-	# project_image = ''
-	project_visibility = request.form.get("visibility", 2)
-	# project_isopen = request.form.get("is_open", False)
-	project_showAllTrees = request.form.get("show_all_trees", True)
-	project_service.create_empty_project(project_name, creator, project_description, project_visibility, project_showAllTrees)
+	project_service.create_empty_project(project, creator)
 	js = json.dumps({})
 	resp = Response(js, status=200, mimetype='application/json')
 	return resp
@@ -749,41 +765,41 @@ def sample_export(project_name):
 	return resp
 
 
-@project.route('/<project_name>/sample/<sample_name>', methods=['GET'])
-def samplepage(project_name, sample_name):
-	"""
-	GET
-	nb_sentences, nb_trees, list of annotators, list of validators
+# @project.route('/<project_name>/sample/<sample_name>', methods=['GET'])
+# def samplepage(project_name, sample_name):
+# 	"""
+# 	GET
+# 	nb_sentences, nb_trees, list of annotators, list of validators
 
-	TODO: tester si le projet est privé
-	pour l'arbre : annotateur ne peut pas voir d'autres arbres sauf la base
+# 	TODO: tester si le projet est privé
+# 	pour l'arbre : annotateur ne peut pas voir d'autres arbres sauf la base
 
-	returns:
-	{
-	"P_ABJ_GWA_10_Steven-lifestory_PRO_1": {
-		"sentence": "fdfdfsf",
-		"conlls":{
-		"yuchen": "# elan_id = ABJ_GWA_10_M_001 ABJ_GWA_10_M_002 ABJ_GWA_10_M_003\n# sent_id = P_ABJ_GWA_10_Steven-lifestory_PRO_1\n# sent_translation = I stay with my mother in the village. #\n# text = I dey stay with my moder //+ # for village //\n1\tI\t_\tINTJ\t_\tCase=Nom|endali=2610|Number=Sing|Person=1|PronType=Prs|
-		....
-	"""
-	print ("========[getConll]")
-	reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
-	reendswithnumbers = re.compile(r"_(\d+)$")
+# 	returns:
+# 	{
+# 	"P_ABJ_GWA_10_Steven-lifestory_PRO_1": {
+# 		"sentence": "fdfdfsf",
+# 		"conlls":{
+# 		"yuchen": "# elan_id = ABJ_GWA_10_M_001 ABJ_GWA_10_M_002 ABJ_GWA_10_M_003\n# sent_id = P_ABJ_GWA_10_Steven-lifestory_PRO_1\n# sent_translation = I stay with my mother in the village. #\n# text = I dey stay with my moder //+ # for village //\n1\tI\t_\tINTJ\t_\tCase=Nom|endali=2610|Number=Sing|Person=1|PronType=Prs|
+# 		....
+# 	"""
+# 	print ("========[getConll]")
+# 	reply = json.loads(grew_request('getConll', current_app, data={'project_id': project_name, 'sample_id':sample_name}))
+# 	reendswithnumbers = re.compile(r"_(\d+)$")
 	
-	if reply.get("status") == "OK":
-		samples = reply.get("data", {})	
-		project = project_service.get_by_name(project_name)
-		if not project: abort(404)
-		if project.show_all_trees or project.visibility == 2:
-			js = json.dumps( project_service.samples2trees(samples, sample_name) )
-		else:
-			validator = project_service.is_validator(project.id, sample_name, current_user.id)
-			if validator:  js = json.dumps( project_service.samples2trees(samples, sample_name) )
-			else:  js = json.dumps( project_service.samples2trees_with_restrictions(samples, sample_name, current_user, project_name) )
-		# print(js)
-		resp = Response(js, status=200,  mimetype='application/json')
-		return resp
-	else: abort(409)
+# 	if reply.get("status") == "OK":
+# 		samples = reply.get("data", {})	
+# 		project = project_service.get_by_name(project_name)
+# 		if not project: abort(404)
+# 		if project.show_all_trees or project.visibility == 2:
+# 			js = json.dumps( project_service.samples2trees(samples, sample_name) )
+# 		else:
+# 			validator = project_service.is_validator(project.id, sample_name, current_user.id)
+# 			if validator:  js = json.dumps( project_service.samples2trees(samples, sample_name) )
+# 			else:  js = json.dumps( project_service.samples2trees_with_restrictions(samples, sample_name, current_user, project_name) )
+# 		# print(js)
+# 		resp = Response(js, status=200,  mimetype='application/json')
+# 		return resp
+# 	else: abort(409)
  
 
 @project.route('/<project_name>/sample/<sample_name>/search', methods=['GET', 'POST'])
@@ -877,7 +893,7 @@ def addRole2Sample(project_name, role):
 		user = user_service.get_by_username(req['username'])
 		if not user: abort(400)
 		project_service.add_or_delete_sample_role(user, req['samplename'], req['projectname'], roleInt, False)
-		sample = project_service.get_sample(req['samplename'], req['projectname'], current_user)
+		sample = project_service.get_sample(req['samplename'], req['projectname'])
 		res = sample
 	js = json.dumps(res)
 	resp = Response(js, status=200,  mimetype='application/json')
@@ -898,7 +914,7 @@ def removeRole2Sample(project_name, role):
 		user = user_service.get_by_username(req['username'])
 		if not user: abort(400)
 		project_service.add_or_delete_sample_role(user, req['samplename'], req['projectname'], roleInt, True)
-		sample = project_service.get_sample(req['samplename'], req['projectname'], current_user)
+		sample = project_service.get_sample(req['samplename'], req['projectname'])
 		res = sample
 	js = json.dumps(res)
 	resp = Response(js, status=200,  mimetype='application/json')
@@ -1005,16 +1021,20 @@ def save_trees(project_name):
 			if not conll: abort(400)
 			if project.visibility != 2:
 				if not project_service.is_annotator(project.id, sample_name, current_user.id) or not project_service.is_validator(project.id, sample_name, current_user.id):
-					abort(403)
-	
+					if project.exercise_mode == 0:
+						abort(403)
+			
+			TEACHER = "teacher"
+			if (project.exercise_mode == 1 and user_id == TEACHER):
+				conll = conll3.changeMetaField(conll, "user_id", TEACHER)
 			print(">>>>", project_name)
+			
 			reply = grew_request (
 				'saveGraph', current_app,
 				data = {'project_id': project_name, 'sample_id': sample_name, 'user_id':user_id, 'sent_id':sent_id, "conll_graph":conll}
 				)
 			resp = json.loads(reply)
 			if resp["status"] != "OK":
-				print(resp)
 				if "data" in resp:
 					response = jsonify({'status': 400, 'message': str(resp["data"])  })
 				else: 
@@ -1022,7 +1042,7 @@ def save_trees(project_name):
 				response.status_code = 400
 				abort(response)
 			
-	resp = Response(dict(), status=200,  mimetype='application/json')
+	resp = Response({}, status=200,  mimetype='application/json')
 	return resp
 
 

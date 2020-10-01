@@ -1,0 +1,136 @@
+# sent_id = WAZP_04_Ponzi-Scheme_MG__1
+# text = # funny as it may sound and as joking as I might be < # na so serious >+ di matter dey o // 
+# text_en = As funny as it may sound and as much as I might be joking, this is a serious issue.
+# text_ortho = As funny as it may sound and as joking as I might be, na so serious, di matter dey o.
+1	#	#	PUNCT	_	_	16	punct	_	AlignBegin=1240|AlignEnd=1536|Gloss=PUNCT|mot==as|noMatch=Yes
+2	funny	funny	ADJ	_	_	16	mod:periph	_	AlignBegin=1536|AlignEnd=1953|Gloss=funny|MotNouveau=Yes
+3	as	as	ADP	_	_	2	mod	_	AlignBegin=1953|AlignEnd=2140|Gloss=as|highlight=#4087F0|Lang=en
+4	it	it	PRON	_	Case=Nom|Gender=Neut|Number=Sing|Person=3|PronType=Prs	5	subj	_	AlignBegin=2140|AlignEnd=2320|Gloss=NOM.NT.SG.3|highlight=#4087F0|Lang=en
+5	may	may	AUX	_	_	3	mod	_	AlignBegin=2320|AlignEnd=2452|Gloss=may|highlight=#4087F0|Lang=en
+6	sound	sound	VERB	_	_	5	comp:aux	_	AlignBegin=2452|AlignEnd=2932|Gloss=sound|highlight=#4087F0|Lang=en
+7	and	and	CCONJ	_	_	8	cc	_	AlignBegin=2932|AlignEnd=3131|Gloss=and|highlight=#4087F0|Lang=en
+8	as	as	ADP	_	_	3	conj:coord	_	AlignBegin=3131|AlignEnd=3338|Gloss=as|highlight=#4087F0|Lang=en
+9	joking	joke	VERB	_	Tense=Pres|VerbForm=Part	8	comp:obj	_	AlignBegin=3338|AlignEnd=3780|Gloss=joke.PRS.PTCP|highlight=#4087F0|Lang=en
+10	as	as	ADP	_	_	9	mod	_	AlignBegin=3780|AlignEnd=4000|Gloss=as|highlight=#4087F0|Lang=en
+11	I	I	PRON	_	Case=Nom|Number=Sing|Person=1|PronType=Prs	12	subj	_	AlignBegin=4000|AlignEnd=4145|Gloss=NOM.SG.1|highlight=#4087F0|Lang=en
+12	might	might	AUX	_	_	10	comp:obj	_	AlignBegin=4145|AlignEnd=4380|Gloss=may.COND|highlight=#4087F0|Lang=en
+13	be	be	VERB	_	PartType=Cop	12	comp:aux	_	AlignBegin=4380|AlignEnd=4580|Gloss=be|highlight=#4087F0|Lang=en
+14	<	<	PUNCT	_	_	2	punct	_	AlignBegin=4580|AlignEnd=4880|Gloss=PUNCT
+15	#	#	PUNCT	_	_	2	punct	_	AlignBegin=4580|AlignEnd=4880|Gloss=PUNCT
+16	na	na	PART	_	PartType=Cop	0	root	_	AlignBegin=4880|AlignEnd=5010|Gloss=be
+17	so	so	ADV	_	_	18	mod	_	AlignBegin=5010|AlignEnd=5197|Gloss=so
+18	serious	serious	ADJ	_	_	16	comp:pred	_	AlignBegin=5197|AlignEnd=5600|Gloss=serious
+19	>+	>+	PUNCT	_	_	22	punct	_	AlignBegin=5570|AlignEnd=5600|Gloss=PUNCT
+20	di	di	DET	_	Definite=Def|PronType=Art	21	det	_	AlignBegin=5600|AlignEnd=5700|Gloss=DEF.ART
+21	matter	matter	NOUN	_	_	22	subj	_	AlignBegin=5700|AlignEnd=6040|Gloss=matter
+22	dey	dey	VERB	_	VerbType=Cop	16	comp:cleft	_	AlignBegin=6040|AlignEnd=6240|Gloss=be
+23	o	o	PART	_	PartType=Disc	22	mod:emph	_	AlignBegin=6240|AlignEnd=6316|Gloss=EMPH
+24	//	//	PUNCT	_	_	16	punct	_	AlignBegin=6286|AlignEnd=6316|Gloss=PUNCT
+
+# sent_id = 2257
+# text = on n' avait rien vu qu' un homme une auto noire et une jeune fille et et des cars pour indigènes
+1	on	on	PRON	_	_	3	subj	_	_
+2	n'	ne	PART	_	_	3	mod	_	_
+3	avait	avoir	AUX	_	_	0	root	_	_
+4	rien	rien	PRON	_	_	5	comp:obj	_	_
+5	vu	voir	VERB	_	_	3	comp:aux	_	_
+6	qu'	que	PRON	_	_	4	appos@conj	_	_
+7	un	un	DET	_	_	8	det	_	_
+8	homme	homme	NOUN	_	_	6	unk	_	_
+9	une	un	DET	_	_	10	det	_	_
+10	auto	auto	NOUN	_	_	8	conj@coord	_	_
+11	noire	noir	ADJ	_	_	10	mod	_	_
+12	et	et	CCONJ	_	_	15	cc	_	_
+13	une	un	DET	_	_	15	det	_	_
+14	jeune	jeune	ADJ	_	_	15	mod	_	_
+15	fille	fille	NOUN	_	_	8	conj@coord	_	_
+16	et	et	CCONJ	_	_	18	cc	_	_
+17	et	et	CCONJ	_	_	16	conj@dicto	_	_
+18	des	de+le	ADP	de	_	15	conj@coord	_	_
+19	cars	car	NOUN	_	_	18	comp:obj	_	_
+20	pour	pour	ADP	_	_	19	udep	_	_
+21	indigènes	indigène	NOUN	_	_	20	comp:obj	_	_
+
+# sent_id = 2257
+# 
+# text = on n' avait rien vu qu' un homme une auto noire et une jeune fille et et des cars pour indigènes
+1	on	on	PRON	_	_	3	subj	_	_
+2	n'	ne	PART	_	_	3	mod	_	_
+3	avait	avoir	AUX	_	_	0	root	_	_
+4	rien	rien	PRON	_	_	5	comp:obj	_	_
+5	vu	voir	VERB	_	_	3	comp:aux	_	_
+6	qu'	que	PRON	_	_	4	appos@conj	_	_
+7	un	un	DET	_	_	8	det	_	_
+8	homme	homme	NOUN	_	_	6	unk	_	_
+9	une	un	DET	_	_	10	det	_	_
+10	auto	auto	NOUN	_	_	8	conj@coord	_	_
+11	noire	noir	ADJ	_	_	10	mod	_	_
+12	et	et	CCONJ	_	_	15	cc	_	_
+13	une	un	DET	_	_	15	det	_	_
+14	jeune	jeune	ADJ	_	_	15	mod	_	_
+15	fille	fille	NOUN	_	_	8	conj@coord	_	_
+16	et	et	CCONJ	_	_	18	cc	_	_
+17	et	et	CCONJ	_	_	16	conj@dicto	_	_
+18	des	de+le	ADP	de	_	15	conj@coord	_	_
+19	cars	car	NOUN	_	_	18	comp:obj	_	_
+20	pour	pour	ADP	_	_	19	udep	_	_
+21	indigènes	indigène	NOUN	_	_	20	comp:obj	_	_
+
+# sent_id = 2258
+# text = mais c' est de là que tout est parti le fleuve une fois traversé
+1	mais	mais	CCONJ	_	_	3	cc	_	_
+2	c'	ce	PRON	_	_	3	subj	_	_
+3	est	être	AUX	_	_	0	root	_	_
+4	de	de	ADP	_	_	3	comp:pred	_	_
+5	là	là	ADV	_	_	4	comp:obj	_	_
+6	que	que	SCONJ	_	_	3	comp:cleft	_	_
+7	tout	tout	PRON	_	_	8	subj	_	_
+8	est	être	AUX	_	_	6	comp:obj	_	_
+9	parti	partir	VERB	ETRE	_	8	comp:aux	_	_
+10	le	le	DET	_	_	11	det	_	_
+11	fleuve	fleuve	NOUN	_	_	14	subj	_	_
+12	une	un	DET	_	_	13	det	_	_
+13	fois	fois	NOUN	_	_	5	dislocated	_	_
+14	traversé	traverser	VERB	_	_	13	mod	_	_
+
+# sent_id = 2259
+# text = qui il y a dans qui y a - t - il dans la voiture noire
+1	qui	qui	PRON	_	_	4	comp:obj	_	_
+2	il	il	PRON	_	_	4	comp:obj@expl	_	_
+3	y	y	PRON	_	_	4	comp:obl	_	_
+4	a	avoir	VERB	_	_	0	root	_	_
+5	dans	dans	ADP	_	_	4	unk	_	_
+6	qui	qui	PRON	_	_	8	comp:obj	_	_
+7	y	y	PRON	_	_	8	comp:obl	_	_
+8	a	avoir	VERB	conj:reform	_	4	conj@dicto	_	_
+9	-	-	PUNCT	_	_	10	punct	_	_
+10	t	t	PART	_	_	12	expl	_	_
+11	-	-	PUNCT	_	_	10	punct	_	_
+12	il	il	PRON	_	_	8	comp:obj@expl	_	_
+13	dans	dans	ADP	_	_	8	mod	_	_
+14	la	le	DET	_	_	15	det	_	_
+15	voiture	voiture	NOUN	_	_	13	comp:obj	_	_
+16	noire	noir	ADJ	_	_	15	mod	_	_
+
+# sent_id = 1
+# text = euh bon pour aller du CRDT à la gare euh de Grenoble je euh ben je sors déjà du CRDT 
+1	euh	euh	INTJ	_	_	17	comp	_	_
+2	bon	bon	INTJ	_	_	1	discourse	_	_
+3	pour	pour	ADP	_	_	1	mod@periph	_	_
+4	aller	aller	VERB	ETRE	_	1	comp:obj	_	_
+5	du	de+le	ADP	_	_	1	obl@comp	_	_
+6	CRDT	CRDT	PROPN	_	_	1	comp:obj	_	_
+7	à	à	ADP	_	_	1	obl@comp	_	_
+8	la	le	DET	_	_	9	det	_	_
+9	gare	gare	NOUN	_	_	10	comp:obj	_	_
+10	euh	euh	INTJ	_	_	11	discourse	_	_
+11	de	de	ADP	_	_	12	udep	_	_
+12	Grenoble	Grenoble	PROPN	_	_	13	comp:obj	_	_
+13	je	je	PRON	_	_	7	subj	_	_
+14	euh	euh	INTJ	_	_	13	discourse	_	_
+15	ben	ben	INTJ	_	_	13	discourse	_	_
+16	je	je	PRON	_	_	13	conj@dicto	_	_
+17	sors	sortir	VERB	ETRE	_	0	root	_	_
+18	déjà	déjà	ADV	_	_	17	mod	_	_
+19	du	de+le	ADP	_	_	17	obl@comp	_	_
+20	CRDT	CRDT	PROPN	_	_	19	comp:obj	_	_
