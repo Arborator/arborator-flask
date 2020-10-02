@@ -1,0 +1,56 @@
+# user_id = bernard.l.caron
+# sent_id = IBA_07_Na-Love_DG__1
+# sound_url = http://www.tal.univ-paris3.fr/trameur/iTrameur-naija/mp3/IBA_07_Na-Love_DG.mp3
+# speaker_id = Sp368
+# text = babe < how far ?//
+# text_en = Babe, how are you?
+# text_ortho = Babe, how far?
+# timestamp = 1591002922790
+1	babe	babe	NOUN	_	_	3	vocative	_	AlignBegin=2160|AlignEnd=2427|Gloss=babe
+2	<	<	PUNCT	_	_	1	punct	_	AlignBegin=2427|AlignEnd=2427|Gloss=PUNCT
+3	how	how	ADV	_	PronType=Int	0	root	_	AlignBegin=2427|AlignEnd=2693|Gloss=how.Q
+4	far	far	ADV	_	_	3	comp:cleft	_	AlignBegin=2693|AlignEnd=2960|Gloss=far
+5	?//	?//	PUNCT	_	_	3	punct	_	AlignBegin=2960|AlignEnd=2960|Gloss=PUNCT
+
+
+# user_id = bernard.l.caron
+# sent_id = IBA_07_Na-Love_DG__2
+# sound_url = http://www.tal.univ-paris3.fr/trameur/iTrameur-naija/mp3/IBA_07_Na-Love_DG.mp3
+# speaker_id = Sp369
+# text = I dey o //
+# text_en = I'm fine.
+# text_ortho = I dey o.
+# timestamp = 1591002922790
+1	I	I	PRON	_	Case=Nom|Number=Sing|Person=1|PronType=Prs	2	subj	_	AlignBegin=3260|AlignEnd=3559|Gloss=NOM.SG.1
+2	dey	dey	VERB	_	VerbType=Cop	0	root	_	AlignBegin=3559|AlignEnd=3859|Gloss=be2
+3	o	o	PART	_	PartType=Disc	2	mod:emph	_	AlignBegin=3859|AlignEnd=4158|Gloss=EMPH
+4	//	//	PUNCT	_	_	2	punct	_	AlignBegin=4158|AlignEnd=4158|Gloss=PUNCT
+
+
+# user_id = bernard.l.caron
+# sent_id = IBA_07_Na-Love_DG__3
+# sound_url = http://www.tal.univ-paris3.fr/trameur/iTrameur-naija/mp3/IBA_07_Na-Love_DG.mp3
+# speaker_id = Sp369
+# text = how far ?//
+# text_en = How are you?
+# text_ortho = How far?
+# timestamp = 1591002922790
+1	how	how	ADV	_	PronType=Int	0	root	_	AlignBegin=4158|AlignEnd=4779|Gloss=how.Q
+2	far	far	ADV	_	_	1	comp:cleft	_	AlignBegin=4779|AlignEnd=5400|Gloss=far
+3	?//	?//	PUNCT	_	_	1	punct	_	AlignBegin=5400|AlignEnd=5400|Gloss=PUNCT
+
+
+# user_id = bernard.l.caron
+# sent_id = IBA_07_Na-Love_DG__4
+# sound_url = http://www.tal.univ-paris3.fr/trameur/iTrameur-naija/mp3/IBA_07_Na-Love_DG.mp3
+# speaker_id = Sp368
+# text = I no dey o //
+# text_en = I'm not great.
+# text_ortho = I no dey o.
+# timestamp = 1591002922790
+1	chevals	cheval	PRON	_	Case=Nom|Number=Sing|Person=1|PronType=Prs	3	subj	_	AlignBegin=5620|AlignEnd=5788|Gloss=NOM.SG.1
+2	connus	connu	PART	_	Polarity=Neg	3	mod	_	AlignBegin=5788|AlignEnd=5955|Gloss=NEG
+3	journalistes	journaliste	VERB	_	Gender=Masc	0	root	_	AlignBegin=5955|AlignEnd=6122|Gloss=be2
+4	journalistes	journaliste	PART	_	PartType=Disc|Gendre=Masc	3	mod:emph	_	AlignBegin=6122|AlignEnd=6290|Gloss=EMPH
+5	//	//	PUNCT	_	_	3	punct	_	AlignBegin=6290|AlignEnd=6290|Gloss=PUNCT
+

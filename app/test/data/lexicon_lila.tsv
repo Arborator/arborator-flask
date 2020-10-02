@@ -1,0 +1,10 @@
+auntie	auntie	NOUN	_	auntie	1
+<	<	PUNCT	_	PUNCT	1
+good	good	ADJ	_	good	2
+morning	morning	NOUN	_	morning	2
+//	//	PUNCT	_	PUNCT	3
+#	#	PUNCT	_	PUNCT	2
+>	>	PUNCT	_	PUNCT	1
+my	my	PRON	_	SG.1.POSS	2
+people	people	NOUN	_	people.PL	1
+I	I	PRON	PronType=Prs	NOM.SG.1	1
