@@ -1332,8 +1332,11 @@ def getLexicon(project_name):
 	if not request.json: abort(400)
 	sample_names = request.json.get("samplenames")
 	treeSelection = request.json.get("treeSelection")
-	print(sample_names, treeSelection)
+	features = ['Abbr', 'Animacy', 'Aspect', 'Case', 'Definite', 'Degree', 'Evident', 'Foreign', 'Gender', 'Mood', 'NumType', 'Number', 'Person', 'Polarity', 'Polite', 'Poss', 'PronType', 'Reflex', 'Tense', 'VerbForm', 'Voice', 'Gloss']
+	# current_app.config['ENV'] = 'production'
+	print(sample_names, treeSelection, features)
 	reply = json.loads(grew_request("getLexicon", current_app, data={"project_id":project_name, 'sample_ids': json.dumps(sample_names)}))
+	# print(reply)
 	for i in reply['data']:
 		x = {'key':i['form']+i['lemma']+i['POS']+i['features']+i['gloss']}
 		i.update(x)
@@ -1413,16 +1416,23 @@ def transformation_grew(project_name):
 	patterns = []
 	commands = []
 	without = ""
+	tryRules = []
 	dic = {0: "form", 1 : "lemma" , 2 : "upos", 3:"_MISC_Gloss", 4 : "trait"}
 	for i in lexicon['data'] :
+		rule_grew = "pattern {"
 		line1 = i['currentInfo'].split(' ')
 		line2 = i['info2Change'].split(' ')
 		comp+=1
 		patterns.append(project_service.transform_grew_get_pattern(line1, dic, comp))
+		rule_grew += patterns[comp-1]+'}'
 		resultat = project_service.transform_grew_verif(line1, line2)
 		co, without_traits = (project_service.transform_grew_get_commands(resultat,line1, line2, dic, comp))
 		commands.append(co)
-		if without_traits != '' : without=without+without_traits
+		if without_traits != '' : 
+			without=without+without_traits
+			rule_grew += " without{ "+without_traits+"}"
+		rule_grew += " command{ "+commands[comp-1]+"}"
+		tryRules.append(rule_grew)
 	patterns[0] = '% click the button \'Correct lexicon\' to update the queries\n\npattern { '+patterns[0][0:]
 	commands[0] = 'commands { '+commands[0][0:]
 	patterns[len(lexicon['data'])-1] += ' }'
@@ -1430,7 +1440,8 @@ def transformation_grew(project_name):
 	if len(without) != 0 : without = '\nwithout { '+without+'}'
 	patterns_output = ','.join(patterns)
 	commands_output = ''.join(commands)
-	resp = jsonify({'patterns': patterns_output, 'commands': commands_output , 'without' : without})
+	# print(tryRules)
+	resp = jsonify({'patterns': patterns_output, 'commands': commands_output , 'without' : without, 'tryRules':tryRules})
 	# print("patterns :", ','.join(patterns), "\ncommands :", ''.join(commands))
 	resp.status_code = 200
 	return resp
@@ -1458,7 +1469,7 @@ def addValidator(project_name) :
 	B = []
 	AB_Ok=[]
 	AB_Diff=[]
-	list_types = {"In the two dictionaries with the same information" : AB_Ok, "In the two dictionaries with different information" : AB_Diff, "Only in the old dictionary" : A, "Only in the imported dictionary" : B}
+	list_types = {"In the two dictionaries with the same information" : AB_Ok, "Identical form in both dictionaries with different information" : AB_Diff, "Only in the old dictionary" : A, "Only in the imported dictionary" : B}
 
 	for i in validator['validator'].split('\n') :
 		a = i.split("\t")

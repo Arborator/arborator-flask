@@ -2,7 +2,7 @@
 # text = # funny as it may sound and as joking as I might be < # na so serious >+ di matter dey o //
 # text_en = As funny as it may sound and as much as I might be joking, this is a serious issue.
 # text_ortho = As funny as it may sound and as joking as I might be, na so serious, di matter dey o.
-# timestamp = 1601476175195
+# timestamp = 1601840187537
 1	#	#	PUNCT	_	_	16	punct	_	AlignBegin=1240|AlignEnd=1536|Gloss=PUNCT|mot==as|noMatch=Yes
 2	funny	funny	ADJ	_	_	16	mod:periph	_	AlignBegin=1536|AlignEnd=1953|Gloss=funny|MotNouveau=Yes
 3	as	as	ADP	_	_	2	mod	_	AlignBegin=1953|AlignEnd=2140|Gloss=as|highlight=#4087F0|Lang=en
@@ -30,7 +30,7 @@
 
 # sent_id = 2257
 # text = on n' avait rien vu qu' un homme une auto noire et une jeune fille et et des cars pour indigènes
-# timestamp = 1601476175195
+# timestamp = 1601840187537
 1	on	on	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	3	mod	_	_
 3	avait	avoir	AUX	_	_	0	root	_	_
@@ -56,7 +56,7 @@
 # 
 # sent_id = 2257
 # text = on n' avait rien vu qu' un homme une auto noire et une jeune fille et et des cars pour indigènes
-# timestamp = 1601476175195
+# timestamp = 1601840187537
 1	on	on	PRON	_	_	3	subj	_	_
 2	n'	ne	PART	_	_	3	mod	_	_
 3	avait	avoir	AUX	_	_	0	root	_	_
@@ -81,7 +81,7 @@
 
 # sent_id = 2258
 # text = mais c' est de là que tout est parti le fleuve une fois traversé
-# timestamp = 1601476175195
+# timestamp = 1601840187537
 1	mais	mais	CCONJ	_	_	3	cc	_	_
 2	c'	ce	PRON	_	_	3	subj	_	_
 3	est	être	AUX	_	_	0	root	_	_
@@ -99,7 +99,7 @@
 
 # sent_id = 2259
 # text = qui il y a dans qui y a - t - il dans la voiture noire
-# timestamp = 1601476175195
+# timestamp = 1601840187537
 1	qui	qui	PRON	_	_	4	comp:obj	_	_
 2	il	il	PRON	_	_	4	comp:obj@expl	_	_
 3	y	y	PRON	_	_	4	comp:obl	_	_
@@ -119,7 +119,7 @@
 
 # sent_id = 1
 # text = euh bon pour aller du CRDT à la gare euh de Grenoble je euh ben je sors déjà du CRDT
-# timestamp = 1601476175195
+# timestamp = 1601840187537
 1	euh	euh	INTJ	_	_	17	comp	_	_
 2	bon	bon	INTJ	_	_	1	discourse	_	_
 3	pour	pour	ADP	_	_	1	mod@periph	_	_
