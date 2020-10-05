@@ -1402,6 +1402,9 @@ def export_lexicon_json(project_name) :
 	print("requested json", project)
 	for element in lexicon['data']:
 		del element['key']
+		try :
+			del element['changed']
+		except : pass
 	line = json.dumps(lexicon['data'], separators=(',',':'), indent=4)
 	resp = Response(line, status=200)
 	return resp

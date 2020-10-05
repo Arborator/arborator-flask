@@ -615,10 +615,12 @@ def transform_grew_get_pattern(ligne, dic, comp):
 		if element == len(ligne)-1 :
 			# print(element, ligne[element], dic[element])
 			if ligne[element]!="_" and '=' in ligne[element]: #features
-				mot = ligne[element].split("|") #upos="DET", Number=Sing, PronType=Dem, lemma="dat"
+				mot = ligne[element].split("|") #Number=Sing, PronType=Dem
 				pattern = pattern+", "+", ".join(mot)
+		elif element == 2 : # upos = PRON
+			pattern = pattern+", "+dic[element]+"="+ligne[element]
 		else :
-			pattern = pattern+", "+dic[element]+'="'+ligne[element]+'"'
+			pattern = pattern+", "+dic[element]+'="'+ligne[element]+'"' # forme="dat", lemma="dat"
 	pattern=pattern+"]"
 	return pattern
 
