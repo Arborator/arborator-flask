@@ -122,7 +122,7 @@ def get_sample_trees(project_name, sample_name):
   exercise_level = 4
   if exercise_mode:
     exercise_level = samples_service.get_sample_exercise_level(sample_name, project.id)
-    project_access = project_service.get_project_access(project.id, current_user.id).accesslevel.code
+    project_access = project_service.get_project_access(project.id, current_user.id)
     
     print("\nKK project access", project_access)
     if project_access == 2: # isAdmin (= isTeacher)

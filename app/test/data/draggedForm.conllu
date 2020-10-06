@@ -1,0 +1,21 @@
+# user_id = bernard.l.caron
+# sent_id = KAD_22_Chatting-At-The-Restaurant_DG__1
+# sound_url = http://www.tal.univ-paris3.fr/trameur/iTrameur-naija/mp3/KAD_22_Chatting-At-The-Restaurant_DG.mp3
+# speaker_id = Sp204
+# text = e get one lady < hm she just enter inside shop o //
+# text_en = There was one lady, she just went into the shop.
+# text_ortho = E get one lady, hm she just enter inside shop o,
+# timestamp = 1591344650607
+1	e	im	PRON	_	Case=Nom|Number=Sing|Person=3|PronType=Prs	2	subj:expl	_	AlignBegin=1640|AlignEnd=1911|deprel_main_pred=subj:expl|Gloss=NOM.SG.3|head_MST=2
+2	get	get	VERB	_	_	9	parataxis:dislocated	_	AlignBegin=1911|AlignEnd=2182|deprel_main_pred=parataxis:dislocated|Gloss=get|head_MST=9
+3	one	one	DET	_	Definite=Spec|PronType=Art	4	det	_	AlignBegin=2182|AlignEnd=2453|deprel_main_pred=det|Gloss=SPEC.ART|head_MST=4
+4	lady	lady	NOUN	_	_	2	comp:obj	_	AlignBegin=2453|AlignEnd=2724|deprel_main_pred=none|Gloss=lady|head_MST=2
+5	<	<	PUNCT	_	_	2	punct	_	AlignBegin=2724|AlignEnd=2724|deprel_main_pred=punct|Gloss=PUNCT|head_MST=2
+6	hm	hm	INTJ	_	_	9	discourse	_	AlignBegin=2724|AlignEnd=2995|deprel_main_pred=discourse|Gloss=hm|head_MST=9
+7	she	she	PRON	_	Case=Nom|Gender=Fem|Number=Sing|Person=3|PronType=Prs	9	subj	_	AlignBegin=2995|AlignEnd=3265|deprel_main_pred=subj|Gloss=NOM.F.SG.3|head_MST=9
+8	just	just	ADV	_	_	9	mod	_	AlignBegin=3265|AlignEnd=3536|deprel_main_pred=mod|Gloss=just|head_MST=9
+9	enter	enter	VERB	_	_	0	root	_	AlignBegin=3536|AlignEnd=3807|deprel_main_pred=root|Gloss=enter|head_MST=0
+10	inside	inside	ADP	_	_	9	comp:obl	_	AlignBegin=3807|AlignEnd=4078|deprel_main_pred=comp:obl|Gloss=inside|head_MST=9
+11	shop	shop	NOUN	_	_	10	comp:obj	_	AlignBegin=4078|AlignEnd=4349|deprel_main_pred=comp:obj|Gloss=shop|head_MST=10
+12	o	o	PART	_	PartType=Disc	11	mod:emph	_	AlignBegin=4349|AlignEnd=4620|deprel_main_pred=mod:emph|Gloss=EMPH|head_MST=11
+13	//	//	PUNCT	_	_	9	punct	_	AlignBegin=4620|AlignEnd=4620|deprel_main_pred=punct|Gloss=PUNCT|head_MST=9

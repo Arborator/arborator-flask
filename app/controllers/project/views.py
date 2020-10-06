@@ -413,7 +413,7 @@ def delete_project(project_name):
 	pa = project_service.get_project_access(project.id, current_user.id)
 	p_access=0
 	if pa == 0: print('unauthorized, pa 0, error on crreation no access set'); project_service.delete(project)
-	else: p_access = project_service.get_project_access(project.id, current_user.id).accesslevel.code
+	else: p_access = project_service.get_project_access(project.id, current_user.id)
 	if p_access >=2 or current_user.super_admin:
 		project_service.delete(project)
 	else:

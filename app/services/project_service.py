@@ -16,8 +16,10 @@ def get_project_access(project_id, user_id):
     ''' return the project access given a project id and user id. returns 0 if the project access is false '''
     project_access = project_dao.get_access(project_id, user_id)
     # if no access links this project and user, the user is a guest
-    if not project_access: return 0
-    return project_access
+    if project_access: 
+        project_access.access_level.code
+    else : 
+        return 0
 
 def add_project_access(project_access):
     ''' add a project access '''
