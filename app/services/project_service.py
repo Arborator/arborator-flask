@@ -17,7 +17,7 @@ def get_project_access(project_id, user_id):
     project_access = project_dao.get_access(project_id, user_id)
     # if no access links this project and user, the user is a guest
     if project_access: 
-        project_access.access_level.code
+        return project_access.accesslevel.code
     else : 
         return 0
 

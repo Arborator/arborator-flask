@@ -123,13 +123,10 @@ def get_sample_trees(project_name, sample_name):
   if exercise_mode:
     exercise_level = samples_service.get_sample_exercise_level(sample_name, project.id)
     project_access = project_service.get_project_access(project.id, current_user.id)
-    
-    print("\nKK project access", project_access)
     if project_access == 2: # isAdmin (= isTeacher)
       sample_trees = samples_service.samples2trees(samples, sample_name)
     elif project_access == 1: # isGuest (= isStudent)
       sample_trees = samples_service.samples2trees_exercise_mode(samples, sample_name, current_user, project_name)
-      print("KK sample trees", sample_trees)
     else : abort(409) # is not authentificated
   ##### end block exercise mode #####
 
