@@ -1332,10 +1332,9 @@ def getLexicon(project_name):
 	if not request.json: abort(400)
 	sample_names = request.json.get("samplenames")
 	treeSelection = request.json.get("treeSelection")
-	features = ['Abbr', 'Animacy', 'Aspect', 'Case', 'Definite', 'Degree', 'Evident', 'Foreign', 'Gender', 'Mood', 'NumType', 'Number', 'Person', 'Polarity', 'Polite', 'Poss', 'PronType', 'Reflex', 'Tense', 'VerbForm', 'Voice', 'Gloss']
-	# current_app.config['ENV'] = 'production'
+	features = ['Abbr', 'Animacy', 'Aspect', 'Case', 'Definite', 'Degree', 'Evident', 'Foreign', 'Gender', 'Mood','PartType', 'VerbType', 'NumType', 'Number', 'Person', 'Polarity', 'Polite', 'Poss', 'PronType', 'Reflex', 'Tense', 'VerbForm', 'Voice', 'Gloss']
 	print(sample_names, treeSelection, features)
-	reply = json.loads(grew_request("getLexicon", current_app, data={"project_id":project_name, 'sample_ids': json.dumps(sample_names)}))
+	reply = json.loads(grew_request("getLexicon", current_app, data={"project_id":project_name, 'sample_ids': json.dumps(sample_names), 'features':json.dumps(features)}))
 	# print(reply)
 	for i in reply['data']:
 		x = {'key':i['form']+i['lemma']+i['POS']+i['features']+i['gloss']}
