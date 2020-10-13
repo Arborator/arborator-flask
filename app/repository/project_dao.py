@@ -1,5 +1,6 @@
 from flask_login import login_required, current_user
-from ..models.models import *
+from ..models.models import db, ProjectAccess, Project, SampleRole, User, Feature, MetaFeature, DefaultUserTrees #type: ignore
+
 
 def add_project(project):
     """ add a project into db """

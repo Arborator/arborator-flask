@@ -30,7 +30,7 @@ def get_project_samples(project_name):
     return samples
 
 
-def get_sample_exercise_level(sample_name, project_id):
+def get_sample_exercise_level(sample_name, project_id) -> int:
     # return the integer of the exercise level
     sample_exercise_level = samples_dao.get_sample_exercise_level(sample_name, project_id)
     if sample_exercise_level:

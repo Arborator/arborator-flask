@@ -14,6 +14,9 @@
 		"**/tools*": true,
 		"**/uploads*": true,
 		"fontawesome*": true,
-		"migrations*": true
-	}
+		"migrations*": true,
+	},
+	// "python.linting.pylintPath": "/home/wran/venvs/vs-venv/bin/python3",
+	"python.linting.mypyEnabled": true,
+  // "python.linting.enabled": true
 }
