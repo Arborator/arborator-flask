@@ -566,7 +566,6 @@ def upload_sample(
         # error because reply.get('message',{}) is a string
         error_message = reply.get("message", {}).get("Conllx_error:")
         error_sent_id = reply.get("message", {}).get("Conllx_error:").get("sent_id", "")
-        print("KK error", error_message, error_sent_id)
         if not mes:
             mes = "unknown problem"
         li = reply.get("data", {}).get("line", "")

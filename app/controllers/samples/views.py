@@ -112,7 +112,6 @@ def get_sample_trees(project_name, sample_name) -> Response:
       "yuchen": "# elan_id = ABJ_GWA_10_M_001 ABJ_GWA_10_M_002 ABJ_GWA_10_M_003\n# sent_id = P_ABJ_GWA_10_Steven-lifestory_PRO_1\n# sent_translation = I stay with my mother in the village. #\n# text = I dey stay with my moder //+ # for village //\n1\tI\t_\tINTJ\t_\tCase=Nom|endali=2610|Number=Sing|Person=1|PronType=Prs|
       ....
     """
-    print("KK request get_sample_trees")
     project = project_dao.find_by_name(project_name)
     exercise_mode = project.exercise_mode
 

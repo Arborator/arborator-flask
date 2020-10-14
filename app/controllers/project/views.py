@@ -269,7 +269,6 @@ def project_userrole_update_many(project_name, target_role) -> Response:
                 project.id,
             )
             # project_service.delete_user_project_access(project_access)
-        print("KK user ID ", project_access.user_id)
 
 
     project_infos = project_service.get_settings_infos(project_name, current_user)
@@ -579,7 +578,6 @@ def sample_upload(project_name):
     TODO: verify either importuser or provided in conll (all the trees must have it)
     more generally: test conll!
     """
-    print("KK project_name", project_name)
     project = project_service.get_by_name(project_name)
     if not project:
         abort(404)
@@ -602,7 +600,6 @@ def sample_upload(project_name):
             status, message = project_service.upload_sample(
                 f, project_name, import_user, reextensions=reextensions, existing_samples=samples)
             if status != 200:
-                print("KK message", message)
                 resp = jsonify({'status': status, 'message': message})
                 resp.status_code = status
                 return resp
@@ -967,12 +964,10 @@ def save_trees(project_name):
             print(">>>>", project_name)
             data={'project_id': project_name, 'sample_id': sample_name,
                       'user_id': user_id, 'sent_id': sent_id, "conll_graph": conll}
-            print("KK data", data)
             reply = grew_request(
                 'saveGraph', current_app,
                 data=data
             )
-            print('KK JSON reply', reply)
             resp = json.loads(reply)
             if resp["status"] != "OK":
                 if "data" in resp:
@@ -1196,7 +1191,7 @@ def commit(project_name):
             if exit_code not in [200, 201]:
                 abort(exit_code)
     else:
-        status = 418
+        status = 418 # TODO 418 HTTP status code is an april fool "I'm a teapot" code. Maybe we should find a more suitable status code
         if current_app.config['ENV'] == 'development':
             message = """It seems like you haven't installed the github arborator-grew-dev application yet.<br>
 			Access to this feature is only available to users that have installed the app.<br>
@@ -1311,7 +1306,7 @@ def getLexicon(project_name):
         abort(404)
     if not request.json:
         abort(400)
-    sample_names = request.json.get("sample_names")
+    sample_names = request.json.get("samplenames")
     treeSelection = request.json.get("treeSelection")
     print(sample_names, treeSelection)
     reply = json.loads(grew_request("getLexicon", current_app, data={

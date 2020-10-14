@@ -286,8 +286,6 @@ def list_users():
         [u.as_json(exclude=["auth_provider", "created_dated"]) for u in users],
         default=str,
     )
-    for user in users:
-        print("KK users", user)
     resp = Response(js, status=200, mimetype="application/json")
     return resp
 
