@@ -5,7 +5,7 @@ import time
 import io
 import re
 
-from ..models.models import *
+from ..models.models import db, ProjectAccess, base64, Project, SampleRole, MetaFeature, Feature
 
 try:
     from ...config import Config  # dev
@@ -26,7 +26,7 @@ def get_project_access(project_id, user_id) -> int:
     project_access = project_dao.get_access(project_id, user_id)
     # if no access links this project and user, the user is a guest
     if project_access:
-        return project_access.accesslevel.code
+        return project_access.access_level.code
     else:
         return 0
 
@@ -45,13 +45,13 @@ def add_project_access(project_access):
     return
 
 
-def update_or_create_user_project_access(user_id, project_id, access_level):
+def update_or_create_user_project_access(user_id, project_id, access_level) -> None:
     project_access = project_dao.get_access(project_id, user_id)
     if project_access:
-        project_access.accesslevel = access_level
+        project_access.access_level = access_level
     else:
         project_access = ProjectAccess(
-            userid=user_id, projectid=project_id, accesslevel=access_level
+            user_id=user_id, project_id=project_id, access_level=access_level
         )
         db.session.add(project_access)
     
@@ -59,7 +59,7 @@ def update_or_create_user_project_access(user_id, project_id, access_level):
     return
 
 
-def delete_project_access_by_user_and_project(user_id, project_id):
+def delete_project_access_by_user_and_project(user_id, project_id) -> None:
     project_access = project_dao.get_access(project_id, user_id)
     if project_access:
         project_dao.delete_project_access(project_access)
@@ -68,7 +68,7 @@ def delete_project_access_by_user_and_project(user_id, project_id):
 
 def create_add_project_access(user_id, project_id, access_level):
     """ create and add a new project access given the args if there is an old access it is deleted """
-    pa = ProjectAccess(userid=user_id, projectid=project_id, accesslevel=access_level)
+    pa = ProjectAccess(user_id=user_id, project_id=project_id, access_level=access_level)
     project_dao.add_access(pa)
 
 
@@ -94,13 +94,13 @@ def delete_by_name(project_name):
     """ delete a project from db and grew given its name """
     project = project_dao.find_by_name(project_name)
     project_dao.delete(project)
-    grew_request("eraseProject", current_app, data={"project_id": p.projectname})
+    grew_request("eraseProject", current_app, data={"project_id": project.project_name})
 
 
 def delete(project):
     """ delete the given project from db and grew """
     project_dao.delete(project)
-    grew_request("eraseProject", current_app, data={"project_id": project.projectname})
+    grew_request("eraseProject", current_app, data={"project_id": project.project_name})
     # TODO : grew_request to delete the configuration that goes with the project
 
 
@@ -112,8 +112,8 @@ def get_settings_infos(project_name, current_user):
     else:
         roles = project_dao.get_roles(project.id, current_user.id)
     # if not roles and project.is_private: return 403 # removed for now -> the check is done in view and for each actions
-    admins = [a.userid for a in project_dao.get_admins(project.id)]
-    guests = [g.userid for g in project_dao.get_guests(project.id)]
+    admins = [a.user_id for a in project_dao.get_admins(project.id)]
+    guests = [g.user_id for g in project_dao.get_guests(project.id)]
 
     # config from arborator
     shown_features = project_dao.find_project_features(project)
@@ -146,7 +146,7 @@ def get_settings_infos(project_name, current_user):
     else:
         image = ""
     settings_info = {
-        "name": project.projectname,
+        "name": project.project_name,
         "visibility": project.visibility,
         "description": project.description,
         "image": image,
@@ -241,19 +241,19 @@ def get_hub_summary():
         return projects_info
     data = json.loads(reply)["data"]
     grewnames = set([project["name"] for project in data])
-    dbnames = set([project.projectname for project in projects])
+    dbnames = set([project.project_name for project in projects])
     common = grewnames & dbnames
     if len(grewnames ^ dbnames) > 0:
         projects_info["difference"] = True
     for project in projects:
-        if project.projectname not in common:
+        if project.project_name not in common:
             continue
-        admins = [a.userid for a in project_dao.get_admins(project.id)]
-        guests = [g.userid for g in project_dao.get_guests(project.id)]
+        admins = [a.user_id for a in project_dao.get_admins(project.id)]
+        guests = [g.user_id for g in project_dao.get_guests(project.id)]
         projectJson = project.as_json(include={"admins": admins, "guests": guests})
 
         for p in data:
-            if p["name"] == project.projectname:
+            if p["name"] == project.project_name:
                 projectJson["number_sentences"] = p["number_sentences"]
                 projectJson["number_samples"] = p["number_samples"]
                 projectJson["number_tokens"] = p["number_tokens"]
@@ -273,8 +273,8 @@ def get_infos(project_name, current_user):
 
     # if not roles and project.is_private: return 403 # removed for now -> the check is done in view and for each actions
 
-    admins = [a.userid for a in project_dao.get_admins(project.id)]
-    guests = [g.userid for g in project_dao.get_guests(project.id)]
+    admins = [a.user_id for a in project_dao.get_admins(project.id)]
+    guests = [g.user_id for g in project_dao.get_guests(project.id)]
 
     # config
     shown_features = project_dao.find_project_features(project)
@@ -286,7 +286,7 @@ def get_infos(project_name, current_user):
     else:
         image = ""
     settings_info = {
-        "name": project.projectname,
+        "name": project.project_name,
         "visibility": project.visibility,
         "description": project.description,
         "image": image,
@@ -316,7 +316,7 @@ def get_project_treesfrom(project_name):
         for column, value in rowproxy.items():
             d = {**d, **{column: value}}  # build up the dictionary
         a.append(d)
-    r = robot_service.get_by_projectid_userlike(project.id)
+    r = robot_service.get_by_project_id_userlike(project.id)
     a.extend(r)
     return a
 
@@ -339,7 +339,7 @@ def add_or_delete_sample_role(user, sample_name, project_name, role, delete):
     #     project_dao.delete_sample_role(existing_role)
     if not delete:
         new_sr = SampleRole(
-            userid=user.id, samplename=sample_name, projectid=p.id, role=role
+            user_id=user.id, sample_name=sample_name, project_id=p.id, role=role
         )
         project_dao.add_sample_role(new_sr)
     return True
@@ -351,7 +351,7 @@ def create_add_sample_role(user_id, sample_name, project_id, role):
     if existing_role:
         project_dao.delete_sample_role(existing_role)
     new_sr = SampleRole(
-        userid=user_id, samplename=sample_name, projectid=project_id, role=role
+        user_id=user_id, sample_name=sample_name, project_id=project_id, role=role
     )
     project_dao.add_sample_role(new_sr)
 
@@ -369,7 +369,7 @@ def create_empty_project(project_json, creator):
     # showalltrees = True
     # if project_showalltrees == 'false': showalltrees = False
     project = Project(
-        projectname=project_json["name"],
+        project_name=project_json["name"],
         description=project_json["description"],
         visibility=project_json["visibility"],
         show_all_trees=project_json["showAllTrees"],
@@ -378,7 +378,7 @@ def create_empty_project(project_json, creator):
     print("new project 2", project)
     project_dao.add_project(project)
     p = project_dao.find_by_name(project_json["name"])
-    pa = ProjectAccess(userid=creator, projectid=p.id, accesslevel=2)
+    pa = ProjectAccess(user_id=creator, project_id=p.id, access_level=2)
     project_dao.add_access(pa)
     default_features = ["FORM", "UPOS", "LEMMA", "MISC.Gloss"]
     default_metafeatures = ["text_en"]
@@ -413,7 +413,7 @@ def delete_sample_role_by_project(project_id):
 def get_sample(sample_name, project_name):
     """ retrieve a sample infos given the project name and sample name"""
     # p = get_infos(project_name, current_user)
-    # sample = [s for s in p['samples'] if s['samplename'] == sample_name][0]
+    # sample = [s for s in p['samples'] if s['sample_name'] == sample_name][0]
     return get_sample_roles(project_name, sample_name)
     # return sample
 
@@ -421,7 +421,7 @@ def get_sample(sample_name, project_name):
 def get_sample_roles(project_name, sample_name):
     """ subfunc as getInfos but only to retrieve roles for a given sample (limit calculation) """
     project = project_dao.find_by_name(project_name)
-    sample = {"samplename": sample_name, "roles": {}}
+    sample = {"sample_name": sample_name, "roles": {}}
     roles = project_dao.get_sample_roles(project.id, sample_name)
     sample["roles"] = roles
 
@@ -442,10 +442,10 @@ def get_samples(project_name):
 def get_samples_roles(project_id, sample_name, json=False):
     """ returns the samples roles for the given sample in the given project. can be returned in a json format """
     sampleroles = SampleRole.query.filter_by(
-        projectid=project_id, samplename=sample_name
+        project_id=project_id, sample_name=sample_name
     ).all()
     if json:
-        return {sr.userid: sr.role.value for sr in sampleroles}
+        return {sr.user_id: sr.role.value for sr in sampleroles}
     else:
         return sampleroles
 
@@ -515,7 +515,7 @@ def upload_sample(
 
     filename = secure_filename(fileobject.filename)
     sample_name = reextensions.sub("", filename)
-    # print("sampleName: ", sample_name)
+    # print("sample_name: ", sample_name)
 
     # writing file to upload folder
     fileobject.save(os.path.join(Config.UPLOAD_FOLDER, filename))
@@ -566,7 +566,6 @@ def upload_sample(
         # error because reply.get('message',{}) is a string
         error_message = reply.get("message", {}).get("Conllx_error:")
         error_sent_id = reply.get("message", {}).get("Conllx_error:").get("sent_id", "")
-        print("KK error", error_message, error_sent_id)
         if not mes:
             mes = "unknown problem"
         li = reply.get("data", {}).get("line", "")
@@ -590,11 +589,11 @@ def servSampleTrees(samples):
     """ get samples in form of json trees """
     trees = {}
     for sentId, users in samples.items():
-        for userId, conll in users.items():
+        for user_id, conll in users.items():
             # tree = conll3.conll2tree(conll)
             if sentId not in trees:
                 trees[sentId] = {"conlls": {}}
-            trees[sentId]["conlls"][userId] = conll
+            trees[sentId]["conlls"][user_id] = conll
     js = json.dumps(trees)
     return js
 
@@ -624,12 +623,12 @@ def sampletree2contentfile(tree):
     return usertrees
 
 
-def contentfiles2zip(samplenames, sampletrees):
+def contentfiles2zip(sample_names, sampletrees):
     memory_file = io.BytesIO()
     with zipfile.ZipFile(memory_file, "w") as zf:
-        for samplename, sample in zip(samplenames, sampletrees):
+        for sample_name, sample in zip(sample_names, sampletrees):
             for fuser, filecontent in sample.items():
-                data = zipfile.ZipInfo("{}.{}.conllu".format(samplename, fuser))
+                data = zipfile.ZipInfo("{}.{}.conllu".format(sample_name, fuser))
                 data.date_time = time.localtime(time.time())[:6]
                 data.compress_type = zipfile.ZIP_DEFLATED
                 zf.writestr(data, filecontent)
@@ -653,7 +652,7 @@ def contentfiles2zip(samplenames, sampletrees):
 # 	if m["sent_id"] not in trees:
 # 		t = conll3.conll2tree(conll)
 # 		s = t.sentence()
-# 		trees[m["sent_id"]] = {"samplename":m['sample_id'] ,"sentence":s, "conlls":{user_id:conll},"matches":{user_id:{"edges":edges,"nodes":nodes}}}
+# 		trees[m["sent_id"]] = {"sample_name":m['sample_id'] ,"sentence":s, "conlls":{user_id:conll},"matches":{user_id:{"edges":edges,"nodes":nodes}}}
 # 	else:
 # 		trees[m["sent_id"]]["conlls"][user_id]=conll
 # 		trees[m["sent_id"]]["matches"][user_id]={"edges":edges,"nodes":nodes}

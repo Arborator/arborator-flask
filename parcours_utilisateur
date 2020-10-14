@@ -9,7 +9,7 @@ lister les projets GET home/projects
 
 __________________________
 
-project/<projectname>/ 
+project/<project_name>/ 
 GET
 list of samples (403 si projet privé et utilisateur pas de rôle)
 pê admin names, nb samples, nb arbres, description
@@ -19,29 +19,29 @@ DELETE
 if admin of project or superadmin
 
 
-project/<projectname>/upload
+project/<project_name>/upload
 POST multipart
 multipart (fichier conll), filename, importuser
 
 ajouter qqn comme admin:
-project/<projectname>/users/
+project/<project_name>/users/
 admins:[names of admin]
 guests:[list of guests]
 
-project/<projectname>/<samplename>/
+project/<project_name>/<sample_name>/
 GET
 nb_sentences, nb_trees, list of annotators, list of validators
 DELETE
 effacer
 
-project/<projectname>/<samplename>/users
+project/<project_name>/<sample_name>/users
 POST
 json {username:status} statut: annotator, validator
 DELETE
 enlever tout statut
 
 
-project/<projectname>/<samplename>/trees
+project/<project_name>/<sample_name>/trees
 GET 
 json of all conlls
 POST
@@ -62,7 +62,7 @@ supprimer utilisateur
 
 
 project/
-project/<projectname>/ 
+project/<project_name>/ 
 GET 
 if private and not role: 403
 if private and role: list of samples
