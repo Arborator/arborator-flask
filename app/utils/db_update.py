@@ -9,9 +9,9 @@ mode = 'dev'
 engine = create_engine('sqlite://///home/marine/Téléchargements/fixbug/arborator_{}_old.sqlite'.format(mode))
 with engine.connect() as connection:
     # create a new table without is_open and is_private, and with is_visible instead
-    connection.execute('''CREATE TABLE projectss (id INTEGER NOT NULL PRIMARY KEY, projectname VARCHAR(256) NOT NULL UNIQUE, description VARCHAR(256), image BLOB, show_all_trees BOOLEAN, visibility INTEGER)''')
+    connection.execute('''CREATE TABLE projectss (id INTEGER NOT NULL PRIMARY KEY, project_name VARCHAR(256) NOT NULL UNIQUE, description VARCHAR(256), image BLOB, show_all_trees BOOLEAN, visibility INTEGER)''')
     # insert data from the old table
-    connection.execute('''INSERT INTO projectss (id, projectname, description, image, show_all_trees) SELECT id, projectname, description, image, show_all_trees FROM projects''')
+    connection.execute('''INSERT INTO projectss (id, project_name, description, image, show_all_trees) SELECT id, project_name, description, image, show_all_trees FROM projects''')
     
     # set the visibility based on old columns
     connection.execute('''UPDATE projectss SET visibility = 0 WHERE projectss.id IN (SELECT id from projects WHERE projects.is_private=1)''')

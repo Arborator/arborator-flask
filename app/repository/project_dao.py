@@ -11,7 +11,7 @@ def add_project(project):
 def get_access(project_id, user_id):
     """ get the project access level, can be false if there is not project   """
 
-    return ProjectAccess.query.filter_by(projectid=project_id, userid=user_id).first()
+    return ProjectAccess.query.filter_by(project_id=project_id, user_id=user_id).first()
 
 
 def add_access(project_access):
@@ -28,25 +28,25 @@ def delete_project_access(project_access):
 
 def get_admins(project_id):
     """ get the project admins """
-    return ProjectAccess.query.filter_by(projectid=project_id, accesslevel=2).all()
+    return ProjectAccess.query.filter_by(project_id=project_id, access_level=2).all()
 
 
 def get_guests(project_id):
     """ get the project guests """
-    return ProjectAccess.query.filter_by(projectid=project_id, accesslevel=1).all()
+    return ProjectAccess.query.filter_by(project_id=project_id, access_level=1).all()
 
 
 def get_users(project_id):
-    return ProjectAccess.query.filter_by(projectid=project_id).all()
+    return ProjectAccess.query.filter_by(project_id=project_id).all()
 
 
 def get_project_access_by_access_level(project_id, access_level):
-    return ProjectAccess.query.filter_by(projectid=project_id, accesslevel=access_level).all()
+    return ProjectAccess.query.filter_by(project_id=project_id, access_level=access_level).all()
 
 
 def find_by_name(project_name):
     """ find the projects by project_name and get the first one """
-    return Project.query.filter_by(projectname=project_name).first()
+    return Project.query.filter_by(project_name=project_name).first()
 
 
 def get_possible_roles():
@@ -56,7 +56,7 @@ def get_possible_roles():
 
 def get_roles(project_id, user_id):
     """ returns the sorted set of roles from roles for each sample."""
-    return set(SampleRole.query.filter_by(projectid=project_id, userid=user_id).all())
+    return set(SampleRole.query.filter_by(project_id=project_id, user_id=user_id).all())
 
 
 def get_sample_roles(project_id, sample_name):
@@ -70,9 +70,9 @@ def get_sample_roles(project_id, sample_name):
     roles = {}
     for r, label in get_possible_roles():
         role = db.session.query(User, SampleRole).filter(
-            User.id == SampleRole.userid).filter(
-                SampleRole.projectid == project_id).filter(
-                    SampleRole.samplename == sample_name).filter(
+            User.id == SampleRole.user_id).filter(
+                SampleRole.project_id == project_id).filter(
+                    SampleRole.sample_name == sample_name).filter(
                         SampleRole.role == r).all()
         roles[label] = [{'key': a.username, 'value': a.username}
                         for a, b in role]
@@ -84,9 +84,9 @@ def delete(project):
     """ delete a project and its related accesses and roles """
     db.session.delete(project)
     related_accesses = ProjectAccess.query.filter_by(
-        projectid=project.id).delete()
+        project_id=project.id).delete()
     related_sample_roles = SampleRole.query.filter_by(
-        projectid=project.id).delete()
+        project_id=project.id).delete()
     related_feature = Feature.query.filter_by(project_id=project.id).delete()
     related_metafeature = MetaFeature.query.filter_by(
         project_id=project.id).delete()
@@ -108,7 +108,7 @@ def delete_sample_role(sample_role):
     """ delete a sample role """
     # rows_deleted = db.session.delete(sample_role)
     rows_deleted = SampleRole.query.filter_by(
-        id=sample_role.id, samplename=sample_role.samplename).delete()
+        id=sample_role.id, sample_name=sample_role.sample_name).delete()
     # db.session.flush()
     db.session.commit()
     # db.session.expire_all()
@@ -117,18 +117,18 @@ def delete_sample_role(sample_role):
 
 def delete_sample_role_by_project(project_id):
     """ delete a sample role given a project id """
-    sr = SampleRole.query.filter_by(projectid=project_id).delete()
+    sr = SampleRole.query.filter_by(project_id=project_id).delete()
     db.session.commit()
     return sr
 
 
 def get_user_role(project_id, sample_name, user_id):
     """ retrieve a user role """
-    return SampleRole.query.filter_by(projectid=project_id, samplename=sample_name, userid=user_id).first()
+    return SampleRole.query.filter_by(project_id=project_id, sample_name=sample_name, user_id=user_id).first()
 
 # def add_cat(project_name, cat):
 #     """ add a category to the project cats list """
-#     project = Project.query.filter_by(projectname=project_name).first()
+#     project = Project.query.filter_by(project_name=project_name).first()
 #     catLabel = CatLabel(value=cat, project_id=project.id)
 #     project.cats.append( catLabel )
 #     db.session.commit()
@@ -145,14 +145,14 @@ def get_user_role(project_id, sample_name, user_id):
 
 # def delete_cat(project_name, cat):
 #     """ delete a category from a project cats list """
-#     project = Project.query.filter_by(projectname=project_name).first()
+#     project = Project.query.filter_by(project_name=project_name).first()
 #     catLabel = CatLabel.query.filter_by(value=cat, project_id=project.id).delete()
 #     db.session.commit()
 #     return CatLabel.query.filter_by(project_id=project.id).all()
 
 # def add_stock( project_name ):
 #     """ add an empty stock to a project and returns the list of its stocks """
-#     project = Project.query.filter_by(projectname=project_name).first()
+#     project = Project.query.filter_by(project_name=project_name).first()
 #     stock = LabelStock()
 #     project.relations.append( stock )
 #     db.session.commit()
@@ -160,7 +160,7 @@ def get_user_role(project_id, sample_name, user_id):
 
 # def delete_stock( project_name, stockid ):
 #     """ delete a stock and returns the project stock list """
-#     project = Project.query.filter_by(projectname=project_name).first()
+#     project = Project.query.filter_by(project_name=project_name).first()
 #     stock = LabelStock.query.filter_by( project_id=project.id, id=stockid ).delete()
 #     Label.query.filter_by(stock_id=stockid).delete()
 #     db.session.commit()
@@ -168,7 +168,7 @@ def get_user_role(project_id, sample_name, user_id):
 
 # def add_label( project_name, stock_id, label):
 #     """ add a label to a project stock """
-#     project = Project.query.filter_by(projectname=project_name).first()
+#     project = Project.query.filter_by(project_name=project_name).first()
 #     stock = LabelStock.query.get(stock_id)
 #     newlabel = Label(value=label, stock_id=stock_id)
 #     stock.labels.append( newlabel )
@@ -177,7 +177,7 @@ def get_user_role(project_id, sample_name, user_id):
 
 # def delete_label( project_name, stock_id, label ):
 #     """ delete a label from a project stock """
-#     project = Project.query.filter_by(projectname=project_name).first()
+#     project = Project.query.filter_by(project_name=project_name).first()
 #     label = Label.query.filter_by(value=label, stock_id=stock_id).delete()
 #     db.session.commit()
 #     return LabelStock.query.filter_by(project_id=project.id).all()
@@ -235,7 +235,7 @@ def delete_defaultusertree_by_id(dut_id):
 def set_show_all_trees(project_name, value):
     """ change the value of showAllTrees """
     project = Project.query.filter_by(
-        projectname=project_name.projectname).first()
+        project_name=project_name.project_name).first()
     project.show_all_trees = value
     db.session.commit()
     return project
@@ -244,7 +244,7 @@ def set_show_all_trees(project_name, value):
 def set_exercise_mode(project_name, value):
     " change the value of exerciseMode"
     project = Project.query.filter_by(
-        projectname=project_name.projectname).first()
+        project_name=project_name.project_name).first()
     project.exercise_mode = value
     db.session.commit()
     return project
@@ -252,7 +252,7 @@ def set_exercise_mode(project_name, value):
 
 def set_visibility(project_name, value):
     """ Only select users can see the project and have their annotation  """
-    project = Project.query.filter_by(projectname=project_name).first()
+    project = Project.query.filter_by(project_name=project_name).first()
     project.visibility = value
     db.session.commit()
     return project
@@ -260,7 +260,7 @@ def set_visibility(project_name, value):
 
 def set_description(project_name, value):
     """ change the description of the project """
-    project = Project.query.filter_by(projectname=project_name).first()
+    project = Project.query.filter_by(project_name=project_name).first()
     project.description = value
     db.session.commit()
     return project
@@ -268,17 +268,17 @@ def set_description(project_name, value):
 
 def set_image(project_name, value):
     """ change the image of the project """
-    project = Project.query.filter_by(projectname=project_name).first()
+    project = Project.query.filter_by(project_name=project_name).first()
     project.image = value
     db.session.commit()
     return project
 
 
 def find_default_user_trees(project_id):
-    """ find userids for this project default user trees """
-    # userids = [ dut.user_id for dut in DefaultUserTrees.query.filter_by(project_id=project_id).all() ]
-    userids = DefaultUserTrees.query.filter_by(project_id=project_id).all()
-    return userids
+    """ find user_ids for this project default user trees """
+    # user_ids = [ dut.user_id for dut in DefaultUserTrees.query.filter_by(project_id=project_id).all() ]
+    user_ids = DefaultUserTrees.query.filter_by(project_id=project_id).all()
+    return user_ids
 
 
 def find_project_features(project):

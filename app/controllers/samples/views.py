@@ -45,7 +45,7 @@ def requires_access_level(access_level):
             if not current_user.super_admin:  # super_admin are always admin even if it's not in the table
                 if isinstance(project_access, int):
                     abort(403)
-                if project_access is None or project_access.accesslevel.code < access_level:
+                if project_access is None or project_access.access_level.code < access_level:
                     abort(403)
                  # return redirect(url_for('home.home_page'))
 
@@ -77,16 +77,16 @@ def create_or_update_sample_exercise_level(project_name, sample_name):
 
     req = request.json
 
-    # samples = {"samples":project_service.get_samples(req['projectname'])}
+    # samples = {"samples":project_service.get_samples(req['project_name'])}
     # res = {}
-    # if 'samplename' in req:
-    # 	if not req['samplename'] in samples["samples"]: abort(404)
+    # if 'sample_name' in req:
+    # 	if not req['sample_name'] in samples["samples"]: abort(404)
     # 	possible_roles = [x[0] for x in project_service.get_possible_roles()]
     # 	roleInt = [r[0] for r in project_service.get_possible_roles() if r[1] == role][0]
     # 	user = user_service.get_by_username(req['username'])
     # 	if not user: abort(400)
-    # 	project_service.add_or_delete_sample_role(user, req['samplename'], req['projectname'], roleInt, True)
-    # 	sample = project_service.get_sample(req['samplename'], req['projectname'])
+    # 	project_service.add_or_delete_sample_role(user, req['sample_name'], req['project_name'], roleInt, True)
+    # 	sample = project_service.get_sample(req['sample_name'], req['project_name'])
     # 	res = sample
 
     # TODO (kirian) : return the sample

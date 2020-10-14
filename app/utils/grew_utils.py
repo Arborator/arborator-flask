@@ -81,7 +81,7 @@ def upload_project(fileobject, currentApp, reextensions=None):
 
 
 
-# reply = grew_request ( 'getSamples', data = {'project_id': project.projectname} )
+# reply = grew_request ( 'getSamples', data = {'project_id': project.project_name} )
 # print('REPLYYY', reply)
 
 

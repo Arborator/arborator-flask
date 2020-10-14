@@ -72,7 +72,7 @@ class User(UserMixin, db.Model, BaseM):
     picture_url = db.Column(db.String(128), index=True)
     super_admin = db.Column(db.Boolean, default=False)
     #role = db.Column(db.Integer)
-    #projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))
+    #project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
     #todos = db.relationship('Todo', backref='txt_todos')
     created_date = db.Column(db.DateTime)
     last_seen = db.Column(db.DateTime)
@@ -138,7 +138,7 @@ def load_user(user_id):
 class Project(db.Model, BaseM):
     __tablename__ = 'projects'
     id = db.Column(db.Integer, primary_key=True)
-    projectname = db.Column(db.String(256), nullable=False, unique=True)
+    project_name = db.Column(db.String(256), nullable=False, unique=True)
     description = db.Column(db.String(256))
     image = db.Column(db.BLOB)
     # users = db.relationship('User', backref='project_user',lazy='dynamic')
@@ -196,9 +196,9 @@ class ProjectAccess(db.Model):
     ACCESS = [(1, 'guest'), (2, 'admin')]
 
     id = db.Column(db.Integer, primary_key=True)
-    projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))
-    userid = db.Column(db.String(256), db.ForeignKey('users.id'))
-    accesslevel = db.Column(ChoiceType(ACCESS, impl=db.Integer()))
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+    user_id = db.Column(db.String(256), db.ForeignKey('users.id'))
+    access_level = db.Column(ChoiceType(ACCESS, impl=db.Integer()))
 
 
 class DefaultUserTrees(db.Model, BaseM):
@@ -237,11 +237,11 @@ class SampleRole(db.Model):
     __tablename__ = 'samplerole'
     ROLES = [(1, 'annotator'), (2, 'validator'), (3, 'prof')]
     id = db.Column(db.Integer, primary_key=True)
-    samplename = db.Column(db.String(256), nullable=False)
-    projectid = db.Column(db.Integer, db.ForeignKey('projects.id'))
-    userid = db.Column(db.String(256), db.ForeignKey('users.id'))
+    sample_name = db.Column(db.String(256), nullable=False)
+    project_id = db.Column(db.Integer, db.ForeignKey('projects.id'))
+    user_id = db.Column(db.String(256), db.ForeignKey('users.id'))
     role = db.Column(ChoiceType(ROLES, impl=db.Integer()))
-    # __table_args__ = (UniqueConstraint('samplename', 'projectid', name='_samplename_projectid_uc'),)
+    # __table_args__ = (UniqueConstraint('sample_name', 'project_id', name='_sample_name_project_id_uc'),)
 
 
 class SampleExerciseLevel(db.Model):

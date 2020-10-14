@@ -17,7 +17,7 @@ def get_project_samples(project_name):
     samples=[]
     if data:
         for sa in data:
-            sample={'samplename':sa['name'], 'sentences':sa['number_sentences'], 'number_trees':sa['number_trees'], 'tokens':sa['number_tokens'], 'treesFrom':sa['users'], "roles":{}}
+            sample={'sample_name':sa['name'], 'sentences':sa['number_sentences'], 'number_trees':sa['number_trees'], 'tokens':sa['number_tokens'], 'treesFrom':sa['users'], "roles":{}}
             sample["roles"] = project_dao.get_sample_roles(project.id, sa['name'])
             
             sample_exercise_level = samples_dao.get_sample_exercise_level(sa['name'], project.id)
@@ -61,10 +61,10 @@ def samples2trees(samples, sample_name):
     ''' transforms a list of samples into a trees object '''
     trees={}
     for sentId, users in samples.items():	
-        for userId, conll in users.items():
+        for user_id, conll in users.items():
             tree = conll3.conll2tree(conll)
-            if sentId not in trees: trees[sentId] = {"samplename":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
-            trees[sentId]["conlls"][userId] = conll
+            if sentId not in trees: trees[sentId] = {"sample_name":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
+            trees[sentId]["conlls"][user_id] = conll
     return trees
 
 
@@ -80,10 +80,10 @@ def samples2trees_with_restrictions(samples, sample_name, current_user, project_
     if current_user.username not in default_usernames: default_usernames.append(current_user.username)
     for sentId, users in samples.items():	
         filtered_users = { username: users[username] for username in default_usernames  if username in users}
-        for userId, conll in filtered_users.items():
+        for user_id, conll in filtered_users.items():
             tree = conll3.conll2tree(conll)
-            if sentId not in trees: trees[sentId] = {"samplename":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
-            trees[sentId]["conlls"][userId] = conll
+            if sentId not in trees: trees[sentId] = {"sample_name":sample_name ,"sentence":tree.sentence(), "conlls": {}, "matches":{}}
+            trees[sentId]["conlls"][user_id] = conll
     return trees
 
 BASE_TREE = "base_tree"
@@ -94,7 +94,7 @@ def samples2trees_exercise_mode(trees_on_grew, sample_name, current_user, projec
     usernames = ["teacher", current_user.username]
 
     for tree_id, tree_users in trees_on_grew.items():
-        trees_processed[tree_id] = {"samplename":sample_name ,"sentence": "", "conlls": {}, "matches":{}}
+        trees_processed[tree_id] = {"sample_name":sample_name ,"sentence": "", "conlls": {}, "matches":{}}
         for username, tree in tree_users.items():
             if username in usernames:
                 trees_processed[tree_id]["conlls"][username] = tree

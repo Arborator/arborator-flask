@@ -103,9 +103,9 @@ def exists_sample(username, project_name, sample_name):
     resp = requests.get('https://api.github.com/repos/{}/contents/{}/{}'.format(user_repo, project_name, sample_name), headers=base_header())
     return resp
 
-def make_commit(user_repo, data, projectname, samplename):
+def make_commit(user_repo, data, project_name, sample_name):
     # print('https://api.github.com/repos/{}/contents/{}'.format(user_repo, path))
-    resp = requests.put('https://api.github.com/repos/{}/contents/{}/{}'.format(user_repo, projectname, samplename), headers=base_header(), json=data)
+    resp = requests.put('https://api.github.com/repos/{}/contents/{}/{}'.format(user_repo, project_name, sample_name), headers=base_header(), json=data)
     return resp
 
 def get_sample(username, project_name, sample_name):
