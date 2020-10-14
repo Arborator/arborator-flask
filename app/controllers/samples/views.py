@@ -24,7 +24,6 @@ def requires_access_level(access_level):
     def decorator(f):
         @wraps(f)
         def decorated_function(*args, **kwargs):
-
             # not authenticated -> login
             if not current_user.id:
                 return redirect(url_for('auth.login'))
@@ -43,11 +42,13 @@ def requires_access_level(access_level):
             print("project_access for current user: {}".format(project_access))
 
             if not current_user.super_admin:  # super_admin are always admin even if it's not in the table
-                if isinstance(project_access, int):
-                    abort(403)
-                if project_access is None or project_access.access_level.code < access_level:
-                    abort(403)
-                 # return redirect(url_for('home.home_page'))
+                if project_access < access_level:
+                    abort(403, "User doesn't have the right privileges")
+                # if isinstance(project_access, int):
+                #     abort(403, "ERROR isinstance(project_access, int)")
+                # if project_access is None or project_access.access_level.code < access_level:
+                #     abort(403, "project_access is None or project_access.access_level.code < access_level")
+                #  # return redirect(url_for('home.home_page'))
 
             return f(*args, **kwargs)
         return decorated_function
@@ -57,10 +58,46 @@ def requires_access_level(access_level):
 @samples.route('/<project_name>/samples/fetch_all')
 def project_samples(project_name):
     ''' get project samples information'''
+    print("KK SUCCEEEED")
     project_samples = samples_service.get_project_samples(project_name)
     js = json.dumps(project_samples, default=str)
     resp = Response(js, status=200,  mimetype='application/json')
     return resp
+
+
+
+@samples.route('/<project_name>/<sample_name>/set-exercise-level', methods=['POST'])
+@requires_access_level(2)
+def set_sample_exercise_level(project_name, sample_name):
+    if not request.json:
+        abort(400)
+    print("KK project_name, sample_name", project_name, sample_name)
+    project_id = project_dao.find_by_name(project_name).id
+    new_exercise_level = request.json['exerciseLevel']
+    sample_exercise_level = samples_service.create_or_update_sample_exercise_level(
+        sample_name, project_id, new_exercise_level)
+    # if not sample_exercise_level:
+    # 		sample_exercise_level = samples_service.add_sample_exercise_level(sample_name, project_id, )
+
+    req = request.json
+
+    # samples = {"samples":project_service.get_samples(req['project_name'])}
+    # res = {}
+    # if 'sample_name' in req:
+    # 	if not req['sample_name'] in samples["samples"]: abort(404)
+    # 	possible_roles = [x[0] for x in project_service.get_possible_roles()]
+    # 	roleInt = [r[0] for r in project_service.get_possible_roles() if r[1] == role][0]
+    # 	user = user_service.get_by_username(req['username'])
+    # 	if not user: abort(400)
+    # 	project_service.add_or_delete_sample_role(user, req['sample_name'], req['project_name'], roleInt, True)
+    # 	sample = project_service.get_sample(req['sample_name'], req['project_name'])
+    # 	res = sample
+
+    # TODO (kirian) : return the sample
+    js = json.dumps({"succeed": "ok"})
+    resp = Response(js, status=200,  mimetype='application/json')
+    return resp
+
 
 
 @samples.route('/<project_name>/samples/<sample_name>/exercise-level/create-or-update', methods=['POST'])
@@ -68,6 +105,8 @@ def project_samples(project_name):
 def create_or_update_sample_exercise_level(project_name, sample_name):
     if not request.json:
         abort(400)
+
+    print("KK project_name, sample_name", project_name, sample_name)
     project_id = project_dao.find_by_name(project_name).id
     new_exercise_level = request.json['exerciseLevel']
     sample_exercise_level = samples_service.create_or_update_sample_exercise_level(
