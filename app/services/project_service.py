@@ -3,6 +3,7 @@ import json
 import zipfile
 import time
 import io
+import re
 
 from ..models.models import *
 
