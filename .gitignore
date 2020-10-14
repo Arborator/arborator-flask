@@ -3,3 +3,4 @@ app/controllers/auth/auth_config.py
 venv/
 keys/
 run_dev.sh
+arborator_dev.sqlite
