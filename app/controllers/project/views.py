@@ -965,12 +965,14 @@ def save_trees(project_name):
             if (project.exercise_mode == 1 and user_id == TEACHER):
                 conll = conll3.changeMetaField(conll, "user_id", TEACHER)
             print(">>>>", project_name)
-
+            data={'project_id': project_name, 'sample_id': sample_name,
+                      'user_id': user_id, 'sent_id': sent_id, "conll_graph": conll}
+            print("KK data", data)
             reply = grew_request(
                 'saveGraph', current_app,
-                data={'project_id': project_name, 'sample_id': sample_name,
-                      'user_id': user_id, 'sent_id': sent_id, "conll_graph": conll}
+                data=data
             )
+            print('KK JSON reply', reply)
             resp = json.loads(reply)
             if resp["status"] != "OK":
                 if "data" in resp:
