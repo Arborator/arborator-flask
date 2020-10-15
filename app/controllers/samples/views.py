@@ -76,22 +76,8 @@ def set_sample_exercise_level(project_name, sample_name):
     new_exercise_level = request.json['exerciseLevel']
     sample_exercise_level = samples_service.create_or_update_sample_exercise_level(
         sample_name, project_id, new_exercise_level)
-    # if not sample_exercise_level:
-    # 		sample_exercise_level = samples_service.add_sample_exercise_level(sample_name, project_id, )
 
     req = request.json
-
-    # samples = {"samples":project_service.get_samples(req['project_name'])}
-    # res = {}
-    # if 'sample_name' in req:
-    # 	if not req['sample_name'] in samples["samples"]: abort(404)
-    # 	possible_roles = [x[0] for x in project_service.get_possible_roles()]
-    # 	roleInt = [r[0] for r in project_service.get_possible_roles() if r[1] == role][0]
-    # 	user = user_service.get_by_username(req['username'])
-    # 	if not user: abort(400)
-    # 	project_service.add_or_delete_sample_role(user, req['sample_name'], req['project_name'], roleInt, True)
-    # 	sample = project_service.get_sample(req['sample_name'], req['project_name'])
-    # 	res = sample
 
     # TODO (kirian) : return the sample
     js = json.dumps({"succeed": "ok"})
@@ -100,38 +86,38 @@ def set_sample_exercise_level(project_name, sample_name):
 
 
 
-@samples.route('/<project_name>/samples/<sample_name>/exercise-level/create-or-update', methods=['POST'])
-@requires_access_level(2)
-def create_or_update_sample_exercise_level(project_name, sample_name):
-    if not request.json:
-        abort(400)
+# @samples.route('/<project_name>/samples/<sample_name>/exercise-level/create-or-update', methods=['POST'])
+# @requires_access_level(2)
+# def create_or_update_sample_exercise_level(project_name, sample_name):
+#     if not request.json:
+#         abort(400)
 
-    print("KK project_name, sample_name", project_name, sample_name)
-    project_id = project_dao.find_by_name(project_name).id
-    new_exercise_level = request.json['exerciseLevel']
-    sample_exercise_level = samples_service.create_or_update_sample_exercise_level(
-        sample_name, project_id, new_exercise_level)
-    # if not sample_exercise_level:
-    # 		sample_exercise_level = samples_service.add_sample_exercise_level(sample_name, project_id, )
+#     print("KK project_name, sample_name", project_name, sample_name)
+#     project_id = project_dao.find_by_name(project_name).id
+#     new_exercise_level = request.json['exerciseLevel']
+#     sample_exercise_level = samples_service.create_or_update_sample_exercise_level(
+#         sample_name, project_id, new_exercise_level)
+#     # if not sample_exercise_level:
+#     # 		sample_exercise_level = samples_service.add_sample_exercise_level(sample_name, project_id, )
 
-    req = request.json
+#     req = request.json
 
-    # samples = {"samples":project_service.get_samples(req['project_name'])}
-    # res = {}
-    # if 'sample_name' in req:
-    # 	if not req['sample_name'] in samples["samples"]: abort(404)
-    # 	possible_roles = [x[0] for x in project_service.get_possible_roles()]
-    # 	roleInt = [r[0] for r in project_service.get_possible_roles() if r[1] == role][0]
-    # 	user = user_service.get_by_username(req['username'])
-    # 	if not user: abort(400)
-    # 	project_service.add_or_delete_sample_role(user, req['sample_name'], req['project_name'], roleInt, True)
-    # 	sample = project_service.get_sample(req['sample_name'], req['project_name'])
-    # 	res = sample
+#     # samples = {"samples":project_service.get_samples(req['project_name'])}
+#     # res = {}
+#     # if 'sample_name' in req:
+#     # 	if not req['sample_name'] in samples["samples"]: abort(404)
+#     # 	possible_roles = [x[0] for x in project_service.get_possible_roles()]
+#     # 	roleInt = [r[0] for r in project_service.get_possible_roles() if r[1] == role][0]
+#     # 	user = user_service.get_by_username(req['username'])
+#     # 	if not user: abort(400)
+#     # 	project_service.add_or_delete_sample_role(user, req['sample_name'], req['project_name'], roleInt, True)
+#     # 	sample = project_service.get_sample(req['sample_name'], req['project_name'])
+#     # 	res = sample
 
-    # TODO (kirian) : return the sample
-    js = json.dumps({"succeed": "ok"})
-    resp = Response(js, status=200,  mimetype='application/json')
-    return resp
+#     # TODO (kirian) : return the sample
+#     js = json.dumps({"succeed": "ok"})
+#     resp = Response(js, status=200,  mimetype='application/json')
+#     return resp
 
 
 @samples.route('/<project_name>/samples/<sample_name>/trees/fetch_all', methods=['GET'])

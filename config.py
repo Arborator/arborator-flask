@@ -66,7 +66,11 @@ class TestingConfig(Config):
     Testing configurations
     """
 
+    DEBUG = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     TESTING = True
+    basedir = os.path.dirname(os.path.abspath(__file__))
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'arborator_test.sqlite')
 
 class ProductionConfig(Config):
     """

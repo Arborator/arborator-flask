@@ -133,8 +133,6 @@ def load_user(user_id):
 
 
 # TODO: ManytoMany reltnshp btwn user/proj
-
-
 class Project(db.Model, BaseM):
     __tablename__ = 'projects'
     id = db.Column(db.Integer, primary_key=True)

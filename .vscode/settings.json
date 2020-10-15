@@ -9,7 +9,6 @@
 		"**/images*": true,
 		"**/lib*": true,
 		"**/parseur*": true,
-		"**/projects*": true,
 		"**/static*": true,
 		"**/tools*": true,
 		"**/uploads*": true,
