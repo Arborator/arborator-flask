@@ -158,27 +158,89 @@ new install :
 
 
 
-# Development
-To create database
-* `flask db init`
+# Development Process
+
+## First time
+Create a local python environment (with python venv module for instance) (python 3.6 and above required)
+```
+python3 -m venv venv
+```
+
+Activate the local environment
+```
+source venv/bin/activate
+```
+
+Install wheel and then the requirements packages
+```
+pip install wheel
+pip install -r requirements.txt
+```
+
+Put the `keys/` folder at the `root` of the project and the `auth_config.py` in `app/controllers/auth/`
+
+
+Export the local environment variable for flask
+```
+export FLASK_APP=run.py; export FLASK_CONFIG=development;
+```
+
+If the database migration folder is present, delete it
+```
+rm -r migrations/
+```
+
+Create database
+```
+flask db init
+```
 init créé le dossier migration (pas la peine de relancer chaque fois)
 
-* `flask db stamp head`
-* `flask db migrate`
+
+
+
+## For running the dev app
+Export the local environment variable for flask
+```
+export FLASK_APP=run.py; export FLASK_CONFIG=development;
+```
+
+Run the dev app
+```
+flask run --cert=adhoc
+```
+
+
+
+## Creating a dev project
+For creating a project, click on the purple "PLUS" button on this page. Give it a name (best practice is to give `your_name_test` as a name)
+
+Then, click on the project card to navigate to the Project Page. On this page, you can upload a valid conllu file sample (file that end with .conll)
+
+Then, click on the sample name to navigate to the Sample Page.
+
+On this page, you should see all the different sentence card. Click on your tab name for opening the sentenceSVG 
+
+
+## If we want to manage the database
+```
+flask db stamp head
+flask db migrate
+```
 si on a modifié models.py, il crée une nouveau script 123456xxxx.py dans migrations/versions
 
-* `flask db upgrade`
+```
+flask db upgrade
+```
 s'il y a un nouveau script dans migrations/versions il crée une meilleure version de la bdd, en conservant toute info encore utile.
 le nom et l'emplacement de la base est dans config.py
 
 
-Then run
-
-* `set FLASK_CONFIG = development; set FLASK_APP = run.py; flask run`
 
 
 
-## TODO
+
+# TODO
 * Login form for site admins(testing purposes also)
 * Complete project functions conversions (25/5/18)
 * Set redirect urls for oauth providers
