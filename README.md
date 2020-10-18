@@ -10,7 +10,9 @@ python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
-
+### keys
+get the keys folder and place it at the root
+copy auth_config.py into arborator-flask/app/controllers/auth/
 
 # run locally
 
@@ -78,6 +80,17 @@ python3 wsgi.py
 gunicorn -b localhost:5001 -w 4 wsgi
 (by default it looks for “application”. If it’s not called “application”, add it: gunicorn -b localhost:5001 -w 4 wsgi:myapp)
 gunicorn -c gunicorn.conf.py wsgi
+```
+
+#### The supervisor file
+
+check the content of the supervisor file in arborator-flask/deployment/arborator-flask.conf, in particular `directory = /home/arborator/arborator-flask
+`
+
+If this is where your code is copy the file to /etc/supervisor/conf.d/arborator-flask.conf
+
+```
+sudo cp deployment/arborator-flask.conf /etc/supervisor/conf.d/arborator-flask.conf
 ```
 
 ### Start
