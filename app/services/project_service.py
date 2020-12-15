@@ -598,50 +598,56 @@ def update_metafeatures(project, updated_features):
 
 def transform_grew_verif(ligne1, ligne2): #Voir différences entre deux lignes
 	liste=[]
-	if len(ligne1) > len(ligne2) : 
+	if len(ligne1) > len(ligne2): 
 		maximum = len(ligne1)
-	else : maximum=len(ligne2)
+	else: 
+		maximum = len(ligne2)
 	for i in range(maximum):
-		try :
-			if ligne1[i]!=ligne2[i]:
+		try:
+			if ligne1[i] != ligne2[i]:
 				liste.append(i)
-		except IndexError :
+		except IndexError:
 			liste.append(i)
+	#print("transform_grew_verif",liste)
 	return liste
 
 def transform_grew_get_pattern(ligne, dic, comp): 
-	pattern="X"+str(comp)+'[form="'+ligne[0]+'"'
-	for element in range(1,len(ligne)) :
-		if element == len(ligne)-1 :
+	pattern = "X" + str(comp) + '[form=\"' + ligne[0] + '\"'
+	for element in range(1,len(ligne)):
+		if element == len(ligne)-1:
 			# print(element, ligne[element], dic[element])
-			if ligne[element]!="_" and '=' in ligne[element]: #features
+			if ligne[element] != "_" and '=' in ligne[element]: #features
 				mot = ligne[element].split("|") #Number=Sing, PronType=Dem
-				pattern = pattern+", "+", ".join(mot)
-		elif element == 2 : # upos = PRON
-			pattern = pattern+", "+dic[element]+"="+ligne[element]
-		else :
-			pattern = pattern+", "+dic[element]+'="'+ligne[element]+'"' # forme="dat", lemma="dat"
-	pattern=pattern+"]"
+				pattern = pattern + ", " + ", ".join(mot)
+		elif element == 2: # upos = PRON
+			pattern = pattern + ", " + dic[element] + "=" + ligne[element]
+		else:
+			pattern = pattern + ", " + dic[element] + '=\"' + ligne[element] + '\"' # forme=\"dat\", lemma=\"dat\"
+	pattern = pattern + "]"
 	return pattern
 
 
 def transform_grew_get_without(l, l2, comp):
-	les_traits=""
 	mot = l.split("|")
 	mot2 = l2.split("|")
+	les_traits = []
 	liste_traits = []
+	feats_str = ""
 	# for i in mot :
 	# 	if i not in mot2 and i !="_": # suppression de traits 1 non existant dans traits2
 	# 		les_traits = les_traits+"del_feat X"+str(comp)+"."+i.split("=")[0]+';'
-	for i in mot2 :
+	for i in mot2:
 		if i not in mot and i != "_": # ajout traits2 non existant dans traits1
-			les_traits = les_traits+"X"+str(comp)+"."+i+"; "
 			liste_traits.append(i)
 	# print(les_traits, liste_traits)
 	# print (without, liste_traits, len(liste_traits))
-	if len(liste_traits)==0 :
-		liste_traits = False
-	return les_traits,liste_traits
+	if len(liste_traits) == 0:
+		feats_str = False
+	if liste_traits:
+		les_traits.append("X" + str(comp) + "[" + ",".join(liste_traits) + "]")
+		for feat in liste_traits:
+			feats_str += "X" + str(comp) + "." + feat + "; "
+	return les_traits, feats_str
 
 # def transform_grew_get_features(l2, comp):
 # 	les_traits=""
@@ -657,41 +663,45 @@ def transform_grew_get_without(l, l2, comp):
 # 		without = False
 # 	return les_traits, without
 
-def transform_grew_traits_corriges(l, comp): # lignes2[4]=="_"
-	traits=""
-	mot = l.split("|")
-	for i in mot :  # suppression des traits 1
-		traits=traits+"del_feat X"+str(comp)+"."+i.split("=")[0]+'; '
+def transform_grew_traits_corriges(l, l2, comp): # différence entre deux feats
+	traits = ''
+	mot1 = l.split("|")
+	print(mot1, l,l2)
+	if l2 == "_":
+		for i in mot1:
+			traits = traits + "del_feat X" + str(comp) + "." + i.split("=")[0] + '; '
+	else:
+		mot2 = l2.split("|")
+		print(mot2)
+		for i in mot1:  # suppression des traits 1
+			if i not in mot2:
+				traits = traits + "del_feat X" + str(comp) + "." + i.split("=")[0] + '; '
 	return traits
 
 def transform_grew_get_commands(resultat, ligne1, ligne2, dic, comp):
-	correction=""
-	commands=""
+	correction = ""
+	commands = ""
 	without_traits = ""
-	list_traits2=""
-	for e in resultat :
+	list_traits2 = []
+	temp_var = ""
+	for e in resultat:
 		if e == 4: #si traits sont différents
 			# try :
-			if ligne2[e]!="_":
-				if ligne2[e]!="" : #insertion des traits
-					list_traits2, without_traits = transform_grew_get_without(ligne1[e], ligne2[e], comp)
-					commands=commands+list_traits2
-					#print(without_traits) OK
-			else : #si on doit supprimer les traits de ligne1
-				traits_a_supprimer = transform_grew_traits_corriges(ligne1[e], comp)
-				commands=commands+traits_a_supprimer
-			# except IndexError:
-			# 	if len(ligne2) < 5:
-			# 		traits_a_supprimer = transform_grew_traits_corriges(ligne1[e], comp)
-			# 		commands=commands+traits_a_supprimer
-			# 	elif len(ligne1) < 5:
-			# 		list_traits2, without_traits = transform_grew_get_features(ligne2[e], comp)
-			# 		commands=commands+list_traits2
-			# 	pass
-		else : # si la différence n'est pas trait
-			commands=commands+"X"+str(comp)+"."+dic[e]+'="'+ligne2[e]+'"; '
-	if without_traits == False :
-		correction = correction+commands
-	else :
-		correction = correction+commands
-	return correction, list_traits2
+			#print(len(ligne1[e].split("|")), len(ligne2[e].split("|")))
+			if ligne2[e] != "_" and len(ligne1[e].split("|")) < len(ligne2[e].split("|")) or ligne1[e] == "_":
+				if ligne2[e] != "": #insertion des traits
+					list_traits2, feats_str = transform_grew_get_without(ligne1[e], ligne2[e], comp)
+					temp_var = ",".join(list_traits2)
+					#print(temp_var,"123123", list_traits2)
+					commands = commands + feats_str
+					#print(without_traits,"1112222333", list_traits2)
+			else: #si on doit supprimer les traits de ligne1 :
+				#print("transform_grew_get_commands vers traits_a_supprimer", ligne1[e],ligne2[e], comp)
+				traits_a_supprimer = transform_grew_traits_corriges(ligne1[e], ligne2[e], comp)
+				commands = commands + traits_a_supprimer
+		else: # si la différence n'est pas trait
+			#print(e, dic, comp, ligne1, ligne2)
+			commands = commands + "X" + str(comp) + "." + dic[e] + '=\"' + ligne2[e] + '\"; '
+	correction = correction + commands
+	#print(correction, "------", commands)
+	return correction, temp_var

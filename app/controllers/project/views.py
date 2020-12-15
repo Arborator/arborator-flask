@@ -1328,8 +1328,10 @@ def pull(project_name):
 # @requires_access_level(1)
 def getLexicon(project_name):
 	project = project_service.get_by_name(project_name)
-	if not project: abort(404)
-	if not request.json: abort(400)
+	if not project: 
+		abort(404)
+	if not request.json: 
+		abort(400)
 	sample_names = request.json.get("samplenames")
 	treeSelection = request.json.get("treeSelection")
 	features = ['Abbr', 'Animacy', 'Aspect', 'Case', 'Definite', 'Degree', 'Evident', 'Foreign', 'Gender', 'Mood','PartType', 'VerbType', 'NumType', 'Number', 'Person', 'Polarity', 'Polite', 'Poss', 'PronType', 'Reflex', 'Tense', 'VerbForm', 'Voice', 'Gloss']
@@ -1374,19 +1376,21 @@ def getLexicon(project_name):
 @project.route('/<project_name>/export/tsv', methods=["POST"])
 def export_lexicon_tsv(project_name) :
 	project = project_service.get_by_name(project_name)
-	if not project: abort(404)
-	if not request.json: abort(400)
+	if not project: 
+		abort(404)
+	if not request.json: 
+		abort(400)
 	lexicon = request.get_json("data")
 	features=['form','lemma','POS','features','gloss','frequency']
 	print("requested tsv", project)
 	line=''
-	for i in lexicon['data'] :
-		for f in features :
-			try :
-				line+=i[f]+"\t"
+	for i in lexicon['data']:
+		for f in features:
+			try:
+				line += i[f]+"\t"
 			except TypeError: 
-				line+=str(i[f])
-		line+="\n"
+				line += str(i[f])
+		line += "\n"
 
 	resp = Response(line, status=200)
 	return resp
@@ -1395,8 +1399,10 @@ def export_lexicon_tsv(project_name) :
 @project.route('/<project_name>/export/json', methods=["POST"])
 def export_lexicon_json(project_name) :
 	project = project_service.get_by_name(project_name)
-	if not project: abort(404)
-	if not request.json: abort(400)
+	if not project: 
+		abort(404)
+	if not request.json: 
+		abort(400)
 	lexicon = request.get_json("data")
 	print("requested json", project)
 	for element in lexicon['data']:
@@ -1411,19 +1417,28 @@ def export_lexicon_json(project_name) :
 @project.route('/<project_name>/transformationgrew', methods=["POST"])
 def transformation_grew(project_name):
 	project = project_service.get_by_name(project_name)
-	if not project: abort(404)
-	if not request.json: abort(400)
+	if not project: 
+		abort(404)
+	if not request.json: 
+		abort(400)
 	lexicon = request.get_json("data")
 	comp = 0
 	patterns = []
 	commands = []
 	without = ""
-	tryRules = []
-	dic = {0: "form", 1 : "lemma" , 2 : "upos", 3:"_MISC_Gloss", 4 : "trait"}
+	dic = {
+		0: "form",
+		1 : "lemma",
+		2 : "upos",
+		3 :"Gloss",
+		4 : "trait"
+		}
 	for i in lexicon['data'] :
 		rule_grew = "pattern {"
+		#print(i['info2Change'])
 		line1 = i['currentInfo'].split(' ')
 		line2 = i['info2Change'].split(' ')
+		#print(line2)
 		comp+=1
 		patterns.append(project_service.transform_grew_get_pattern(line1, dic, comp))
 		rule_grew += patterns[comp-1]+'}'
@@ -1431,19 +1446,20 @@ def transformation_grew(project_name):
 		co, without_traits = (project_service.transform_grew_get_commands(resultat,line1, line2, dic, comp))
 		commands.append(co)
 		if without_traits != '' : 
-			without=without+without_traits
+			if without != "" :
+				without += ", "
+			without = without + without_traits
 			rule_grew += " without{ "+without_traits+"}"
-		rule_grew += " command{ "+commands[comp-1]+"}"
-		tryRules.append(rule_grew)
-	patterns[0] = '% click the button \'Correct lexicon\' to update the queries\n\npattern { '+patterns[0][0:]
-	commands[0] = 'commands { '+commands[0][0:]
+		rule_grew += " command{ " + commands[comp-1]+"}"
+	patterns[0] = '% click the button \'Correct lexicon\' to update the queries\n\npattern { ' + patterns[0][0:]
+	commands[0] = 'commands { '+ commands[0][0:]
 	patterns[len(lexicon['data'])-1] += ' }'
 	commands.append('}')
-	if len(without) != 0 : without = '\nwithout { '+without+'}'
+	if len(without) != 0 :
+		without = '\nwithout { ' + without + '}'
 	patterns_output = ','.join(patterns)
 	commands_output = ''.join(commands)
-	# print(tryRules)
-	resp = jsonify({'patterns': patterns_output, 'commands': commands_output , 'without' : without, 'tryRules':tryRules})
+	resp = jsonify({'patterns': patterns_output, 'commands': commands_output, 'without' : without})
 	# print("patterns :", ','.join(patterns), "\ncommands :", ''.join(commands))
 	resp.status_code = 200
 	return resp
@@ -1461,8 +1477,10 @@ def uploadValidator(project_name):
 @project.route('/<project_name>/addvalidator', methods=["POST"])
 def addValidator(project_name) :
 	project = project_service.get_by_name(project_name)
-	if not project: abort(404)
-	if not request.json: abort(400)
+	if not project: 
+		abort(404)
+	if not request.json: 
+		abort(400)
 	lexicon = request.get_json("data")
 	validator = request.get_json("validator")
 	list_validator = []
@@ -1471,13 +1489,18 @@ def addValidator(project_name) :
 	B = []
 	AB_Ok=[]
 	AB_Diff=[]
-	list_types = {"In the two dictionaries with the same information" : AB_Ok, "Identical form in both dictionaries with different information" : AB_Diff, "Only in the old dictionary" : A, "Only in the imported dictionary" : B}
+	list_types = {
+		"In the two dictionaries with the same information" : AB_Ok,
+		"Identical form in both dictionaries with different information" : AB_Diff,
+		"Only in the old dictionary" : A,
+		"Only in the imported dictionary" : B}
 
-	for i in validator['validator'].split('\n') :
+	for i in validator['validator'].split('\n'):
 		a = i.split("\t")
-		if a[-1] == '' : a.pop()
-		if a != [] : 
-			a[-1] = a[0]+a[1]+a[2]+a[3]+a[4]
+		if a[-1] == '': 
+			a.pop()
+		if a != []: 
+			a[-1] = a[0] + a[1] + a[2] + a[3] + a[4]
 			newjson = {
 				"form":a[0],
 				"lemma":a[1],
@@ -1489,27 +1512,122 @@ def addValidator(project_name) :
 			list_validator.append(newjson)
 	# print("lexicon = \n", list_lexicon, "\n\nval = \n", list_validator)
 
-	for x in lexicon['data'] :
-		if 'frequency' in x : del x['frequency']
-		for y in list_validator :
+	for x in lexicon['data']:
+		if 'frequency' in x: 
+			del x['frequency']
+		for y in list_validator:
 			if x['key'] == y['key'] and x not in AB_Ok and x not in AB_Diff: 
 				AB_Ok.append(x)
 			elif x['key'] != y['key'] and x['form'] == y['form'] and x not in AB_Ok and x not in AB_Diff and y not in AB_Ok and y not in AB_Diff: 
+				x['toChange'] = y['form'] + ' ' + y['lemma'] + ' ' + y['POS'] + ' ' + y['gloss'] + ' ' + y['features']
 				AB_Diff.extend((x,y))
 
 	for x in lexicon['data']:
 		if x not in AB_Ok and x not in AB_Diff and x not in A:
 			A.append(x)
-	for y in list_validator :
+	for y in list_validator:
 		if y not in AB_Ok and y not in AB_Diff and x not in B: 
 			B.append(y)
 
 	# print("AAAAAAA ",A,"\n\nBBBBBBBB ",B, "\n\nAB OK", AB_Ok, "\n\nAB Diff", AB_Diff)
-	for i in list_types :
-		for s in list_types[i] :
+	for i in list_types:
+		for s in list_types[i]:
 			s['type'] = i
 			line.append(s)
 	# print(line)
-	resp =  jsonify({'dics': line, 'message': 'hello'  })
+	resp =  jsonify({'dics': line, 'message': 'hello'})
 	resp.status_code = 200
+	return resp
+
+
+@project.route('/<project_name>/tryRules', methods=["GET","POST"])
+def tryRules_project(project_name):
+	"""
+	expects json with grew pattern such as
+	{
+	"pattern":"pattern { N [upos=\"NUM\"] }"
+	"rewriteCommands":"commands { N [upos=\"NUM\"] }"
+	}
+	important: simple and double quotes must be escaped!
+	returns:
+	{'sample_id': 'P_WAZP_07_Imonirhuas.Life.Story_PRO', 'sent_id': 'P_WAZP_07_Imonirhuas-Life-Story_PRO_97', 'nodes': {'N': 'Bernard_11'}, 'edges': {}}, {'sample_id':...
+	"""
+	
+	project = project_service.get_by_name(project_name)
+	if not project: 
+		abort(404)
+	if not request.json: 
+		abort(400)
+	
+	pattern = request.json.get("pattern")
+	rewriteCommands = request.json.get("rewriteCommands")
+	list_rules = []	
+	# tryRules(<string> project_id, [<string> sample_id], [<string> user_id], <string> rules)
+	"""
+	% click the button 'Correct lexicon' to update the queries
+	pattern { X1[form="euh", lemma="euh", upos=INTJ, Gloss="_"],X2[form="bon", lemma="bon", upos=INTJ, Gloss="_"] }
+	without { X2.Evident=Nfh; }
+	commands { X1.Gloss="_sdf"; X2.Evident=Nfh; }
+	"""
+	#print(pattern, "et", rewriteCommands)
+	try:
+		without = pattern[pattern.index("without")+10:-1].split(" ")
+	except ValueError: 
+		without = ""
+	pattern = pattern[pattern.index("{")+3:pattern.index("}")-1].split(",X")
+	print(pattern)
+	commands = rewriteCommands[rewriteCommands.index("{")+2:rewriteCommands.index("}")-2].split("; ")
+	print(commands)
+	for singlePattern in pattern:
+		commands_output, without_output = "", ""
+		for singleCommand in commands:
+			if singleCommand[singleCommand.index("X")+1] == singlePattern[0]:
+				commands_output += singleCommand + "; "
+		
+		for singleWithout in without:
+			#print(singleWithout)
+			if singleWithout[1] == singlePattern[0]:
+				without_output += singleWithout
+		if without_output:
+			rule = 'pattern {X' + singlePattern + '} without {' + without_output + '} commands {' + commands_output + '}'
+		else:
+			rule = 'pattern {X' + singlePattern + '} commands {' + commands_output + '}'
+		# if without_output != "" :
+		# 	query = json.dumps({'pattern': 'pattern {X'+singlePattern+'}', 'without': 'without {'+without_output+'}', 'rewriteCommands': 'commands {'+commands_output+'}'})
+		# 	# jsonify({'pattern': "pattern {X"+singlePattern+"}", 'without': 'without {'+without_output+'}', 'rewriteCommands': 'commands {'+commands_output+'}'})
+		# else :
+		# 	query = json.dumps({'pattern': 'pattern {X'+singlePattern+'}', 'rewriteCommands': 'commands {'+commands_output+'}'})
+		list_rules.append(rule)
+	print(list_rules)
+	reply = json.loads(grew_request("tryRules", current_app, data={"project_id":project.projectname, "rules":json.dumps(list_rules)}))
+	print(8989,reply)
+	if reply["status"] != "OK": 
+		if 'message' in reply:
+			resp =  jsonify({'status': reply["status"], 'message': reply["message"]})
+			resp.status_code = 444
+			return resp
+		abort(400)
+	trees={}
+	print(78787)
+	print(121212,reply["data"])
+	# matches={}
+	# reendswithnumbers = re.compile(r"_(\d+)$")
+	# {'WAZL_15_MC-Abi_MG': {'WAZL_15_MC-Abi_MG__8': {'sentence': '# kalapotedly < you see < # ehn ...', 'conlls': {'kimgerdes': ..
+	for m in reply["data"]:
+		if m['user_id'] == '': abort(409)
+		print('___')
+		# for x in m:
+		# 	print('mmmm',x)
+		trees['sample_id']=trees.get('sample_id',{})
+		trees['sample_id']['sent_id']=trees['sample_id'].get('sent_id',{'conlls':{},'nodes': {}, 'edges': {}})
+		trees['sample_id']['sent_id']['conlls'][m['user_id']]=m['conll']
+		# trees['sample_id']['sent_id']['matches'][m['user_id']]=[{"edges":{},"nodes":{}}] # TODO: get the nodes and edges from the grew server!
+		if 'sentence' not in trees['sample_id']['sent_id']:
+			trees['sample_id']['sent_id']['sentence'] = conll3.conll2tree(m['conll']).sentence()
+		# print('mmmm',trees['sample_id']['sent_id'])
+		
+	
+
+	js = json.dumps(trees)
+	resp = Response(js, status=200,  mimetype='application/json')
 	return resp
