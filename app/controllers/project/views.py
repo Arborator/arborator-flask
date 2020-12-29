@@ -1425,7 +1425,6 @@ def transformation_grew(project_name):
 	patterns = []
 	commands = []
 	without = ""
-<<<<<<< HEAD
 	dic = {
 		0: "form",
 		1 : "lemma",
@@ -1433,9 +1432,6 @@ def transformation_grew(project_name):
 		3 :"Gloss",
 		4 : "trait"
 		}
-=======
-	dic = {0: "form", 1 : "lemma" , 2 : "upos", 3:"Gloss", 4 : "trait"}
->>>>>>> 8954aa143ff91419579b5c94eb58c1189aa4d018
 	for i in lexicon['data'] :
 		rule_grew = "pattern {"
 		#print(i['info2Change'])
@@ -1449,7 +1445,6 @@ def transformation_grew(project_name):
 		co, without_traits = (project_service.transform_grew_get_commands(resultat,line1, line2, dic, comp))
 		commands.append(co)
 		if without_traits != '' : 
-<<<<<<< HEAD
 			if without != "" :
 				without += ", "
 			without = without + without_traits
@@ -1457,25 +1452,13 @@ def transformation_grew(project_name):
 		rule_grew += " command{ " + commands[comp-1]+"}"
 	patterns[0] = '% click the button \'Correct lexicon\' to update the queries\n\npattern { ' + patterns[0][0:]
 	commands[0] = 'commands { '+ commands[0][0:]
-=======
-			if without != "" : without += ", "
-			without=without+without_traits
-			rule_grew += " without{ "+without_traits+"}"
-		rule_grew += " command{ "+commands[comp-1]+"}"
-	patterns[0] = '% click the button \'Correct lexicon\' to update the queries\n\npattern { '+patterns[0][0:]
-	commands[0] = 'commands { '+commands[0][0:]
->>>>>>> 8954aa143ff91419579b5c94eb58c1189aa4d018
 	patterns[len(lexicon['data'])-1] += ' }'
 	commands.append('}')
 	if len(without) != 0 :
 		without = '\nwithout { ' + without + '}'
 	patterns_output = ','.join(patterns)
 	commands_output = ''.join(commands)
-<<<<<<< HEAD
 	resp = jsonify({'patterns': patterns_output, 'commands': commands_output, 'without' : without})
-=======
-	resp = jsonify({'patterns': patterns_output, 'commands': commands_output , 'without' : without})
->>>>>>> 8954aa143ff91419579b5c94eb58c1189aa4d018
 	# print("patterns :", ','.join(patterns), "\ncommands :", ''.join(commands))
 	resp.status_code = 200
 	return resp
@@ -1523,29 +1506,39 @@ def addValidator(project_name) :
 				"POS":a[2],
 				"features":a[3],
 				"gloss":a[4],
-				"key":a[-1]
+				"key":a[-1],
 				}
 			list_validator.append(newjson)
 	# print("lexicon = \n", list_lexicon, "\n\nval = \n", list_validator)
 
+	
 	for x in lexicon['data']:
 		if 'frequency' in x: 
 			del x['frequency']
 		for y in list_validator:
+			# le token existe dans les deux dicts avec les mêmes feats
 			if x['key'] == y['key'] and x not in AB_Ok and x not in AB_Diff: 
+				x['toChange'] = "_"
 				AB_Ok.append(x)
+			# le terme existe dans les deux dictionnaires mais avec de différents feats
 			elif x['key'] != y['key'] and x['form'] == y['form'] and x not in AB_Ok and x not in AB_Diff and y not in AB_Ok and y not in AB_Diff: 
 				x['toChange'] = y['form'] + ' ' + y['lemma'] + ' ' + y['POS'] + ' ' + y['gloss'] + ' ' + y['features']
 				AB_Diff.extend((x,y))
 
+	# le token n'existe pas dans le dict A
 	for x in lexicon['data']:
 		if x not in AB_Ok and x not in AB_Diff and x not in A:
+			x['toChange'] = "_"
 			A.append(x)
+
+	# le token n'existe pas dans le dict B
 	for y in list_validator:
 		if y not in AB_Ok and y not in AB_Diff and x not in B: 
+			y['toChange'] = "_"
 			B.append(y)
 
 	# print("AAAAAAA ",A,"\n\nBBBBBBBB ",B, "\n\nAB OK", AB_Ok, "\n\nAB Diff", AB_Diff)
+	
 	for i in list_types:
 		for s in list_types[i]:
 			s['type'] = i
@@ -1555,10 +1548,6 @@ def addValidator(project_name) :
 	resp.status_code = 200
 	return resp
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 8954aa143ff91419579b5c94eb58c1189aa4d018
 @project.route('/<project_name>/tryRules', methods=["GET","POST"])
 def tryRules_project(project_name):
 	"""
@@ -1568,25 +1557,17 @@ def tryRules_project(project_name):
 	"rewriteCommands":"commands { N [upos=\"NUM\"] }"
 	}
 	important: simple and double quotes must be escaped!
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 8954aa143ff91419579b5c94eb58c1189aa4d018
 	returns:
 	{'sample_id': 'P_WAZP_07_Imonirhuas.Life.Story_PRO', 'sent_id': 'P_WAZP_07_Imonirhuas-Life-Story_PRO_97', 'nodes': {'N': 'Bernard_11'}, 'edges': {}}, {'sample_id':...
 	"""
 	
 	project = project_service.get_by_name(project_name)
-<<<<<<< HEAD
 	if not project: 
 		abort(404)
 	if not request.json: 
 		abort(400)
-=======
-	if not project: abort(404)
-	if not request.json: abort(400)
->>>>>>> 8954aa143ff91419579b5c94eb58c1189aa4d018
 	
 	pattern = request.json.get("pattern")
 	rewriteCommands = request.json.get("rewriteCommands")
@@ -1594,76 +1575,52 @@ def tryRules_project(project_name):
 	# tryRules(<string> project_id, [<string> sample_id], [<string> user_id], <string> rules)
 	"""
 	% click the button 'Correct lexicon' to update the queries
-<<<<<<< HEAD
-=======
-
->>>>>>> 8954aa143ff91419579b5c94eb58c1189aa4d018
 	pattern { X1[form="euh", lemma="euh", upos=INTJ, Gloss="_"],X2[form="bon", lemma="bon", upos=INTJ, Gloss="_"] }
 	without { X2.Evident=Nfh; }
 	commands { X1.Gloss="_sdf"; X2.Evident=Nfh; }
 	"""
-	#print(pattern, "et", rewriteCommands)
-<<<<<<< HEAD
-	try:
-		without = pattern[pattern.index("without")+10:-1].split(" ")
-	except ValueError: 
-		without = ""
-=======
-	try :
-		without = pattern[pattern.index("without")+10:-1].split(" ")
-	except ValueError : without = ""
->>>>>>> 8954aa143ff91419579b5c94eb58c1189aa4d018
-	pattern = pattern[pattern.index("{")+3:pattern.index("}")-1].split(",X")
-	print(pattern)
-	commands = rewriteCommands[rewriteCommands.index("{")+2:rewriteCommands.index("}")-2].split("; ")
-	print(commands)
-<<<<<<< HEAD
-	for singlePattern in pattern:
-		commands_output, without_output = "", ""
-		for singleCommand in commands:
-			if singleCommand[singleCommand.index("X")+1] == singlePattern[0]:
-				commands_output += singleCommand + "; "
-		
-		for singleWithout in without:
-			#print(singleWithout)
-			if singleWithout[1] == singlePattern[0]:
-				without_output += singleWithout
-		if without_output:
-			rule = 'pattern {X' + singlePattern + '} without {' + without_output + '} commands {' + commands_output + '}'
-		else:
-			rule = 'pattern {X' + singlePattern + '} commands {' + commands_output + '}'
-=======
-	for singlePattern in pattern :
-		commands_output, without_output="",""
-		for singleCommand in commands :
-			if singleCommand[singleCommand.index("X")+1] == singlePattern[0] :
-				commands_output+=singleCommand+"; "
-		
-		for singleWithout in without :
-			#print(singleWithout)
-			if singleWithout[1] == singlePattern[0] :
-				without_output+=singleWithout
-		if without_output :
-			rule = 'pattern {X'+singlePattern+'} without {'+without_output+'} commands {'+commands_output+'}'
-		else :
-			rule = 'pattern {X'+singlePattern+'} commands {'+commands_output+'}'
->>>>>>> 8954aa143ff91419579b5c94eb58c1189aa4d018
-		# if without_output != "" :
-		# 	query = json.dumps({'pattern': 'pattern {X'+singlePattern+'}', 'without': 'without {'+without_output+'}', 'rewriteCommands': 'commands {'+commands_output+'}'})
-		# 	# jsonify({'pattern': "pattern {X"+singlePattern+"}", 'without': 'without {'+without_output+'}', 'rewriteCommands': 'commands {'+commands_output+'}'})
-		# else :
-		# 	query = json.dumps({'pattern': 'pattern {X'+singlePattern+'}', 'rewriteCommands': 'commands {'+commands_output+'}'})
+	
+	if "X1" in pattern:
+		try:
+			without = pattern[pattern.index("without")+10:-1].split(" ")
+		except ValueError: 
+			without = ""
+		pattern = pattern[pattern.index("{")+3:pattern.index("}")-1].split(",X")
+		print(pattern)
+		commands = rewriteCommands[rewriteCommands.index("{")+2:rewriteCommands.index("}")-2].split("; ")
+		print(commands)
+		for singlePattern in pattern:
+			commands_output, without_output = "", ""
+			for singleCommand in commands:
+				if singleCommand[singleCommand.index("X")+1] == singlePattern[0]:
+					commands_output += singleCommand + "; "
+			
+			for singleWithout in without:
+				#print(singleWithout)
+				if singleWithout[1] == singlePattern[0]:
+					without_output += singleWithout
+			if without_output:
+				rule = 'pattern {X' + singlePattern + '} without {' + without_output + '} commands {' + commands_output + '}'
+			else:
+				rule = 'pattern {X' + singlePattern + '} commands {' + commands_output + '}'
+			# if without_output != "" :
+			# 	query = json.dumps({'pattern': 'pattern {X'+singlePattern+'}', 'without': 'without {'+without_output+'}', 'rewriteCommands': 'commands {'+commands_output+'}'})
+			# 	# jsonify({'pattern': "pattern {X"+singlePattern+"}", 'without': 'without {'+without_output+'}', 'rewriteCommands': 'commands {'+commands_output+'}'})
+			# else :
+			# 	query = json.dumps({'pattern': 'pattern {X'+singlePattern+'}', 'rewriteCommands': 'commands {'+commands_output+'}'})
+			list_rules.append(rule)
+	
+	else:
+		rule = pattern + " " + rewriteCommands
 		list_rules.append(rule)
-	print(list_rules)
+		print(pattern)
+	
+	print("liste des règles : ",list_rules)
 	reply = json.loads(grew_request("tryRules", current_app, data={"project_id":project.projectname, "rules":json.dumps(list_rules)}))
 	print(8989,reply)
 	if reply["status"] != "OK": 
 		if 'message' in reply:
-<<<<<<< HEAD
 			resp =  jsonify({'status': reply["status"], 'message': reply["message"]})
-=======
-			resp =  jsonify({'status': reply["status"], 'message': reply["message"]  })
->>>>>>> 8954aa143ff91419579b5c94eb58c1189aa4d018
 			resp.status_code = 444
 			return resp
 		abort(400)
