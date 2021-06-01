@@ -347,9 +347,11 @@ def conll2tree(conllstring):
 	
 	return tree
 
-def get_lexicon(trees,dic) :
+def get_lexicon(trees, traits, all) :
+	dic = {}
 	compteur=1
-	sauf=["AlignBegin","AlignEnd" ,"Gloss","levenshtein", "MotNouveau", "aSupprimer", "Lang"] 
+	# sauf=["AlignBegin","AlignEnd" ,"Gloss","levenshtein", "MotNouveau", "aSupprimer", "Lang", "Discourse", "Entity", "SpaceAfter"] 
+	universal_feats = ["Abbr", "Animacy", "Aspect", "Case", "Definite", "Degree", "Evident", "Foreign", "Gender", "Mood", "NumType", "Number", "Person", "Polarity", "Polite", "Poss", "PronType", "Reflex", "Tense", "VerbForm", "Voice"]
 	for bloc in trees :
 		# print("-----")
 		for num in bloc :
@@ -358,18 +360,22 @@ def get_lexicon(trees,dic) :
 			for key in list(bloc[num].keys()):
 				if key == 'id' :
 					break
-				elif key not in sauf :
+				elif key in universal_feats and all==False:
+					for i in traits:
+						if i[0] == key:
 					# print(bloc[num][key], key)
+							trait.append(key+"="+bloc[num][key])
+				elif key in universal_feats and all==True:
 					trait.append(key+"="+bloc[num][key])
 			# print(trait)
 			if trait :
-				token = (bloc[num]['t'], bloc[num]['lemma'], "|".join(trait), bloc[num]['tag'],"_")
+				token = (bloc[num]['t'], bloc[num]['lemma'], "|".join(trait), bloc[num]['tag'],"")
 				if 'Gloss' in bloc[num].keys():
 					token = (bloc[num]['t'], bloc[num]['lemma'], "|".join(trait), bloc[num]['tag'],bloc[num]['Gloss'])
 			else :
-				token = (bloc[num]['t'], bloc[num]['lemma'], "_", bloc[num]['tag'],"_")
+				token = (bloc[num]['t'], bloc[num]['lemma'], "", bloc[num]['tag'],"")
 				if 'Gloss' in bloc[num].keys():
-					token = (bloc[num]['t'], bloc[num]['lemma'], "_", bloc[num]['tag'],bloc[num]['Gloss'])
+					token = (bloc[num]['t'], bloc[num]['lemma'], "", bloc[num]['tag'],bloc[num]['Gloss'])
 
 			if token in dic :
 				dic[token]=dic[token]+1
@@ -382,82 +388,32 @@ def get_json(dic, out_path, glose, trait) :
 	comp = 0
 	f.write("[")
 	if glose :
-		trait.remove(["Gloss"])
-		if trait :
-			for key in dic :
-				# print(key)
-				#print(key[0], key[1], key[2], key[3], key[4]) #forme, lemme, traits, pos, glose
-				features=[]
-				for i in key[2].split("|") :
-					for s in trait :
-						if s[0] in i :
-							features.append(i)
-				if len(features)==0 :
-					features="_"
-				x = {
-				"form" : key[0],
-				"lemma" : key[1],
-				"POS" : key[3],
-				"features" : "|".join(features),
-				"gloss" : key[4],
-				"frequency" : dic[key]
-				}
-				f.write(json.dumps(x, indent=1))
-				comp +=1
-				if comp != len(dic) :
-					f.write(",\n")
-		else :
-			for key in dic :
-				x = {
+		for key in dic :
+			x = {
 				"form" : key[0],
 				"lemma" : key[1],
 				"POS" : key[3],
 				"features" : key[2],
 				"gloss" : key[4],
 				"frequency" : dic[key]
-				}
-				f.write(json.dumps(x, indent=1))
-				comp +=1
-				if comp != len(dic) :
-					f.write(",\n")
+			}
+			f.write(json.dumps(x, indent=1))
+			comp +=1
+			if comp != len(dic) :
+				f.write(",\n")
 	else :
-		if trait :
-			for key in dic :
-				# print(key)
-				#print(key[0], key[1], key[2], key[3], key[4]) #forme, lemme, traits, pos, glose
-				features=[]
-				# print(trait)
-				for i in key[2].split("|") :
-					for s in trait :
-						if s[0] in i :							
-							features.append(i)
-				if len(features)==0 :
-					features="_"
-				x = {
-				"form" : key[0],
-				"lemma" : key[1],
-				"POS" : key[3],
-				"features" : "|".join(features),
-				"frequency" : dic[key]
-				}
-				f.write(json.dumps(x, indent=1))
-				comp +=1
-				if comp != len(dic) :
-					f.write(",\n")
-
-		else :
-			for key in dic :
-				x = {
+		for key in dic :
+			x = {
 				"form" : key[0],
 				"lemma" : key[1],
 				"POS" : key[3],
 				"features" : key[2],
 				"frequency" : dic[key]
-				}
-				f.write(json.dumps(x, indent=1))
-				comp +=1
-				if comp != len(dic) :
-					f.write(",\n")
+			}
+			f.write(json.dumps(x, indent=1))
+			comp +=1
+			if comp != len(dic) :
+				f.write(",\n")
 	f.write("]")
 	
 def conllFile2trees(path):
@@ -485,33 +441,33 @@ def conllFile2trees(path):
 			trees+=[tree]
 		return trees
 
-def conllFile2lexicon(corpus_path, trait):
+def conllFile2lexicon(corpus_path, traits):
 	"""
-	file with path -> list of trees
-	
-	important function!	
-	called from enterConll, treebankfiles, and uploadConll in treebankfiles.cgi
-	
+	file with path -> lexicon
 	"""
 	# print(corpus_path)
 	out_path=corpus_path.pop()
 	dict_lexicon={}
 	trees =[]
 	glose = True
-	if trait is not None :
-		if ["Gloss"] not in trait:
-			glose=False   
-	elif trait is None :
+	all = True
+	if traits is not None and ["Gloss"] not in traits:
+		all = False
+		glose = False
+	elif traits is not None and ["Gloss"] in traits and len(traits) != 1:
+		all = False
+	elif traits is None :
 		glose = False
 	for fichier in corpus_path :
 		trees+=conllFile2trees(fichier)
 	
-	temp = get_lexicon(trees,dict_lexicon)
+	temp = get_lexicon(trees, traits, all)
 	for key, value in temp.items() :
 		if key not in dict_lexicon :
 			dict_lexicon[key] = value
-	get_json(dict_lexicon, out_path, glose, trait)
+	get_json(dict_lexicon, out_path, glose, traits)
 	# print(trait)
+
 
 
 
