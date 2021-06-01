@@ -13,16 +13,16 @@ debug=True
 
 Bonjour, le script est lançable par la commande suivante :
 
-python [CHEMIN_FICHIERS_CONLL] [CHEMIN_FICHIER_DE_SORTIE_JSON] -t [TRAIT] -t [GLOSSÒ]
+python [CHEMIN_FICHIERS_CONLL] [CHEMIN_FICHIER_DE_SORTIE_JSON] -t [TRAIT] -t [GLOSS]
 
 Le script peut travailler sur plusieurs échantillons, 
 mettez leurs noms les uns après les autres en les séparant par un espace. 
 /!\ Si le chemin contient un espace, cela peut empêcher l'exécution du script. /!\ 
 
-Chaque trait est précédé d'un symbole '-t'. 
-Si un trait est déclaré, le script cherche seulement ce dernier. 
-Par exemple, '-t Mood' nous donnera le résultat dans lequel seul le trait 'Mood' se présente et pas les autres traits.
-Aucune déclaration de traits permettra au programme de traiter tous les traits morpho-syntaxiques existant dans le corpus.
+Chaque déclaration d'un trait doit être précédé d'un symbole '-t'. 
+Si un trait est déclaré, le script cherchera à repérer ce dernier et supprimera tous les autres traits. 
+Par exemple, '-t Mood' nous donnera le résultat dans lequel seul le trait 'Mood' est présenté et les autres traits seront supprimés du lexique.
+Aucune déclaration de traits ne permettra au programme de traiter tous les traits morpho-syntaxiques existant dans le corpus.
 La glose est optionnelle.
 
 Voici quelques exemples de commande:
