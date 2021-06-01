@@ -25,9 +25,10 @@ Par exemple, '-t Mood' nous donnera le résultat dans lequel seul le trait 'Mood
 Aucune déclaration de traits permettra au programme de traiter tous les traits morpho-syntaxiques existant dans le corpus.
 La glose est optionnelle.
 
-Voici un exemple de la commande:
-python treebank2lexicon.py SUD_Naija-NSC-master/ABJ_GWA_02_Market-Food-Church_DG.conllu SUD_Naija-NSC-master/ABJ_GWA_03_Cost-Of-Living-In-Abuja_MG.conllu SUD_Naija-NSC-master/ABJ_GWA_06_Ugo-Lifestory_MG.conllu sortie.json -t PronType -t Mood -t Gloss
-
+Voici quelques exemples de commande:
+python treebank2lexicon.py SUD_Naija-NSC-master/ABJ_GWA_02_Market-Food-Church_DG.conllu SUD_Naija-NSC-master/ABJ_GWA_03_Cost-Of-Living-In-Abuja_MG.conllu SUD_Naija-NSC-master/ABJ_GWA_06_Ugo-Lifestory_MG.conllu sortie.json -t Gloss
+python treebank2lexicon.py SUD_Naija-NSC-master/ABJ_GWA_02_Market-Food-Church_DG.conllu SUD_Naija-NSC-master/ABJ_GWA_03_Cost-Of-Living-In-Abuja_MG.conllu SUD_Naija-NSC-master/ABJ_GWA_06_Ugo-Lifestory_MG.conllu sortie.json -t Mood -t Gloss
+python treebank2lexicon.py SUD_Naija-NSC-master/ABJ_GWA_02_Market-Food-Church_DG.conllu SUD_Naija-NSC-master/ABJ_GWA_03_Cost-Of-Living-In-Abuja_MG.conllu SUD_Naija-NSC-master/ABJ_GWA_06_Ugo-Lifestory_MG.conllu sortie.json
 """
 
 class Tree(dict):
